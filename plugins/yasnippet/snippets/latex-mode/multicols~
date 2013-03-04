@@ -1,0 +1,5 @@
+# name: multicolumn
+# key: multicol
+# --
+\multicolumn{${1:Number of columns to span}}{${2:new layout}}{${3:content}}\\
+$0

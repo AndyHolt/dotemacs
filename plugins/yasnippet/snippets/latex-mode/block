@@ -1,0 +1,6 @@
+# name: block environment
+# key: block
+# --
+\begin{block}{${1:Block Heading}}
+$0
+\end{block}
