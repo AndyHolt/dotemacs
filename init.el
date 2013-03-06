@@ -19,6 +19,7 @@
 (require 'adh_smartmx)
 (require 'adh_dired)
 (require 'adh_abbrev)
+(require 'adh_sessions)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")

@@ -15,7 +15,7 @@
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
-  '((sequence "TODO" "BEGUN" "|" "DONE")))
+  '((sequence "TODO" "|" "DONE")))
 
 ;; global keybindings for org mode
 (eval-after-load "org"
@@ -24,3 +24,31 @@
      (global-set-key "\C-cc" 'org-capture)
      (global-set-key "\C-ca" 'org-agenda)
      (global-set-key "\C-cb" 'org-iswitchb)))
+
+;; update parent cookies for checkboxes
+;; from whattheemacsd.com
+(defun adh-org-update-parent-cookie ()
+  (interactive)
+  (when (equal major-mode 'org-mode)
+    (save-excursion
+      (ignore-errors
+        (org-back-to-heading)
+        (org-update-parent-todo-statistics)))))
+
+(defadvice org-kill-line (after fix-cookies activate)
+  (adh-org-update-parent-cookie))
+
+(defadvice kill-whole-line (after fix-cookies activate)
+  (adh-org-update-parent-cookie))
+
+;; setup capture target file
+(setq org-default-notes-file "~/Dropbox/Org_files/todo.org")
+
+;; setup capture templates
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
+				    "Tasks")
+        "* TODO %?\n %i\n %a")
+   ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
+				    "Notes")
+        "* %?\n %i\n %a")))
