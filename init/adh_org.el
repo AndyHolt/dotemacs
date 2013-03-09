@@ -52,3 +52,8 @@
    ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
 				    "Notes")
         "* %?\n %i\n %a")))
+
+;; start org protocol - for creating links etc to external
+;; applications
+(requre 'org-protocol)
+
