@@ -1,5 +1,7 @@
 (provide 'adh_dired)
 
+(require 'dired)
+
 ;; change C-< and C-> to jump to more logical places
 (defun dired-back-to-top ()
   "Move to first no . or .. file in directory"
