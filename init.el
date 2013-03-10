@@ -20,6 +20,7 @@
 (require 'adh_dired)
 (require 'adh_abbrev)
 (require 'adh_sessions)
+;(require 'adh_diminish)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
