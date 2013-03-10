@@ -55,5 +55,16 @@
 
 ;; start org protocol - for creating links etc to external
 ;; applications
-(requre 'org-protocol)
+(require 'org-protocol)
 
+(setq org-protocol-default-template-key "l")
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline
+			   "~/Dropbox/Org_files/todo.org" "Tasks")
+	     "* TODO %?\n %i\n %a")
+	("l" "Link" entry (file+olp "~/Dropbox/Org_files/todo.org"
+				    "Web Links")
+	     "* %a\n %?\n %i")
+	("j" "Journal" entry (file+datetree
+			      "~/Dropbox/Org_files/journal.org")
+	     "* %?\nEntered on %U\n %i\n %a")))
