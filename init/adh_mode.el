@@ -32,3 +32,8 @@
 	    (auto-fill-mode 1)
 	    (flyspell-mode 1)
 	    (org-indent-mode 1)))
+
+(add-hook 'text-mode-hook
+	  (lambda ()
+	    (auto-fill-mode 1)
+	    (flyspell-mode 1)))
