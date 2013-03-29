@@ -1,3 +1,5 @@
+(require 'org)
+
 ;; ensure files with .org extension use org mode
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -73,9 +75,9 @@
 
 ;; start org protocol - for creating links etc to external
 ;; applications
-(require 'org-protocol)
+;(require 'org-protocol)
 
-(setq org-protocol-default-template-key "l")
+;(setq org-protocol-default-template-key "l")
 
 ;; set pdf application for opening links
 ;; from stack overflow
