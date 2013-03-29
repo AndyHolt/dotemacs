@@ -21,7 +21,7 @@
 			   ".*code-conversion-work.*"))
 
 ;; use ido almost everywhere
-(require 'ido-ubiquitous-mode)
+;(require 'ido-ubiquitous-mode)
 (ido-ubiquitous-mode 1)
 
 ;; jump to home directory when using ido
@@ -37,4 +37,4 @@
 	    (insert "~/")
 	  (call-interactively 'self-insert-command))))))
 
-(provide adh_ido)
+(provide 'adh_ido)
