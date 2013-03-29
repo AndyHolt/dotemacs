@@ -12,6 +12,9 @@
 ;; from whattheemacs.com
 (setq vc-make-backup-files t)
 
+;; update buffers when file changes on disk (from Thomas Nilsson)
+(global-auto-revert-mode)
+
 ;; function to kill all buffers except current one and special ones
 ;; taken from "prelude" emacs setup
 (defun adh-kill-other-buffers ()
