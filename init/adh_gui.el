@@ -48,4 +48,12 @@
 (global-set-key (kbd "s-<up>") 'windmove-up)
 (global-set-key (kbd "s-<down>") 'windmove-down)
 
+;; font size changing keybindings
+(global-set-key (kbd "C-+") 'text-scale-increase)
+(global-set-key (kbd "C--") 'text-scale-decrease)
+
+;; setup conservative scrolling (one line at a time)
+(setq scroll-conservatively 10000
+      scroll-step 1)
+
 (provide 'adh_gui)
