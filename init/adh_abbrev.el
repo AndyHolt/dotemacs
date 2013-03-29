@@ -1,5 +1,3 @@
-(provide 'adh_abbrev)
-
 ; personal abbreviations
 (define-abbrev-table 'global-abbrev-table '(
 
@@ -46,3 +44,5 @@ Github: https://github.com/adh635")
 
 ;; turn abbrev mode on gloabally
 (setq-default abbrev-mode t)
+
+(provide 'adh_abbrev)

@@ -1,5 +1,3 @@
-(provide 'adh_yasnippet)
-
 ;; setup yasnippet
 (add-to-list 'load-path
 	     "~/.emacs.d/plugins/yasnippet")
@@ -10,3 +8,5 @@
 ; taken directly from customize file - need to make work...
 ; can't get this to work - for now being done from custom.el file, written by customize
 ;(yas-global-mode t nil (yasnippet))
+
+(provide 'adh_yasnippet)

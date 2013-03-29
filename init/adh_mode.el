@@ -1,5 +1,3 @@
-(provide 'adh_mode)
-
 ;; octave major mode when loading file with .m extension
 (autoload 'octave-mode "octave-mod" nil t)
 (setq auto-mode-alist
@@ -37,3 +35,5 @@
 	  (lambda ()
 	    (auto-fill-mode 1)
 	    (flyspell-mode 1)))
+
+(provide 'adh_mode)

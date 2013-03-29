@@ -1,4 +1,3 @@
-(provide 'adh_external)
 ;;; stuff for interfacing with other programs, applications etc
 
 ;; google search from region or mini-buffer
@@ -28,3 +27,5 @@
 	     (if mark-active
 		 (buffer-substring (region-beginning) (region-end))
 	         (read-string "Search ddg: " ))))))
+
+(provide 'adh_external)
