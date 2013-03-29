@@ -1,5 +1,3 @@
-(provide 'adh_buffersandfiles)
-
 ;; setup how emacs does things with files and buffers etc
 
 ;; autosave setup - stop cluttering up directories with autosaves
@@ -113,3 +111,5 @@ buffers."
   (find-file "~/Dropbox/Notes/2Corinthians.org")
   (set-fill-column 95)
   (other-window 1))
+
+(provide 'adh_buffersandfiles)

@@ -1,5 +1,3 @@
-(provide 'adh_maths)
-
 ;;; contains some function definitions for doing maths in elisp
 
 (defun factorial (n)
@@ -16,3 +14,5 @@
   (if (= n 1)
       x
     (* x (pow x (- n 1)))))
+
+(provide 'adh_maths)

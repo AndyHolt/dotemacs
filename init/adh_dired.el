@@ -1,5 +1,3 @@
-(provide 'adh_dired)
-
 (require 'dired)
 
 ;; change C-< and C-> to jump to more logical places
@@ -21,3 +19,4 @@
 (define-key dired-mode-map
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
+(provide 'adh_dired)

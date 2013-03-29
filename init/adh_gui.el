@@ -1,5 +1,3 @@
-(provide 'adh_gui)
-
 ;; don'adh_t show spash screen at startup
 (setq inhibit-startup-message t)
 
@@ -50,4 +48,4 @@
 (global-set-key (kbd "s-<up>") 'windmove-up)
 (global-set-key (kbd "s-<down>") 'windmove-down)
 
-
+(provide 'adh_gui)

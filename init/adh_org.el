@@ -1,5 +1,3 @@
-(provide 'adh_org)
-
 ;; ensure files with .org extension use org mode
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
 
@@ -82,3 +80,5 @@
 ;; set pdf application for opening links
 ;; from stack overflow
 (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
+
+(provide 'adh_org)
