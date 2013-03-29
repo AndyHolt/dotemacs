@@ -4,6 +4,7 @@
 (define-abbrev-table 'global-abbrev-table '(
 
    ("LORD" "Lᴏʀᴅ")
+   ("LORD's" "Lᴏʀᴅ's")
 
    ("8ra" "→")
    ("8la" "←")
