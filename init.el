@@ -9,6 +9,7 @@
 
 (require 'adh_gui)
 (require 'adh_org)
+(require 'adh_ido)
 (require 'adh_yasnippet)
 (require 'adh_mode)
 (require 'adh_language)
@@ -22,6 +23,8 @@
 (require 'adh_sessions)
 ;(require 'adh_diminish)
 (require 'adh_acejump)
+(require 'adh_thunderlink)
+
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")

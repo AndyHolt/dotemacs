@@ -14,33 +14,6 @@
 ;; column number in modeline
 (column-number-mode t)
 
-;; use ido mode
-;;   for easy file and buffer finding
-(ido-mode t)
-;; don't change working directory when creating new files
-;(setq ido-auto-merge-work-directories-length -1)
-;; ignore some buffers
-(setq ido-ignore-buffers '(".*Completions\*" 
-			   "^\*trace" 
-			   "^\*compilation"
-			   "\*Minibuf-\*"
-			   ".*Echo\*"
-			   ".*code-conversion-work.*"))
-
-;; jump to home directory when using ido
-;;   from whattheemacsd.com
-(add-hook 'ido-setup-hook
-  (lambda ()
-    ;; Go straight home
-    (define-key ido-file-completion-map
-      (kbd "~")
-      (lambda ()
-	(interactive)
-	(if(looking-back "/")
-	    (insert "~/")
-	  (call-interactively 'self-insert-command))))))
-
-
 ;; Change all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -76,3 +49,5 @@
 (global-set-key (kbd "s-<right>") 'windmove-right)
 (global-set-key (kbd "s-<up>") 'windmove-up)
 (global-set-key (kbd "s-<down>") 'windmove-down)
+
+
