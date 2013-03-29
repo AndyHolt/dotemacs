@@ -46,25 +46,39 @@
 
 ;; setup capture templates
 (setq org-capture-templates
- '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
-				    "Tasks")
-        "* TODO %?\n %i\n %a")
+  '(("t" "Templates for TODO items")
+    ("tt" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
+				      "Tasks")
+     "* TODO %?\n %i\n"
+     :kill-buffer)
+    ("tr" "Treasurer" entry (file
+			     "~/Dropbox/Org_files/CICCU_Treasurer.org")
+     "* TODO %?\n %i\n"
+     :kill-buffer)
+    ("te" "Exec" entry (file "~/Dropbox/Org_files/CICCU_Exec.org")
+     "* TODO %?\n %i\n"
+     :kill-buffer)
+    ("tc" "Computer" entry (file+headline
+			    "~/Dropbox/Org_files/computer_stuff.org"
+			    "Unfiled")
+     "* TODO %?\n %i\n"
+     :kill-buffer)
+    ("tw" "Work" entry (file "~/Dropbox/Org_files/Work.org")
+     "* TODO %?\n %i\n"
+     :kill-buffer)
    ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
 				    "Notes")
-        "* %?\n %i\n %a")))
+        "* %?\n %i\n %a")
+   ("l" "Link" entry (file+headline "~/Dropbox/Org_files/todo.org"
+			       "Web Links")
+    "* %a\n %?\n %i")))
 
 ;; start org protocol - for creating links etc to external
 ;; applications
 (require 'org-protocol)
 
 (setq org-protocol-default-template-key "l")
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline
-			   "~/Dropbox/Org_files/todo.org" "Tasks")
-	     "* TODO %?\n %i\n %a")
-	("l" "Link" entry (file+olp "~/Dropbox/Org_files/todo.org"
-				    "Web Links")
-	     "* %a\n %?\n %i")
-	("j" "Journal" entry (file+datetree
-			      "~/Dropbox/Org_files/journal.org")
-	     "* %?\nEntered on %U\n %i\n %a")))
+
+;; set pdf application for opening links
+;; from stack overflow
+(setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
