@@ -7,6 +7,15 @@
 ;(add-to-list 'auto-mode-alist '("*todo*" . org-mode))
 
 ;; add files to org agenda
+(setq org-agenda-files 
+      (list (concat adh-dropbox-location "Org_files/todo.org")
+	     (concat adh-dropbox-location "Org_files/hpcomm.org")
+	     (concat adh-dropbox-location "Org_files/Work.org")
+	     (concat adh-dropbox-location
+		     "Org_files/CICCU_Treasurer.org")
+	     (concat adh-dropbox-location "Org_files/CICCU_Exec.org")))
+			
+
 (setq org-agenda-files (quote ("~/Dropbox/Org_files/todo.org"
 			       "~/Dropbox/Org_files/hpcomm.org"))) 
 
