@@ -26,7 +26,7 @@
 (cond ((eq system-type 'gnu-linux)
        (setq default-frame-alist '((font . "Monaco-11"))))
       ((eq system-type 'windows-nt)
-       (setq default-frame-alist '((font . "Inconsolata-14")))))
+       (setq default-frame-alist '((font . "Inconsolata-12")))))
 
 ;; modeline coloring
 ;;    better clarity of active and inactive window

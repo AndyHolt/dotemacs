@@ -105,13 +105,13 @@ buffers."
   "Open up notes of quiet times."
   (interactive)
   (delete-other-windows)
-  (find-file "~/Dropbox/Notes/Redemptive_historical_framework.org")
+  (find-file (concat adh-dropbox-location "Notes/Redemptive_historical_framework.org"))
   (set-fill-column 95)
-  (find-file "~/Dropbox/Notes/Numbers.org")
+  (find-file (concat adh-dropbox-location "Notes/Numbers.org"))
   (set-fill-column 95)
   (split-window-right)
   (other-window 1)
-  (find-file "~/Dropbox/Notes/2Corinthians.org")
+  (find-file (concat adh-dropbox-location "Notes/2Corinthians.org"))
   (set-fill-column 95)
   (other-window 1))
 

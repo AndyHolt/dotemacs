@@ -6,6 +6,12 @@
 ;; have *todo* buffer use org mode
 ;(add-to-list 'auto-mode-alist '("*todo*" . org-mode))
 
+(defvar adh-dropbox-location
+  (cond ((eq system-type 'gnu-linux) "~/Dropbox/")
+	((eq system-type 'windows-nt) "d:/Dropbox/")
+	(t "~/Dropbox/"))
+  "Holds the location of the Dropbox root directory for the current system")
+
 ;; add files to org agenda
 (setq org-agenda-files 
       (list (concat adh-dropbox-location "Org_files/todo.org")
