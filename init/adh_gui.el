@@ -2,9 +2,12 @@
 (setq inhibit-startup-message t)
 
 ;; cleanup gui of tool bar
-;;    (leave menu bar for now as it doesn't take up any space in ubuntu)
 (when (fboundp 'tool-bar-mode)
   (tool-bar-mode -1))
+
+;; turn off menu bar in windows (doesn't use any space in ubuntu)
+(if (eq system-type 'windows-nt)
+    (menu-bar-mode -1))
 
 ;; scrollbars on left (good way to see position in buffer!)
 (set-scroll-bar-mode 'left)
@@ -18,9 +21,12 @@
 ;; Color Theme Setup
 (load-theme 'wombat t)
 
-;; Font selection
+;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
-(setq default-frame-alist '((font . "Monaco-11")))
+(cond ((eq system-type 'gnu-linux)
+       (setq default-frame-alist '((font . "Monaco-11"))))
+      ((eq system-type 'windows-nt)
+       (setq default-frame-alist '((font . "Inconsolata-14")))))
 
 ;; modeline coloring
 ;;    better clarity of active and inactive window
@@ -42,11 +48,18 @@
 (setq echo-keystrokes 0.1)
 
 ;; setup keybindings for easier window navigation
+;; s-<arrow> used by Windows wm
 ;; no more C-x o!
-(global-set-key (kbd "s-<left>") 'windmove-left)
-(global-set-key (kbd "s-<right>") 'windmove-right)
-(global-set-key (kbd "s-<up>") 'windmove-up)
-(global-set-key (kbd "s-<down>") 'windmove-down)
+(cond ((eq system-type 'gnu-linux)
+       (global-set-key (kbd "s-<left>") 'windmove-left)
+       (global-set-key (kbd "s-<right>") 'windmove-right)
+       (global-set-key (kbd "s-<up>") 'windmove-up)
+       (global-set-key (kbd "s-<down>") 'windmove-down))
+      ((eq system-type 'windows-nt)
+       (global-set-key (kbd "C-S-<left>") 'windmove-left)
+       (global-set-key (kbd "C-S-<right>") 'windmove-right)
+       (global-set-key (kbd "C-S-<up>") 'windmove-up)
+       (global-set-key (kbd "C-S-<down>") 'windmove-down)))
 
 ;; font size changing keybindings
 (global-set-key (kbd "C-+") 'text-scale-increase)
