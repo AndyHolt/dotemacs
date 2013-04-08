@@ -7,7 +7,7 @@
 ;(add-to-list 'auto-mode-alist '("*todo*" . org-mode))
 
 (defvar adh-dropbox-location
-  (cond ((eq system-type 'gnu-linux) "~/Dropbox/")
+  (cond ((eq system-type 'gnu/linux) "~/Dropbox/")
 	((eq system-type 'windows-nt) "d:/Dropbox/")
 	(t "~/Dropbox/"))
   "Holds the location of the Dropbox root directory for the current system")
@@ -19,11 +19,10 @@
 	     (concat adh-dropbox-location "Org_files/Work.org")
 	     (concat adh-dropbox-location
 		     "Org_files/CICCU_Treasurer.org")
-	     (concat adh-dropbox-location "Org_files/CICCU_Exec.org")))
-			
-
-(setq org-agenda-files (quote ("~/Dropbox/Org_files/todo.org"
-			       "~/Dropbox/Org_files/hpcomm.org"))) 
+	     (concat adh-dropbox-location
+		     "Org_files/CICCU_Exec.org")
+	     (concat adh-dropbox-location "Org_files/shopping.org")
+	     (concat adh-dropbox-location "Org_files/computer_stuff.org")))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
@@ -97,5 +96,8 @@
 ;; set pdf application for opening links
 ;; from stack overflow
 (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
+
+;; setup refiling to up to 3rd level headings
+(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
 
 (provide 'adh_org)

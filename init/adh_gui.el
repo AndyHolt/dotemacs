@@ -23,7 +23,7 @@
 
 ;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
-(cond ((eq system-type 'gnu-linux)
+(cond ((eq system-type 'gnu/linux)
        (setq default-frame-alist '((font . "Monaco-11"))))
       ((eq system-type 'windows-nt)
        (setq default-frame-alist '((font . "Inconsolata-12")))))
@@ -50,7 +50,7 @@
 ;; setup keybindings for easier window navigation
 ;; s-<arrow> used by Windows wm
 ;; no more C-x o!
-(cond ((eq system-type 'gnu-linux)
+(cond ((eq system-type 'gnu/linux)
        (global-set-key (kbd "s-<left>") 'windmove-left)
        (global-set-key (kbd "s-<right>") 'windmove-right)
        (global-set-key (kbd "s-<up>") 'windmove-up)
