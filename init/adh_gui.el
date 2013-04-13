@@ -12,6 +12,9 @@
 ;; scrollbars on left (good way to see position in buffer!)
 (set-scroll-bar-mode 'left)
 
+;; reduce fringe around each buffer
+(fringe-mode "half-width")
+
 ;; column number in modeline
 (column-number-mode t)
 
