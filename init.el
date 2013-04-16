@@ -22,7 +22,7 @@
 (require 'adh_abbrev)
 (require 'adh_sessions)
 ;(require 'adh_diminish)
-(require 'adh_acejump)
+(require 'adh_navigation)
 (require 'adh_thunderlink)
 
 
