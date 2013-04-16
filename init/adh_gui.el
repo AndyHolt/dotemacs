@@ -13,7 +13,7 @@
 (set-scroll-bar-mode 'left)
 
 ;; reduce fringe around each buffer
-(fringe-mode "half-width")
+(set-fringe-mode 4)
 
 ;; column number in modeline
 (column-number-mode t)
