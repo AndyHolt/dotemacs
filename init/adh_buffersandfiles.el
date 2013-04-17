@@ -107,7 +107,7 @@ buffers."
   (delete-other-windows)
   (find-file (concat adh-dropbox-location "Notes/Redemptive_historical_framework.org"))
   (set-fill-column 95)
-  (find-file (concat adh-dropbox-location "Notes/Joshua.org"))
+  (find-file (concat adh-dropbox-location "Notes/Judges.org"))
   (set-fill-column 95)
   (split-window-right)
   (other-window 1)
