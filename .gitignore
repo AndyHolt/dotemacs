@@ -2,3 +2,8 @@
 auto-save-list/
 backups/
 cache/
+newsticker/
+session*
+tramp
+.places
+url/cookies
