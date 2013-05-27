@@ -21,7 +21,7 @@
 (require 'adh_dired)
 (require 'adh_abbrev)
 (require 'adh_sessions)
-;(require 'adh_diminish)
+(require 'adh_diminish)
 (require 'adh_navigation)
 (require 'adh_thunderlink)
 

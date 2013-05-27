@@ -9,4 +9,8 @@
 ; can't get this to work - for now being done from custom.el file, written by customize
 ;(yas-global-mode t nil (yasnippet))
 
+(set yas-indent-line 'auto)
+
+(setq yas-wrap-around-region t)
+
 (provide 'adh_yasnippet)
