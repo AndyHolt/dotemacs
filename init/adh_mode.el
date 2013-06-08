@@ -41,4 +41,9 @@
 	    (auto-fill-mode 1)
 	    (flyspell-mode 1)))
 
+(add-to-list 'load-path
+	     "~/.emacs.d/plugins/")
+
+(require 'tbemail)
+
 (provide 'adh_mode)
