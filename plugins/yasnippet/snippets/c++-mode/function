@@ -1,0 +1,8 @@
+# name: Function snippet for C++
+# key: function
+# --
+${1:return type} ${2:function name}(${3:args})
+{
+  $4
+}
+$0
