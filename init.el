@@ -24,7 +24,7 @@
 (require 'adh_diminish)
 (require 'adh_navigation)
 (require 'adh_thunderlink)
-
+(require 'adh_keyfreq)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
