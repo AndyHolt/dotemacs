@@ -46,4 +46,9 @@
 
 (require 'tbemail)
 
+(add-hook 'tbemail-mode
+	  (lambda ()
+	    (flyspell-mode 1)))
+
+
 (provide 'adh_mode)
