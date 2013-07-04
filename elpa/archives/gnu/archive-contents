@@ -69,7 +69,11 @@
 	      [(1 0)
 	       nil "Major mode for Jgraph files" single])
  (js2-mode .
+<<<<<<< HEAD
 	   [(20130619)
+=======
+	   [(20130510)
+>>>>>>> 5d2e8bf004a952e3d958a312c5c55012ceeaddd1
 	    ((emacs
 	      (24 1)))
 	    "Improved JavaScript editing mode" single])
@@ -117,7 +121,7 @@
 	    nil "Support for OWL Manchester Notation" single])
  (org .
       [(20130617)
-       nil "Outline-based notes management and organizer" tar])
+      nil "Outline-based notes management and organizer" tar])
  (quarter-plane .
 		[(0 1)
 		 nil "Minor mode for quarter-plane style editing" single])
