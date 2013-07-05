@@ -25,7 +25,6 @@
 (add-hook 'LaTeX-mode-hook
 	  (lambda ()
 	    (reftex-mode 1)
-	    (describe-function 'reftex-mode)
 	    (auto-fill-mode 1)
 	    (flyspell-mode 1)
 	    (tex-pdf-mode 1)))
