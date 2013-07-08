@@ -49,5 +49,8 @@
 	  (lambda ()
 	    (flyspell-mode 1)))
 
+(add-hook 'haskell-mode-hook
+	  (lambda ()
+	    (turn-on-haskell-indentation)))
 
 (provide 'adh_mode)
