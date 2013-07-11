@@ -54,10 +54,10 @@
 ;; s-<arrow> used by Windows wm
 ;; no more C-x o!
 (cond ((eq system-type 'gnu/linux)
-       (global-set-key (kbd "s-<left>") 'windmove-left)
-       (global-set-key (kbd "s-<right>") 'windmove-right)
-       (global-set-key (kbd "s-<up>") 'windmove-up)
-       (global-set-key (kbd "s-<down>") 'windmove-down))
+       (global-set-key (kbd "M-<left>") 'windmove-left)
+       (global-set-key (kbd "M-<right>") 'windmove-right)
+       (global-set-key (kbd "M-<up>") 'windmove-up)
+       (global-set-key (kbd "M-<down>") 'windmove-down))
       ((eq system-type 'windows-nt)
        (global-set-key (kbd "C-S-<left>") 'windmove-left)
        (global-set-key (kbd "C-S-<right>") 'windmove-right)
