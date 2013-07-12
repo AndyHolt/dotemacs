@@ -11,6 +11,7 @@
 
 (set yas-indent-line 'auto)
 
+;; if region is selected, wrap snippet around the region.
 (setq yas-wrap-around-region t)
 
 (provide 'adh_yasnippet)
