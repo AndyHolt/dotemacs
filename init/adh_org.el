@@ -100,4 +100,8 @@
 ;; setup refiling to up to 3rd level headings
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
 
+;; when inserting new headline, insert below content of current
+;; headline
+(setq org-insert-heading-respect-content t)
+
 (provide 'adh_org)
