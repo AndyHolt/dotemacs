@@ -3,14 +3,16 @@
 (ido-mode t)
 
 ;; don't change working directory when creating new files
-;(setq ido-auto-merge-work-directories-length -1)
+(setq ido-auto-merge-work-directories-length -1)
 
 ;; some basic config stuff - taked from Thomas Kjeldahl Nilsson
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
-      ido-max-prospects 10)
+      ido-max-prospects 10
+      ido-case-fold t
+      ido-confirm-unique-completion t)
 
 ;; ignore some buffers
 (setq ido-ignore-buffers '(".*Completions\*" 

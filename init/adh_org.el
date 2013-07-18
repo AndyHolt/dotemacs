@@ -104,4 +104,19 @@
 ;; headline
 (setq org-insert-heading-respect-content t)
 
+;; setup languages for Org babel
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (C . t)
+   ;(c++ . t)
+   (python . t)
+   (latex . t)
+   (octave .t)
+   (haskell . t)
+   (R . t)
+   (dot . t)
+   (gnuplot . t)
+   (sql . t)))
+
 (provide 'adh_org)

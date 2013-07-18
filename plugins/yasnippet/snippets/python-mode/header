@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Header for Python Files
+# key: header
+# --
+#!/usr/bin/python
+"""
+${1:One line summary docstring}
+${2:
+More detailed description.}
+"""
+# Author: ${3:Andy Holt}
+# Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+# ${4:Usage: ${5:Usage details}}
+$0
