@@ -26,6 +26,7 @@
 (require 'adh_thunderlink)
 (require 'adh_keyfreq)
 (require 'adh_hippie)
+(require 'adh_alias)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
