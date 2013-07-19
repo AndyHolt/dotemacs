@@ -112,4 +112,9 @@ buffers."
   (set-fill-column 95)
   (other-window 1))
 
+;; setup uniquify - if multiple buffers are visiting different files with same
+;; name, rename the buffers with the distinctive parts of the directory tree.
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+
 (provide 'adh_buffersandfiles)
