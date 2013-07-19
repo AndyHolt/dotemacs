@@ -4,7 +4,7 @@
 ;; add marmalade repo to package.el list
 (require 'package)
 (add-to-list 'package-archives
-	     '("marmalade" . "http://marmalade-repo.org/packages/") t)
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-initialize)
 
 (require 'adh_gui)
@@ -27,6 +27,7 @@
 (require 'adh_keyfreq)
 (require 'adh_hippie)
 (require 'adh_alias)
+(require 'adh_flycheck)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")

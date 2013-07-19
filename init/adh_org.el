@@ -8,21 +8,21 @@
 
 (defvar adh-dropbox-location
   (cond ((eq system-type 'gnu/linux) "~/Dropbox/")
-	((eq system-type 'windows-nt) "d:/Dropbox/")
-	(t "~/Dropbox/"))
+        ((eq system-type 'windows-nt) "d:/Dropbox/")
+        (t "~/Dropbox/"))
   "Holds the location of the Dropbox root directory for the current system")
 
 ;; add files to org agenda
-(setq org-agenda-files 
+(setq org-agenda-files
       (list (concat adh-dropbox-location "Org_files/todo.org")
-	     (concat adh-dropbox-location "Org_files/hpcomm.org")
-	     (concat adh-dropbox-location "Org_files/Work.org")
-	     (concat adh-dropbox-location
-		     "Org_files/CICCU_Treasurer.org")
-	     (concat adh-dropbox-location
-		     "Org_files/CICCU_Exec.org")
-	     (concat adh-dropbox-location "Org_files/shopping.org")
-	     (concat adh-dropbox-location "Org_files/computer_stuff.org")))
+             (concat adh-dropbox-location "Org_files/hpcomm.org")
+             (concat adh-dropbox-location "Org_files/Work.org")
+             (concat adh-dropbox-location
+                     "Org_files/CICCU_Treasurer.org")
+             (concat adh-dropbox-location
+                     "Org_files/CICCU_Exec.org")
+             (concat adh-dropbox-location "Org_files/shopping.org")
+             (concat adh-dropbox-location "Org_files/computer_stuff.org")))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
@@ -62,29 +62,29 @@
 (setq org-capture-templates
   '(("t" "Templates for TODO items")
     ("tt" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
-				      "Tasks")
+                                      "Tasks")
      "* TODO %?\n %i\n"
      :kill-buffer)
     ("tr" "Treasurer" entry (file
-			     "~/Dropbox/Org_files/CICCU_Treasurer.org")
+                             "~/Dropbox/Org_files/CICCU_Treasurer.org")
      "* TODO %?\n %i\n"
      :kill-buffer)
     ("te" "Exec" entry (file "~/Dropbox/Org_files/CICCU_Exec.org")
      "* TODO %?\n %i\n"
      :kill-buffer)
     ("tc" "Computer" entry (file+headline
-			    "~/Dropbox/Org_files/computer_stuff.org"
-			    "Unfiled")
+                            "~/Dropbox/Org_files/computer_stuff.org"
+                            "Unfiled")
      "* TODO %?\n %i\n"
      :kill-buffer)
     ("tw" "Work" entry (file "~/Dropbox/Org_files/Work.org")
      "* TODO %?\n %i\n"
      :kill-buffer)
    ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
-				    "Notes")
+                                    "Notes")
         "* %?\n %i\n %a")
    ("l" "Link" entry (file+headline "~/Dropbox/Org_files/todo.org"
-			       "Web Links")
+                               "Web Links")
     "* %a\n %?\n %i")))
 
 ;; start org protocol - for creating links etc to external
@@ -118,5 +118,8 @@
    (dot . t)
    (gnuplot . t)
    (sql . t)))
+
+;; Fontify org-mode code blocks
+(setq org-src-fontify-natively t)
 
 (provide 'adh_org)
