@@ -28,6 +28,7 @@
 (require 'adh_hippie)
 (require 'adh_alias)
 (require 'adh_flycheck)
+(require 'adh_sentence-highlight)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
