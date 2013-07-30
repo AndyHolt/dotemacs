@@ -9,8 +9,7 @@
 (add-hook 'prog-mode-hook
           (lambda ()
             (auto-fill-mode 1)
-            (show-paren-mode 1)
-            (electric-pair-mode 1)))
+            (show-paren-mode 1)))
 
 (add-hook 'octave-mode-hook
           (lambda ()

@@ -36,4 +36,8 @@
 (set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+;; load auto-pair-mode globally.
+(require 'autopair)
+(autopair-global-mode)
+
 (provide 'adh_startup)
