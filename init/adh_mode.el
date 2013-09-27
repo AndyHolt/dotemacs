@@ -4,6 +4,9 @@
 (autoload 'octave-mode "octave-mod" nil t)
 (setq auto-mode-alist
       (cons'("\\.m$" . octave-mode) auto-mode-alist))
+(setq octave-comment-start "%")
+
+(require 'ess-site)
 
 ;; auctex mode when loading file with .tex extension.
 (add-hook 'prog-mode-hook

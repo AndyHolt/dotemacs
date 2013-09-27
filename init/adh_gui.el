@@ -36,11 +36,11 @@
 ;; modeline coloring
 ;;    better clarity of active and inactive window
 ;;    highlight buffer name
-(set-face-background 'modeline-inactive "grey20")
-(set-face-foreground 'modeline-inactive "grey75")
-(set-face-background 'modeline "grey10")
-(set-face-foreground 'modeline "grey75")
-(set-face-foreground 'modeline-buffer-id "orange")
+;(set-face-background 'modeline-inactive "grey20")
+;(set-face-foreground 'modeline-inactive "grey75")
+;(set-face-background 'modeline "grey10")
+;(set-face-foreground 'modeline "grey75")
+;(set-face-foreground 'modeline-buffer-id "orange")
 
 ;; frame title to show file/buffer name
 ;; don't quite like this - to be tweaked later
@@ -88,11 +88,11 @@
   (if (fboundp 'w32-send-sys-command)
       ;; WM_SYSCOMMAND restore #xf120
       (w32-send-sys-command 61728)
-    (progn (set-frame-parameter nil 'width 
+    (progn (set-frame-parameter nil 'width
                                 (if babcore-stored-frame-width
                                     babcore-stored-frame-width 82))
            (set-frame-parameter nil 'height
-                                (if babcore-stored-frame-height 
+                                (if babcore-stored-frame-height
                                     babcore-stored-frame-height 42))
            (set-frame-parameter nil 'fullscreen nil))))
 
@@ -119,8 +119,8 @@
   (browse-kill-ring-default-keybindings))
 
 (global-set-key "\C-cy" '(lambda ()
-			   (interactive)
-			   (popup-menu 'yank-menu)))
+                           (interactive)
+                           (popup-menu 'yank-menu)))
 
 ;; toggle between horizontal and vertical window split.
 ;; from whattheemacsd.com
@@ -128,25 +128,25 @@
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 (provide 'adh_gui)

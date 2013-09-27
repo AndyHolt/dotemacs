@@ -27,7 +27,7 @@
 ;; easily navigate camelCase etc words
 (global-subword-mode 1)
 
-(find-file (concat adh-dropbox-location "Org_files/todo.org"))
+(find-file "d:/Documents/slb.org")
 
 ;; always prefer utf-8
 (setq local-coding-system 'utf-8)
@@ -37,7 +37,9 @@
 (prefer-coding-system 'utf-8)
 
 ;; load auto-pair-mode globally.
-(require 'autopair)
-(autopair-global-mode)
+;; don't do this as its crashing emacs! Use electric pair mode for now
+;(require 'autopair)
+;(autopair-global-mode)
+(electric-pair-mode 1)
 
 (provide 'adh_startup)
