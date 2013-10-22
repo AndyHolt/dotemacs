@@ -122,4 +122,9 @@
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
+;; set up mobile org
+(setq org-directory (concat adh-dropbox-location "Org_files"))
+(setq org-mobile-directory (concat adh-dropbox-location "MobileOrg"))
+(setq org-mobile-inbox-for-pull (concat adh-dropbox-location "Org_files/todo.org"))
+
 (provide 'adh_org)

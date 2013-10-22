@@ -5,6 +5,9 @@
 (setq auto-mode-alist
       (cons'("\\.m$" . octave-mode) auto-mode-alist))
 
+;; set comment character to "%" for matlab/octave scripts
+(setq octave-comment-start "%")
+
 ;; auctex mode when loading file with .tex extension.
 (add-hook 'prog-mode-hook
           (lambda ()
