@@ -7,6 +7,9 @@
         TeX-insert-backslash
         ace-jump-mode
         ace-jump-move
+        autopair-insert-opening
+        autopair-skip-close-maybe
+        beginning-of-buffer
         c-electric-colon
         c-electric-delete-forward
         c-electric-paren

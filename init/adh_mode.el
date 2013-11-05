@@ -1,12 +1,12 @@
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-;; octave major mode when loading file with .m extension
-(autoload 'octave-mode "octave-mod" nil t)
+;; matlab major mode when loading file with .m extension
 (setq auto-mode-alist
-      (cons'("\\.m$" . octave-mode) auto-mode-alist))
+      (cons'("\\.m$" . matlab-mode) auto-mode-alist))
 
-;; set comment character to "%" for matlab/octave scripts
-(setq octave-comment-start "%")
+;; set matlab indent level
+(setq matlab-indent-level 2)
+
 
 ;; auctex mode when loading file with .tex extension.
 (add-hook 'prog-mode-hook
@@ -14,7 +14,7 @@
             (auto-fill-mode 1)
             (show-paren-mode 1)))
 
-(add-hook 'octave-mode-hook
+(add-hook 'matlab-mode-hook
           (lambda ()
             ;(abbrev-mode 1)
             (auto-fill-mode 1)

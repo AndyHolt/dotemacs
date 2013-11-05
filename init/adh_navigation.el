@@ -19,4 +19,9 @@
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
+;; expand region by semantic units
+(require 'expand-region)
+(global-set-key "\C-@" 'er/expand-region)
+
+
 (provide 'adh_navigation)
