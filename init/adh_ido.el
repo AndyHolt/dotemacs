@@ -8,7 +8,7 @@
 (setq ido-enable-prefix               nil
       ido-enable-flex-matching        t
       ido-use-filename-at-point      'guess
-      ido-max-prospects               50
+      ido-max-prospects               10
       ido-use-faces                   t
       ido-max-window-height           nil
       ido-case-fold                   t
@@ -18,12 +18,23 @@
       ido-default-buffer-method      'raise-frame)
 
 ;; ignore some buffers
-(setq ido-ignore-buffers '(".*Completions\*" 
-			   "^\*trace" 
-			   "^\*compilation"
-			   "\*Minibuf-\*"
-			   ".*Echo\*"
-			   ".*code-conversion-work.*"))
+(setq ido-ignore-buffers '(".*Completions\*"
+                           "^\*trace"
+                           "^\*compilation"
+                           "\*Minibuf-\*"
+                           ".*Echo\*"
+                           ".*code-conversion-work.*"))
+
+;; try out flx-ido for better flex matching between words
+(require 'flx-ido)
+(flx-ido-mode 1)
+(setq ido-use-faces nil)
+
+;; flx-ido looks better with vertical mode
+(require 'ido-vertical-mode)
+(ido-vertical-mode)
+
+
 
 ;; use ido almost everywhere
 ;(require 'ido-ubiquitous-mode)
@@ -37,10 +48,10 @@
     (define-key ido-file-completion-map
       (kbd "~")
       (lambda ()
-	(interactive)
-	(if(looking-back "/")
-	    (insert "~/")
-	  (call-interactively 'self-insert-command))))))
+        (interactive)
+        (if(looking-back "/")
+            (insert "~/")
+          (call-interactively 'self-insert-command))))))
 
 (defun ido-yank ()
    "Select a kill to yank with `ido-completing-read'."
