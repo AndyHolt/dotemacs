@@ -12,9 +12,6 @@
 ;; from whattheemacs.com
 (setq vc-make-backup-files t)
 
-;; update buffers when file changes on disk (from Thomas Nilsson)
-(global-auto-revert-mode)
-
 ;; function to kill all buffers except current one and special ones
 ;; taken from "prelude" emacs setup
 (defun adh-kill-other-buffers ()
@@ -114,5 +111,10 @@ buffers."
   (find-file (concat adh-dropbox-location "Notes/Mark.org"))
   (set-fill-column 95)
   (other-window 1))
+
+;; setup uniquify - if multiple buffers are visiting different files with same
+;; name, rename the buffers with the distinctive parts of the directory tree.
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
 
 (provide 'adh_buffersandfiles)

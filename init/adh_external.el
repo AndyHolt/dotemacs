@@ -28,4 +28,9 @@
 		 (buffer-substring (region-beginning) (region-end))
 	         (read-string "Search ddg: " ))))))
 
+;; set default browser to Chromium on linux systems
+(cond
+ ((eq system-type 'gnu/linux)
+    (setq browse-url-browser-function (quote browse-url-chromium))))
+
 (provide 'adh_external)

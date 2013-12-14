@@ -1,0 +1,12 @@
+# name: Class definition for Matlab/Octave
+# key: class
+# --
+classdef ${1:className} ${2:< parentClass}
+
+  properties
+  end
+
+  methods
+  end
+
+end

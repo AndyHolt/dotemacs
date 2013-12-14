@@ -1,0 +1,18 @@
+# name: test class definition for Matlab xunit testing
+# key: testclass
+# --
+classdef ${1:testsName} < matlab.unittest.TestCase
+
+  properties
+  end
+
+  methods (TestMethodSetup)
+  end
+
+  methods (TestMethodTeardown)
+  end
+
+  methods (Test)
+  end
+
+end

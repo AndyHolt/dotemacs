@@ -19,4 +19,12 @@
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
+;; expand region by semantic units
+(require 'expand-region)
+(global-set-key "\C-@" 'er/expand-region)
+
+;; annoying arrows mode - annoy me if I'm navigating badly
+(require 'annoying-arrows-mode)
+(global-annoying-arrows-mode)
+
 (provide 'adh_navigation)

@@ -11,6 +11,13 @@
 
 (set yas-indent-line 'auto)
 
-(setq yas-wrap-around-region t)
+;; if region is selected, wrap snippet around the region.
+(setq yas/wrap-around-region t)
+
+;; allow nested/stacked expansion (expansion within an expansion)
+(setq yas/triggers-in-field t)
+
+;; reactivate snippet fields on undo/redo
+(setq yas/snippet-revival t)
 
 (provide 'adh_yasnippet)
