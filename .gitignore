@@ -7,3 +7,6 @@ session*
 tramp
 .places
 url/cookies
+elpa/*
+*~
+init/adh_abbrev.el
