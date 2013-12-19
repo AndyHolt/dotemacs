@@ -8,6 +8,7 @@
         ace-jump-mode
         ace-jump-move
         autopair-insert-opening
+        autopair-insert-or-skip-quote
         autopair-skip-close-maybe
         beginning-of-buffer
         c-electric-colon
@@ -16,7 +17,12 @@
         c-electric-semi&comma
         dabbrev-expand
         end-of-buffer
+        ess-smart-S-assign
+        ess-yank
         kill-region
+        matlab-electric-comment
+        matlab-justify-line
+        matlab-linefeed
         org-beginning-of-line
         org-end-of-line
         org-force-self-insert
@@ -37,4 +43,6 @@
         ido-switch-buffer
         ido-write-file
         scroll-bar-toolkit-scroll
+        text-scale-decrease
+        text-scale-increase
         ))

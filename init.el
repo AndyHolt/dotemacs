@@ -31,6 +31,7 @@
 (require 'adh_alias)
 (require 'adh_flycheck)
 (require 'adh_sentence-highlight)
+(require 'adh_projectile)
 (require 'adh_ess)
 
 ;; don't let customize mess up my config files
