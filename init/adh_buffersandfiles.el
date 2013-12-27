@@ -1,10 +1,10 @@
-;; setup how emacs does things with files and buffers etc
+;;setup how emacs does things with files and buffers etc
 
 ;; autosave setup - stop cluttering up directories with autosaves
 ;; (fix) from whattheemacsd.com
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
-		 (concat user-emacs-directory "backups")))))
+                 (concat user-emacs-directory "backups")))))
 (setq auto-save-file-name-transforms
       `((".*" ,temporary-file-directory t)))
 
@@ -16,11 +16,11 @@
 ;; taken from "prelude" emacs setup
 (defun adh-kill-other-buffers ()
 "Kill all buffers but the current one. Don't mess with special
-buffers."
+bnuffers."
 (interactive)
 (dolist (buffer (buffer-list))
   (unless (or (eql buffer (current-buffer)) (not (buffer-file-name
-						  buffer)))
+                                                  buffer)))
     (kill-buffer buffer))))
 
 
@@ -36,7 +36,7 @@ buffers."
     (when filename
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard."
-	       filename))))
+               filename))))
 ;; bind function to C-c M-w
 (global-set-key (kbd "C-c M-w") 'adh-copy-file-name-to-clipboard)
 
@@ -46,17 +46,17 @@ buffers."
   "Renames current buffer and file its visiting."
   (interactive)
   (let ((name (buffer-name))
-	(filename (buffer-file-name)))
+        (filename (buffer-file-name)))
     (if (not (and filename (file-exists-p filename)))
-	(message "Buffer '%s' is not visiting a file!" name)
+        (message "Buffer '%s' is not visiting a file!" name)
       (let ((new-name (read-file-name "New name: " filename)))
-	(cond ((get-buffer new-name)
-	       (message "A buffer named '%s' already exists!"
-			new-name))
-	      (t
-	       (rename-buffer new-name)
-	       (set-visited-file-name new-name)
-	       (set-buffer-modified-p nil)))))))
+        (cond ((get-buffer new-name)
+               (message "A buffer named '%s' already exists!"
+                        new-name))
+              (t
+               (rename-buffer new-name)
+               (set-visited-file-name new-name)
+               (set-buffer-modified-p nil)))))))
 
 ;; open up files ready to edit init files
 (defun adh-edit-init ()
@@ -96,7 +96,7 @@ buffers."
 (require 'saveplace)
 (setq-default save-place t)
 (setq save-place-file (expand-file-name ".places"
-					user-emacs-directory))
+                                        user-emacs-directory))
 
 (defun adh-qt-notes ()
   "Open up notes of quiet times."

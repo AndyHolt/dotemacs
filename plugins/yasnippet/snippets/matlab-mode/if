@@ -3,4 +3,4 @@
 # --
 if ${1:(condition)}
   $0
-end
+end  % end if

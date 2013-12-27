@@ -23,7 +23,6 @@
 (require 'adh_dired)
 (require 'adh_abbrev)
 (require 'adh_sessions)
-(require 'adh_diminish)
 (require 'adh_navigation)
 (require 'adh_thunderlink)
 (require 'adh_keyfreq)
@@ -32,7 +31,10 @@
 (require 'adh_flycheck)
 (require 'adh_sentence-highlight)
 (require 'adh_projectile)
+(require 'adh_diminish)
 (require 'adh_ess)
+(require 'adh_multiplecursors)
+(require 'adh_discover)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")

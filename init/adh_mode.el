@@ -6,6 +6,7 @@
 
 ;; set matlab indent level
 (setq matlab-indent-level 2)
+(setq matlab-cont-level 2)
 
 
 ;; auctex mode when loading file with .tex extension.
