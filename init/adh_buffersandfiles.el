@@ -115,6 +115,9 @@ bnuffers."
 ;; setup uniquify - if multiple buffers are visiting different files with same
 ;; name, rename the buffers with the distinctive parts of the directory tree.
 (require 'uniquify)
+;; separate distinctive directory name from buffer name with forward slash
 (setq uniquify-buffer-name-style 'forward)
+;; only display the different part of the directory tree, not the whole thing
+(setq uniquify-strip-common-suffix t)
 
 (provide 'adh_buffersandfiles)
