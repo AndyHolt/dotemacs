@@ -1,7 +1,7 @@
 # name: Class definition for Matlab/Octave
 # key: class
 # --
-classdef ${1:className} ${2:< parentClass}
+classdef ${1:`(insert (car (split-string (buffer-name) "\\.")))`} ${2:< parentClass}
 
   properties
   end  % end properties block
