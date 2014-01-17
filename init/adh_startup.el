@@ -40,9 +40,4 @@
 ;(require 'autopair)
 ;(autopair-global-mode)
 
-; use smartparens mode instead of auto-pair and show-paren-mode
-(smartparens-global-mode t)
-(require 'smartparens-config)
-(show-smartparens-global-mode t)
-
 (provide 'adh_startup)

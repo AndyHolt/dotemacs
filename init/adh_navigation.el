@@ -27,4 +27,8 @@
 (require 'annoying-arrows-mode)
 (global-annoying-arrows-mode)
 
+;; show number of search matches in mode line
+(require 'anzu)
+(global-anzu-mode t)
+
 (provide 'adh_navigation)
