@@ -1,4 +1,0 @@
-# name: num_unit
-# key: nu
-# --
-\$${1:value}\,\mathrm{${2:unit}}\$

@@ -1,9 +1,0 @@
-# name: Header for LaTeX sections
-# key: section_header
-# --
-`(setq yas-section-header-name yas/selected-text)`
-`(dotimes (i (/ (- fill-column (length yas-section-header-name) 2) 2))
-	    (insert "%"))`
-`(insert " " yas-section-header-name " ")`
-`(dotimes (i (/ (- fill-column (length yas-section-header-name) 2) 2))
-	    (insert "%"))`

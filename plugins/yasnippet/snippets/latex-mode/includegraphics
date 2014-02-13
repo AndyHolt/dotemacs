@@ -1,4 +1,0 @@
-# name: includegraphics
-# key: graphic
-# --
-\includegraphics[${1:width=${2:1.0}\textwidth}]\{${3:Filename.extension}\}

@@ -1,8 +1,0 @@
-# name: C++ while loop snippet
-# key: while
-# --
-while(${1:condition})
-  {
-    $2
-  }
-$0

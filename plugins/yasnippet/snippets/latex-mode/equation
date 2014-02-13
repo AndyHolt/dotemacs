@@ -1,6 +1,0 @@
-# name: equation environment
-# key: equation
-# --
-\begin{equation${1:*}}
-$0
-\end{equation$1}

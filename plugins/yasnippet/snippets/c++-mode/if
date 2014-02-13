@@ -1,8 +1,0 @@
-# name: C++ if snippet
-# key: if
-# --
-if ($1)
-  {
-    $2
-  }
-$0

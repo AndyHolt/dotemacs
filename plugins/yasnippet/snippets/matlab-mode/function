@@ -1,6 +1,0 @@
-# name: Function definition for Matlab/octave files
-# key: function
-# --
-function ${1:[${2:returnValues}] = }${3:functionName}(${4:arguments})
-$0
-end  % end $3 ${5:function/method}

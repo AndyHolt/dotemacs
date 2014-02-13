@@ -1,6 +1,0 @@
-# name: Header for LaTeX sections
-# key: for_region
-# --
-for ($1;$2;$3) {
-  `yas/selected-text`$0
-}

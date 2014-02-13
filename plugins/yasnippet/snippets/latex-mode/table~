@@ -1,6 +1,0 @@
-# name: Tabular environment
-# key: table
-# --
-\begin{tabular}{${1:|c|c|c|}}
-$0
-\end{$1}

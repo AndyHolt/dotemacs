@@ -1,6 +1,0 @@
-# name: Subfloat environment, for including subfigres
-# key: subfloat
-# --
-\subfloat[${1:Caption}]{
-$0
-}

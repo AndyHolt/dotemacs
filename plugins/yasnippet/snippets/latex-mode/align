@@ -1,8 +1,0 @@
-# name: align equation environment
-# key: align
-# --
-\begin{align${1:*}}
-$2 & $3 \\\\
-$4 & $5 \\\\
-$0
-\end{align$1}
