@@ -34,10 +34,8 @@
 (require 'ido-vertical-mode)
 (ido-vertical-mode)
 
-
-
 ;; use ido almost everywhere
-;(require 'ido-ubiquitous-mode)
+(require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
 ;; jump to home directory when using ido
