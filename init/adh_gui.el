@@ -10,6 +10,7 @@
     (menu-bar-mode -1))
 
 ;; scrollbars on left (good way to see position in buffer!)
+;; [fix] - scroll bars still appear. Need to remove.
 (set-scroll-bar-mode nil)
 
 ;; reduce fringe around each buffer
