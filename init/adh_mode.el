@@ -12,6 +12,10 @@
 (setq auto-mode-alist
       (cons'("zshrc" . shell-script-mode) auto-mode-alist))
 
+;; use emacs lisp mode for Cask files
+(setq auto-mode-alist
+      (cons'("Cask" . emacs-lisp-mode) auto-mode-alist))
+
 ;; auctex mode when loading file with .tex extension.
 (add-hook 'prog-mode-hook
           (lambda ()
