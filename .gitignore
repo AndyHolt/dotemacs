@@ -13,6 +13,7 @@ init/adh_abbrev.el
 .org-id-locations
 projectile-bookmarks.eld
 .cask/
+backup_elpa/
 
 image-dired/
 
