@@ -10,7 +10,7 @@
     (menu-bar-mode -1))
 
 ;; scrollbars on left (good way to see position in buffer!)
-(set-scroll-bar-mode 'left)
+(set-scroll-bar-mode nil)
 
 ;; reduce fringe around each buffer
 (set-fringe-mode 4)
