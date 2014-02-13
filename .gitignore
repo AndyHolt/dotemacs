@@ -11,6 +11,7 @@ elpa/
 plugins/
 init/adh_abbrev.el
 .org-id-locations
+projectile-bookmarks.eld
 
 image-dired/
 
