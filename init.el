@@ -1,6 +1,10 @@
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init")
 
+;; setup cask
+(require 'cask "~/.cask/cask.el")
+(cask-initialize)
+
 ;; add marmalade repo to package.el list
 (require 'package)
 (add-to-list 'package-archives
