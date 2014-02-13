@@ -8,6 +8,9 @@
 (setq matlab-indent-level 2)
 (setq matlab-cont-level 2)
 
+;; use shell script mode for zshrc file
+(setq auto-mode-alist
+      (cons'("zshrc" . shell-script-mode) auto-mode-alist))
 
 ;; auctex mode when loading file with .tex extension.
 (add-hook 'prog-mode-hook
