@@ -32,6 +32,7 @@
         python-backspace
         python-electric-colon
         smex
+        sp--self-insert-command
         yas-expand
         ))
 
