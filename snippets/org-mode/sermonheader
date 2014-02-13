@@ -1,0 +1,9 @@
+# name: sermon header
+# key: sermonheader
+# --
+#+TITLE: "${1:Sermon Title}"
+#+AUTHOR: ${2:Preacher}
+#+PASSAGE: ${3:Passage}
+#+DATE: ${4:`(insert (format-time-string "%d/%b/%Y"))`}
+
+$0

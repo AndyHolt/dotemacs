@@ -1,0 +1,103 @@
+# name: Header for beamer presentation in LaTeX
+# key: beamerheader
+# --
+% File name ${1: `(insert (buffer-file-name))`}
+% ${2:Description of file contents.}
+% Author: ${3:adh}
+% Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+
+\documentclass{beamer}
+\usepackage[english]{babel}
+
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{tabularx}
+
+\usepackage{fontspec}
+\usepackage{booktabs}
+\usepackage{caption}
+
+\mode<presentation>
+{
+  \usetheme{default}
+  \setbeamercovered{invisible}
+}
+
+% suppress navigation bar
+\beamertemplatenavigationsymbolsempty
+
+% color definitions
+\definecolor{adhdarkgrey}{RGB}{47,37,38}
+\definecolor{adhalmostwhite}{RGB}{233,221,205}
+\definecolor{adhlightblue}{RGB}{138,207,204}
+\definecolor{adhorange}{RGB}{242,108,37}
+\definecolor{adhyellow}{RGB}{237,169,44}
+
+% Font setup
+\setsansfont{Fontin Sans}
+
+\setbeamercolor{normal text}{fg=adhalmostwhite,bg=adhdarkgrey}
+\setbeamercolor{alerted text}{fg=adhyellow}
+\setbeamercolor{structure}{fg=adhlightblue}
+\setbeamercolor{example text}{fg=adhlightblue}
+
+\setbeamerfont{title}{size=\huge,series=\bfseries}
+\setbeamerfont{frametitle}{size=\LARGE,series=\bfseries}
+\setbeamercolor{titlelike}{fg=adhorange}
+
+% caption styling
+\DeclareCaptionFont{adhalmostwhite}{\color{adhalmostwhite}}
+\DeclareCaptionFont{adhorange}{\color{adhorange}}
+\captionsetup{labelfont={adhorange},textfont=adhalmostwhite}
+
+% footer styling
+\setbeamercolor{section in footer}{fg=adhalmostwhite,bg=adhorange}
+\setbeamercolor{subsection in footer}{fg=adhalmostwhite,bg=adhorange}
+\setbeamercolor{pagenumber in footer}{fg=adhalmostwhite,bg=adhorange}
+\defbeamertemplate*{footline}{adhtheme}
+{
+  %\leavemode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{section in footer}%
+    \inserttitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.34\paperwidth,ht=2.25ex,dp=1ex,center]{subsection in footer}%
+    \insertsectionhead
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.33\paperwidth,ht=2.25ex,dp=1ex,center]{pagenumber in footer}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex}
+  \end{beamercolorbox}%
+  }
+  \vskip0pt%
+}
+
+%-------------------------------------------------------------------------------
+%                              Title Slide Setup
+%-------------------------------------------------------------------------------
+
+\title{$4}
+\author{${5:Andy Holt}}
+\institute[$7]{$6}
+\date{${8:\today}}
+
+\begin{document}
+
+\setbeamertemplate{footline}[default]
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%-------------------------------------------------------------------------------
+%                               Contents Slide
+%-------------------------------------------------------------------------------
+
+% insert customised footline
+\setbeamertemplate{footline}[adhtheme]
+
+\begin{frame}
+  \frametitle{Outline}
+  \tableofcontents
+\end{frame}
+
+\end{document}
