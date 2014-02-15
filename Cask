@@ -4,6 +4,7 @@
 (depends-on "ace-jump-mode")
 (depends-on "annoying-arrows-mode")
 (depends-on "anzu")
+(depends-on "auctex")
 (depends-on "cask")
 (depends-on "dash")
 (depends-on "discover")

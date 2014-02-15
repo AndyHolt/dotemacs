@@ -17,6 +17,9 @@
       (cons'("Cask" . emacs-lisp-mode) auto-mode-alist))
 
 ;; auctex mode when loading file with .tex extension.
+;; [todo] - Need to setup auctex properly. Not in package repo just now?
+
+
 (add-hook 'prog-mode-hook
           (lambda ()
             (auto-fill-mode 1)
