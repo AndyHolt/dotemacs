@@ -12,9 +12,10 @@
 (diminish 'abbrev-mode "Ab")
 (diminish 'yas-minor-mode "ys")
 (diminish 'flyspell-mode "Fl")
+(diminish 'projectile-mode "Prj")
 
 (add-hook 'emacs-lisp-mode-hook
-	  (lambda ()
-	    (setq mode-name "el")))
+          (lambda ()
+            (setq mode-name "el")))
 
 (provide 'adh_diminish)
