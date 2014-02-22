@@ -13,10 +13,10 @@ plugins/
 init/adh_abbrev.el
 .org-id-locations
 projectile-bookmarks.eld
+projectile.cache
 .cask/
 backup_elpa/
 
 image-dired/
 
 *~
-
