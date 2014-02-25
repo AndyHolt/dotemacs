@@ -29,7 +29,7 @@
 ;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
 (cond ((eq system-type 'gnu/linux)
-       (setq default-frame-alist '((font . "Monaco-11")
+       (setq default-frame-alist '((font . "Inconsolata-12")
                                    (background-mode . dark))))
       ((eq system-type 'windows-nt)
        (setq default-frame-alist '((font . "Inconsolata-12")
