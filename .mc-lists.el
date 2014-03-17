@@ -19,6 +19,7 @@
         end-of-buffer
         ess-smart-S-assign
         ess-yank
+        indent-new-comment-line
         kill-region
         matlab-electric-comment
         matlab-justify-line
