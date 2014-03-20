@@ -29,6 +29,7 @@
 (depends-on "sentence-highlight")
 (depends-on "smartparens")
 (depends-on "smex")
+(depends-on "visual-regexp")
 (depends-on "wrap-region")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")

@@ -40,6 +40,7 @@
 (require 'adh_multiplecursors)
 (require 'adh_discover)
 (require 'adh_smartparens)
+(require 'adh_visualregexp)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
