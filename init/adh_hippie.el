@@ -1,4 +1,14 @@
-;; setup more powerful text completion
+;;; adh_hippie.el --- Set up hippie expand mode
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 16:46
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Set up for more powerful text completion.
+
+;;; Code:
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 
@@ -15,3 +25,5 @@
                                          try-complete-lisp-symbol))
 
 (provide 'adh_hippie)
+
+;;; adh_hippie.el ends here

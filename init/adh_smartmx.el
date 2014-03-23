@@ -1,3 +1,16 @@
+;;; adh_smartmx.el --- Smart M-x mode
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 17:11
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Better M-x mode.
+;; Suggests previous commands and easy searching.
+
+;;; Code:
+
 ;(require 'smex)
 (smex-initialize)
 
@@ -7,3 +20,5 @@
 (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (provide 'adh_smartmx)
+
+;;; adh_smartmx.el ends here

@@ -1,3 +1,21 @@
+;;; adh_navigation.el --- In buffer navigation setup
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 17:00
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Set up more powerful ways of navigating the current buffer.
+;; Includes:
+;;   - Ace jump mode
+;;   - Goto line exention to show line numbers
+;;   - Expand region
+;;   - Annoying arrows mode
+;;   - Anzu mode
+
+;;; Code:
+
 ;; setup ace-jump mode
 (require 'ace-jump-mode)
 
@@ -9,7 +27,7 @@
 ;; show line numbers only when using 'goto-line'
 ;;   from whattheemacsd - thanks Magnars!
 (defun goto-line-with-feedback ()
-  "Show line numbers temporarily, while prompting for the line number input"
+  "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
   (unwind-protect
       (progn
@@ -32,3 +50,5 @@
 (global-anzu-mode t)
 
 (provide 'adh_navigation)
+
+;;; adh_navigation.el ends here

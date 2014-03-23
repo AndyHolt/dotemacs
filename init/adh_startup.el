@@ -1,4 +1,15 @@
-;; things to do when starting emacs
+;;; adh_startup.el --- Start up functions
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 17:23
+;; URL: https://github.com/AndyHolt/dotemacs
+
+;;; Commentary:
+;;
+;; Things to do when starting Emacs.
+;; Most of these should probably be moved into more specific files.
+
+;;; Code:
 
 (setq-default
   fill-column        80
@@ -41,3 +52,5 @@
 ;(autopair-global-mode)
 
 (provide 'adh_startup)
+
+;;; adh_startup.el ends here

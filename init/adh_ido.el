@@ -1,3 +1,17 @@
+;;; adh_ido.el --- Setup for ido mode
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 16:48
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; ido mode: interactively do things
+;;
+;; Powerful system for finding things in minibuffer.
+
+;;; Code:
+
 ;; use ido mode for easy file and buffer finding
 (ido-mode t)
 
@@ -57,3 +71,5 @@
    (insert-for-yank (ido-completing-read "Select kill: " kill-ring)))
 
 (provide 'adh_ido)
+
+;;; adh_ido.el ends here

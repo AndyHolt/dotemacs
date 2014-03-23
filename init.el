@@ -1,3 +1,16 @@
+;;; init.el --- Emacs configuration.
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 16:17
+
+;;; Commentary:
+;;
+;; Contains my configuration for Emacs.
+;; Works with Emacs 24 and later.
+;;
+
+;;; Code:
+
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init")
 
@@ -47,3 +60,7 @@
 (load custom-file 'noerror)
 
 (put 'narrow-to-region 'disabled nil)
+
+(provide 'init)
+
+;;; init.el ends here

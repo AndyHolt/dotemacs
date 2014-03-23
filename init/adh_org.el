@@ -1,3 +1,15 @@
+;;; adh_org.el --- Org mode setup
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 17:03
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Setup for org mode.
+
+;;; Code:
+
 (require 'org)
 
 ;; ensure files with .org extension use org mode
@@ -10,7 +22,7 @@
   (cond ((eq system-type 'gnu/linux) "~/Dropbox/")
         ((eq system-type 'windows-nt) "d:/Dropbox/")
         (t "~/Dropbox/"))
-  "Holds the location of the Dropbox root directory for the current system")
+  "Holds the location of the Dropbox root directory for the current system.")
 
 ;; add files to org agenda
 (setq org-agenda-files
@@ -42,6 +54,7 @@
 ;; update parent cookies for checkboxes
 ;; from whattheemacsd.com
 (defun adh-org-update-parent-cookie ()
+  "Update parent cookies for checkboxes in org files."
   (interactive)
   (when (equal major-mode 'org-mode)
     (save-excursion
@@ -50,9 +63,11 @@
         (org-update-parent-todo-statistics)))))
 
 (defadvice org-kill-line (after fix-cookies activate)
+  "Update checkboxes after killing a line."
   (adh-org-update-parent-cookie))
 
 (defadvice kill-whole-line (after fix-cookies activate)
+  "Update checkboxes after killing a line."
   (adh-org-update-parent-cookie))
 
 ;; setup capture target file
@@ -128,3 +143,5 @@
 (setq org-mobile-inbox-for-pull (concat adh-dropbox-location "Org_files/todo.org"))
 
 (provide 'adh_org)
+
+;;; adh_org.el ends here

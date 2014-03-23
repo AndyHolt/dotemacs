@@ -1,4 +1,17 @@
-;; don'adh_t show spash screen at startup
+;;; adh_gui.el --- Setup aesthetic elements
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 16:41
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Set up various elements of the visual appearance, such as colour themes, menu
+;; bars, frame title etc.
+
+;;; Code:
+
+;; don't show spash screen at startup
 (setq inhibit-startup-message t)
 
 ;; cleanup gui of tool bar
@@ -84,11 +97,12 @@
 ; fullscreen, taken from http://www.emacswiki.org/emacs/FullScreen#toc26
 ; should work for X und OSX with emacs 23.x (TODO find minimum version).
 ; for windows it uses (w32-send-sys-command #xf030) (#xf030 == 61488)
-(defvar babcore-fullscreen-p t "Check if fullscreen is on or off")
+(defvar babcore-fullscreen-p t "Check if fullscreen is on or off.")
 (setq babcore-stored-frame-width nil)
 (setq babcore-stored-frame-height nil)
 
 (defun babcore-non-fullscreen ()
+  "Restore frame to non-fullscreen."
   (interactive)
   (if (fboundp 'w32-send-sys-command)
       ;; WM_SYSCOMMAND restore #xf120
@@ -102,6 +116,7 @@
            (set-frame-parameter nil 'fullscreen nil))))
 
 (defun babcore-fullscreen ()
+  "Go fullscreen."
   (interactive)
   (setq babcore-stored-frame-width (frame-width))
   (setq babcore-stored-frame-height (frame-height))
@@ -111,6 +126,7 @@
     (set-frame-parameter nil 'fullscreen 'fullboth)))
 
 (defun toggle-fullscreen ()
+  "Switch between fullscreen and non-fullscreen modes."
   (interactive)
   (setq babcore-fullscreen-p (not babcore-fullscreen-p))
   (if babcore-fullscreen-p
@@ -130,6 +146,7 @@
 ;; toggle between horizontal and vertical window split.
 ;; from whattheemacsd.com
 (defun toggle-window-split ()
+  "Toggle between horizontal and vertical window splits."
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
@@ -155,3 +172,5 @@
           (if this-win-2nd (other-window 1))))))
 
 (provide 'adh_gui)
+
+;;; adh_gui.el ends here

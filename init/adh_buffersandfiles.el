@@ -1,7 +1,18 @@
-;;setup how emacs does things with files and buffers etc
+;;; adh_buffersandfiles.el --- Set up how emacs deals with files and buffers
 
-;; autosave setup - stop cluttering up directories with autosaves
-;; (fix) from whattheemacsd.com
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sun 23 Mar 2014 16:33
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Various changes and customisations for handling of files and buffers.
+
+;;; Code:
+
+;; autosave setup
+;; stop cluttering up directories with autosaves
+;; from whattheemacsd.com
 (setq backup-directory-alist
       `(("." . ,(expand-file-name
                  (concat user-emacs-directory "backups")))))
@@ -15,17 +26,14 @@
 ;; function to kill all buffers except current one and special ones
 ;; taken from "prelude" emacs setup
 (defun adh-kill-other-buffers ()
-"Kill all buffers but the current one. Don't mess with special
-bnuffers."
-(interactive)
-(dolist (buffer (buffer-list))
-  (unless (or (eql buffer (current-buffer)) (not (buffer-file-name
-                                                  buffer)))
-    (kill-buffer buffer))))
+  "Kill all buffers but the current one.  Don't mess with special buffers."
+  (interactive)
+  (dolist (buffer (buffer-list))
+    (unless (or (eql buffer (current-buffer)) (not (buffer-file-name
+                                                    buffer)))
+      (kill-buffer buffer))))
 
-
-;; function to copy the name of the file being viewed to the
-;; clipboard.
+;; function to copy the name of the file being viewed to the clipboard.
 ;; taken from "prelude" emacs setup
 (defun adh-copy-file-name-to-clipboard ()
   "Copy the current buffer file name to the clipboard."
@@ -37,6 +45,7 @@ bnuffers."
       (kill-new filename)
       (message "Copied buffer file name '%s' to the clipboard."
                filename))))
+
 ;; bind function to C-c M-w
 (global-set-key (kbd "C-c M-w") 'adh-copy-file-name-to-clipboard)
 
@@ -60,7 +69,7 @@ bnuffers."
 
 ;; open up files ready to edit init files
 (defun adh-edit-init ()
-  "Open up init.el fine and init/ directory for editing"
+  "Open up init.el fine and init/ directory for editing."
   (interactive)
   (delete-other-windows)
   (find-file "~/.emacs.d/init.el")
@@ -71,9 +80,8 @@ bnuffers."
 ;; bind to C-c e i
 (global-set-key (kbd "C-c e i") 'adh-edit-init)
 
-
 ;; setup new init file and include in load
-;; todo: make work!
+;; [todo] - make new init file function work!
 (defun adh-new-init-file ()
   "Add a new file to init loading with given name."
   (interactive)
@@ -121,3 +129,5 @@ bnuffers."
 (setq uniquify-strip-common-suffix t)
 
 (provide 'adh_buffersandfiles)
+
+;;; adh_buffersandfiles.el ends here
