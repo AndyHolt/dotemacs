@@ -5,10 +5,13 @@
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+;; URL: ${2:URL}
 
-;;; Commentary
+;;; Commentary:
+;;
+;; ${3:Commentary}
 
-;; ${2:Commentary}
+;;; Code:
 
 $0
 
