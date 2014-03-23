@@ -46,10 +46,13 @@
 
 ;; frame title to show file/buffer name
 ;; don't quite like this - to be tweaked later
+;; (setq frame-title-format
+;;   '("" invocation-name ": "(:eval (if (buffer-file-name)
+;;                 (abbreviate-file-name (buffer-file-name))
+;;                  "%b"))))
 (setq frame-title-format
-  '("" invocation-name ": "(:eval (if (buffer-file-name)
-                (abbreviate-file-name (buffer-file-name))
-                  "%b"))))
+  '("" invocation-name))
+
 
 ;; show unfinished keystrokes quickly in minibuffer
 (setq echo-keystrokes 0.1)
