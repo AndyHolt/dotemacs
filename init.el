@@ -47,6 +47,7 @@
 (require 'adh_alias)
 (require 'adh_flycheck)
 (require 'adh_sentence-highlight)
+(require 'adh_helm)
 (require 'adh_projectile)
 (require 'adh_diminish)
 (require 'adh_ess)
