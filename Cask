@@ -2,6 +2,8 @@
 
 (depends-on "ace-jump-buffer")
 (depends-on "ace-jump-mode")
+(depends-on "ace-link")
+(depends-on "ace-window")
 (depends-on "annoying-arrows-mode")
 (depends-on "anzu")
 (depends-on "auctex")
@@ -31,5 +33,6 @@
 (depends-on "smex")
 (depends-on "visual-regexp")
 (depends-on "wrap-region")
+(depends-on "writeroom-mode")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")

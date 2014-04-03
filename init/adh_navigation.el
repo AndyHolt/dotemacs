@@ -24,6 +24,13 @@
 (global-set-key "\C-ck" 'ace-jump-mode-pop-mark)
 (global-set-key "\C-cw" 'ace-jump-word-mode)
 
+;; setup ace-link mode, for jumping to links in help/info windows
+(ace-link-setup-default)
+
+;; setup ace-window mode for fast selection of windows
+(global-set-key (kbd "C-x p") 'ace-window)
+(setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
+
 ;; show line numbers only when using 'goto-line'
 ;;   from whattheemacsd - thanks Magnars!
 (defun goto-line-with-feedback ()
