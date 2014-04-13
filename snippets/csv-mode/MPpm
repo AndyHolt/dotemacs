@@ -1,0 +1,5 @@
+# name: Music Practice PM template
+# key: MPpm
+# --
+Music Practice (${1:Instrument}) ${2:[leading]}, ${3:Date}, 05:00:00 PM, $3, 06:00:00 PM, False, , "Eden", True
+Evening Service (Playing $1) $2, $3, 06:00:00 PM, $3, 07:30:00 PM, False, , "Eden", True
