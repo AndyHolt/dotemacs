@@ -37,7 +37,9 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Color Theme Setup
-(load-theme 'wombat t)
+;(load-theme 'wombat t)
+;(color-theme-solarized-dark)
+(load-theme 'solarized-dark t)
 
 ;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
@@ -51,11 +53,12 @@
 ;; modeline coloring
 ;;    better clarity of active and inactive window
 ;;    highlight buffer name
-(set-face-background 'mode-line-inactive "grey20")
-(set-face-foreground 'mode-line-inactive "grey75")
-(set-face-background 'mode-line "grey10")
-(set-face-foreground 'mode-line "grey75")
-(set-face-foreground 'mode-line-buffer-id "orange")
+;; commented out while using solarized theme.
+;(set-face-background 'mode-line-inactive "grey20")
+;(set-face-foreground 'mode-line-inactive "grey75")
+;(set-face-background 'mode-line "grey10")
+;(set-face-foreground 'mode-line "grey75")
+;(set-face-foreground 'mode-line-buffer-id "orange")
 
 ;; frame title to show file/buffer name
 ;; don't quite like this - to be tweaked later

@@ -8,6 +8,7 @@
 (depends-on "anzu")
 (depends-on "auctex")
 (depends-on "cask")
+(depends-on "color-theme-solarized")
 (depends-on "dash")
 (depends-on "diminish")
 (depends-on "discover")
