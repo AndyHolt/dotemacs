@@ -32,7 +32,7 @@
       (cons'("Cask" . emacs-lisp-mode) auto-mode-alist))
 
 ;; PDFs shouldn't be opened in Emacs. Load in hex mode as it's much faster.
-;; [todo] - change to auto-open in standard program instead?
+;; [todo] - change to auto-open PDFs in standard program instead?
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . hexl-mode))
 
 ;; auctex mode when loading file with .tex extension.
