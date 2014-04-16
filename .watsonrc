@@ -2,18 +2,15 @@
 # watson - inline issue manager
 # [goosecode] labs
 
-
 # Directories
 [dirs]
 ./
-
 
 # Tags
 [tags]
 fix
 review
 todo
-
 
 # Ignores
 [ignore]
@@ -34,3 +31,12 @@ plugins/*
 themes/*
 url/*
 snippets/*
+
+[github_api]
+AndyHolt
+
+[github_endpoint]
+https://api.github.com
+
+[github_repo]
+AndyHolt/dotemacs
