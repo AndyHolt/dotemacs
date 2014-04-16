@@ -1,3 +1,18 @@
+;;; adh_mode.el --- Set up modes
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Thu 17 Apr 2014 00:26
+;; URL: https://github.com/AndyHolt/dotemacs
+
+;;; Commentary:
+;;
+;; Set up associations and settings for various major and minor modes.
+;; In-mode settings are done in individual mode files, this file handles the
+;; modes themselves.
+;; Setup mode hooks and file-mode associations.
+
+;;; Code:
+
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; matlab major mode when loading file with .m extension
@@ -68,3 +83,5 @@
             (turn-on-haskell-indentation)))
 
 (provide 'adh_mode)
+
+;;; adh_mode.el ends here
