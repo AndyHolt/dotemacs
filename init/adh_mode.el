@@ -35,6 +35,12 @@
 ;; [todo] - change to auto-open PDFs in standard program instead?
 (add-to-list 'auto-mode-alist '("\\.pdf\\'" . hexl-mode))
 
+;; use markdown mode for .md files
+(autoload 'markdown-mode "markdown-mode"
+  "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
 ;; auctex mode when loading file with .tex extension.
 ;; [todo] - Need to setup auctex properly. Not in package repo just now?
 
