@@ -41,6 +41,9 @@
 ;(color-theme-solarized-dark)
 (load-theme 'solarized-dark t)
 
+;; make sure cursor doesn't blink
+(blink-cursor-mode 0)
+
 ;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
 (cond ((eq system-type 'gnu/linux)
