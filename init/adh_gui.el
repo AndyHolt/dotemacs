@@ -28,7 +28,11 @@
 (scroll-bar-mode -1)
 
 ;; reduce fringe around each buffer
-(set-fringe-mode 4)
+(set-fringe-mode 8)
+
+;; setup git-gutter mode
+(require 'git-gutter-fringe+)
+(global-git-gutter+-mode t)
 
 ;; column number in modeline
 (column-number-mode t)

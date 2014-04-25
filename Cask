@@ -17,6 +17,8 @@
 (depends-on "expand-region")
 (depends-on "flx-ido")
 (depends-on "flycheck")
+(depends-on "fringe-helper")
+(depends-on "git-gutter-fringe+")
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-projectile")
