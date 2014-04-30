@@ -1,0 +1,9 @@
+# name: Matlab switch statement
+# key: switch
+# --
+switch ${1:switch_expression}
+  case ${2:case_expression}
+    $0
+  otherwise
+    % fallback behaviour
+end  % end switch
