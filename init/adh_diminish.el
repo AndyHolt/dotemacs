@@ -26,6 +26,7 @@
 (diminish 'flyspell-mode "Fl")
 (diminish 'projectile-mode "Prj")
 (diminish 'anzu-mode)
+(diminish 'git-gutter+-mode " ±")
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
