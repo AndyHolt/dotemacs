@@ -48,7 +48,8 @@
 (add-hook 'prog-mode-hook
           (lambda ()
             (auto-fill-mode 1)
-            (show-paren-mode 1)))
+            (show-paren-mode 1)
+            (flyspell-prog-mode 1)))
 
 (add-hook 'matlab-mode-hook
           (lambda ()
