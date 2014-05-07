@@ -42,5 +42,6 @@
 (depends-on "visual-regexp")
 (depends-on "wrap-region")
 (depends-on "writeroom-mode")
+(depends-on "yagist")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
