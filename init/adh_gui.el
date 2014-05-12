@@ -41,9 +41,14 @@
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Color Theme Setup
+;; Use theme changer to select theme based on time of day
 ;(load-theme 'wombat t)
 ;(color-theme-solarized-dark)
-(load-theme 'solarized-dark t)
+(require 'theme-changer)
+(setq calendar-location-name "Cambridge, UK")
+(setq calendar-latitude 52.2)
+(setq calendar-longitude 0.1)
+(change-theme 'solarized-light 'solarized-dark)
 
 ;; make sure cursor doesn't blink
 (blink-cursor-mode 0)

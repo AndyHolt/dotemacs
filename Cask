@@ -39,6 +39,7 @@
 (depends-on "sentence-highlight")
 (depends-on "smartparens")
 (depends-on "smex")
+(depends-on "theme-changer")
 (depends-on "visual-regexp")
 (depends-on "wrap-region")
 (depends-on "writeroom-mode")
