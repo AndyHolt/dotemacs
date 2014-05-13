@@ -23,17 +23,22 @@
 (setq matlab-indent-level 2)
 (setq matlab-cont-level 2)
 
-;; use shell script mode for zshrc file
+;; use shell script mode for zshrc files
 (setq auto-mode-alist
       (cons'("zshrc" . shell-script-mode) auto-mode-alist))
+(setq auto-mode-alist
+      (cons'("zsh_aliases" . shell-script-mode) auto-mode-alist))
 
 ;; use emacs lisp mode for Cask files
 (setq auto-mode-alist
       (cons'("Cask" . emacs-lisp-mode) auto-mode-alist))
 
-;; use conf-mode for watson config files
+;; use conf-mode for watson and terminator config files
 (setq auto-mode-alist
       (cons'(".watsonrc" . conf-mode) auto-mode-alist))
+
+(setq auto-mode-alist
+      (cons'("terminator_config" . conf-mode) auto-mode-alist))
 
 ;; ruby mode for Gemfiles and Guardfiles
 (setq auto-mode-alist
