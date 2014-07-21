@@ -10,7 +10,7 @@
 ;; Includes:
 ;;   - Ace jump mode
 ;;   - Goto line exention to show line numbers
-;;   - Expand region
+;;   - Expand region and change-inner
 ;;   - Annoying arrows mode
 ;;   - Anzu mode
 
@@ -47,6 +47,10 @@
 ;; expand region by semantic units
 (require 'expand-region)
 (global-set-key "\C-@" 'er/expand-region)
+
+;; delete within semantic units (akin to expand-region)
+(global-set-key (kbd "M-i") 'change-inner)
+(global-set-key (kbd "M-o") 'change-outer)
 
 ;; annoying arrows mode - annoy me if I'm navigating badly
 (require 'annoying-arrows-mode)
