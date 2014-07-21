@@ -62,6 +62,8 @@
 
 (put 'narrow-to-region 'disabled nil)
 
+(server-start)
+
 (provide 'init)
 
 ;;; init.el ends here
