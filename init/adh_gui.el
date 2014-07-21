@@ -48,6 +48,9 @@
 (setq calendar-location-name "Cambridge, UK")
 (setq calendar-latitude 52.2)
 (setq calendar-longitude 0.1)
+;; (setq calendar-location-name "Aberdeen, UK")
+;; (setq calendar-latitude 57.3)
+;; (setq calendar-longitude -2.2)
 (change-theme 'solarized-light 'solarized-dark)
 
 ;; make sure cursor doesn't blink
