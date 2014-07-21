@@ -1,0 +1,23 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bible passage template
+# key: biblepassage
+# --
+% File name: ${1:`(insert (buffer-file-name))`}
+% ${2:Bible passage}
+% ${3:For study preach date/location etc}
+% Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+
+\documentclass{bibpass}
+
+
+\begin{document}
+
+  \bibpassage{$2}
+
+  \bibtranslations
+  {${4:ESV}}
+  {$0}
+  {${5:NIV (1984)}}
+  {}
+
+\end{document}

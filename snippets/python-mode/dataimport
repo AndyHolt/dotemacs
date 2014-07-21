@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Data analysis library imports
+# key: dataimport
+# --
+import numpy as np              # scientific computing library
+import pandas as pd             # data analysis toolkit, data structures
+import matplotlib as mpl        # 2D plotting library
+import matplotlib.pyplot as plt # main plotting commands of matplotlib
+import seaborn as sns           # figure aesthetics and data visualisation

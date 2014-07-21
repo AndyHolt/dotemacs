@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: headline
+# key: hl
+# --
+% `(make-string (- fill-column 2) ?\-)`
+${2:% }${1:$(make-string (/ (- (- fill-column 2) (string-width yas-text)) 2) ?\ )}${1:HEADLINE NAME$(upcase yas-text)}${1:$(make-string (/ (- (- fill-column 2) (string-width yas-text)) 2) ?\ )}
+% `(make-string (- fill-column 2) ?\-)`
+
+$0
