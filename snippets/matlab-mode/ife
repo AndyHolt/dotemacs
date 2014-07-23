@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Matlab if-else statement
+# key: ife
+# --
+if ${1:(condition)}
+  $2
+else
+  $0
+end  % end if
