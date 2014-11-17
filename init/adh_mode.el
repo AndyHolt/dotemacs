@@ -99,11 +99,11 @@
 (add-to-list 'load-path
              "~/.emacs.d/plugins/")
 
-(require 'tbemail)
+;; (require 'tbemail)
 
-(add-hook 'tbemail-mode
-          (lambda ()
-            (flyspell-mode 1)))
+;; (add-hook 'tbemail-mode
+;;        (lambda ()
+;;          (flyspell-mode 1)))
 
 (add-hook 'haskell-mode-hook
           (lambda ()
