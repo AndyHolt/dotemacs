@@ -53,8 +53,8 @@
 (global-set-key (kbd "M-o") 'change-outer)
 
 ;; annoying arrows mode - annoy me if I'm navigating badly
-(require 'annoying-arrows-mode)
-(global-annoying-arrows-mode)
+;; (require 'annoying-arrows-mode)
+;; (global-annoying-arrows-mode)
 
 ;; show number of search matches in mode line
 (require 'anzu)
