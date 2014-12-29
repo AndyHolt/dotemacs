@@ -78,6 +78,9 @@
           (lambda ()
             (auto-fill-mode 1)))
 
+; [todo] - check latex mode settings
+; [todo] - use AUCTeX mode? And ensure reftex mode being used.
+
 (add-hook 'LaTeX-mode-hook
           (lambda ()
             (reftex-mode 1)

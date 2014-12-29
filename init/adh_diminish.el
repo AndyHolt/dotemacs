@@ -23,7 +23,7 @@
 
 (diminish 'abbrev-mode "Ab")
 (diminish 'yas-minor-mode "ys")
-(diminish 'flyspell-mode "Fl")
+; (diminish 'flyspell-mode "Fl")
 (diminish 'projectile-mode "Prj")
 (diminish 'anzu-mode)
 (diminish 'git-gutter+-mode " ±")

@@ -38,7 +38,7 @@
 ;; easily navigate camelCase etc words
 (global-subword-mode 1)
 
-(find-file (concat adh-dropbox-location "Org_files/todo.org"))
+;; (find-file (concat adh-dropbox-location "Org_files/todo.org"))
 
 ;; always prefer utf-8
 (setq local-coding-system 'utf-8)
