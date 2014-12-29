@@ -34,6 +34,7 @@
 (depends-on "ido-vertical-mode")
 (depends-on "keyfreq")
 (depends-on "magit")
+(depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "org")
 (depends-on "popwin")
