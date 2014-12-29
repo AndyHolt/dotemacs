@@ -57,6 +57,8 @@
 (require 'adh_discover)
 (require 'adh_smartparens)
 (require 'adh_visualregexp)
+(require 'adh_latex)
+(require 'adh_magit)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
