@@ -21,9 +21,11 @@
 ;; add marmalade repo to package.el list
 (require 'package)
 (add-to-list 'package-archives
+             '("gnu". "http://elpa.gnu.org/packages/") t)
+(add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+             '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 
 (require 'adh_gui)
