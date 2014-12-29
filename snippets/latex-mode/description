@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: description environment
+# key: description
+# --
+\begin{description}
+  \item[${1:Item 1}] ${2:Description of item 1}
+  \item[${4:Item 2}] ${3:Description of item 2}
+\end{description}
