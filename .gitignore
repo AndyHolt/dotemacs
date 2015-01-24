@@ -19,4 +19,8 @@ backup_elpa/
 
 image-dired/
 
+bookmarks
+ido.last
+smex-items
+
 *~
