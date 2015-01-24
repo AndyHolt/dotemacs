@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: header for SQL scripts
+# key: header
+# --
+-- File name: ${1:`(insert (buffer-file-name))`}
+-- ${2:Description of file contents}
+-- Author: ${3:adh}
+-- Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+$0
