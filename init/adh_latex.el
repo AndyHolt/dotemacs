@@ -15,6 +15,9 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
+;; enable PDFLaTeX for all documents
+(setq TeX-PDF-mode t)
+
 ;; enable RefTeX - for managing cross references, bibliographies, indices,
 ;; document navigation etc
 ; [todo] - enable RefTeX (this might be done already in mode file)
