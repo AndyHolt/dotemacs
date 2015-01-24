@@ -57,6 +57,22 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
 
+;; function to clean up tables from org syntax to md
+(defun org2md-table ()
+    "Change org-mode table sytnax into markdown format."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "-+-" nil t) (replace-match "-|-"))
+    ))
+
+;; turn on org table minor mode when using markdown mode
+(add-hook 'markdown-mode-hook 'orgtbl-mode)
+;; convert tables on save
+(add-hook 'markdown-mode-hook
+          (lambda()
+            (add-hook 'after-save-hook 'org2md-table nil 'make-it-local)))
+
 ;; auctex mode when loading file with .tex extension.
 ;; [todo] - Need to setup auctex properly. Not in package repo just now?
 
