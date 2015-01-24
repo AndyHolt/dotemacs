@@ -22,8 +22,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("gnu". "http://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+;; (add-to-list 'package-archives
+;;             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -59,6 +59,7 @@
 (require 'adh_visualregexp)
 (require 'adh_latex)
 (require 'adh_magit)
+(require 'adh_fullframe)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
