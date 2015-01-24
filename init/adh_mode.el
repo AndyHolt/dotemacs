@@ -97,7 +97,8 @@
 (add-hook 'text-mode-hook
           (lambda ()
             (auto-fill-mode 1)
-            (flyspell-mode 1)))
+            (flyspell-mode 1)
+            (whole-line-or-region-mode t)))
 
 (add-to-list 'load-path
              "~/.emacs.d/plugins/")
