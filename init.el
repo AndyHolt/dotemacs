@@ -11,12 +11,15 @@
 
 ;;; Code:
 
-(add-to-list 'load-path "~/.emacs.d")
+;; (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init/")
 (add-to-list 'load-path "~/.emacs.d/.cask/")
 
 ;; setup cask
-(require 'cask "~/.cask/cask.el")
+(cond ((eq system-type 'gnu/linux)
+       (require 'cask "~/.cask/cask.el"))
+      ((eq system-type 'darwin)
+       (require 'cask "/usr/local/share/emacs/site-lisp/cask/cask.el")))
 (cask-initialize)
 
 ;; add marmalade repo to package.el list
@@ -63,6 +66,12 @@
 (require 'adh_fullframe)
 (require 'adh_deft)
 (require 'adh_hydra)
+
+;; system specific configurations
+(cond ((eq system-type 'gnu/linux)
+       (require 'adh_linux))
+      ((eq system-type 'darwin)
+       (require 'adh_osx)))
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
