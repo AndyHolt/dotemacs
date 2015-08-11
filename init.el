@@ -12,7 +12,8 @@
 ;;; Code:
 
 (add-to-list 'load-path "~/.emacs.d")
-(add-to-list 'load-path "~/.emacs.d/init")
+(add-to-list 'load-path "~/.emacs.d/init/")
+(add-to-list 'load-path "~/.emacs.d/.cask/")
 
 ;; setup cask
 (require 'cask "~/.cask/cask.el")
@@ -22,8 +23,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("gnu". "http://elpa.gnu.org/packages/") t)
-;; (add-to-list 'package-archives
-;;             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+            '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
@@ -60,6 +61,8 @@
 (require 'adh_latex)
 (require 'adh_magit)
 (require 'adh_fullframe)
+(require 'adh_deft)
+(require 'adh_hydra)
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
@@ -72,3 +75,15 @@
 (provide 'init)
 
 ;;; init.el ends here
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages (quote (package-build shut-up epl git commander f dash s))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

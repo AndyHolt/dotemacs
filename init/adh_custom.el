@@ -13,5 +13,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(minimap-active-region-background ((t (:background "gray25"))))
- '(org-document-title ((t (:foreground "yellow" :underline "yellow" :weight bold :height 150))))
  '(persp-selected-face ((t (:foreground "green1" :weight bold)))))

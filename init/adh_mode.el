@@ -13,7 +13,8 @@
 
 ;;; Code:
 
-(add-hook 'before-save-hook 'whitespace-cleanup)
+;; [fix] - don't run whitespace-cleanup on auto-save, only manual save
+;; (add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; matlab major mode when loading file with .m extension
 (setq auto-mode-alist
@@ -71,7 +72,12 @@
 ;; convert tables on save
 (add-hook 'markdown-mode-hook
           (lambda()
-            (add-hook 'after-save-hook 'org2md-table nil 'make-it-local)))
+            (add-hook 'before-save-hook 'org2md-table nil 'make-it-local)))
+;; don't run whitespace cleanup in markdown mode - double spaces at ends of
+;; lines are important!
+(add-hook 'markdown-mode-hook
+         (lambda()
+            (remove-hook 'before-save-hook 'whitespace-cleanup 'make-it-local)))
 
 ;; auctex mode when loading file with .tex extension.
 ;; [todo] - Need to setup auctex properly. Not in package repo just now?
@@ -81,7 +87,7 @@
           (lambda ()
             (auto-fill-mode 1)
             (show-paren-mode 1)
-            (flyspell-prog-mode 1)))
+            (flyspell-prog-mode)))
 
 (add-hook 'matlab-mode-hook
           (lambda ()
@@ -102,7 +108,8 @@
             (reftex-mode 1)
             (auto-fill-mode 1)
             (flyspell-mode 1)
-            (tex-pdf-mode 1)))
+            (tex-pdf-mode 1)
+            (require 'smartparens-latex)))
 
 (add-hook 'org-mode-hook
           (lambda ()

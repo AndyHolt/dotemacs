@@ -16,6 +16,7 @@
 
 ;;; Code:
 
+;[todo] - replace ace with avy
 ;; setup ace-jump mode
 (require 'ace-jump-mode)
 

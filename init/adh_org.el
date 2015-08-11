@@ -27,12 +27,7 @@
 ;; add files to org agenda
 (setq org-agenda-files
       (list (concat adh-dropbox-location "Org_files/todo.org")
-             (concat adh-dropbox-location "Org_files/hpcomm.org")
              (concat adh-dropbox-location "Org_files/Work.org")
-             (concat adh-dropbox-location
-                     "Org_files/CICCU_Treasurer.org")
-             (concat adh-dropbox-location
-                     "Org_files/CICCU_Exec.org")
              (concat adh-dropbox-location "Org_files/shopping.org")
              (concat adh-dropbox-location "Org_files/computer_stuff.org")))
 
@@ -78,13 +73,6 @@
   '(("t" "Templates for TODO items")
     ("tt" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                       "Tasks")
-     "* TODO %?\n %i\n"
-     :kill-buffer)
-    ("tr" "Treasurer" entry (file
-                             "~/Dropbox/Org_files/CICCU_Treasurer.org")
-     "* TODO %?\n %i\n"
-     :kill-buffer)
-    ("te" "Exec" entry (file "~/Dropbox/Org_files/CICCU_Exec.org")
      "* TODO %?\n %i\n"
      :kill-buffer)
     ("tc" "Computer" entry (file+headline

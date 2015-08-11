@@ -81,8 +81,8 @@
 ;;   '("" invocation-name ": "(:eval (if (buffer-file-name)
 ;;                 (abbreviate-file-name (buffer-file-name))
 ;;                  "%b"))))
-(setq frame-title-format
-  '("" invocation-name))
+;;(setq frame-title-format
+;;  '("" invocation-name))
 
 
 ;; show unfinished keystrokes quickly in minibuffer

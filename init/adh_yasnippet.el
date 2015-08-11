@@ -58,6 +58,9 @@
 
 (setq yas-prompt-functions '(shk-yas/helm-prompt yas-ido-prompt yas-no-prompt))
 
+;; implement yas-with-comment function
+(defun yas-with-comment (str)
+  (format "%s%s%s" comment-start str comment-end))
 
 (provide 'adh_yasnippet)
 
