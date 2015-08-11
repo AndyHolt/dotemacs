@@ -4,6 +4,7 @@
 
 (setq mc/cmds-to-run-for-all
       '(
+        LaTeX-insert-left-brace
         TeX-insert-backslash
         ace-jump-mode
         ace-jump-move
@@ -16,24 +17,32 @@
         c-electric-paren
         c-electric-semi&comma
         dabbrev-expand
+        electric-newline-and-maybe-indent
         end-of-buffer
         ess-smart-S-assign
         ess-yank
+        fill-paragraph
         indent-new-comment-line
         kill-region
+        markdown-exdent-or-delete
         matlab-electric-comment
         matlab-justify-line
         matlab-linefeed
         org-beginning-of-line
+        org-delete-char
         org-end-of-line
         org-force-self-insert
         org-kill-line
         org-return-indent
         org-self-insert-command
+        orgtbl-self-insert-command
         python-backspace
         python-electric-colon
+        reindent-then-newline-and-indent
         smex
         sp--self-insert-command
+        whole-line-or-region-kill-ring-save
+        whole-line-or-region-yank
         yas-expand
         ))
 
@@ -44,6 +53,7 @@
         ido-find-file
         ido-switch-buffer
         ido-write-file
+        kmacro-end-macro
         scroll-bar-toolkit-scroll
         text-scale-decrease
         text-scale-increase

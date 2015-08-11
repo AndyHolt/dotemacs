@@ -24,3 +24,6 @@ ido.last
 smex-items
 
 *~
+
+# files with content that shouldn't be shared
+adh_evernote.el
