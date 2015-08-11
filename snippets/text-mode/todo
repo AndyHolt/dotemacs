@@ -2,4 +2,4 @@
 # name: todo (watson style)
 # key: t
 # --
-`(yas-with-comment " [todo] - ")`
+`(yas-with-comment "[todo] - ")`

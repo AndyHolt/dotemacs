@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Sermon notes header
+# key: serhead
+# --
+---
+title: ${1:Sermon Title}
+passage: ${2:Sermon passage}
+author: ${3:Andy Holt}
+date: ${4:\today}
+documentclass: adhsernotes
+---
+
+$0

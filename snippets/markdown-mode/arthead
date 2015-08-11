@@ -1,0 +1,15 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Article header
+# key: arthead
+# --
+---
+title: ${1:Document Title}
+author: ${2:Andy Holt}
+date: ${3:\today}
+documentclass: adharticle
+classoption: electronic, timesopt
+bibstyle: authoryear-comp
+bibfiles: ${4:bibfile.bib}
+---
+
+$0

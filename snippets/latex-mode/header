@@ -6,30 +6,11 @@
 % Author: ${3:adh}
 % Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
 
-\documentclass[a4paper,11pt]{article}  % Standard document class
-\usepackage[english]{babel}            % Set document language
-\usepackage{fullpage}                  % Set up page for small margins etc
-
-\usepackage{graphicx}                  % For including images in document
-\usepackage{placeins}                  % Allows use of \FloatBarrier
-                                         % to avoid images or tables
-				         % moving into next section
-\usepackage{subfig}                    % For subfigures...
-
-\usepackage{amsmath}                   % For improving maths/formula typesetting
-\usepackage{tabularx}                  % Table changing package
-
-\usepackage{algpseudocode}             % For producing algorithms/flowcharts
-\usepackage{listings}                  % For including source code in document
-
-
-% Provide command for scientific notation
-\providecommand{\e}[1]{\ensuremath{\times10^{#1}}}
-\providecommand{\degrees}{\ensuremath{^{\circ}}}
+\documentclass[electronic,timesopt]{adharticle}
 
 % Define title here:
 \title{$4}
-\author{${5:Andrew Holt}}
+\author{${5:Andy Holt}}
 \date{${6:`(insert (format-time-string "%d %B %Y"))`}}
 
 \begin{document}

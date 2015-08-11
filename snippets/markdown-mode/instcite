@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: institutes citation
+# key: cc
+# --
+\RN{$1}.\Rn{$2}.{$3}, \pno~$4

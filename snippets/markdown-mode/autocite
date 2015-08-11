@@ -1,0 +1,5 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: autocite command
+# key: ac
+# --
+\autocite${1:[${2:page refs}]}{${3:citename}}$0
