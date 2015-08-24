@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: Header for shell scripts
+# key: header
+# --
+#!/bin/zsh
+#
+# File: ${1:`(insert (buffer-name))`}
+# Description: ${2:Description of script.}
+# Author: ${3:Andy Holt}
+# Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+
+$0

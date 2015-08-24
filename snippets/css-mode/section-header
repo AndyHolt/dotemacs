@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: section header comment
+# key: sec
+# --
+/* 
+======================================
+${1:Section name}
+======================================
+*/
+$0

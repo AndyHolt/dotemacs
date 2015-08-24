@@ -1,0 +1,25 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: prayer letter outline
+# key: plo
+# --
+#+TITLE: Prayer Letter Outline - `(insert (format-time-string "%B %Y"))`
+#+AUTHOR: Andy Holt
+#+EMAIL: andrew.holt@hotmail.co.uk
+#+LANGUAGE: en
+#+STARTUP: indent
+
+* TODO Letter title
+
+* TODO Intro blurb
+
+* TODO Main section
+** TODO Update
+** TODO Prayer requests
+
+* TODO Ending
+** TODO Summary of things coming up
+** TODO Summary of prayer requests
+
+* TODO Other info
+** TODO My contact details
+** TODO UCCF details

@@ -41,6 +41,7 @@
         reindent-then-newline-and-indent
         smex
         sp--self-insert-command
+        sp-remove-active-pair-overlay
         whole-line-or-region-kill-ring-save
         whole-line-or-region-yank
         yas-expand
