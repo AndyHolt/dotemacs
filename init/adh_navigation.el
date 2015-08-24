@@ -8,7 +8,7 @@
 ;;
 ;; Set up more powerful ways of navigating the current buffer.
 ;; Includes:
-;;   - Ace jump mode
+;;   - Avy - a replacement for ace-jump-mode
 ;;   - Goto line exention to show line numbers
 ;;   - Expand region and change-inner
 ;;   - Annoying arrows mode
@@ -16,14 +16,16 @@
 
 ;;; Code:
 
-;[todo] - replace ace with avy
-;; setup ace-jump mode
-(require 'ace-jump-mode)
+;; avy setup
+(setq avy-style 'at-full)
+(setq avy-all-windows t)
 
-;; setup keyboard shortcuts for ace-jump mode
-(global-set-key "\C-cj" 'ace-jump-mode)
-(global-set-key "\C-ck" 'ace-jump-mode-pop-mark)
-(global-set-key "\C-cw" 'ace-jump-word-mode)
+;; setup keyboard shortcuts for avy mode (replacement for ace-jump mode)
+(global-set-key "\C-cj" 'avy-goto-char)
+(global-set-key "\C-ck" 'avy-pop-mark)
+(global-set-key "\C-cg" 'avy-goto-line)
+; [todo] - consider changing to avy-goto-subword-1 or avy-goto-word-or-subword-1
+(global-set-key "\C-cw" 'avy-goto-word-1)
 
 ;; setup ace-link mode, for jumping to links in help/info windows
 (ace-link-setup-default)

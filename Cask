@@ -1,11 +1,11 @@
 (source gnu)
 (source melpa)
-;; (source marmalade)
+(source marmalade)
 
 (depends-on "ace-jump-buffer")
-(depends-on "ace-jump-mode")
 (depends-on "ace-link")
 (depends-on "ace-window")
+(depends-on "avy")
 (depends-on "annoying-arrows-mode")
 (depends-on "anzu")
 (depends-on "auctex")
