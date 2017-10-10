@@ -20,8 +20,7 @@
       '("andrew.holt@hotmail.co.uk"
         "andrew.holt635@gmail.com"
         "andy.holt@cantab.net"
-        "aholt@uccf.org.uk"
-        "studentsathebron@gmail.com"))
+        "aholt@uccf.org.uk"))
 
 ;; Set up folders
 (setq 
@@ -167,33 +166,7 @@
                     ( mu4e-trash-folder . "/uccf/Trash" )
                     ( mu4e-refile-folder . "/uccf/Archive" )
                     ( mu4e-sent-messages-behavior . delete)))
-         ,(make-mu4e-context
-           :name "students"
-           :enter-func (lambda () (mu4e-message "Switch to students context"))
-           ;; leave-fun not defined
-           :match-func (lambda (msg)
-                         (when msg 
-                           (mu4e-message-contact-field-matches msg 
-                             :to "studentsathebron@gmail.com")))
-           :vars '(  ( user-mail-address . "studentsathebron@gmail.com" )
-                     ( user-full-name	    . "Students at Hebron" )
-                     ( mu4e-compose-signature-auto-include . t)
-                     ( mu4e-compose-signature . (concat
-                                                 "Students@Hebron\n"
-                                                 "e: students@hebronaberdeen.org.uk\n"
-                                                 "w: http://www.hebron-evangelical.co.uk\n"
-                                                 "Hebron Evangelical Church, Summer Street, Aberdeen, AB10 1RR\n"))
-                     ( smtpmail-stream-type . 'starttls )
-                     ( smtpmail-default-smtp-server . "smtp.gmail.com" )
-                     ( smtpmail-smtp-server . "smtp.gmail.com")
-                     ( smtpmail-smtp-service . 587 )
-                     ( smtpmail-smtp-user . "studentsathebron")
-                     ( mu4e-compose-reply-to-address . "students@hebronaberdeen.org.uk")
-                     ( mu4e-sent-folder   . "/hebronstudents/sent"    )
-                     ( mu4e-drafts-folder . "/hebronstudents/drafts"  )
-                     ( mu4e-trash-folder  . "/hebronstudents/Trash"   )
-                     ( mu4e-refile-folder . "/hebronstudents/archive" )
-                     ( mu4e-sent-messages-behavior . delete)))))
+         ))
 
 ;; if not otherwise specified, use hotmail context as default
 (setq mu4e-context-policy 'pick-first)
@@ -222,8 +195,7 @@
       '( ("/hotmail/Inbox"         . ?h)
          ("/ah635-gmail.com/INBOX" . ?g)
          ("/cantab/INBOX" . ?c)
-         ("/uccf/INBOX" . ?u)
-         ("/hebronstudents/INBOX" . ?s)))
+         ("/uccf/INBOX" . ?u)))
 
 ;; set up actions
 ;; view html mail in web browser
