@@ -17,17 +17,20 @@
         c-electric-paren
         c-electric-semi&comma
         dabbrev-expand
+        delete-indentation
         electric-newline-and-maybe-indent
         end-of-buffer
         ess-smart-S-assign
         ess-yank
         fill-paragraph
         indent-new-comment-line
+        keyboard-quit
         kill-region
         markdown-exdent-or-delete
         matlab-electric-comment
         matlab-justify-line
         matlab-linefeed
+        message-beginning-of-line
         org-beginning-of-line
         org-delete-char
         org-end-of-line
@@ -35,6 +38,8 @@
         org-kill-line
         org-return-indent
         org-self-insert-command
+        orgtbl-hijacker-command-102
+        orgtbl-hijacker-command-109
         orgtbl-self-insert-command
         python-backspace
         python-electric-colon
@@ -42,6 +47,8 @@
         smex
         sp--self-insert-command
         sp-remove-active-pair-overlay
+        swiper
+        whole-line-or-region-kill-region
         whole-line-or-region-kill-ring-save
         whole-line-or-region-yank
         yas-expand
