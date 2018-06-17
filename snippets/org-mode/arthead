@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Org article header
+# key: arthead
+# --
+#+TITLE: ${1:Title}
+#+AUTHOR: ${2:Andy Holt}
+#+DATE: ${3:\today}
+#+LaTeX_CLASS: adharticle
+#+LaTeX_CLASS_OPTIONS: [timesopt]
+#+LATEX_HEADER: \usepackage[style=verbose-ibid, natbib=true]{biblatex}
+#+LATEX_HEADER: \addbibresource{${4:Theology.bib}}
+#+OPTIONS: toc:nil
+
+$0

@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: Handout header
+# key: hohead
+# --
+---
+title: ${1:Seminar Title}
+author: ${2:Andy Holt}
+date: ${3:\today}
+documentclass: adhhandout
+bibstyle: verbose-ibid
+bibfiles: ${4:~/Projects/WritingTools/Theology.bib}
+---

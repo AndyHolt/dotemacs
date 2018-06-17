@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: book citiation
+# key: book
+# --
+@Book\{${1:key},
+  author =       \{${2:author}\},
+  title =        \{${3:book title}\},
+  publisher =    \{${4:publisher}\},
+  year =         \{${5:year}\},
+  location =     \{${6:location}\}
+\}

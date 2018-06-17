@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: fill-in-blank gap
+# key: gap
+# --
+\framebox{
+\begin{minipage}{0.97\textwidth}
+
+${1:Question text}
+
+\vspace\{${2:gap size}\}
+
+\end{minipage}
+}
+$0

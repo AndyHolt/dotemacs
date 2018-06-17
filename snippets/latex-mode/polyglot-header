@@ -1,0 +1,26 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: polyglot-header
+# key: pghead
+# --
+% File name: ${1:`(insert (buffer-name))`}
+% ${2:Description of file contents.}
+% Author: ${3:adh}
+% Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+
+\documentclass{polyglot}
+
+% Define title here:
+\title{$4}
+
+\begin{document}
+
+% generate title
+\maketitle
+
+\begin{paracol}{${5:no of columns (2 or 3 usually)}}
+$0
+${5:$(while (< num (string-to-number yas-text))
+            (insert "\switchcolumn\n"))}
+\end{paracol}
+
+\end{document}

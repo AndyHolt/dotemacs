@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: article citation
+# key: article
+# --
+@article\{${1:key},
+  author =       \{${2:author}\},
+  title =        \{${3:title}\},
+  journal =      \{${4:journal}\},
+  shortjournal = \{${5:short version of journal name}\},
+  year =         \{${6:year of publication}\},
+  volume =       \{${5:journal volume}\},
+  number =       \{${5:journal number}\},
+  pages =        \{${5:pages of article in journal}\},
+  file =         \{${5:local file}\}
+\}

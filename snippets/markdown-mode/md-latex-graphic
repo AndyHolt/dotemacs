@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: md-latex graphic
+# key: lgr
+# --
+\begin{center}
+\includegraphics[width=1.0\textwidth]\{${1:Filename.extension}\}
+\end{center}
+$0
