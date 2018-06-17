@@ -28,6 +28,10 @@
   (lambda ()
     (setq TeX-command-extra-options "-shell-escape")))
 
+(eval-after-load "latex"
+  '(progn
+     (define-key LaTeX-mode-map (kbd "C-{") 'helm-bibtex)))
+
 (provide 'adh_latex)
 
 ;;; adh_latex.el ends here
