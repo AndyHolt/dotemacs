@@ -10,6 +10,8 @@
 
 ;;; Code:
 
+(require 'hydra)
+
 (defun hydra-universal-arugment (arg)
   (interactive "P")
   (setq prefix-arg (if (consp arg)
@@ -36,6 +38,10 @@
           (split-window-below)
           (windmove-down))
         "horiz")
+   ("^" enlarge-window "taller")
+   ("%" shrink-window "shorter")
+   ("}" enlarge-window-horizontally "wider")
+   ("{" shrink-window-horizontally "narrow")
    ("t" transpose-frame "transpose")
    ("o" delete-other-windows "one" :color blue)
    ("a" ace-window "ace")
