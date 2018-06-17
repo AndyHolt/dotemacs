@@ -19,4 +19,12 @@
 (define-key dired-mode-map
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
+;; set up peep-dired, for displaying images etc while browsing in dired
+(require 'peep-dired)
+(eval-after-load 'dired
+  '(define-key dired-mode-map (kbd "P") 'peep-dired))
+
+(setq peep-dired-cleanup-on-disable t)
+(setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
+
 (provide 'adh_dired)
