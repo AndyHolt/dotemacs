@@ -216,6 +216,13 @@
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
+; [review] - farm out to own file if keeping
+(which-key-mode)
+
+;; Remove 3D effect of modeline, keep it flat
+(set-face-attribute 'mode-line nil :box nil)
+(set-face-attribute 'mode-line-inactive nil :box nil)
+
 (provide 'adh_gui)
 
 ;;; adh_gui.el ends here
