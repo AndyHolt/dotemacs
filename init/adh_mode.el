@@ -50,13 +50,47 @@
 
 ;; PDFs shouldn't be opened in Emacs. Load in hex mode as it's much faster.
 ;; [todo] - change to auto-open PDFs in standard program instead?
-(add-to-list 'auto-mode-alist '("\\.pdf\\'" . hexl-mode))
+; (add-to-list 'auto-mode-alist '("\\.pdf\\'" . hexl-mode))
 
 ;; use markdown mode for .md files
 (autoload 'markdown-mode "markdown-mode"
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; citations from bibtex in markdown mode
+(defun adh-markdown-citation-config ()
+  "Set up helm-bibtex for markdown mode."
+    (local-set-key (kbd "C-c (") 'helm-bibtex))
+
+(add-hook 'markdown-mode-hook 'adh-markdown-citation-config)
+
+;; add bib files to helm-bibtex search path
+(setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"))
+
+;; change default action of helm-bibtex to insert citation
+(require 'helm-bibtex)
+(helm-delete-action-from-source "Insert citation" helm-source-bibtex)
+(helm-add-action-to-source "Insert citation"
+                           'helm-bibtex-insert-citation helm-source-bibtex 0)
+
+;; use preview to open PDFs
+;; [todo] - not working! Needs some fixing
+;; (setq bibtex-completion-pdf-open-function
+;;   (lambda (fpath)
+;;     (call-process "open" nil 0 nil "-a" "/Applications/Preview.app" fpath)))
+
+;; setup of helm-bibtex for pdf file links
+;; set a bibtex field for path to file
+(setq bibtex-completion-pdf-field "File")
+;; backup: a directory location
+;; (files here should be stored with name: bibtex-key.pdf)
+(setq bibtex-completion-library-path '("/Users/adh/Documents/BooksAndArticles"
+                                       "/Users/adh/Documents/Manuels"))
+
+;; setup of helm-bibtex for notes (linked to bibkey and PDF file)
+(setq bibtex-completion-notes-path "/Users/adh/Documents/BookNotes")
+
 
 ;; function to clean up tables from org syntax to md
 (defun org2md-table ()
@@ -67,12 +101,20 @@
     (while (search-forward "-+-" nil t) (replace-match "-|-"))
     ))
 
+(defun org2md-table2 ()
+    "Change org-mode table sytnax into markdown format."
+  (interactive)
+  (save-excursion
+    (goto-char (point-min))
+    (while (search-forward "-|-" nil t) (replace-match "-+-"))
+    ))
+
 ;; turn on org table minor mode when using markdown mode
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 ;; convert tables on save
 (add-hook 'markdown-mode-hook
           (lambda()
-            (add-hook 'before-save-hook 'org2md-table nil 'make-it-local)))
+            (add-hook 'before-save-hook 'org2md-table2 nil 'make-it-local)))
 ;; don't run whitespace cleanup in markdown mode - double spaces at ends of
 ;; lines are important!
 (add-hook 'markdown-mode-hook
@@ -117,11 +159,17 @@
             (flyspell-mode 1)
             (org-indent-mode 1)))
 
+(require 'whole-line-or-region)
 (add-hook 'text-mode-hook
           (lambda ()
             (auto-fill-mode 1)
             (flyspell-mode 1)
             (whole-line-or-region-mode t)))
+
+;[todo] - consider visual-line-mode for some text modes (e.g. email)
+;; (instead of auto-fill-mode)
+;; does 'soft' line breaks instead of hard line breaks (text is displayed neatly
+;; wrapped, but doesn't actually add newlines into text.)
 
 (add-to-list 'load-path
              "~/.emacs.d/plugins/")
