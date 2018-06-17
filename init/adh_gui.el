@@ -48,13 +48,21 @@
 ;(load-theme 'wombat t)
 ;(color-theme-solarized-dark)
 (require 'theme-changer)
-(setq calendar-location-name "Cambridge, UK")
-(setq calendar-latitude 52.2)
-(setq calendar-longitude 0.1)
-;; (setq calendar-location-name "Aberdeen, UK")
-;; (setq calendar-latitude 57.3)
-;; (setq calendar-longitude -2.2)
-(change-theme 'solarized-light 'solarized-dark)
+;; (setq calendar-location-name "Cambridge, UK")
+;; (setq calendar-latitude 52.2)
+;; (setq calendar-longitude 0.1)
+(setq calendar-location-name "Aberdeen, UK")
+(setq calendar-latitude 57.2)
+(setq calendar-longitude -2.1)
+
+;; add cask directories to theme library
+(add-to-list 'custom-theme-load-path "~/.emacs.d/.cask/24.5.1/elpa/solarized-theme-20160515.442/")
+
+(setq solarized-use-variable-pitch nil
+      solarized-scale-org-headlines nil)
+
+; (change-theme 'solarized-light 'solarized-dark)
+(change-theme 'solarized-light 'zenburn)
 
 ;; make sure cursor doesn't blink
 (blink-cursor-mode 0)
