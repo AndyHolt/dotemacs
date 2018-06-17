@@ -124,6 +124,19 @@
 (setq scroll-conservatively 10000
       scroll-step 1)
 
+;; setup writeroom mode and focus mode for 'distraction free' writing
+(require 'writeroom-mode)
+(setq writeroom-width 90)
+
+;[todo] - have focus-mode focus on paragraph instead of sentence?
+
+;[todo] - make writeroom mode auto-load focus-mode properly...
+(add-hook 'writeroom-mode-hook
+          (lambda ()
+            (if focus-mode
+                (focus-mode 1)
+                (focus-mode 0))))
+
 
 ;; fullscreen stuff - taken from babcore emacs setup
 ; fullscreen, taken from http://www.emacswiki.org/emacs/FullScreen#toc26
