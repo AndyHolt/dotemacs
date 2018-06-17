@@ -1,4 +1,4 @@
-(require 'discover)
-(global-discover-mode 1)
+;(require 'discover)
+;(global-discover-mode 1)
 
 (provide 'adh_discover)

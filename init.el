@@ -63,7 +63,7 @@
 (require 'adh_diminish)
 (require 'adh_ess)
 (require 'adh_multiplecursors)
-(require 'adh_discover)
+;(require 'adh_discover)
 (require 'adh_smartparens)
 (require 'adh_visualregexp)
 (require 'adh_latex)
