@@ -24,19 +24,23 @@
         (t "~/Dropbox/"))
   "Holds the location of the Dropbox root directory for the current system.")
 
+;; use org-mac to get links from mac applications
+; (require 'org-mac-link)
+
 ;; add files to org agenda
 (setq org-agenda-files
       (list (concat adh-dropbox-location "Org_files/todo.org")
-             (concat adh-dropbox-location "Org_files/Work.org")
-             (concat adh-dropbox-location "Org_files/shopping.org")
-             (concat adh-dropbox-location "Org_files/computer_stuff.org")))
+            (concat adh-dropbox-location "Org_files/gcal.org")
+            (concat adh-dropbox-location "Org_files/uccf-cal.org")
+            (concat adh-dropbox-location "Org_files/church-cal.org")
+            (concat adh-dropbox-location "Org_files/notes.org")))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
-  '((sequence "TODO" "|" "DONE")))
+      '((sequence "TODO" "NEXT" "IN PROGRESS" "WAITING" "|" "INACTIVE" "CANCELLED" "DONE")))
 
 ;; global keybindings for org mode
 (eval-after-load "org"
@@ -69,26 +73,49 @@
 (setq org-default-notes-file "~/Dropbox/Org_files/todo.org")
 
 ;; setup capture templates
+;; OLD VERSION!
+;; (setq org-capture-templates
+;;   '(("t" "Templates for TODO items")
+;;     ("tt" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                       "Tasks")
+;;      "* TODO %?\n %i\n"
+;;      :kill-buffer)
+;;     ("tc" "Computer" entry (file+headline
+;;                             "~/Dropbox/Org_files/computer_stuff.org"
+;;                             "Unfiled")
+;;      "* TODO %?\n %i\n"
+;;      :kill-buffer)
+;;     ("tw" "Work" entry (file "~/Dropbox/Org_files/Work.org")
+;;      "* TODO %?\n %i\n"
+;;      :kill-buffer)
+;;    ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                     "Notes")
+;;         "* %?\n %i\n %a")
+;;    ("l" "Link" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                "Web Links")
+;;     "* %a\n %?\n %i")))
+
+;; capture templates, experimental new one
 (setq org-capture-templates
-  '(("t" "Templates for TODO items")
-    ("tt" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                      "Tasks")
-     "* TODO %?\n %i\n"
-     :kill-buffer)
-    ("tc" "Computer" entry (file+headline
-                            "~/Dropbox/Org_files/computer_stuff.org"
-                            "Unfiled")
-     "* TODO %?\n %i\n"
-     :kill-buffer)
-    ("tw" "Work" entry (file "~/Dropbox/Org_files/Work.org")
-     "* TODO %?\n %i\n"
-     :kill-buffer)
-   ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                    "Notes")
-        "* %?\n %i\n %a")
-   ("l" "Link" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                               "Web Links")
-    "* %a\n %?\n %i")))
+      '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
+         "* TODO %?\n %i\n\n")
+        ("c" "Todo with Context" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
+         "* TODO %?\n %i\n%a\n\n")
+        ("e" "Event")
+        ("ep" "Event in Personal Calendar" entry (file "~/Dropbox/Org_files/gcal.org" )
+         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("eu" "Event in UCCF Calendar" entry (file "~/Dropbox/Org_files/uccf-cal.org" )
+         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("ec" "Event in Church Calendar" entry (file "~/Dropbox/Org_files/church-cal.org" )
+         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("r" "Reading")
+        ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org" "Reading" )
+         "* book: %^{author}, %^{title}\n%?\n%T\n\n")
+        ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                             "Reading")
+         "* article: %?\n%T\n\n")
+        ("n" "Note" entry (file+datetree "~/Dropbox/Org_files/notes.org")
+         "* %?\n\n%T\n\n")))
 
 ;; start org protocol - for creating links etc to external
 ;; applications
@@ -98,7 +125,10 @@
 
 ;; set pdf application for opening links
 ;; from stack overflow
-(setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s")
+(cond ((eq system-type 'gnu/linux)
+       (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))
+      ((eq system-type 'darwin)
+       (setcdr (assoc "\\.pdf\\'" org-file-apps) "open %s")))
 
 ;; setup refiling to up to 3rd level headings
 (setq org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
@@ -127,8 +157,95 @@
 
 ;; set up mobile org
 (setq org-directory (concat adh-dropbox-location "Org_files"))
-(setq org-mobile-directory (concat adh-dropbox-location "MobileOrg"))
+(setq org-mobile-directory (concat adh-dropbox-location "Apps/MobileOrg"))
 (setq org-mobile-inbox-for-pull (concat adh-dropbox-location "Org_files/todo.org"))
+
+;; Make RefTeX work with Org-Mode
+;; use 'C-c (' instead of 'C-c [' because the latter is already
+;; defined in orgmode to the add-to-agenda command.
+(defun org-mode-reftex-setup ()
+  (load-library "reftex") 
+  (and (buffer-file-name)
+  (file-exists-p (buffer-file-name))
+  (reftex-parse-all))
+  (define-key org-mode-map (kbd "C-c (") 'reftex-citation))
+
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
+
+;; RefTeX formats for biblatex (not natbib)
+(setq reftex-cite-format
+      '(
+        (?\C-m . "\\cite[]{%l}")
+        (?t . "\\textcite{%l}")
+        (?a . "\\autocite[]{%l}")
+        (?p . "\\parencite{%l}")
+        (?f . "\\footcite[][]{%l}")
+        (?F . "\\fullcite[]{%l}")
+        (?x . "[]{%l}")
+        (?X . "{%l}")
+        ))
+
+(setq font-latex-match-reference-keywords
+      '(("cite" "[{")
+        ("cites" "[{}]")
+        ("autocite" "[{")
+        ("footcite" "[{")
+        ("footcites" "[{")
+        ("parencite" "[{")
+        ("textcite" "[{")
+        ("fullcite" "[{") 
+        ("citetitle" "[{") 
+        ("citetitles" "[{") 
+        ("headlessfullcite" "[{")))
+
+(setq reftex-cite-prompt-optional-args nil)
+(setq reftex-cite-cleanup-optional-args t)
+
+;; add adharticle class to org's recognised classes
+(require 'ox-latex)
+(add-to-list 'org-latex-classes
+             '("adharticle"
+               "\\documentclass{adharticle}
+               [NO-DEFAULT-PACKAGES]
+               [PACKAGES]
+               [EXTRA]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("adhhandout"
+               "\\documentclass{adhhandout}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;; (setq org-latex-pdf-process
+;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
+
+;; set up org-ref
+(setq org-ref-default-citation-link "autocite")
+(setq reftex-default-bibliography '("~/Projects/WritingTools/Theology.bib"))
+;; not yet setup up fully, not sure if I need it...
+;; (setq org-ref-bibliography-notes "~/Dropbox/bibliography/notes.org"
+;;       org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
+;;       org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
+
+;; use interleave mode
+(require 'interleave)
+
+;; correct quote marks when exporting
+(setq org-export-with-smart-quotes t)
+
+;; highlight current line while in agenda view
+(add-hook 'org-agenda-mode-hook 'hl-line-mode)
 
 (provide 'adh_org)
 
