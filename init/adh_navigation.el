@@ -28,7 +28,8 @@
 (global-set-key "\C-cw" 'avy-goto-word-1)
 
 ;; setup ace-link mode, for jumping to links in help/info windows
-(ace-link-setup-default)
+; [todo] - why is ace-link-setup not working? Do I need it?
+;;(ace-link-setup-default)
 
 ;; setup ace-window mode for fast selection of windows
 (global-set-key (kbd "C-x p") 'ace-window)
@@ -60,8 +61,23 @@
 ;; (global-annoying-arrows-mode)
 
 ;; show number of search matches in mode line
+;; note: swiper doesn't need this, can remove if swiper completely replaces
+;; isearch usage
 (require 'anzu)
 (global-anzu-mode t)
+
+;; set up swiper, a more powerful search
+(require 'swiper)
+(global-set-key (kbd "C-s") 'swiper)
+(setq ivy-display-style 'fancy)
+
+;; counsel-yank-pop
+(global-set-key (kbd "C-x y") 'counsel-yank-pop)
+
+;; keybinding for comment-region
+;[todo] - perhaps move to another file?
+(global-set-key (kbd "C-c ;") 'comment-region)
+(global-set-key (kbd "C-c :") 'uncomment-region)
 
 (provide 'adh_navigation)
 
