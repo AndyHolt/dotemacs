@@ -13,6 +13,8 @@
 
 ;;; Code:
 
+(require 'fullframe)
+
 ;; set magit to use fullframe
 (fullframe magit-status magit-mode-quit-window)
 
