@@ -16,6 +16,9 @@
 ;; use file name rather than first line as note title
 (setq deft-use-filename-as-title t)
 
+;; set keybinding for deft
+(global-set-key (kbd "C-c m d") 'deft)
+
 (provide 'adh_deft)
 
 ;;; adh_deft.el ends here
