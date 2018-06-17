@@ -274,6 +274,12 @@
 ;; use org-mu4e for email links from org files
 (require 'org-mu4e)
 
+;; Don't include related emails in headers view
+;; if non-nil (as set to default in mu 1.0), replies show in headers view of
+;; inbox, etc
+;; Can change value by pressing W in headers view
+(setq mu4e-headers-include-related nil)
+
 (provide 'adh_email)
 
 ;;; adh_email.el ends here
