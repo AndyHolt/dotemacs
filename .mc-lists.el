@@ -16,6 +16,7 @@
         c-electric-delete-forward
         c-electric-paren
         c-electric-semi&comma
+        comment-dwim
         dabbrev-expand
         delete-indentation
         electric-newline-and-maybe-indent
@@ -48,6 +49,7 @@
         sp--self-insert-command
         sp-remove-active-pair-overlay
         swiper
+        undefined
         whole-line-or-region-kill-region
         whole-line-or-region-kill-ring-save
         whole-line-or-region-yank
@@ -61,6 +63,7 @@
         ido-find-file
         ido-switch-buffer
         ido-write-file
+        indent-for-tab-command
         kmacro-end-macro
         scroll-bar-toolkit-scroll
         text-scale-decrease
