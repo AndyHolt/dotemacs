@@ -76,6 +76,9 @@
        (setq default-frame-alist '((font . "Inconsolata-12")
                                    (background-mode . dark)))))
 
+;; set variable-pitch-mode font
+(set-face-font 'variable-pitch "Baskerville-16")
+
 ;; modeline coloring
 ;;    better clarity of active and inactive window
 ;;    highlight buffer name
