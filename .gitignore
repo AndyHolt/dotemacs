@@ -27,3 +27,8 @@ smex-items
 
 # files with content that shouldn't be shared
 adh_evernote.el
+/init/adh_orgcal.el
+*.png
+/org-gcal/
+/eshell/
+/recentf
