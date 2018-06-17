@@ -40,6 +40,9 @@
 ;; Change all yes/no questions to y/n type
 (fset 'yes-or-no-p 'y-or-n-p)
 
+;; turn the stupid bell off
+(setq ring-bell-function 'ignore)
+
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
 ;(load-theme 'wombat t)
