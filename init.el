@@ -13,7 +13,9 @@
 
 ;; (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init/")
-(add-to-list 'load-path "~/.emacs.d/.cask/")
+;; (add-to-list 'load-path "~/.emacs.d/.cask/")
+(let ((default-directory  "~/.emacs.d/.cask/"))
+  (normal-top-level-add-subdirs-to-load-path))
 
 ;; setup cask
 (cond ((eq system-type 'gnu/linux)
@@ -30,7 +32,10 @@
             '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+	     '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
+(setq package-enable-at-startup nil)
 
 (require 'adh_gui)
 (require 'adh_org)
