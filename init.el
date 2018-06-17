@@ -39,8 +39,10 @@
 
 (require 'adh_gui)
 (require 'adh_org)
-(require 'adh_ido)
+;(require 'adh_ido)
+(require 'adh_ivy)
 (require 'adh_yasnippet)
+(require 'adh_helm)
 (require 'adh_mode)
 (require 'adh_language)
 (require 'adh_buffersandfiles)
@@ -57,11 +59,10 @@
 (require 'adh_hippie)
 (require 'adh_alias)
 (require 'adh_flycheck)
-(require 'adh_sentence-highlight)
-(require 'adh_helm)
+;(require 'adh_sentence-highlight)
 (require 'adh_projectile)
 (require 'adh_diminish)
-(require 'adh_ess)
+;(require 'adh_ess)
 (require 'adh_multiplecursors)
 ;(require 'adh_discover)
 (require 'adh_smartparens)
@@ -71,6 +72,9 @@
 (require 'adh_fullframe)
 (require 'adh_deft)
 (require 'adh_hydra)
+(require 'adh_email)
+(require 'adh_orgcal)
+(require 'adh_pdf)
 
 ;; system specific configurations
 (cond ((eq system-type 'gnu/linux)
@@ -86,6 +90,7 @@
 
 (server-start)
 
+(message "End of init.el")
 (provide 'init)
 
 ;;; init.el ends here
