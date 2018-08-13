@@ -76,3 +76,4 @@
 (depends-on "yagist")
 (depends-on "yaml-mode")
 (depends-on "yasnippet")
+(depends-on "zenburn-theme")
