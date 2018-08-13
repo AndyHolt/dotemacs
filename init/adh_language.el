@@ -59,6 +59,10 @@
     (ispell-kill-ispell t)
     ))
 
+(global-set-key (kbd "C-c d") 'define-word)
+(global-set-key (kbd "C-c D") 'define-word-at-point)
+
+
 (provide 'adh_language)
 
 ;;; adh_language.el ends here

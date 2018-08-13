@@ -17,6 +17,7 @@
 (depends-on "counsel-projectile")
 (depends-on "csv-mode")
 (depends-on "dash")
+(depends-on "define-word")
 (depends-on "deft")
 (depends-on "diminish")
 (depends-on "discover")
