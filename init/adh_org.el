@@ -130,8 +130,25 @@
       ((eq system-type 'darwin)
        (setcdr (assoc "\\.pdf\\'" org-file-apps) "open %s")))
 
-;; setup refiling to up to 3rd level headings
-(setq org-refile-targets (quote ((org-agenda-files :maxlevel . 3))))
+;; setup refiling
+;; refiling possible to:
+;; - current buffer, up to 10 levels of headings
+;; - agenda files, up to 3 levels of headings
+;; - book notes files, up to 10 levels of headings (probably too much, but ah
+;;   well!)
+;; - notes files, up to 10 levels of headings
+(setq adh-booknotes-files (file-expand-wildcards "~/Documents/BookNotes/*.org"))
+(setq adh-notes-files (file-expand-wildcards "~/Dropbox/Notes/*.org"))
+
+(setq org-refile-targets '((nil :maxlevel . 10)
+                           (org-agenda-files :maxlevel . 3)
+                           (adh-booknotes-files :maxlevel . 10)
+                           (adh-notes-files :maxlevel . 10)))
+
+(setq org-refile-use-outline-path 'file)
+(setq org-outline-path-complete-in-steps nil)
+(setq org-refile-allow-creating-parent-nodes t)
+(setq org-refile-allow-creating-parent-nodes 'confirm)
 
 ;; when inserting new headline, insert below content of current
 ;; headline
