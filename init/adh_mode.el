@@ -91,6 +91,15 @@
 ;; setup of helm-bibtex for notes (linked to bibkey and PDF file)
 (setq bibtex-completion-notes-path "/Users/adh/Documents/BookNotes")
 
+;; add additional fields to bibtex search in helm matching
+(setq bibtex-completion-additional-search-fields '(subtitle))
+
+;; add subtitle field to helm-bibtex display
+(setq bibtex-completion-display-formats
+      '((t . "${author:36} ${title:*} ${subtitle:60} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
+
+;; set helm-bibtex key binding
+(global-set-key (kbd "C-c m b") 'helm-bibtex)
 
 ;; function to clean up tables from org syntax to md
 (defun org2md-table ()
