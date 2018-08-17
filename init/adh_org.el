@@ -150,6 +150,36 @@
 (setq org-refile-allow-creating-parent-nodes t)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
+;; refiling into date-tree
+;; - Primary use case is when note has been captured from mobile phone, and
+;;   appended to inbox of org-files through dropbox. This note can later, within
+;;   Emacs, be refiled to the appropriate place in date-tree of notes.org
+;; - The motivation for refiling into date-tree, not just into a topical note
+;;   system is for ease of finding when I can vaguely remember when something
+;;   was noted, but not any details for searching
+;; - Code borrowed from
+;;   https://emacs.stackexchange.com/questions/10597/how-to-refile-into-a-datetree
+(defun adh-org-read-datetree-date (d)
+  "Parse a time string D and return a date to pass to the datetree functions."
+  (let ((dtmp (nthcdr 3 (parse-time-string d))))
+    (list (cadr dtmp) (car dtmp) (caddr dtmp))))
+
+(defun adh-org-refile-to-notes (&optional bfn)
+  "Refile an entry to a datetree under an archive."
+  (interactive)
+  (require 'org-datetree)
+  (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/Dropbox/Org_files/notes.org"))))
+         (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
+                                (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
+                              nil)
+                            (adh-org-read-datetree-date (org-read-date t nil)))))
+    (org-refile nil nil (list nil (buffer-file-name bfn) nil
+                              (with-current-buffer bfn
+                                (save-excursion
+                                  (org-datetree-find-date-create datetree-date)
+                                  (point)))))))
+(define-key org-mode-map (kbd "C-c m n") 'adh-org-refile-to-notes)
+
 ;; set up helm-org-rifle
 (defun adh-search-notes ()
     "Call 'helm-org-rifle' with note files from 'adh-booknotes-files and
