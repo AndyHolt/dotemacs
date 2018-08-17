@@ -150,6 +150,17 @@
 (setq org-refile-allow-creating-parent-nodes t)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
+;; set up helm-org-rifle
+(defun adh-search-notes ()
+    "Call 'helm-org-rifle' with note files from 'adh-booknotes-files and
+'adh-notes-files"
+  (interactive)
+  (helm-org-rifle-files (append adh-booknotes-files adh-notes-files))
+  )
+
+(global-set-key (kbd "C-c m f") 'adh-search-notes)
+
+
 ;; when inserting new headline, insert below content of current
 ;; headline
 (setq org-insert-heading-respect-content t)

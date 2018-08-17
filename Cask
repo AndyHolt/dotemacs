@@ -39,6 +39,7 @@
 (depends-on "helm")
 (depends-on "helm-ag")
 (depends-on "helm-bibtex")
+(depends-on "helm-org-rifle")
 (depends-on "helm-projectile")
 (depends-on "htmlize")
 (depends-on "hydra")
