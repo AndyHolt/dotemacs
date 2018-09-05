@@ -96,7 +96,7 @@
 
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
-      '((t . "${author:36} ${title:*} ${subtitle:60} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
+      '((t . "${author:15} ${title:*} ${subtitle:25} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
 
 ;; set helm-bibtex key binding
 (global-set-key (kbd "C-c m b") 'helm-bibtex)
