@@ -109,10 +109,11 @@
         ("ec" "Event in Church Calendar" entry (file "~/Dropbox/Org_files/church-cal.org" )
          "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
         ("r" "Reading")
-        ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org" "Reading" )
+        ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                          "Reading and study" )
          "* book: %^{author}, %^{title}\n%?\n%T\n\n")
         ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                             "Reading")
+                                             "Reading and study")
          "* article: %?\n%T\n\n")
         ("n" "Note" entry (file+datetree "~/Dropbox/Org_files/notes.org")
          "* %?\n\n%T\n\n")))
