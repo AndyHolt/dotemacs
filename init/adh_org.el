@@ -140,11 +140,14 @@
 ;; - notes files, up to 10 levels of headings
 (setq adh-booknotes-files (file-expand-wildcards "~/Documents/BookNotes/*.org"))
 (setq adh-notes-files (file-expand-wildcards "~/Dropbox/Notes/*.org"))
+(setq adh-biblenotes-files (file-expand-wildcards "~/Documents/BibleNotes/*.org"))
+
 
 (setq org-refile-targets '((nil :maxlevel . 10)
                            (org-agenda-files :maxlevel . 3)
                            (adh-booknotes-files :maxlevel . 10)
-                           (adh-notes-files :maxlevel . 10)))
+                           (adh-notes-files :maxlevel . 10)
+                           (adh-biblenotes-files :maxlevel . 10)))
 
 (setq org-refile-use-outline-path 'file)
 (setq org-outline-path-complete-in-steps nil)
