@@ -16,6 +16,11 @@
 
 (global-set-key (kbd "C-c h") 'helm-mini)
 
+;; load helm-bible
+(add-to-list 'load-path "~/Projects/helm-bible/")
+(require 'helm-bible)
+(global-set-key (kbd "C-c m g") 'helm-bible)
+
 (provide 'adh_helm)
 
 ;;; adh_helm.el ends here
