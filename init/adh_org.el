@@ -189,8 +189,10 @@
     "Call 'helm-org-rifle' with note files from 'adh-booknotes-files and
 'adh-notes-files"
   (interactive)
-  (helm-org-rifle-files (append adh-booknotes-files adh-notes-files))
-  )
+  (helm-org-rifle-files (append adh-biblenotes-files
+                                adh-booknotes-files
+                                adh-notes-files
+                                org-agenda-files)))
 
 (global-set-key (kbd "C-c m f") 'adh-search-notes)
 
