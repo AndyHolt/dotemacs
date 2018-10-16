@@ -21,6 +21,11 @@
 (require 'helm-bible)
 (global-set-key (kbd "C-c m g") 'helm-bible)
 
+;; load helm-browser-tabs
+(add-to-list 'load-path "~/Projects/Zenodotus/")
+(require 'helm-browser-tabs)
+(global-set-key (kbd "C-c m t") 'helm-browser-tabs)
+
 (provide 'adh_helm)
 
 ;;; adh_helm.el ends here
