@@ -18,6 +18,9 @@
 ;; have *todo* buffer use org mode
 ;(add-to-list 'auto-mode-alist '("*todo*" . org-mode))
 
+;; add Markdown exporting for org files
+(require 'ox-md)
+
 (defvar adh-dropbox-location
   (cond ((eq system-type 'gnu/linux) "~/Dropbox/")
         ((eq system-type 'windows-nt) "d:/Dropbox/")
