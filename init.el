@@ -27,13 +27,13 @@
 ;; add marmalade repo to package.el list
 (require 'package)
 (add-to-list 'package-archives
-             '("gnu". "http://elpa.gnu.org/packages/") t)
+             '("gnu". "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
-            '("marmalade" . "http://marmalade-repo.org/packages/") t)
+            '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+             '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
-	     '("org" . "http://orgmode.org/elpa/") t)
+	     '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 (setq package-enable-at-startup nil)
 
