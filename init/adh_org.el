@@ -305,6 +305,12 @@
 ;;       org-ref-default-bibliography '("~/Dropbox/bibliography/references.bib")
 ;;       org-ref-pdf-directory "~/Dropbox/bibliography/bibtex-pdfs/")
 
+(setq org-ref-default-bibliography "~/Projects/WritingTools/Theology.bib")
+(setq org-ref-notes-function 'org-ref-notes-function-many-files)
+(setq org-ref-notes-directory "~/Documents/BookNotes")
+
+(require 'org-ref)
+
 ;; use interleave mode
 (require 'interleave)
 
