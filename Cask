@@ -71,6 +71,7 @@
 (depends-on "solarized-theme")
 (depends-on "swiper")
 (depends-on "theme-changer")
+(depends-on "typo")
 (depends-on "visual-regexp")
 (depends-on "wc-mode")
 (depends-on "which-key")

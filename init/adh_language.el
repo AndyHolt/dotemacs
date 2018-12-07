@@ -62,6 +62,11 @@
 (global-set-key (kbd "C-c d") 'define-word)
 (global-set-key (kbd "C-c D") 'define-word-at-point)
 
+;; setup typo minor mode
+;; Use typographical unicode more easily, e.g. en-rules
+(require 'typo)
+
+(add-hook 'mu4e-compose-mode-hook 'typo-mode)
 
 (provide 'adh_language)
 
