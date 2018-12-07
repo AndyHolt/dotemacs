@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Bibtex web article
+# key: webart
+# --
+@misc\{${9:key},
+author =       \{${1:author}\},
+title =        \{${2:title}\},
+subtitle =     \{${3:subtitle}\},
+organisation = \{${4:Organisation/website/source}\},
+date =         \{${5:Date of article}\},
+url =          \{${6:url}\},
+urldate =      \{${7:Date accessed}\},
+file =         \{${8:Local file}\}
+\}

@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: insert supporter
+# key: insup
+# --
+INSERT INTO supporters
+VALUES (0,
+        '${1:title}',
+        '${2:name}',
+        '${3:mail_address}',
+        '${4:mail_city}',
+        '${5:mail_postcode}',
+        '${6:email_address}',
+        '${7:email_address_2}',
+        '${8:phone_number}',
+        ${9:knows_me (1-5)},
+        ${10:knows_uccf (1-5)},
+        '${11:prayer_letter_post},
+        '${12:prayer_letter_email},
+        '${13:last_action}',
+        '${14:last_action_date (yyyy-mm-dd)}',
+        '${15:next_action}',
+        '${16:next_action_deadline}',
+        '${17:GDPR consent (0 for no, 1 for yes)}',
+        '${18:consent_email_link}',
+        '${19:consent_file}');
