@@ -12,7 +12,7 @@
 ;;; Code:
 
 ;; installation/setup
-(pdf-tools-install)
+(pdf-loader-install)
 
 ;; When opening pdfs, show whole page as default
 (setq-default pdf-view-display-size 'fit-page)
