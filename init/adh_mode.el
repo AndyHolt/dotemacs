@@ -66,7 +66,8 @@
 (add-hook 'markdown-mode-hook 'adh-markdown-citation-config)
 
 ;; add bib files to helm-bibtex search path
-(setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"))
+(setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"
+                                       "~/Projects/WritingTools/PopSciHist.bib"))
 
 ;; change default action of helm-bibtex to insert citation
 (require 'helm-bibtex)
@@ -97,6 +98,14 @@
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
       '((t . "${author:15} ${title:*} ${subtitle:25} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
+
+;; [todo] - find a way to add current date to note header
+;; add date to notes header when creating a new note file
+;; (setq bibtex-completion-notes-template-multiple-files
+;;       "#+TITLE: Notes on: ${author-or-editor} (${year}): $title}
+;; #+DATE:
+;;
+;; ")
 
 ;; set helm-bibtex key binding
 (global-set-key (kbd "C-c m b") 'helm-bibtex)
