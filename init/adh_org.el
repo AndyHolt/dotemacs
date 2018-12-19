@@ -36,10 +36,14 @@
             (concat adh-dropbox-location "Org_files/gcal.org")
             (concat adh-dropbox-location "Org_files/uccf-cal.org")
             (concat adh-dropbox-location "Org_files/church-cal.org")
-            (concat adh-dropbox-location "Org_files/notes.org")))
+            (concat adh-dropbox-location "Org_files/notes.org")
+            (concat adh-dropbox-location "Org_files/diary.org")))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
+
+;; set up diary file
+(setq org-agenda-diary-file (concat adh-dropbox-location "Org_files/diary.org"))
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
