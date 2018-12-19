@@ -202,6 +202,42 @@
           (lambda ()
             (turn-on-haskell-indentation)))
 
+;; Select a date via calendar, and insert into buffer at point
+(defun adh-insert-date ()
+  "Insert a specified date, in chosen format."
+  (interactive)
+  (let ((selected-date (org-read-date nil t)))
+    (insert (completing-read "Date format:"
+              (list 
+               ;; 18/12/18
+               (format-time-string "%d/%m/%y" selected-date)
+               ;; 18/12/2018
+               (format-time-string "%d/%m/%Y" selected-date)
+               ;; 18 Dec
+               (string-trim (format-time-string "%e %b" selected-date))
+               ;; 18 Dec 2018
+               (string-trim (format-time-string "%e %b %Y" selected-date))
+               ;; 18 December
+               (string-trim (format-time-string "%e %B" selected-date))
+               ;; 18 December 2018
+               (string-trim (format-time-string "%e %B %Y" selected-date))
+               ;; Tue 18 Dec
+               (format-time-string "%a %e %b" selected-date)
+               ;; Tue 18 Dec 2018
+               (format-time-string "%a %e %b %Y" selected-date)
+               ;; Tuesday 18 December
+               (format-time-string "%A %e %B" selected-date)
+               ;; Tuesday 18 December 2018
+               (format-time-string "%A %e %B %Y" selected-date)
+               ;; 2018-12-18
+               (format-time-string "%Y-%m-%d" selected-date)
+               ;; org-format
+               (format-time-string "%Y-%m-%d %a")
+               ;; RFC 2822: Tue, 18 Dec 2018
+               (format-time-string "%a, %d %b %Y" selected-date)
+)))))
+
+
 (provide 'adh_mode)
 
 ;;; adh_mode.el ends here
