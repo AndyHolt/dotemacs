@@ -214,21 +214,21 @@
                ;; 18/12/2018
                (format-time-string "%d/%m/%Y" selected-date)
                ;; 18 Dec
-               (string-trim (format-time-string "%e %b" selected-date))
+               (format-time-string "%-e %b" selected-date)
                ;; 18 Dec 2018
-               (string-trim (format-time-string "%e %b %Y" selected-date))
+               (format-time-string "%-e %b %Y" selected-date)
                ;; 18 December
-               (string-trim (format-time-string "%e %B" selected-date))
+               (format-time-string "%-e %B" selected-date)
                ;; 18 December 2018
-               (string-trim (format-time-string "%e %B %Y" selected-date))
+               (format-time-string "%-e %B %Y" selected-date)
                ;; Tue 18 Dec
-               (format-time-string "%a %e %b" selected-date)
+               (format-time-string "%a %-e %b" selected-date)
                ;; Tue 18 Dec 2018
-               (format-time-string "%a %e %b %Y" selected-date)
+               (format-time-string "%a %-e %b %Y" selected-date)
                ;; Tuesday 18 December
-               (format-time-string "%A %e %B" selected-date)
+               (format-time-string "%A %-e %B" selected-date)
                ;; Tuesday 18 December 2018
-               (format-time-string "%A %e %B %Y" selected-date)
+               (format-time-string "%A %-e %B %Y" selected-date)
                ;; 2018-12-18
                (format-time-string "%Y-%m-%d" selected-date)
                ;; org-format
