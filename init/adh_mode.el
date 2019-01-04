@@ -202,6 +202,34 @@
           (lambda ()
             (turn-on-haskell-indentation)))
 
+;; add ordinal functionality to format-time-string.
+;; This allows specification of dates such as "1st", rather than just "1", using
+;; %o.
+;; This shouldn't affect other use of format-time-string, as it's just adding
+;; %o as a construct, not changing any standard constructs.
+;; Code from: https://stackoverflow.com/questions/20316754/how-can-i-add-a-format-specifier-to-format-time-string/20317537#20317537
+
+(defun adh-date-ordinal-construct (n)
+  "Special day of month format."
+  (format
+   (concat
+    "%d"
+    (if (memq n '(11 12 13)) "th"
+      (let ((last-digit (% n 10)))
+        (case last-digit
+          (1 "st")
+          (2 "nd")
+          (3 "rd")
+          (otherwise "th"))))) n))
+
+(defadvice format-time-string (before adh-date-ordinal-construct activate)
+  "Add ordinal to %d."
+  (let ((day (nth 3 (decode-time (or time (current-time))))))
+    (setq format-string
+      (replace-regexp-in-string "%o"
+                    (adh-date-ordinal-construct day)
+                    format-string))))
+
 ;; Select a date via calendar, and insert into buffer at point
 (defun adh-insert-date ()
   "Insert a specified date, in chosen format."
@@ -215,20 +243,36 @@
                (format-time-string "%d/%m/%Y" selected-date)
                ;; 18 Dec
                (format-time-string "%-e %b" selected-date)
+               ;; 18th Dec
+               (format-time-string "%o %b" selected-date)
                ;; 18 Dec 2018
                (format-time-string "%-e %b %Y" selected-date)
+               ;; 18th Dec 2018
+               (format-time-string "%o %b %Y" selected-date)
                ;; 18 December
                (format-time-string "%-e %B" selected-date)
+               ;; 18th December
+               (format-time-string "%o %B" selected-date)
                ;; 18 December 2018
                (format-time-string "%-e %B %Y" selected-date)
+               ;; 18 December 2018
+               (format-time-string "%o %B %Y" selected-date)
                ;; Tue 18 Dec
                (format-time-string "%a %-e %b" selected-date)
+               ;; Tue 18th Dec
+               (format-time-string "%a %o %b" selected-date)
                ;; Tue 18 Dec 2018
                (format-time-string "%a %-e %b %Y" selected-date)
+               ;; Tue 18th Dec 2018
+               (format-time-string "%a %o %b %Y" selected-date)
                ;; Tuesday 18 December
                (format-time-string "%A %-e %B" selected-date)
+               ;; Tuesday 18th December
+               (format-time-string "%A %o %B" selected-date)
                ;; Tuesday 18 December 2018
                (format-time-string "%A %-e %B %Y" selected-date)
+               ;; Tuesday 18th December 2018
+               (format-time-string "%A %o %B %Y" selected-date)
                ;; 2018-12-18
                (format-time-string "%Y-%m-%d" selected-date)
                ;; org-format
@@ -237,6 +281,19 @@
                (format-time-string "%a, %d %b %Y" selected-date)
 )))))
 
+;; Bind adh-insert-date to C-c . in various modes. Can't do this globally, as
+;; org-mode uses C-c . for org-time-stamp. But I like the consistency between
+;; using C-c . for putting in dates across different modes. And it's a very easy
+;; keybinding to use.
+(eval-after-load 'bibtex
+                    '(define-key bibtex-mode-map (kbd "C-c .")
+                       'adh-insert-date))
+(eval-after-load 'mu4e-compose
+                    '(define-key mu4e-compose-mode-map (kbd "C-c .")
+                       'adh-insert-date))
+(eval-after-load 'markdown
+                    '(define-key markdown-mode-map (kbd "C-c .")
+                       'adh-insert-date))
 
 (provide 'adh_mode)
 
