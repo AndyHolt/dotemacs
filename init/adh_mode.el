@@ -291,7 +291,7 @@
 (eval-after-load 'mu4e-compose
                     '(define-key mu4e-compose-mode-map (kbd "C-c .")
                        'adh-insert-date))
-(eval-after-load 'markdown
+(eval-after-load 'markdown-mode
                     '(define-key markdown-mode-map (kbd "C-c .")
                        'adh-insert-date))
 
