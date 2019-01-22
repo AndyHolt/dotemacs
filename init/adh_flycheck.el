@@ -32,6 +32,13 @@
 ;;   (flycheck-clear-idle-change-timer)
 ;;   (flycheck-buffer-automatically 'idle-change))
 
-(global-flycheck-mode)
+; (global-flycheck-mode)
+
+(eval-after-load 'python-mode
+  '(flycheck-mode))
+(eval-after-load 'tex-mode
+  '(flycheck-mode))
+(eval-after-load 'elisp-mode
+  '(flycheck-mode))
 
 (provide 'adh_flycheck)
