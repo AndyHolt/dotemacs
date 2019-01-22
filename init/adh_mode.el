@@ -107,6 +107,16 @@
 ;;
 ;; ")
 
+(setq bibtex-completion-notes-template-multiple-files
+      "#+TITLE: Notes on: ${author-or-editor} (${year}): ${title}
+#+AUTHOR: Andy Holt
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+STARTUP: overview
+#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
+#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
+#+CREATED_DATE: ")
+
 ;; set helm-bibtex key binding
 (global-set-key (kbd "C-c m b") 'helm-bibtex)
 
