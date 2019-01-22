@@ -365,6 +365,10 @@
               (org-end-of-subtree t t)
               (org-paste-subtree level tree-text))))))))
 
+;; by default, org-mode highlights bold or italic text over a single new
+;; line. Change that to 20 lines
+(setcar (nthcdr 4 org-emphasis-regexp-components) 20)
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
