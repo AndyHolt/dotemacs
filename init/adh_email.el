@@ -280,6 +280,16 @@
 ;; Can change value by pressing W in headers view
 (setq mu4e-headers-include-related nil)
 
+;; Add bookmark for searching for a particular date, date selected using
+;; org-read-date
+(add-to-list 'mu4e-bookmarks
+             (make-mu4e-bookmark
+              :name "Select date"
+              :query '(concat "date:"
+                              (format-time-string "%Y%m%d"
+                                                  (org-read-date nil t)))
+              :key ?d))
+
 ;; Add bookmark for today's emails in inboxes.
 ;; Want to see emails for today across all inboxes, like "Today's messages"
 ;; bookmark, but not ones which have been deleted or refiled already.
@@ -290,18 +300,6 @@
              maildir:/cantab/INBOX OR maildir:/ah635-gmail.com/INBOX) AND
              date:today.."
               :key ?i))
-
-;; TODO: Fix this to select date when run, not when the add-to-list code is evaluated
-;; Add bookmark for searching for a particular date, date selected using
-;; org-read-date
-;; (add-to-list 'mu4e-bookmarks
-;;              (make-mu4e-bookmark
-;;               :name "Select date"
-;;               :query (concat \"date:\"
-;;                              (format-time-string \"%Y%m%d\"
-;;                                                  (org-read-date nil t)))
-;;               :key ?d))
-
 
 (provide 'adh_email)
 
