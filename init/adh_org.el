@@ -369,6 +369,60 @@
 ;; line. Change that to 20 lines
 (setcar (nthcdr 4 org-emphasis-regexp-components) 20)
 
+;; setup org-publish
+;; 
+;; org-publish setup for notes to apple notes.app, for reading on phone
+;; 
+;; config is a modifed version of export for unites here:
+;; https://vxlabs.com/2018/10/29/importing-orgmode-notes-into-apple-notes
+(defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
+  "Convert blank lines to <br /> and remove <h1> titles."
+  ;; temporarily configure export to convert math to images because
+  ;; apple notes obviously can't use mathjax (the default)
+  (let* ((org-html-with-latex 'imagemagick)
+         (outfile
+          (org-publish-org-to 'html filename
+                              (concat "." (or (plist-get plist :html-extension)
+                                              org-html-extension
+                                              "html"))
+                              plist pub-dir)))
+    ;; 1. apple notes handles <p> paras badly, so we have to replace all blank
+    ;;    lines (which the orgmode export accurately leaves for us) with
+    ;;    <br /> tags to get apple notes to actually render blank lines between
+    ;;    paragraphs
+    ;; 2. remove large h1 with title, as apple notes already adds <title> as
+    ;; the note title
+    (shell-command
+     (format "sed -i \"\" -e 's/^$/<br \\/>/' -e 's/<h1 class=\"title\">.*<\\/h1>$//' %s"
+             outfile))
+    outfile))
+
+(setq org-publish-project-alist
+      '(("all-notes"
+         :components ("book-notes" "notes" "bible-notes"))
+        ("book-notes"
+         :base-directory "~/Documents/BookNotes/"
+         :publishing-directory "~/Downloads/zenodotus-notes/book-notes"
+         :recursive t
+         :publishing-function org-html-publish-to-html-for-apple-notes
+         :section-numbers nil
+         :with-toc nil)
+        ("notes"
+         :base-directory "~/Dropbox/Notes/"
+         :publishing-directory "~/Downloads/zenodotus-notes/notes"
+         :recursive t
+         :publishing-function org-html-publish-to-html-for-apple-notes
+         :section-numbers nil
+         :with-toc nil)
+        ("bible-notes"
+         :base-directory "~/Documents/BibleNotes/"
+         :publishing-directory "~/Downloads/zenodotus-notes/bible-notes"
+         :recursive t
+         :publishing-function org-html-publish-to-html-for-apple-notes
+         :section-numbers nil
+         :with-toc nil)
+        ))
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
