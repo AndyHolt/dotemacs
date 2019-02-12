@@ -9,9 +9,9 @@
 
 ;;; Code:
 
-(setq deft-extension "md")
+(setq deft-extensions '("org" "md"))
 (setq deft-directory "~/Dropbox/Notes")
-(setq deft-text-mode 'markdown-mode)
+; (setq deft-text-mode 'markdown-mode)
 
 ;; use file name rather than first line as note title
 (setq deft-use-filename-as-title t)
