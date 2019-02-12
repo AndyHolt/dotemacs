@@ -176,7 +176,7 @@
     (list (cadr dtmp) (car dtmp) (caddr dtmp))))
 
 (defun adh-org-refile-to-notes (&optional bfn)
-  "Refile an entry to a datetree under an archive."
+  "Refile an entry to notes file and appropriate datetree location."
   (interactive)
   (require 'org-datetree)
   (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/Dropbox/Org_files/notes.org"))))
