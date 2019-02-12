@@ -65,6 +65,9 @@
 
 (add-hook 'markdown-mode-hook 'adh-markdown-citation-config)
 
+;; try not using full-frame for helm-bibtex
+(setq helm-bibtex-full-frame nil)
+
 ;; add bib files to helm-bibtex search path
 (setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"
                                        "~/Projects/WritingTools/PopSciHist.bib"))
