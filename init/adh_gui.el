@@ -130,7 +130,7 @@
 (require 'writeroom-mode)
 (setq writeroom-width 90)
 ;; set writeroom inter-line spacing
-(setq writeroom-extra-line-spacing 10)
+(setq writeroom-extra-line-spacing 0)
 
 ;[todo] - have focus-mode focus on paragraph instead of sentence?
 
