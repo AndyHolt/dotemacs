@@ -68,6 +68,13 @@
 
 (add-hook 'mu4e-compose-mode-hook 'typo-mode)
 
+;; by default, emacs considers a full stop with a single space to be an
+;; abbreviation, while a full stop with a double space is a new sentence.
+;; This behaviour doesn't suit anything I write! So change this to nil to make a
+;; full stop with a single space counted as the end of a sentence. If
+;; abbreviations ruin this, set to true again.
+(setq sentence-end-double-space nil)
+
 (provide 'adh_language)
 
 ;;; adh_language.el ends here
