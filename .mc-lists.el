@@ -59,6 +59,7 @@
 (setq mc/cmds-to-run-once
       '(
         c-electric-star
+        counsel-M-x
         handle-switch-frame
         ido-find-file
         ido-switch-buffer
