@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: Org mode notes file header
+# key: notehead
+# --
+#+TITLE: Notes on: ${1:Topic}
+#+AUTHOR: Andy Holt
+#+LANGUAGE: en
+#+OPTIONS: toc:nil
+#+STARTUP: overview
+#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
+#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
+#+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
+
+$0

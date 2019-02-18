@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: periodical
+# key: periodical
+# --
+@periodical\{${13:key},
+editor        = \{${1:publication editor}\},
+title         = \{${2:title of journal}\},
+subtitle      = \{${3:subtitle of journal}\},
+issuetitle    = \{${4:title of this issue}\},
+issuesubtitle = \{${5:subtitle of this issue}\},
+date          = \{${6:date (yyyy-mm-dd)}\},
+volume        = \{${7:journal volume}\},
+number        = \{${8:journal number}\},
+issue         = \{${9:journal issue}\},
+url           = \{${10:url}\},
+urldate       = \{${11:url date (yyyy-mm-dd)}\},
+file          = \{${12:file path}\}
+\}
