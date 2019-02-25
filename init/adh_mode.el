@@ -115,7 +115,7 @@
 #+AUTHOR: Andy Holt
 #+LANGUAGE: en
 #+OPTIONS: toc:nil
-#+STARTUP: overview
+#+STARTUP: overview lognoterefile
 #+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
 #+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
 #+CREATED_DATE: ")
