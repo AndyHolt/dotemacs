@@ -397,6 +397,16 @@
              outfile))
     outfile))
 
+;; function to import published html for apple notes into notes app.
+;; This will automatically sync with phone and any other devices.
+;; Uses a keyboard maestro macro to do the import. Less neat than using
+;; applescript, but it's a quick and dirty solution that works well. Getting
+;; applescript to work as well would be very tricky!
+(defun adh-publish-import-to-notes-app (plist)
+    "Run Keyboard Maestro macro to import html notes from publishing-directory
+to notes.app."
+    (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
+
 (setq org-publish-project-alist
       '(("all-notes"
          :components ("book-notes" "notes" "bible-notes"))
@@ -406,21 +416,24 @@
          :recursive t
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
-         :with-toc nil)
+         :with-toc nil
+         :completion-function adh-publish-import-to-notes-app)
         ("notes"
          :base-directory "~/Dropbox/Notes/"
          :publishing-directory "~/Downloads/zenodotus-notes/notes"
          :recursive t
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
-         :with-toc nil)
+         :with-toc nil
+         :completion-function adh-publish-import-to-notes-app)
         ("bible-notes"
          :base-directory "~/Documents/BibleNotes/"
          :publishing-directory "~/Downloads/zenodotus-notes/bible-notes"
          :recursive t
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
-         :with-toc nil)
+         :with-toc nil
+         :completion-function adh-publish-import-to-notes-app)
         ))
 
 (provide 'adh_org)
