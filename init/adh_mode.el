@@ -65,6 +65,10 @@
 
 (add-hook 'markdown-mode-hook 'adh-markdown-citation-config)
 
+;; bibtex mode configuration
+;; Set to use biblatex by default
+(setq bibtex-dialect "biblatex")
+
 ;; try not using full-frame for helm-bibtex
 (setq helm-bibtex-full-frame nil)
 
