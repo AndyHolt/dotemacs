@@ -436,6 +436,15 @@ to notes.app."
          :completion-function adh-publish-import-to-notes-app)
         ))
 
+;; Export org files to .docx files with nice formatting by selecting template
+(setq org-odt-preferred-output-format "docx")
+
+(setq org-odt-convert-processes '(("LibreOffice"
+                                  "/Applications/LibreOffice.app/Contents/MacOS/soffice \
+--headless --convert-to %f%x --outdir %d %i") 
+                                  ("unoconv -f %f -o %d %i")))
+
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
