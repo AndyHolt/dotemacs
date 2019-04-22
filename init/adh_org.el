@@ -500,6 +500,12 @@ to notes.app."
 ;; autosave org buffers after common edits that don't autosave
 (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
 (add-hook 'org-after-refile-insert-hook 'org-save-all-org-buffers)
+
+;; When displaying agenda, show it full screen. When quitting, restore previous
+;; window layout
+(setq org-agenda-window-setup 'only-window
+      org-agenda-restore-windows-after-quit t)
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
