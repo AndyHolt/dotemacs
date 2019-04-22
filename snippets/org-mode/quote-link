@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: org quote link
+# key: q
+# --
+[[quote:`(helm-bibtex nil nil (file-name-base))`:${1:page}][$0]]
