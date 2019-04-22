@@ -468,6 +468,34 @@ to notes.app."
 --headless --convert-to %f%x --outdir %d %i") 
                                   ("unoconv -f %f -o %d %i")))
 
+;; languages markup for export to LaTeX
+;; can add some more parameters for link, including styling the face.
+(org-link-set-parameters
+ "lang"
+ :follow nil
+ :export (lambda (path desc format)
+           (cond
+            ((eq format 'html)
+             (format "<span class=\"%s\">%s</span>" path desc))
+            ((eq format 'latex)
+             (format "\\text%s{%s}" path desc))))
+ :face '(:foreground "#2aa198" :weight "bold"))
+
+;; quotation markup for export to LaTeX
+;; Need to find an equivalent system for html as csquotes provides for LaTeX, of
+;; using inline format if quote is short and block quote style if quote is
+;; longer.
+(org-link-set-parameters
+ "quote"
+ :follow nil
+ :export (lambda (path desc format)
+           (cond
+            ((eq format 'html)
+             (format "<blockquote cite=\"%s\">%s (p. %s)</blockquote>" path desc
+                     (cadr (s-split ":" path))))
+            ((eq format 'latex)
+             (format "\\blockquote[%s]{%s}" path desc))))
+ :face '(:foreground "#2aa198" :weight extra-bold :slant italic))
 
 (provide 'adh_org)
 
