@@ -298,6 +298,30 @@
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+(add-to-list 'org-latex-classes
+             '("adhsbtspaper"
+               "\\documentclass{adhsbtspaper}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("adhdoc"
+               "\\documentclass{adhdoc}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 ;; (setq org-latex-pdf-process
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
 
