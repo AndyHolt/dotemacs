@@ -20,6 +20,11 @@
 ;; use normal isearch, pdf-tools can't use swiper 
 (define-key pdf-view-mode-map (kbd "C-s") 'isearch-forward)
 
+;; use C-w and M-w
+(define-key pdf-view-mode-map (kbd "C-w") 'pdf-view-kill-ring-save)
+(define-key pdf-view-mode-map (kbd "M-w") 'pdf-view-kill-ring-save)
+(define-key pdf-view-mode-map (kbd "w") 'pdf-view-kill-ring-save)
+
 (provide 'adh_pdf)
 
 ;;; adh_pdf.el ends here
