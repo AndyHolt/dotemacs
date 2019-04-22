@@ -497,6 +497,9 @@ to notes.app."
              (format "\\blockquote[%s]{%s}" path desc))))
  :face '(:foreground "#2aa198" :weight extra-bold :slant italic))
 
+;; autosave org buffers after common edits that don't autosave
+(add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
+(add-hook 'org-after-refile-insert-hook 'org-save-all-org-buffers)
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
