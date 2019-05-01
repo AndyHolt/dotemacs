@@ -53,10 +53,10 @@
         (setq result (helm-other-buffer '(tmpsource) "*helm-select-yasnippet"))
         (if (null result)
             (signal 'quit "user quit!")
-          (cdf (assoc result rmap))))
+          (cdr (assoc result rmap))))
     nil))
 
-(setq yas-prompt-functions '(shk-yas/helm-prompt yas-ido-prompt yas-no-prompt))
+(setq yas-prompt-functions '(adh-yas-helm-prompt yas-ido-prompt yas-no-prompt))
 
 ;; implement yas-with-comment function
 (defun yas-with-comment (str)
