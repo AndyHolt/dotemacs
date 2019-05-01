@@ -47,7 +47,8 @@
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
-      '((sequence "TODO" "NEXT" "IN PROGRESS" "WAITING" "|" "INACTIVE" "CANCELLED" "DONE")))
+      '((sequence "TODO(t)" "NEXT(n)" "IN PROGRESS(p)" "WAITING(s)" "|"
+                  "INACTIVE(i)" "CANCELLED(c)" "DONE(d)")))
 
 ;; global keybindings for org mode
 (eval-after-load "org"
