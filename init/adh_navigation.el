@@ -63,8 +63,8 @@
 ;; show number of search matches in mode line
 ;; note: swiper doesn't need this, can remove if swiper completely replaces
 ;; isearch usage
-(require 'anzu)
-(global-anzu-mode t)
+; (require 'anzu)
+; (global-anzu-mode t)
 
 ;; set up swiper, a more powerful search
 (require 'swiper)
