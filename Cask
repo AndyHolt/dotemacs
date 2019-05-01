@@ -8,7 +8,7 @@
 (depends-on "ag")
 (depends-on "avy")
 (depends-on "annoying-arrows-mode")
-(depends-on "anzu")
+;; (depends-on "anzu")
 (depends-on "auctex")
 (depends-on "cask")
 (depends-on "change-inner")
