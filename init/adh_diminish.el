@@ -21,12 +21,21 @@
 ;  (eval-after-load "flyspell"
 ;    (diminish 'flyspell-mode "Fl")))
 
-(diminish 'abbrev-mode "Ab")
-(diminish 'yas-minor-mode "ys")
-; (diminish 'flyspell-mode "Fl")
-(diminish 'projectile-mode "Prj")
-(diminish 'anzu-mode)
-(diminish 'git-gutter+-mode " ±")
+(diminish 'abbrev-mode)
+(diminish 'yas-minor-mode)
+(diminish 'flyspell-mode)
+(diminish 'projectile-mode)
+(diminish 'git-gutter+-mode)
+(diminish 'smartparens-mode)
+(diminish 'subword-mode)
+(diminish 'whole-line-or-region-local-mode)
+(diminish 'counsel-mode)
+(diminish 'ivy-mode)
+(diminish 'which-key-mode)
+(diminish 'eldoc-mode)
+(diminish 'auto-fill-function)
+(diminish 'org-indent-mode)
+(diminish 'orgtbl-mode)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
