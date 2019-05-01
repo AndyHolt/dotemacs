@@ -303,14 +303,17 @@
 ;; using C-c . for putting in dates across different modes. And it's a very easy
 ;; keybinding to use.
 (eval-after-load 'bibtex
-                    '(define-key bibtex-mode-map (kbd "C-c .")
-                       'adh-insert-date))
+  '(define-key bibtex-mode-map (kbd "C-c .")
+     'adh-insert-date))
 (eval-after-load 'mu4e-compose
-                    '(define-key mu4e-compose-mode-map (kbd "C-c .")
-                       'adh-insert-date))
+  '(define-key mu4e-compose-mode-map (kbd "C-c .")
+     'adh-insert-date))
 (eval-after-load 'markdown-mode
-                    '(define-key markdown-mode-map (kbd "C-c .")
-                       'adh-insert-date))
+  '(define-key markdown-mode-map (kbd "C-c .")
+     'adh-insert-date))
+(eval-after-load 'tex-mode
+  '(define-key latex-mode-map (kbd "C-c .")
+     'adh-insert-date))
 
 (provide 'adh_mode)
 
