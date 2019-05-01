@@ -43,6 +43,18 @@
 ;; turn the stupid bell off
 (setq ring-bell-function 'ignore)
 
+;; Font selection - platform dependant
+;;   Updated to work with server mode operation.
+(cond ((eq system-type 'gnu/linux)
+       (setq default-frame-alist '((font . "Inconsolata-12")
+                                   (background-mode . dark))))
+      ((eq system-type 'windows-nt)
+       (setq default-frame-alist '((font . "Inconsolata-12")
+                                   (background-mode . dark)))))
+
+(set-face-attribute 'default nil :font "Inconsolata"
+                    :height 120)
+
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
 ;(load-theme 'wombat t)
@@ -66,15 +78,6 @@
 
 ;; make sure cursor doesn't blink
 (blink-cursor-mode 0)
-
-;; Font selection - platform dependant
-;;   Updated to work with server mode operation.
-(cond ((eq system-type 'gnu/linux)
-       (setq default-frame-alist '((font . "Inconsolata-12")
-                                   (background-mode . dark))))
-      ((eq system-type 'windows-nt)
-       (setq default-frame-alist '((font . "Inconsolata-12")
-                                   (background-mode . dark)))))
 
 ;; set variable-pitch-mode font
 (set-face-font 'variable-pitch "Baskerville-14")
