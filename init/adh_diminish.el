@@ -36,6 +36,8 @@
 (diminish 'auto-fill-function)
 (diminish 'org-indent-mode)
 (diminish 'orgtbl-mode)
+(diminish 'typo-mode)
+(diminish 'gcmh-mode)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()

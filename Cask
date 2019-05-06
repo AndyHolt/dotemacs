@@ -32,6 +32,7 @@
 (depends-on "focus")
 (depends-on "fringe-helper")
 (depends-on "fullframe")
+(depends-on "gcmh")
 (depends-on "git")
 (depends-on "git-gutter-fringe+")
 (depends-on "gitconfig-mode")

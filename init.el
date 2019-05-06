@@ -37,6 +37,8 @@
 (package-initialize)
 (setq package-enable-at-startup nil)
 
+;; load gcmh first as it should speed up load time
+(require 'adh_gcmh)
 (require 'adh_gui)
 (require 'adh_org)
 ;(require 'adh_ido)
