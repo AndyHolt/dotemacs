@@ -85,7 +85,7 @@
 (defun adh-new-init-file ()
   "Add a new file to init loading with given name."
   (interactive)
-  (set new-init-file-name (read-string "File name: " ))
+  (set 'new-init-file-name (read-string "File name: " ))
   (delete-other-windows)
   (find-file "~/.emacs.d/init.el")
   (goto-char (point-max))
