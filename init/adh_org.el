@@ -496,7 +496,8 @@ to notes.app."
                      (cadr (s-split ":" path))))
             ((eq format 'latex)
              (format "\\blockquote[%s]{%s}" path desc))))
- :face '(:foreground "#2aa198" :weight extra-bold :slant italic))
+ :face '(:foreground "#2aa198" :weight extra-bold :slant italic)
+ :display 'org-link)
 
 ;; autosave org buffers after common edits that don't autosave
 (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
