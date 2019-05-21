@@ -74,7 +74,8 @@
 
 ;; add bib files to helm-bibtex search path
 (setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"
-                                       "~/Projects/WritingTools/PopSciHist.bib"))
+                                       "~/Projects/WritingTools/PopSciHist.bib"
+                                       "~/Projects/WritingTools/Lit.bib"))
 
 ;; change default action of helm-bibtex to insert citation
 (require 'helm-bibtex)
