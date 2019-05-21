@@ -508,6 +508,11 @@ to notes.app."
 (setq org-agenda-window-setup 'only-window
       org-agenda-restore-windows-after-quit t)
 
+;; Keep links in stored list after insterting (useful for putting links in more
+;; than one place or using them multiple times). Search is good, so it's no
+;; major disadvantage to pile up the links on the stack.
+(setq org-keep-stored-link-after-insertion t)
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
