@@ -162,6 +162,31 @@
 (setq org-refile-allow-creating-parent-nodes t)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 
+
+;; When refiling, make a link to the original location in the annotation
+(defun adh-org-refile-get-orig-location ()
+    "Store org-link with the location of the original note, when refiling.
+
+Function to be called when beginning org-refile, so as to have link ready to be
+  inserted when refiling link."
+  (interactive)
+  (call-interactively 'org-store-link))
+
+(advice-add 'org-refile
+            :before
+            (lambda (&rest _)
+              (adh-org-refile-get-orig-location))
+            '((name . adh-advice-org-refile-get-orig-location)))
+
+(defun adh-org-refile-insert-orig-location ()
+    "Insert a link to log note back to original location of refiled note."
+  (interactive)
+  (insert (format "Refiled from [[%s][%s]]\n\n"
+                  (car (car org-stored-links))
+                  (cadr (car org-stored-links)))))
+
+(add-hook 'org-log-buffer-setup-hook 'adh-org-refile-insert-orig-location)
+
 ;; refiling into date-tree
 ;; - Primary use case is when note has been captured from mobile phone, and
 ;;   appended to inbox of org-files through dropbox. This note can later, within
