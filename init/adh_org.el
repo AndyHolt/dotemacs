@@ -183,7 +183,8 @@ Function to be called when beginning org-refile, so as to have link ready to be
   (interactive)
   (insert (format "Refiled from [[%s][%s]]\n\n"
                   (car (car org-stored-links))
-                  (cadr (car org-stored-links)))))
+                  (nth 1 (s-match "/\\([A-Za-z0-9._-]+\\)::"
+                                  (car (car org-stored-links)))))))
 
 (add-hook 'org-log-buffer-setup-hook 'adh-org-refile-insert-orig-location)
 
