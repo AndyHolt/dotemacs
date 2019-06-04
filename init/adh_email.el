@@ -260,7 +260,7 @@
 ;; (add-hook 'mu4e-view-mode-hook 'whitespace-mode)
 ;; (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 
-(add-hook 'visual-line-mode 'visual-fill-column-mode)
+(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
 
 ;; global keybinding to enter email
 (global-set-key (kbd "C-c m m") 'mu4e)
