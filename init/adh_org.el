@@ -556,6 +556,12 @@ to notes.app."
 ;; major disadvantage to pile up the links on the stack.
 (setq org-keep-stored-link-after-insertion t)
 
+;; don't allow editing of hidden areas in org files.
+;; If edit is attempted, deal with it smartly
+;; NOTE: this may be better set to show-and-error (shows the region and throws
+;; an error to abort the edit), but see how it does for now
+(setq org-catch-invisible-edits 'smart)
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
