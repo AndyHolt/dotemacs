@@ -37,7 +37,8 @@
             (concat adh-dropbox-location "Org_files/uccf-cal.org")
             (concat adh-dropbox-location "Org_files/church-cal.org")
             (concat adh-dropbox-location "Org_files/notes.org")
-            (concat adh-dropbox-location "Org_files/diary.org")))
+            (concat adh-dropbox-location "Org_files/diary.org")
+            (concat adh-dropbox-location "Org_files/family-cal.org")))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
