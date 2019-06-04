@@ -349,6 +349,19 @@ Function to be called when beginning org-refile, so as to have link ready to be
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
+;; TODO: Add adh-sermon-notes to org-latex-classes
+(add-to-list 'org-latex-classes
+             '("adhsernotes"
+               "\\documentclass{adhsernotes}
+[NO-DEFAULT-PACKAGES]
+[PACKAGES]
+[EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
 ;; (setq org-latex-pdf-process
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
 
@@ -371,6 +384,10 @@ Function to be called when beginning org-refile, so as to have link ready to be
 
 ;; correct quote marks when exporting
 (setq org-export-with-smart-quotes t)
+
+;; allow setting variable for individual documents using
+;; "#+BIND: variable value" keyword settings in header/document
+(setq org-export-allow-bind-keywords t)
 
 ;; highlight current line while in agenda view
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
