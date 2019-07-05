@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: org footnote (inline)
+# key: fn
+# --
+[fn:${1:label, or C-d to leave blank}:$0]
