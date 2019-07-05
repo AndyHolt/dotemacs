@@ -588,7 +588,7 @@ to notes.app."
   (interactive)
   (let ((this-buffer (buffer-name))
         (new-quote the-quote)
-        (quote-buffer "*quote-text"))
+        (quote-buffer "*quote-text*"))
     (save-excursion
       (save-window-excursion
         (switch-to-buffer-other-window quote-buffer)
