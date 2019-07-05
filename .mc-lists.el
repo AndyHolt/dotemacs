@@ -35,6 +35,7 @@
         org-beginning-of-line
         org-delete-char
         org-end-of-line
+        org-fill-paragraph
         org-force-self-insert
         org-kill-line
         org-return-indent
