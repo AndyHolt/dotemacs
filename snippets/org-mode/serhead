@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: Org mode sermon transcript header
+# key: serhead
+# --
+#+TITLE: ${1:Sermon Title}
+#+LATEX_HEADER: \def\passage{${2:Sermon passage}}
+#+AUTHOR: Andy Holt
+#+DATE: `(call-interactively 'org-time-stamp)`
+#+LANGUAGE: en
+#+OPTIONS: toc:nil ':t *:t -:t <:nil f:t H:5 num:nil p:nil
+#+OPTIONS: timestamp:t tasks:t todo:nil |:t
+#+BIND: org-export-date-timestamp-format "%A %e %B %Y"
+#+STARTUP: overview lognoterefile
+#+LATEX_COMPILER: xelatex
+#+LATEX_CLASS: adhsernotes
+#+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
+#+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
+#+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
+
+$0
