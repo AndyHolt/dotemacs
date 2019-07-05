@@ -319,6 +319,9 @@
   '(define-key text-mode-map (kbd "C-c .")
      'adh-insert-date))
 
+;; set up for sql-mode
+(setq sql-product 'mysql)
+
 (provide 'adh_mode)
 
 ;;; adh_mode.el ends here
