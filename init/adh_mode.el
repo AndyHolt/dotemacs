@@ -315,6 +315,9 @@
 (eval-after-load 'tex-mode
   '(define-key latex-mode-map (kbd "C-c .")
      'adh-insert-date))
+(eval-after-load 'text-mode
+  '(define-key text-mode-map (kbd "C-c .")
+     'adh-insert-date))
 
 (provide 'adh_mode)
 
