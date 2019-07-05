@@ -578,6 +578,55 @@ to notes.app."
 ;; an error to abort the edit), but see how it does for now
 (setq org-catch-invisible-edits 'smart)
 
+;; Edit text of quotation links in a separate buffer.
+;; Ordinarily editing text in a link description doesn't use most of the text
+;; editing features of a normal org mode section, e.g. spell check. It is also
+;; difficult to edit because the full line isn't visible, jumping around text
+;; may result in leaving the link description, etc.
+(defun adh-edit-quote (the-quote)
+  "Edit a quote in a buffer, which can then be put in an org quote link."
+  (interactive)
+  (let ((this-buffer (buffer-name))
+        (new-quote the-quote)
+        (quote-buffer "*quote-text"))
+    (save-excursion
+      (save-window-excursion
+        (switch-to-buffer-other-window quote-buffer)
+        (set-buffer quote-buffer)
+        (org-mode)
+        (adh-edit-quote-mode)
+        (if (stringp the-quote) (insert the-quote))
+        (unwind-protect
+            (recursive-edit)
+          (if (get-buffer-window quote-buffer)
+              (progn
+                (setq new-quote (buffer-substring (point-min) (point-max)))
+                (kill-buffer quote-buffer))))
+        (switch-to-buffer this-buffer)
+        new-quote))))
+
+(defvar adh-edit-quote-mode-map (make-sparse-keymap)
+  "Keymap used for `adh-edit-quote-mode', a minor mode.
+Use this map to set additional keybindings for when using a quote buffer.")
+
+(define-minor-mode adh-edit-quote-mode
+  "Minor mode for special key bindings in a quote editing buffer."
+  nil "quote" adh-edit-quote-mode-map
+  (setq-local header-line-format (substitute-command-keys
+                                  "\\<adh-edit-quote-mode-map>Quote buffer. \
+Finish `\\[adh-edit-quote-finalize]'."))
+  (message (substitute-command-keys "\\<adh-edit-quote-mode-map>\
+When you're done editing press `\\[adh-edit-quote-finalize]' to continue.")))
+
+(defun adh-edit-quote-finalize ()
+    "Complete the quote edit."
+  (interactive)
+  (exit-recursive-edit))
+
+(define-key adh-edit-quote-mode-map "\C-c\C-c" 'adh-edit-quote-finalize)
+
+
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
