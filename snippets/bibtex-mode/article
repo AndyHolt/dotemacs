@@ -5,7 +5,7 @@
 @article\{${1:key},
   author =       \{${2:author}\},
   title =        \{${3:title}\},
-  journal =      \{${4:journal}\},
+  journaltitle = \{${4:journal}\},
   shortjournal = \{${5:short version of journal name}\},
   year =         \{${6:year of publication}\},
   volume =       \{${5:journal volume}\},
