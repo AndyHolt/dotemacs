@@ -51,6 +51,7 @@
 ;(depends-on "ido-vertical-mode")
 (depends-on "interleave")
 (depends-on "ipython")
+(depends-on "jinja2-mode")
 (depends-on "keyfreq")
 (depends-on "magit")
 (depends-on "markdown-mode")
