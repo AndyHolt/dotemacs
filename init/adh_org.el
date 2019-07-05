@@ -539,7 +539,22 @@ to notes.app."
              (format "<blockquote cite=\"%s\">%s (p. %s)</blockquote>" path desc
                      (cadr (s-split ":" path))))
             ((eq format 'latex)
-             (format "\\blockquote[%s]{%s}" path desc))))
+             (format "\\blockcquote[%s][%s]{%s}{%s}"
+                     ;; if 4 elements to link path, there is a pre-note, so use
+                     ;; this, else return blank string
+                     (if (>= (length (s-split ":" path)) 4)
+                         (nth 2 (s-split ":" path))
+                       (concat))
+                     ;; if 3 or 4 elements to link path, there is a post-note
+                     ;; (likely page number) so use post note
+                     (if (>= (length (s-split ":" path)) 3)
+                         (last (s-split ":" path))
+                       (concat))
+                     ;; this should always be the bib key
+                     (nth 1 (s-split ":" path))
+                     ;; description, which in this case is the actual text of
+                     ;; the quote
+                     desc))))
  :face '(:foreground "#2aa198" :weight extra-bold :slant italic)
  :display 'org-link)
 
