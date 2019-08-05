@@ -33,7 +33,7 @@
 
 ;; getting mail
 (setq 
-  mu4e-get-mail-command "offlineimap"
+  mu4e-get-mail-command "/Users/adh/dotfiles/email-sync.sh"
   mu4e-update-interval 300 ;; update every 5 minutes
 )
 
