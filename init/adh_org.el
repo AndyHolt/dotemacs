@@ -34,11 +34,13 @@
 (setq org-agenda-files
       (list (concat adh-dropbox-location "Org_files/todo.org")
             (concat adh-dropbox-location "Org_files/gcal.org")
-            (concat adh-dropbox-location "Org_files/uccf-cal.org")
+            ;; (concat adh-dropbox-location "Org_files/uccf-cal.org")
             (concat adh-dropbox-location "Org_files/church-cal.org")
             (concat adh-dropbox-location "Org_files/notes.org")
             (concat adh-dropbox-location "Org_files/diary.org")
-            (concat adh-dropbox-location "Org_files/family-cal.org")))
+            (concat adh-dropbox-location "Org_files/family-cal.org")
+            (concat adh-dropbox-location "Org_files/sbts-cal.org")
+            ))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
@@ -107,23 +109,27 @@
 ;; capture templates, experimental new one
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
-         "* TODO %?\n %i\n\n")
+         "* TODO %?\n%i\n%U\n")
         ("c" "Todo with Context" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
-         "* TODO %?\n %i\n%a\n\n")
+         "* TODO %?\n%i\n%a\n%U\n")
         ("e" "Event")
         ("ep" "Event in Personal Calendar" entry (file "~/Dropbox/Org_files/gcal.org" )
          "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ("eu" "Event in UCCF Calendar" entry (file "~/Dropbox/Org_files/uccf-cal.org" )
-         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ;; ("eu" "Event in UCCF Calendar" entry (file "~/Dropbox/Org_files/uccf-cal.org" )
+        ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
         ("ec" "Event in Church Calendar" entry (file "~/Dropbox/Org_files/church-cal.org" )
+         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("ef" "Event in Family Calendar" entry (file "~/Dropbox/Org_files/family-cal.org" )
+         "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("es" "Event in SBTS Calendar" entry (file "~/Dropbox/Org_files/sbts-cal.org" )
          "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
-         "* book: %^{author}, %^{title}\n%?\n%T\n\n")
+         "* TODO book: %^{author}, %^{title}\n%?\n%T\n\n")
         ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                              "Reading and study")
-         "* article: %?\n%T\n\n")
+         "* TODO article: %?\n%T\n\n")
         ("n" "Note" entry (file+datetree "~/Dropbox/Org_files/notes.org")
          "* %?\n\n%T\n\n")))
 
