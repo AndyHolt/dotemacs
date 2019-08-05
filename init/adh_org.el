@@ -366,6 +366,9 @@ Function to be called when beginning org-refile, so as to have link ready to be
 ;; (setq org-latex-pdf-process
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
 
+;; set the command used for compiling latex files
+(setq org-latex-pdf-process '("run-latex -p %latex -o %o %f"))
+
 ;; set up org-ref
 (setq org-ref-default-citation-link "autocite")
 (setq reftex-default-bibliography '("~/Projects/WritingTools/Theology.bib"))
