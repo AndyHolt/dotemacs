@@ -20,7 +20,8 @@
       '("andrew.holt@hotmail.co.uk"
         "andrew.holt635@gmail.com"
         "andy.holt@cantab.net"
-        "aholt@uccf.org.uk"))
+        "aholt379@students.sbts.edu"
+        ))
 
 ;; Set up folders
 (setq 
@@ -133,39 +134,30 @@
                      ( mu4e-drafts-folder . "/cantab/Drafts"  )
                      ( mu4e-trash-folder  . "/cantab/Trash"   )
                      ( mu4e-refile-folder . "/cantab/Archive" )
-                     ( mu4e-sent-messages-behavior . delete)))
+                     ( mu4e-sent-messages-behavior . sent)))
          ,(make-mu4e-context
-           :name "uccf"
-           :enter-func (lambda () (mu4e-message "Switch to uccf context"))
-           ;; leave-func not defined
+           :name "SBTS"
+           :enter-func (lambda () (mu4e-message "Switch to SBTS context"))
+           ;; leave-fun not defined
            :match-func (lambda (msg)
-                         (when msg
-                           (mu4e-message-contact-field-matches msg
-                              :to "aholt@uccf.org.uk")))
-           :vars '( ( user-mail-address . "aholt@uccf.org.uk" )
-                    ( user-full-name . "Andy Holt" )
-                    ;; [todo] - insert uccf signature
-                    ( mu4e-compose-signature-auto-include t)
-                    ;; ( mu4e-compose-signature . "Andy Holt, UCCF" ) ;
-                    ( mu4e-compose-signature . (concat
-                                                "Andy Holt\n"
-                                                "UCCF Staff Worker — Aberdeen and Inverness\n"
-                                                "e: aholt@uccf.org.uk\n"
-                                                "m: 07932336416\n"
-                                                "w: www.uccf.org.uk\n"
-                                                "\n"
-                                                "uccf:thechristianunions is a registered charity, no. 306137\n"
-                                                "Blue Boar House, 5 Blue Boar Street, Oxford, OX1 4EE\n"))
-                    ( smtp-stream-type . "ssl")
-                    ( smtp-default-smpt-server . "mx.uccf.org.uk" )
-                    ( smtp-default-service . 587 )
-                    ( smtp-mail-smtp-user . "aholt@uccf.org.uk" )
+                         (when msg 
+                           (mu4e-message-contact-field-matches msg 
+                             :to "aholt379@students.sbts.edu")))
+           :vars '(  ( user-mail-address . "aholt379@students.sbts.edu" )
+                     ( user-full-name	    . "Andy Holt" )
+                     ( mu4e-compose-signature-auto-include . nil)
+                     ( mu4e-compose-signature . "Andy Holt" )
+                     ( smtpmail-stream-type . 'starttls )
+                     ( smtpmail-default-smtp-server . "smtp.gmail.com" )
+                     ( smtpmail-smtp-server . "smtp.gmail.com")
+                     ( smtpmail-smtp-service . 587 )
+                     ( smtpmail-smtp-user . "aholt379@students.sbts.edu")
                      ( mu4e-compose-reply-to-address . nil)
-                    ( mu4e-sent-folder . "/uccf/Sent" )
-                    ( mu4e-drafts-folder . "/uccf/Drafts")
-                    ( mu4e-trash-folder . "/uccf/Trash" )
-                    ( mu4e-refile-folder . "/uccf/Archive" )
-                    ( mu4e-sent-messages-behavior . delete)))
+                     ( mu4e-sent-folder   . "/sbts/sent"    )
+                     ( mu4e-drafts-folder . "/sbts/drafts"  )
+                     ( mu4e-trash-folder  . "/sbts/trash"   )
+                     ( mu4e-refile-folder . "/sbts/archive" )
+                     ( mu4e-sent-messages-behavior . delete)))
          ))
 
 ;; if not otherwise specified, use hotmail context as default
@@ -195,7 +187,8 @@
       '( ("/hotmail/Inbox"         . ?h)
          ("/ah635-gmail.com/INBOX" . ?g)
          ("/cantab/INBOX" . ?c)
-         ("/uccf/INBOX" . ?u)))
+         ("/sbts/inbox" . ?s)
+         ))
 
 ;; set up actions
 ;; view html mail in web browser
@@ -296,9 +289,11 @@
 (add-to-list 'mu4e-bookmarks
              (make-mu4e-bookmark
               :name "Today's inbox"
-              :query "(maildir:/hotmail/Inbox OR maildir:/uccf/INBOX OR
-             maildir:/cantab/INBOX OR maildir:/ah635-gmail.com/INBOX) AND
-             date:today.."
+              :query "(maildir:/hotmail/Inbox OR
+                       maildir:/cantab/INBOX OR
+                       maildir:/ah635-gmail.com/INBOX OR
+                       maildir:/sbts/inbox)
+                       AND date:today.."
               :key ?i))
 
 (provide 'adh_email)
