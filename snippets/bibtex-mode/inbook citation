@@ -1,0 +1,18 @@
+# -*- mode: snippet -*-
+# name: inbook citation
+# key: inbook
+# --
+@inbook\{${13:key},
+  author       = \{${1:author}\},
+  title        = \{${2:title}\},
+  subtitle     = \{${3:subtitle}\},
+  booktitle    = \{${4:booktitle}\},
+  booksubtitle = \{${5:booksubtitle}\},
+  bookauthor   = \{${6:bookauthor}\},
+  editor       = \{${7:editor}\},
+  edition      = \{${8:edition}\},
+  year         = \{${9:year}\},
+  publisher    = \{${10:publisher}\},
+  location     = \{${11:location}\},
+  chapter/pages= \{${12:chapter/pages}\}$0
+\}

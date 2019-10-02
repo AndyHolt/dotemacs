@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: vocab-word
+# key: v
+# --
+** Vocab word
+:PROPERTIES:
+  :ANKI_DECK: Pennington NT Greek Vocab
+  :ANKI_NOTE_TYPE: Basic (and reversed card)
+  :ANKI_TAGS: 105-139
+  :END:
+*** Front
+${1:`(set-input-method "greek-babel")`}
+*** Back
+${2:`(set-input-method nil)`}
+$0

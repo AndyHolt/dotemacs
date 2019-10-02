@@ -1,19 +1,19 @@
 # -*- mode: snippet -*-
-# name: Essay Header
-# key: essayhead
+# name: Precis Boilerplate Header
+# key: precishead
 # --
-#+TITLE: ${1:Title}
+#+TITLE: "${1:Chapter Name}" (/Reformed Dogmatics/ ${2:Volume}, ch. ${3:Chapter number})
 #+AUTHOR: Andrew Holt
-#+DATE: ${2:Due Date (format August 26, 2019)}
+#+DATE: ${4:Due Date, format: August 26, 2019}
 #+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
-#+LATEX_HEADER: \def\wordcount{}
+#+LATEX_HEADER: \def\wordcount{FILL IN WORD COUNT}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil H:10 num:t
 #+EXCLUDE_TAGS: noexport
 #+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
-#+LATEX_CLASS: adhsbtspaper
-#+LATEX_COMPILER: xelatex
 #+STARTUP: overview lognoterefile
+#+LATEX_CLASS: sbtsprecis
+#+LATEX_COMPILER: xelatex
 #+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
 #+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
 #+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
