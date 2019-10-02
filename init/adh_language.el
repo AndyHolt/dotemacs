@@ -75,6 +75,9 @@
 ;; abbreviations ruin this, set to true again.
 (setq sentence-end-double-space nil)
 
+;; set standard alternative input method to greek
+(setq default-input-method "greek-babel")
+
 (provide 'adh_language)
 
 ;;; adh_language.el ends here
