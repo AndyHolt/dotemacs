@@ -157,9 +157,23 @@
 (setq adh-notes-files (file-expand-wildcards "~/Dropbox/Notes/*.org"))
 (setq adh-biblenotes-files (file-expand-wildcards "~/Documents/BibleNotes/*.org"))
 
+;; Try changing refile targets from all agenda files to only agenda files which
+;; aren't calendar files. I don't have to move things to calendar files often at
+;; all (I only really do capturing to files) so it's annoying when trying to
+;; refile to a heading in todo.org and suggestions from the associated calendar
+;; file are suggested instead.
+;; [todo] - if this works well, streamline setting of org-agenda-files from
+;; different groups, made up of non-calendar agenda files and calendar agenda
+;; files. That will save from having redudency between variables that need to be
+;; modifed in different places. THIS IS CURRENTLY A BOTCH!
+(setq adh-non-cal-org-agenda-files
+      (list (concat adh-dropbox-location "Org_files/todo.org")
+            (concat adh-dropbox-location "Org_files/notes.org")
+            (concat adh-dropbox-location "Org_files/diary.org")
+            ))
 
 (setq org-refile-targets '((nil :maxlevel . 10)
-                           (org-agenda-files :maxlevel . 3)
+                           (adh-non-cal-org-agenda-files :maxlevel . 5)
                            (adh-booknotes-files :maxlevel . 10)
                            (adh-notes-files :maxlevel . 10)
                            (adh-biblenotes-files :maxlevel . 10)))
