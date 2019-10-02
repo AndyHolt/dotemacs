@@ -533,7 +533,8 @@ to notes.app."
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
          :with-toc nil
-         :completion-function adh-publish-import-to-notes-app)
+         ;; :completion-function adh-publish-import-to-notes-app
+         )
         ("notes"
          :base-directory "~/Dropbox/Notes/"
          :publishing-directory "~/Downloads/zenodotus-notes/notes"
@@ -541,7 +542,8 @@ to notes.app."
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
          :with-toc nil
-         :completion-function adh-publish-import-to-notes-app)
+         ;; :completion-function adh-publish-import-to-notes-app
+         )
         ("bible-notes"
          :base-directory "~/Documents/BibleNotes/"
          :publishing-directory "~/Downloads/zenodotus-notes/bible-notes"
@@ -549,8 +551,8 @@ to notes.app."
          :publishing-function org-html-publish-to-html-for-apple-notes
          :section-numbers nil
          :with-toc nil
-         :completion-function adh-publish-import-to-notes-app)
-        ))
+         ;; :completion-function adh-publish-import-to-notes-app
+         )))
 
 ;; Export org files to .docx files with nice formatting by selecting template
 (setq org-odt-preferred-output-format "docx")
