@@ -17,6 +17,9 @@
 ;; some keybindings
 (define-key global-map (kbd "C-c m l") 'mc/edit-lines)
 
+;; when inserting numbers, start count at 1, not 0 by default.
+(setq mc/insert-numbers-default 1)
+
 (provide 'adh_multiplecursors)
 
 ;;; adh_multiplecursors.el ends here
