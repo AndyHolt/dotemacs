@@ -63,9 +63,13 @@
 ;; (setq calendar-location-name "Cambridge, UK")
 ;; (setq calendar-latitude 52.2)
 ;; (setq calendar-longitude 0.1)
-(setq calendar-location-name "Aberdeen, UK")
-(setq calendar-latitude 57.2)
-(setq calendar-longitude -2.1)
+;; (setq calendar-location-name "Aberdeen, UK")
+;; (setq calendar-latitude 57.2)
+;; (setq calendar-longitude -2.1)
+(setq calendar-location-name "Louisville, KY"
+      calendar-latitude 38.25
+      calendar-longitude -85.68)
+
 
 ;; add cask directories to theme library
 (add-to-list 'custom-theme-load-path "~/.emacs.d/.cask/24.5.1/elpa/solarized-theme-20160515.442/")
