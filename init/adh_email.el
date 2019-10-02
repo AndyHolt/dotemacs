@@ -136,7 +136,7 @@
                      ( mu4e-refile-folder . "/cantab/Archive" )
                      ( mu4e-sent-messages-behavior . sent)))
          ,(make-mu4e-context
-           :name "SBTS"
+           :name "sbts"
            :enter-func (lambda () (mu4e-message "Switch to SBTS context"))
            ;; leave-fun not defined
            :match-func (lambda (msg)
