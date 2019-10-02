@@ -359,6 +359,30 @@ Function to be called when beginning org-refile, so as to have link ready to be
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (add-to-list 'org-latex-classes
+             '("sbtsprecis"
+               "\\documentclass{sbtsprecis}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("sbtshistread"
+               "\\documentclass{sbtshistread}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\lecture{%s}" . "\\lecture*{%s}")
+               ("\\question{%s}" . "\\question*{%s}")
+               ("\\subquestion{%s}" . "\\subquestion*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
              '("adhdoc"
                "\\documentclass{adhdoc}
                 [NO-DEFAULT-PACKAGES]
