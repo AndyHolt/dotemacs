@@ -675,6 +675,10 @@ When you're done editing press `\\[adh-edit-quote-finalize]' to continue.")))
 (define-key adh-edit-quote-mode-map "\C-c\C-c" 'adh-edit-quote-finalize)
 
 
+;; in org headlines, jump to start and end of headline text with a single C-a or
+;; C-e. To get to the true start of line and end of line (before stars and todo
+;; status, or after tags), simply press again.
+(setq org-special-ctrl-a/e t)
 
 (provide 'adh_org)
 
