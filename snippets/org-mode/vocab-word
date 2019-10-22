@@ -6,10 +6,12 @@
 :PROPERTIES:
   :ANKI_DECK: Pennington NT Greek Vocab
   :ANKI_NOTE_TYPE: Basic (and reversed card)
-  :ANKI_TAGS: 105-139
+  :ANKI_TAGS: 85-104
   :END:
 *** Front
-${1:`(set-input-method "greek-babel")`}
+${1:vocab word$(progn (set-input-method "greek-babel")
+       (format "%s" yas-text))}
 *** Back
-${2:`(set-input-method nil)`}
+${2:gloss$(progn (deactivate-input-method)
+            (format "%s" yas-text))}
 $0
