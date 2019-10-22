@@ -21,8 +21,8 @@
 (setq avy-all-windows t)
 
 ;; setup keyboard shortcuts for avy mode (replacement for ace-jump mode)
-(global-set-key "\C-cj" 'avy-goto-char)
-(global-set-key "\C-ck" 'avy-pop-mark)
+(global-set-key "\C-cj" 'avy-goto-word-1)
+(global-set-key "\C-ck" 'avy-goto-char-timer)
 (global-set-key "\C-cg" 'avy-goto-line)
 ; [todo] - consider changing to avy-goto-subword-1 or avy-goto-word-or-subword-1
 (global-set-key "\C-cw" 'avy-goto-word-1)
