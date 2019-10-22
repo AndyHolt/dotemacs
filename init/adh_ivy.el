@@ -31,7 +31,8 @@
 
 ;; set up ivy for fuzzy matching
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
+      '((swiper . ivy--regex-plus)
+        (t . ivy--regex-fuzzy)))
 ;; and when fuzzy matching, don't want default input to start with "^" to match
 ;; from beginning of line
 (setq ivy-initial-inputs-alist nil)
