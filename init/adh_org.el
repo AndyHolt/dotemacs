@@ -53,6 +53,9 @@
       '((sequence "TODO(t)" "NEXT(n)" "IN PROGRESS(p)" "WAITING(s)" "|"
                   "INACTIVE(i)" "CANCELLED(c)" "DONE(d)")))
 
+;; Save log change notes into drawer (keep out the way most of the time)
+(setq org-log-into-drawer "LOGBOOK")
+
 ;; global keybindings for org mode
 (eval-after-load "org"
   '(progn
