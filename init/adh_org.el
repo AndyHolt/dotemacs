@@ -610,6 +610,55 @@ to notes.app."
  :face '(:foreground "#8CD0D3" :weight bold :slant italic)
  :display 'org-link)
 
+;; Set up insertion of quotes along with citation for use in org-link format
+;; defined above.
+;; Uses helm-bibtex to get citation and opens a temporary buffer for editing the
+;; quote itself, to make full use of text editing features.
+;;
+;; Alternatively, a new helm-bibtex action could be added which returns the key
+;; instead of inserting it, but that would change the default behaviour of
+;; helm-bibtex. It will be worth doing if I only insert references through other
+;; interfaces, but not if I use these. Perhaps a better idea is to add a
+;; helm-bibtex action for inserting a quote.
+(defun adh-get-bibtex-key-from-helm ()
+  "Use helm-bibtex to select a source and return the source
+citation as a string.
+
+A normal call to helm-bibtex will insert the citation to the
+buffer, and because the insertion code is hijacked by org-ref,
+this work around is necessary. It isn't very neat, but it makes
+use of helm-bibtex, and is better than starting from scratch to
+do that."
+  (interactive)
+  (progn (let ((ref-string "")
+               (bibtex-ref-buffer "temp-bibtex")
+               (orig-buffer (current-buffer))
+               (orig-buffer-file (buffer-file-name)))
+           (switch-to-buffer (generate-new-buffer bibtex-ref-buffer))
+           (org-mode)
+           (helm-bibtex nil nil
+                        (if orig-buffer-file
+                            (file-name-base orig-buffer-file)
+                          ""))
+           (setq ref-string (buffer-string))
+           (switch-to-buffer orig-buffer)
+           (kill-buffer bibtex-ref-buffer)
+           ref-string)))
+
+(defun adh-insert-org-quote-link ()
+  "Create an org quote link by prompting for components, then
+insert the formatted quote link into buffer.
+
+Makes use of helm-bibtex to get citation, and adh-edit-quote to get the quote
+text."
+  (interactive)
+  (let ((reference-string (adh-get-bibtex-key-from-helm))
+        (post-note-string (read-string "Page number: " nil nil nil nil))
+        (description-string (adh-edit-quote "")))
+    (insert (org-make-link-string (concat "quote:" reference-string ":"
+                                          post-note-string)
+                                  description-string))))
+
 ;; autosave org buffers after common edits that don't autosave
 (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
 (add-hook 'org-after-refile-insert-hook 'org-save-all-org-buffers)
