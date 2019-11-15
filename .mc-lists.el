@@ -67,6 +67,7 @@
         ido-write-file
         indent-for-tab-command
         kmacro-end-macro
+        occur-mode-goto-occurrence
         scroll-bar-toolkit-scroll
         text-scale-decrease
         text-scale-increase
