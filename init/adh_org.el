@@ -606,7 +606,7 @@ to notes.app."
                      (nth 1 (s-split ":" path))
                      ;; description, which in this case is the actual text of
                      ;; the quote
-                     desc))))
+                     (adh-safe-brace-to-sqbr desc)))))
  :face '(:foreground "#8CD0D3" :weight bold :slant italic)
  :display 'org-link)
 
@@ -704,7 +704,7 @@ text."
                 (setq new-quote (buffer-substring (point-min) (point-max)))
                 (kill-buffer quote-buffer))))
         (switch-to-buffer this-buffer)
-        new-quote))))
+        (adh-sqbr-to-safe-brace new-quote)))))
 
 (defvar adh-edit-quote-mode-map (make-sparse-keymap)
   "Keymap used for `adh-edit-quote-mode', a minor mode.
@@ -725,6 +725,29 @@ When you're done editing press `\\[adh-edit-quote-finalize]' to continue.")))
   (exit-recursive-edit))
 
 (define-key adh-edit-quote-mode-map "\C-c\C-c" 'adh-edit-quote-finalize)
+
+;; some functions for handling conversion from the actual quote text to
+;; org-link-description safe text
+(defun adh-sqbr-to-safe-brace (str)
+    "Format string str into quote-link safe text (org mode link description).
+
+In quote-link data, can't use square brackets [ and ] in link
+description, so replace them with the safe strings, @< and @>
+respectively. Then, when exporting, replace them for normal usage
+using `adh-safe-brace-to-sqbr'."
+  (replace-regexp-in-string "\\[" "@<"
+                            (replace-regexp-in-string "\\]" "@>" str)))
+
+(defun adh-safe-brace-to-sqbr (str)
+    "Format `str' from quote-link safe text (org mode link
+description) into normal formatting for exported file use.
+
+In quote-link data, can't use square brackets [ and ] in link
+description, so replace them with the safe strings, @< and @>
+respectively, using `adh-sqbr-to-safe-brace'. Then, when
+exporting, replace them for normal usage."
+  (replace-regexp-in-string (regexp-quote "@<") "["
+                            (replace-regexp-in-string (regexp-quote "@>") "]" str)))
 
 ;; in org headlines, jump to start and end of headline text with a single C-a or
 ;; C-e. To get to the true start of line and end of line (before stars and todo
