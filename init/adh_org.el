@@ -576,7 +576,7 @@ to notes.app."
              (format "<span class=\"%s\">%s</span>" path desc))
             ((eq format 'latex)
              (format "\\text%s{%s}" path desc))))
- :face '(:foreground "#2aa198" :weight "bold"))
+ :face '(:foreground "#AFD8AF" :weight "bold" :underline t))
 
 ;; quotation markup for export to LaTeX
 ;; Need to find an equivalent system for html as csquotes provides for LaTeX, of
@@ -607,7 +607,7 @@ to notes.app."
                      ;; description, which in this case is the actual text of
                      ;; the quote
                      desc))))
- :face '(:foreground "#2aa198" :weight extra-bold :slant italic)
+ :face '(:foreground "#8CD0D3" :weight bold :slant italic)
  :display 'org-link)
 
 ;; autosave org buffers after common edits that don't autosave
