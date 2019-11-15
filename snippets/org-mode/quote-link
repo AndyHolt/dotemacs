@@ -2,5 +2,4 @@
 # name: org quote link
 # key: q
 # --
-[[quote:`(helm-bibtex nil nil (if (buffer-file-name) (file-name-base) ""))`:`(read-string "Page number: "
-nil nil nil nil)`][`(adh-edit-quote "")`]]
+`(adh-insert-org-quote-link)`
