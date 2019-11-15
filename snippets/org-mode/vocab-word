@@ -6,7 +6,7 @@
 :PROPERTIES:
   :ANKI_DECK: Pennington NT Greek Vocab
   :ANKI_NOTE_TYPE: Basic (and reversed card)
-  :ANKI_TAGS: 85-104
+  :ANKI_TAGS: 60-69
   :END:
 *** Front
 ${1:vocab word$(progn (set-input-method "greek-babel")

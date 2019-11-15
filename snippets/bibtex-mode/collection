@@ -1,0 +1,13 @@
+# -*- mode: snippet -*-
+# name: collection citiation
+# key: collection
+# --
+@collection\{${8:key},
+  editor =       \{${1:editor(s)}\},
+  title =        \{${2:book title}\},
+  subtitle =     \{${3:subtitle}\},
+  series =       \{${4:series}\},
+  publisher =    \{${5:publisher}\},
+  year =         \{${6:year}\},
+  location =     \{${7:location}\}$0
+\}
