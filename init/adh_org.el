@@ -758,6 +758,11 @@ exporting, replace them for normal usage."
 (setq org-habit-show-all-today t
       org-habit-show-done-always-green t)
 
+;; Allow hiding of org headlines while including any content under them.
+;; Particularly useful for including extra structure and TODOs in document.
+(require 'ox-extra)
+(ox-extras-activate '(ignore-headlines))
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
