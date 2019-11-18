@@ -11,7 +11,7 @@
 #+LATEX_HEADER: \def\prof{${4:Professor name, format: Dr Tyler Wittman}}
 #+LATEX_HEADER: \def\courseno{${5:Course Number}}
 #+LANGUAGE: en
-#+OPTIONS: toc:nil H:10 num:t
+#+OPTIONS: toc:nil H:10 num:nil
 #+EXCLUDE_TAGS: noexport
 #+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
 #+LATEX_CLASS: adhsbtspaper
