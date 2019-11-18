@@ -7,6 +7,9 @@
 #+DATE: ${2:Due Date (format August 26, 2019)}
 #+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
 #+LATEX_HEADER: \def\wordcount{}
+#+LATEX_HEADER: \def\papertype{${3:Type Of Paper}}
+#+LATEX_HEADER: \def\prof{${4:Professor name, format: Dr Tyler Wittman}}
+#+LATEX_HEADER: \def\courseno{${5:Course Number}}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil H:10 num:t
 #+EXCLUDE_TAGS: noexport
