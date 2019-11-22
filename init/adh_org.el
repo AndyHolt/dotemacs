@@ -430,6 +430,10 @@ Function to be called when beginning org-refile, so as to have link ready to be
 
 (require 'org-ref)
 
+;; change font used for org-ref links
+(set-face-attribute 'org-ref-cite-face nil :weight 'light :foreground "#f1d49b"
+                    :underline nil)
+
 ;; use interleave mode
 (require 'interleave)
 
@@ -607,7 +611,7 @@ to notes.app."
                      ;; description, which in this case is the actual text of
                      ;; the quote
                      (adh-safe-brace-to-sqbr desc)))))
- :face '(:foreground "#8CD0D3" :weight bold :slant italic)
+ :face '(:foreground "#8CD0D3" :weight semi-light :slant normal)
  :display 'org-link)
 
 ;; Set up insertion of quotes along with citation for use in org-link format
