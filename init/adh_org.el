@@ -641,7 +641,9 @@ do that."
            (switch-to-buffer (generate-new-buffer bibtex-ref-buffer))
            (org-mode)
            (helm-bibtex nil nil
-                        (if orig-buffer-file
+                        (if (and orig-buffer-file
+                                 (equal (file-name-directory orig-buffer-file)
+                                        (concat helm-bibtex-notes-path "/")))
                             (file-name-base orig-buffer-file)
                           ""))
            (setq ref-string (buffer-string))
