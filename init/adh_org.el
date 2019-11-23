@@ -604,7 +604,7 @@ to notes.app."
                      ;; if 3 or 4 elements to link path, there is a post-note
                      ;; (likely page number) so use post note
                      (if (>= (length (s-split ":" path)) 3)
-                         (last (s-split ":" path))
+                         (car (last (s-split ":" path)))
                        (concat))
                      ;; this should always be the bib key
                      (nth 1 (s-split ":" path))
