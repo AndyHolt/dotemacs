@@ -63,7 +63,6 @@
 (require 'adh_flycheck)
 ;(require 'adh_sentence-highlight)
 (require 'adh_projectile)
-(require 'adh_diminish)
 ;(require 'adh_ess)
 (require 'adh_multiplecursors)
 ;(require 'adh_discover)
@@ -77,6 +76,7 @@
 (require 'adh_email)
 (require 'adh_orgcal)
 (require 'adh_pdf)
+(require 'adh_diminish)
 
 ;; system specific configurations
 (cond ((eq system-type 'gnu/linux)
