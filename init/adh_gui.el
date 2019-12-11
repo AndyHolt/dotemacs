@@ -60,15 +60,15 @@
 ;(load-theme 'wombat t)
 ;(color-theme-solarized-dark)
 (require 'theme-changer)
-;; (setq calendar-location-name "Cambridge, UK")
+;; (setq calendar-location-name "Cambridge, England")
 ;; (setq calendar-latitude 52.2)
 ;; (setq calendar-longitude 0.1)
-;; (setq calendar-location-name "Aberdeen, UK")
-;; (setq calendar-latitude 57.2)
-;; (setq calendar-longitude -2.1)
-(setq calendar-location-name "Louisville, KY"
-      calendar-latitude 38.25
-      calendar-longitude -85.68)
+(setq calendar-location-name "Aberdeen, Scotland")
+(setq calendar-latitude 57.2)
+(setq calendar-longitude -2.1)
+;; (setq calendar-location-name "Louisville, KY"
+;;       calendar-latitude 38.25
+;;       calendar-longitude -85.68)
 
 
 ;; add cask directories to theme library
