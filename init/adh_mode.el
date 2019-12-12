@@ -73,15 +73,22 @@
 (setq helm-bibtex-full-frame nil)
 
 ;; add bib files to helm-bibtex search path
-(setq bibtex-completion-bibliography '("~/Projects/WritingTools/Theology.bib"
+(setq bibtex-completion-bibliography '("~/Projects/WritingTools/Lit.bib"
                                        "~/Projects/WritingTools/PopSciHist.bib"
-                                       "~/Projects/WritingTools/Lit.bib"))
+                                       "~/Projects/WritingTools/Theology.bib"))
 
 ;; change default action of helm-bibtex to insert citation
 (require 'helm-bibtex)
 (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
 (helm-add-action-to-source "Insert citation"
                            'helm-bibtex-insert-citation helm-source-bibtex 0)
+
+;; reverse order of helm candidates
+;; By default, orders candidates from bottom of bib file to top, giving "most
+;; recent" candidates at top. However, this only makes sense if bib file has
+;; entries appended, not sorted into order.
+(advice-add 'bibtex-completion-candidates
+            :filter-return 'reverse)
 
 ;; use preview to open PDFs
 ;; [todo] - not working! Needs some fixing
