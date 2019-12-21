@@ -134,7 +134,27 @@
                                              "Reading and study")
          "* TODO article: %?\n%T\n\n")
         ("n" "Note" entry (file+datetree "~/Dropbox/Org_files/notes.org")
-         "* %?\n\n%T\n\n")))
+         "* %?\n\n%T\n\n")
+        ("l" "Link from Browser" entry (file+headline "todo.org" "Inbox")
+         (function adh-org-capture-browser-tabs))))
+
+;; define function for use in capture to get tabs via helm-browser-tabs
+(defun adh-org-capture-browser-tabs ()
+    "Get browser tabs from helm (one or multiple) and generate a org capture
+template to capture them."
+    (let* ((tabs-list (with-temp-buffer (org-mode)
+                                        (helm-browser-tabs t)
+                                        (buffer-substring-no-properties (point-min)
+                                                                        (point-max)))))
+      (if (string-match "\n" tabs-list)
+          (setq capture-headline "Links relating to %?")
+        (setq capture-headline (format "%s%%?"
+                                       (progn
+                                         (string-match org-bracket-link-regexp
+                                                       tabs-list)
+                                         (or (match-string 3 tabs-list)
+                                             (match-string 1 tabs-list))))))
+      (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
 
 ;; start org protocol - for creating links etc to external
 ;; applications
