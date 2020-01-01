@@ -70,6 +70,10 @@
 (require 'swiper)
 (global-set-key (kbd "C-s") 'swiper)
 (setq ivy-display-style 'fancy)
+;; use character folding in searches by default
+;; (makes a match à, á, ã, â etc, and (significantly), α will match ἀ, ἁ, ᾶ, ά
+;; ᾳ, etc)
+(setq search-default-mode #'char-fold-to-regexp)
 
 ;; counsel-yank-pop
 (global-set-key (kbd "C-x y") 'counsel-yank-pop)
