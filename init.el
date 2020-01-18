@@ -74,8 +74,8 @@
 (require 'adh_deft)
 (require 'adh_hydra)
 (require 'adh_email)
-(require 'adh_orgcal)
-(require 'adh_pdf)
+; (require 'adh_orgcal)
+; (require 'adh_pdf)
 (require 'adh_diminish)
 
 ;; system specific configurations
