@@ -789,6 +789,10 @@ exporting, replace them for normal usage."
 (require 'ox-extra)
 (ox-extras-activate '(ignore-headlines))
 
+;; org bullets set up
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here

@@ -57,6 +57,7 @@
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
 (depends-on "org-plus-contrib")
+(depends-on "org-bullets")
 (depends-on "org-gcal")
 (depends-on "org-mac-link")
 (depends-on "org-mu4e")
