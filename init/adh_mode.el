@@ -196,12 +196,6 @@
             (tex-pdf-mode 1)
             (require 'smartparens-latex)))
 
-(add-hook 'org-mode-hook
-          (lambda ()
-            (auto-fill-mode 1)
-            (flyspell-mode 1)
-            (org-indent-mode 1)))
-
 (require 'whole-line-or-region)
 (add-hook 'text-mode-hook
           (lambda ()

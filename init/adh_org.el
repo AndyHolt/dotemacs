@@ -793,6 +793,12 @@ exporting, replace them for normal usage."
 ;; org bullets set up
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+;; enable org-indent-mode
+(defun adh-org-indent-enable ()
+  "Enable org-indent-mode (function to be called by `org-mode-hook')"
+  (org-indent-mode 1))
+
+(add-hook 'org-mode-hook #'adh-org-indent-enable)
 
 (provide 'adh_org)
 
