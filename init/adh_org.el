@@ -654,7 +654,8 @@ this work around is necessary. It isn't very neat, but it makes
 use of helm-bibtex, and is better than starting from scratch to
 do that."
   (interactive)
-  (progn (let ((ref-string "")
+  (progn (let ((org-ref-prefer-bracket-links nil)
+               (ref-string "")
                (bibtex-ref-buffer "temp-bibtex")
                (orig-buffer (current-buffer))
                (orig-buffer-file (buffer-file-name)))
