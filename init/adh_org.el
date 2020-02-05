@@ -370,8 +370,8 @@ Function to be called when beginning org-refile, so as to have link ready to be
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (add-to-list 'org-latex-classes
-             '("adhsbtspaper"
-               "\\documentclass{adhsbtspaper}
+             '("sbtspaper"
+               "\\documentclass{sbtspaper}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
