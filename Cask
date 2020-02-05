@@ -6,6 +6,7 @@
 (depends-on "ace-link")
 (depends-on "ace-window")
 (depends-on "ag")
+(depends-on "anki-editor")
 (depends-on "avy")
 (depends-on "annoying-arrows-mode")
 ;; (depends-on "anzu")
