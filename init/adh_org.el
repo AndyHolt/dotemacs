@@ -799,6 +799,9 @@ exporting, replace them for normal usage."
 
 (add-hook 'org-mode-hook #'adh-org-bullet-enable)
 
+;; use brackets around org-ref links, even when no page reference added
+(setq org-ref-prefer-bracket-links t)
+
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
   "Enable org-indent-mode (function to be called by `org-mode-hook')"
