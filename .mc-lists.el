@@ -50,6 +50,7 @@
         sp--self-insert-command
         sp-remove-active-pair-overlay
         swiper
+        tex-handle-newline
         undefined
         whole-line-or-region-kill-region
         whole-line-or-region-kill-ring-save
