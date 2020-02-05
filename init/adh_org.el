@@ -805,6 +805,26 @@ exporting, replace them for normal usage."
 ;; allow use of letters as well as numbers to define lists
 (setq org-list-allow-alphabetical t)
 
+;; set up newline handling in org mode.
+;; Main text should use autofill to hard line-break and wrap at `fill-column'
+;; width.
+;; Org headlines should not hard break (new lines not allowed in headings), so
+;; should instead soft wrap. This should be done at the window edge, not
+;; fill-column (this stops a fight between auto-fill and visual-fill), but
+;; should break lines between words, not in the middle of a word.
+(defun adh-org-linebreak-setup ()
+    "Set up line breaking as I like it in Org mode.
+
+- Normal text should be hard wrapped at fill-column (usually 80 characters)
+- Headlines should wrap at window edge
+- Headlines should wrap between words, not in the middle of a word"
+  (interactive)
+  (visual-line-mode t)
+  (toggle-word-wrap t)
+  (visual-fill-column-mode 0))
+
+(add-hook 'org-mode-hook #'adh-org-linebreak-setup)
+
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
   "Enable org-indent-mode (function to be called by `org-mode-hook')"
