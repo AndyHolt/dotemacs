@@ -802,6 +802,9 @@ exporting, replace them for normal usage."
 ;; use brackets around org-ref links, even when no page reference added
 (setq org-ref-prefer-bracket-links t)
 
+;; allow use of letters as well as numbers to define lists
+(setq org-list-allow-alphabetical t)
+
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
   "Enable org-indent-mode (function to be called by `org-mode-hook')"
