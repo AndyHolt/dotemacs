@@ -26,6 +26,12 @@
 (require 'helm-browser-tabs)
 (global-set-key (kbd "C-c m t") (lambda () (interactive) (helm-browser-tabs t)))
 
+;; Ensure that if lines are wrapped they wrap at spaces instead of in the middle
+;; of words
+(add-hook 'helm-major-mode-hook (lambda () (toggle-word-wrap t)
+                                  (visual-fill-column-mode nil)
+                                  (set-fill-column 1000)))
+
 (provide 'adh_helm)
 
 ;;; adh_helm.el ends here
