@@ -38,6 +38,7 @@
 (diminish 'orgtbl-mode)
 (diminish 'typo-mode)
 (diminish 'gcmh-mode)
+(diminish 'visual-line-mode)
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
