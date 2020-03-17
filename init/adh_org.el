@@ -832,6 +832,10 @@ exporting, replace them for normal usage."
 
 (add-hook 'org-mode-hook #'adh-org-indent-enable)
 
+;; set up non-breaking spaces for org export
+(setq org-entities-user
+      '(("nbsp" "~" nil "&nbsp;" " " " " " ")))
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
