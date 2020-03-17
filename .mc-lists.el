@@ -33,6 +33,7 @@
         matlab-linefeed
         message-beginning-of-line
         org-beginning-of-line
+        org-cycle
         org-delete-char
         org-end-of-line
         org-fill-paragraph
