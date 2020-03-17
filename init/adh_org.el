@@ -836,6 +836,9 @@ exporting, replace them for normal usage."
 (setq org-entities-user
       '(("nbsp" "~" nil "&nbsp;" " " " " " ")))
 
+;; hide emphasis markers (/ and * etc) when viewing org files
+(setq org-hide-emphasis-markers t)
+
 (provide 'adh_org)
 
 ;;; adh_org.el ends here
