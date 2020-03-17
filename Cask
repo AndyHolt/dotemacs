@@ -68,6 +68,7 @@
 (depends-on "popwin")
 (depends-on "projectile")
 (depends-on "python")
+(depends-on "python-black")
 (depends-on "s")
 (depends-on "sentence-highlight")
 (depends-on "smartparens")
