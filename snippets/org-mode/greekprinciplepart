@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: principle parts
+# key: pp
+# --
+** Principle parts of $1
+:PROPERTIES:
+  :ANKI_DECK: Greek Principle Parts
+  :ANKI_NOTE_TYPE: Basic
+  :ANKI_TAGS: PrincipleParts
+  :END:
+*** Front
+Principle parts of $1
+*** Back
+| Pres Act | Fut Act      | Aor Act      | Perf Act      | Perf Pass      | Aor Pass      | gloss      |
+|----------+--------------+--------------+---------------+----------------+---------------+------------|
+| ${1:Pres} | ${2:Fut Act} | ${3:Aor Act} | ${4:Perf Act} | ${5:Perf Pass} | ${6:Aor Pass} | ${7:Gloss} |
+$0

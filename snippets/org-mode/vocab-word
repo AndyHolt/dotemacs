@@ -6,7 +6,7 @@
 :PROPERTIES:
   :ANKI_DECK: NT Greek Vocab
   :ANKI_NOTE_TYPE: Basic (and reversed card)
-  :ANKI_TAGS: KMP7
+  :ANKI_TAGS: KMP8
   :END:
 *** Front
 ${1:vocab word$(progn (set-input-method "greek-babel")
