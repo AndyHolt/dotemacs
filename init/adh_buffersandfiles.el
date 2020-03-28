@@ -149,6 +149,24 @@
               " "
               filename-and-process)))
 
+(defun adh-find-file-copy-path (&optional initial-input)
+    "Use interactive file search to find a file, but instead of finding
+(visiting/opening) the file, copy the full path to the clipboard."
+  (interactive)
+  (counsel--find-file-1
+   "Copy path: " initial-input
+   'kill-new
+   'adh-find-file-copy-path))
+
+(defun adh-find-file-insert-path (&optional initial-input)
+    "Use interactive file search to find a file, but instead of finding
+(visiting/opening) the file, insert the path at point."
+  (interactive)
+  (counsel--find-file-1
+   "Copy path: " initial-input
+   'insert
+   'adh-find-file-copy-path))
+
 (provide 'adh_buffersandfiles)
 
 ;;; adh_buffersandfiles.el ends here
