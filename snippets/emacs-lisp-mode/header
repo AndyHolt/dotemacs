@@ -1,7 +1,7 @@
 # name: Header for Elisp files
 # key: header
 # --
-;;; `(insert (buffer-name))` --- ${1:Summary}
+;;; `(insert (buffer-name))` --- ${1:Summary} -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
@@ -16,5 +16,4 @@
 $0
 
 (provide '`(insert (car (split-string (buffer-name) "\\.")))`)
-
 ;;; `(insert (buffer-name))` ends here
