@@ -1,4 +1,4 @@
-;;; adh_mode.el --- Set up modes
+;;; adh_mode.el --- Set up modes -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Thu 17 Apr 2014 00:26

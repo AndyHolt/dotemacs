@@ -1,4 +1,4 @@
-;;; adh_latex.el --- Settings for editing LaTeX
+;;; adh_latex.el --- Settings for editing LaTeX -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Mon 29 Dec 2014 16:02

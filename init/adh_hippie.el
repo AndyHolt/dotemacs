@@ -1,4 +1,4 @@
-;;; adh_hippie.el --- Set up hippie expand mode
+;;; adh_hippie.el --- Set up hippie expand mode -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:46

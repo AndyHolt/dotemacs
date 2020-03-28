@@ -1,11 +1,11 @@
-;;; adh_email.el --- setup email from Emacs
+;;; adh_email.el --- setup email from Emacs -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sat 12 Mar 2016 17:11
 
 ;;; Commentary:
 ;;
-;; Currently trying mu4e for email in emacs. We'll see how this goes.
+;; Configuration for mu4e: emails in Emacs!
 
 ;;; Code:
 

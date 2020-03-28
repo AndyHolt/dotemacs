@@ -1,4 +1,4 @@
-;;; adh_pdf.el --- Set up pdf-tools and other pdf related things
+;;; adh_pdf.el --- Set up pdf-tools and other pdf related things -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Mon 05 Mar 2018 18:24

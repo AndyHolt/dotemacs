@@ -1,4 +1,4 @@
-;;; init.el --- Emacs configuration.
+;;; init.el --- Emacs configuration. -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:17

@@ -1,4 +1,4 @@
-;;; adh_language.el --- Set up language, typing, dictionaries etc
+;;; adh_language.el --- Set up language, typing, dictionaries etc -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:55

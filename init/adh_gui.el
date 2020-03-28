@@ -1,4 +1,4 @@
-;;; adh_gui.el --- Setup aesthetic elements
+;;; adh_gui.el --- Setup aesthetic elements -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:41

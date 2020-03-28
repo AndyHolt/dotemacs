@@ -1,4 +1,4 @@
-;;; adh_helm.el --- helm setup
+;;; adh_helm.el --- helm setup -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Fri 28 Mar 2014 14:50

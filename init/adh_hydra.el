@@ -1,7 +1,8 @@
-;;; adh_hydra.el --- set up hydra package - keybindings that stick around
+;;; adh_hydra.el --- set up hydra package -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sat 30 May 2015 12:05
+;; URL: https://github.com/AndyHolt/dotemacs
 
 ;;; Commentary:
 ;;

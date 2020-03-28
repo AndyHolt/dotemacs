@@ -1,7 +1,8 @@
-;;; adh_deft.el --- Customizations for deft mode.
+;;; adh_deft.el --- Customizations for deft mode. -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Tue 26 May 2015 19:55
+;; URL: https://github.com/AndyHolt/dotemacs
 
 ;;; Commentary:
 ;;

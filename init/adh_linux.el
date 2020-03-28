@@ -1,8 +1,8 @@
-;;; adh_linux.el --- Linux specific config file
+;;; adh_linux.el --- Linux specific config file -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Tue 11 Aug 2015 15:37
-;; URL: https://github.com/AndyHolt/dotemacs/init/adh_linux.el
+;; URL: https://github.com/AndyHolt/dotemacs/
 
 ;;; Commentary:
 ;;

@@ -1,3 +1,15 @@
+;;; adh_flycheck.el --- Set up flycheck -*- lexical-binding: t -*-
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sat 28 Mar 2020 19:35
+;; URL: https://github.com/AndyHolt/dotemacs
+
+;;; Commentary:
+;;
+;; Configuration of flycheck syntax checking
+
+;;; Code:
+
 (require 'flycheck)
 
 ;; (defun adh/adjust-flycheck-automatic-syntax-eagerness ()

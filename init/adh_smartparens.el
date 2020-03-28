@@ -1,4 +1,4 @@
-;;; adh_smartparens.el --- Smart parentheses
+;;; adh_smartparens.el --- Smart parentheses -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:15

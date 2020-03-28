@@ -1,4 +1,14 @@
-;;; stuff for interfacing with other programs, applications etc
+;;; adh_external.el --- Config for interface to external applications -*- lexical-binding: t -*-
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sat 28 Mar 2020 19:32
+;; URL: https://github.com/AndyHolt/dotemacs
+
+;;; Commentary:
+;;
+;; Configure settings required for interfacing Emacs with other applications
+
+;;; Code:
 
 ;; google search from region or mini-buffer
 ;; code from prelude emacs setup: https://github.com/bbatsov/prelude

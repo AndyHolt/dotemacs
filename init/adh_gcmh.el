@@ -1,4 +1,4 @@
-;;; adh_gcmh.el --- Configuration for garbage collection magic hack
+;;; adh_gcmh.el --- Configuration for garbage collection magic hack -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Mon 06 May 2019 23:09

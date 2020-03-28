@@ -1,4 +1,4 @@
-;;; adh_alias.el --- Function aliases
+;;; adh_alias.el --- Function aliases -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:31

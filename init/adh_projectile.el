@@ -1,4 +1,4 @@
-;;; adh_projectile.el --- Project navigation tool
+;;; adh_projectile.el --- Project navigation tool -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:07

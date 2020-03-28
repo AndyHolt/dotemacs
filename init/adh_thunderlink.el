@@ -1,4 +1,4 @@
-;;; adh_thunderlink.el --- Link Emacs to Thunderbird email client
+;;; adh_thunderlink.el --- Link Emacs to Thunderbird email client -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:25

@@ -1,4 +1,4 @@
-;;; adh_sentence-highlight.el --- Highlight the current sentence
+;;; adh_sentence-highlight.el --- Highlight the current sentence -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:09

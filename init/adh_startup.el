@@ -1,4 +1,4 @@
-;;; adh_startup.el --- Start up functions
+;;; adh_startup.el --- Start up functions -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:23

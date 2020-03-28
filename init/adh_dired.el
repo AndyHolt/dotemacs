@@ -1,3 +1,15 @@
+;;; adh_dired.el --- Config for Dired -*- lexical-binding: t -*-
+
+;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
+;; Date: Sat 28 Mar 2020 19:26
+;; URL: https://github.com/AndyHolt/dotemacs/
+
+;;; Commentary:
+;;
+;; Set variable values and add useful functions for dired.
+
+;;; Code:
+
 (require 'dired)
 
 ;; change C-< and C-> to jump to more logical places

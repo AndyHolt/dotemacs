@@ -1,4 +1,4 @@
-;;; adh_org.el --- Org mode setup
+;;; adh_org.el --- Org mode setup -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:03

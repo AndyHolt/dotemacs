@@ -1,4 +1,4 @@
-;;; adh_buffersandfiles.el --- Set up how emacs deals with files and buffers
+;;; adh_buffersandfiles.el --- Set up how emacs deals with files and buffers -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:33

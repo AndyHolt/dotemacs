@@ -1,4 +1,4 @@
-;;; adh_ido.el --- Setup for ido mode
+;;; adh_ido.el --- Setup for ido mode -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:48

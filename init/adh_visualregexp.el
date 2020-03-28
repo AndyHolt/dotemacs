@@ -1,4 +1,4 @@
-;;; adh_visualregexp.el --- Help build regexps
+;;; adh_visualregexp.el --- Help build regexps -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 17:27

@@ -1,7 +1,8 @@
-;;; adh_ivy.el --- Setup for ivy selection
+;;; adh_ivy.el --- Setup for ivy selection -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Wed 26 Apr 2017 13:03
+;; URL: https://github.com/AndyHolt/dotemacs
 
 ;;; Commentary:
 ;;

@@ -1,4 +1,4 @@
-;;; adh_keyfreq.el --- log which key combinations are most used.
+;;; adh_keyfreq.el --- log which key combinations are most used. -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:50

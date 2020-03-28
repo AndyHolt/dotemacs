@@ -1,8 +1,8 @@
-;;; adh_magit.el --- set up for Magit
+;;; adh_magit.el --- set up for Magit -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Mon 29 Dec 2014 18:00
-;; URL: https://github.com/AndyHolt/dotemacs/blob/master/init/adh_magit.el
+;; URL: https://github.com/AndyHolt/dotemacs/
 
 ;;; Commentary:
 ;;

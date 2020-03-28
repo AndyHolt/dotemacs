@@ -1,8 +1,8 @@
-;;; adh_fullframe.el --- Settings for fullframe
+;;; adh_fullframe.el --- Settings for fullframe -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sat 24 Jan 2015 15:08
-;; URL: https://github.com/AndyHolt/dotemacs/init/adh_fullframe.el
+;; URL: https://github.com/AndyHolt/dotemacs/
 
 ;;; Commentary:
 ;;

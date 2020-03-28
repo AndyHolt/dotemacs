@@ -1,4 +1,4 @@
-;;; adh_multiplecursors.el --- Setup multiple cursors
+;;; adh_multiplecursors.el --- Setup multiple cursors -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Sun 23 Mar 2014 16:59

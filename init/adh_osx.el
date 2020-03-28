@@ -1,8 +1,8 @@
-;;; adh_osx.el --- OSX specific config file
+;;; adh_osx.el --- OSX specific config file -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Tue 11 Aug 2015 15:29
-;; URL: https://githib.com/AndyHolt/dotemacs/init/adh_osx.el
+;; URL: https://githib.com/AndyHolt/dotemacs
 
 ;;; Commentary:
 ;;
