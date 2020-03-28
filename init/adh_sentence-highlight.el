@@ -13,5 +13,4 @@
 (require 'sentence-highlight)
 
 (provide 'adh_sentence-highlight)
-
 ;;; adh_sentence-highlight.el ends here

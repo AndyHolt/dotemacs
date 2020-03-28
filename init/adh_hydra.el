@@ -55,5 +55,4 @@
         
 
 (provide 'adh_hydra)
-
 ;;; adh_hydra.el ends here

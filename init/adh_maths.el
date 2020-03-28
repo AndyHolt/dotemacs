@@ -25,5 +25,4 @@
     (* x (pow x (- n 1)))))
 
 (provide 'adh_maths)
-
 ;;; adh_maths.el ends here

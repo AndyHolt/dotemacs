@@ -168,5 +168,4 @@
    'adh-find-file-copy-path))
 
 (provide 'adh_buffersandfiles)
-
 ;;; adh_buffersandfiles.el ends here

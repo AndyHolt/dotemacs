@@ -33,5 +33,4 @@
      (define-key LaTeX-mode-map (kbd "C-{") 'helm-bibtex)))
 
 (provide 'adh_latex)
-
 ;;; adh_latex.el ends here

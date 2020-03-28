@@ -33,5 +33,4 @@
                                   (set-fill-column 1000)))
 
 (provide 'adh_helm)
-
 ;;; adh_helm.el ends here

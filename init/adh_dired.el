@@ -40,3 +40,4 @@
 (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
 
 (provide 'adh_dired)
+;;; adh_dired.el ends here

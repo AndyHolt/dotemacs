@@ -84,5 +84,4 @@
 (global-set-key (kbd "C-c :") 'uncomment-region)
 
 (provide 'adh_navigation)
-
 ;;; adh_navigation.el ends here

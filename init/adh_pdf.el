@@ -26,5 +26,4 @@
 (define-key pdf-view-mode-map (kbd "w") 'pdf-view-kill-ring-save)
 
 (provide 'adh_pdf)
-
 ;;; adh_pdf.el ends here

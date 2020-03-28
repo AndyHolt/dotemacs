@@ -63,5 +63,4 @@
   (format "%s%s%s" comment-start str comment-end))
 
 (provide 'adh_yasnippet)
-
 ;;; adh_yasnippet.el ends here

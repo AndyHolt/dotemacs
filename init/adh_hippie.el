@@ -25,5 +25,4 @@
                                          try-complete-lisp-symbol))
 
 (provide 'adh_hippie)
-
 ;;; adh_hippie.el ends here

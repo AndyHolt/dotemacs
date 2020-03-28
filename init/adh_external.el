@@ -44,3 +44,4 @@
     (setq browse-url-browser-function (quote browse-url-chromium))))
 
 (provide 'adh_external)
+;;; adh_external.el ends here

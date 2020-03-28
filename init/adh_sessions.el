@@ -15,5 +15,4 @@
   (concat "~/.emacs.d/cache/session." SESSION-ID))
 
 (provide 'adh_sessions)
-
 ;;; adh_sessions.el ends here

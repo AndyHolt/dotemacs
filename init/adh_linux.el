@@ -11,8 +11,5 @@
 
 ;;; Code:
 
-
-
 (provide 'adh_linux)
-
 ;;; adh_linux.el ends here

@@ -54,3 +54,4 @@
   '(flycheck-mode))
 
 (provide 'adh_flycheck)
+;;; adh_flycheck.el ends here

@@ -840,5 +840,4 @@ exporting, replace them for normal usage."
 (setq org-hide-emphasis-markers t)
 
 (provide 'adh_org)
-
 ;;; adh_org.el ends here

@@ -20,5 +20,4 @@
 ; (global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 (provide 'adh_smartmx)
-
 ;;; adh_smartmx.el ends here

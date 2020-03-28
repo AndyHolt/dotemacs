@@ -52,5 +52,4 @@
 ;(autopair-global-mode)
 
 (provide 'adh_startup)
-
 ;;; adh_startup.el ends here

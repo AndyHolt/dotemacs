@@ -19,5 +19,4 @@
 (fullframe magit-status magit-mode-quit-window)
 
 (provide 'adh_fullframe)
-
 ;;; adh_fullframe.el ends here

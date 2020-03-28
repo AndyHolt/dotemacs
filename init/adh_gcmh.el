@@ -21,5 +21,4 @@
 (setq garbage-collection-messages t)
 
 (provide 'adh_gcmh)
-
 ;;; adh_gcmh.el ends here

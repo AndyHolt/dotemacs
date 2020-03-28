@@ -79,5 +79,4 @@
 (setq default-input-method "greek-babel")
 
 (provide 'adh_language)
-
 ;;; adh_language.el ends here

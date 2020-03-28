@@ -21,5 +21,4 @@
 (global-set-key (kbd "C-c m d") 'deft)
 
 (provide 'adh_deft)
-
 ;;; adh_deft.el ends here

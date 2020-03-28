@@ -45,5 +45,4 @@
             (setq mode-name "el")))
 
 (provide 'adh_diminish)
-
 ;;; adh_diminish.el ends here

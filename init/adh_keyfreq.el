@@ -15,5 +15,4 @@
 (keyfreq-autosave-mode 1)
 
 (provide 'adh_keyfreq)
-
 ;;; adh_keyfreq.el ends here

@@ -235,5 +235,4 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
 (provide 'adh_gui)
-
 ;;; adh_gui.el ends here

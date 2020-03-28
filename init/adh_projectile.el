@@ -20,5 +20,4 @@
 (setq projectile-ignored-projects '("~/Dropbox/"))
 
 (provide 'adh_projectile)
-
 ;;; adh_projectile.el ends here

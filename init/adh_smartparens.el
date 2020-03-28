@@ -24,5 +24,4 @@
 ;;   (sp-local-pair "$" "$"))
 
 (provide 'adh_smartparens)
-
 ;;; adh_smartparens.el ends here

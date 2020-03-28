@@ -20,5 +20,4 @@
 (define-key global-map (kbd "C-c m r") 'vr/mc-mark)
 
 (provide 'adh_visualregexp)
-
 ;;; adh_visualregexp.el ends here

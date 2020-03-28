@@ -19,5 +19,4 @@
 (global-set-key (kbd "M-3") '(lambda() (interactive) (insert-hash)))
 
 (provide 'adh_osx)
-
 ;;; osx.el ends here

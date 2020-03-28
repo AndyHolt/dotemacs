@@ -21,5 +21,4 @@
 (defalias 'qrr 'query-replace-regexp)
 
 (provide 'adh_alias)
-
 ;;; adh_alias.el ends here

@@ -21,5 +21,4 @@
 (setq mc/insert-numbers-default 1)
 
 (provide 'adh_multiplecursors)
-
 ;;; adh_multiplecursors.el ends here

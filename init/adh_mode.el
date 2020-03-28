@@ -324,5 +324,4 @@
 (setq sql-product 'mysql)
 
 (provide 'adh_mode)
-
 ;;; adh_mode.el ends here

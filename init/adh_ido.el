@@ -71,5 +71,4 @@
    (insert-for-yank (ido-completing-read "Select kill: " kill-ring)))
 
 (provide 'adh_ido)
-
 ;;; adh_ido.el ends here

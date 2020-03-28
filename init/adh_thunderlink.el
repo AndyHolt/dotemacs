@@ -18,5 +18,4 @@
   (start-process "myname" nil "thunderbird" "-thunderlink" (concat "thunderlink:" link-path)))
 
 (provide 'adh_thunderlink)
-
 ;;; adh_thunderlink.el ends here

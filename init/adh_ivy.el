@@ -42,5 +42,4 @@
 (setq ivy-use-selectable-prompt t)
 
 (provide 'adh_ivy)
-
 ;;; adh_ivy.el ends here
