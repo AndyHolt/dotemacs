@@ -111,7 +111,7 @@
 
 ;; capture templates, experimental new one
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
+      '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
          "* TODO %?\n%i\n%U\n")
         ("c" "Todo with Context" entry (file+headline "~/Dropbox/Org_files/todo.org" "Tasks")
          "* TODO %?\n%i\n%a\n%U\n")
