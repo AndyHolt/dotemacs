@@ -12,6 +12,7 @@
         autopair-insert-or-skip-quote
         autopair-skip-close-maybe
         beginning-of-buffer
+        bibtex-next-field
         c-electric-colon
         c-electric-delete-forward
         c-electric-paren
