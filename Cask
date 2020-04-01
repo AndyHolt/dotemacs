@@ -69,6 +69,7 @@
 (depends-on "projectile")
 (depends-on "python")
 (depends-on "python-black")
+(depends-on "rainbow-mode")
 (depends-on "s")
 (depends-on "sentence-highlight")
 (depends-on "smartparens")
