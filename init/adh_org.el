@@ -283,16 +283,11 @@ Function to be called when beginning org-refile, so as to have link ready to be
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((emacs-lisp . t)
-   (C . t)
-   ;(c++ . t)
-   (python . t)
    (latex . t)
-   (octave .t)
-   (haskell . t)
-   (R . t)
-   (dot . t)
-   (gnuplot . t)
-   (sql . t)))
+   (python . t)
+   (shell . t)
+   (sql . t)
+   ))
 
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
