@@ -84,7 +84,8 @@
 (blink-cursor-mode 0)
 
 ;; set variable-pitch-mode font
-(set-face-font 'variable-pitch "Baskerville-14")
+; (set-face-font 'variable-pitch "Baskerville-14")
+(set-face-font 'variable-pitch "Iowan Old Style-14")
 ; (set-face-font 'variable-pitch "Garamond-14")
 ;(set-face-font 'variable-pitch "Times New Roman-14")
 
