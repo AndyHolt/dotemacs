@@ -78,6 +78,11 @@
 ;; counsel-yank-pop
 (global-set-key (kbd "C-x y") 'counsel-yank-pop)
 
+;; save clipboard entry before killing to ensure that clipboard content from
+;; external character is not lost if something in emacs is killed before
+;; pasting.
+(setq save-interprogram-paste-before-kill t)
+
 ;; keybinding for comment-region
 ;[todo] - perhaps move to another file?
 (global-set-key (kbd "C-c ;") 'comment-region)
