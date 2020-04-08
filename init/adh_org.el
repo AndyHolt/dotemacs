@@ -31,16 +31,22 @@
 ; (require 'org-mac-link)
 
 ;; add files to org agenda
-(setq org-agenda-files
+(setq adh-non-cal-org-agenda-files
       (list (concat adh-dropbox-location "Org_files/todo.org")
-            (concat adh-dropbox-location "Org_files/gcal.org")
-            ;; (concat adh-dropbox-location "Org_files/uccf-cal.org")
-            (concat adh-dropbox-location "Org_files/church-cal.org")
             (concat adh-dropbox-location "Org_files/notes.org")
             (concat adh-dropbox-location "Org_files/diary.org")
-            (concat adh-dropbox-location "Org_files/family-cal.org")
-            (concat adh-dropbox-location "Org_files/sbts-cal.org")
             ))
+(setq adh-cal-agenda-files
+      (list (concat adh-dropbox-location "Org_files/cal.org")
+            (concat adh-dropbox-location "Org_files/fam-cal.org")
+            (concat adh-dropbox-location "Org_files/sbts-cal.org")
+            (concat adh-dropbox-location "Org_files/church-cal.org")
+            ))
+
+(setq org-agenda-files
+      (-concat adh-non-cal-org-agenda-files
+               adh-cal-agenda-files
+               ))
 
 ;; set diary for inclusion in agenda
 (setq org-agenda-include-diary t)
@@ -189,11 +195,6 @@ template to capture them."
 ;; different groups, made up of non-calendar agenda files and calendar agenda
 ;; files. That will save from having redudency between variables that need to be
 ;; modifed in different places. THIS IS CURRENTLY A BOTCH!
-(setq adh-non-cal-org-agenda-files
-      (list (concat adh-dropbox-location "Org_files/todo.org")
-            (concat adh-dropbox-location "Org_files/notes.org")
-            (concat adh-dropbox-location "Org_files/diary.org")
-            ))
 
 (setq org-refile-targets '((nil :maxlevel . 10)
                            (adh-non-cal-org-agenda-files :maxlevel . 5)
