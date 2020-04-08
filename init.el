@@ -14,6 +14,7 @@
 ;; (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init/")
 ;; (add-to-list 'load-path "~/.emacs.d/.cask/")
+(add-to-list 'load-path "~/Projects/Zenodotus/")
 (let ((default-directory  "~/.emacs.d/.cask/"))
   (normal-top-level-add-subdirs-to-load-path))
 

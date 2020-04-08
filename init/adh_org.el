@@ -834,5 +834,15 @@ exporting, replace them for normal usage."
 ;; hide emphasis markers (/ and * etc) when viewing org files
 (setq org-hide-emphasis-markers t)
 
+;; Use ID property for org links if it exists. But don't create if it doesn't
+;; exist.
+;; 2020-04-06: I think this is the behaviour I want, always use ID if possible,
+;; but some org files or headings may be best without IDs, so don't force
+;; creation of an ID if creating a link to them.
+(setq org-id-link-to-org-use-id 'use-existing)
+
+(require 'org-zett)
+(define-key org-mode-map (kbd "C-c z") #'org-zett-add-note-link)
+
 (provide 'adh_org)
 ;;; adh_org.el ends here
