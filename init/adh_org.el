@@ -846,5 +846,8 @@ exporting, replace them for normal usage."
 (require 'org-zett)
 (define-key org-mode-map (kbd "C-c z") #'org-zett-add-note-link)
 
+;; do not kill hidden org headlines, at least not without asking nicely
+(setq org-ctrl-k-protect-subtree t)
+
 (provide 'adh_org)
 ;;; adh_org.el ends here
