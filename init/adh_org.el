@@ -206,6 +206,7 @@ template to capture them."
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-allow-creating-parent-nodes t)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
+(setq org-refile-use-cache t)
 
 
 ;; When refiling, make a link to the original location in the annotation
