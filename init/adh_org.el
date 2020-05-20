@@ -22,25 +22,29 @@
 (require 'ox-md)
 
 (defvar adh-dropbox-location
-  (cond ((eq system-type 'gnu/linux) "~/Dropbox/")
+  (cond ((eq system-type 'darwin) (expand-file-name "~/Dropbox/"))
+        ((eq system-type 'gnu/linux) (expand-file-name "~/Dropbox/"))
         ((eq system-type 'windows-nt) "d:/Dropbox/")
         (t "~/Dropbox/"))
   "Holds the location of the Dropbox root directory for the current system.")
+
+;; set org files directory
+(setq org-directory (expand-file-name "Org_files/" adh-dropbox-location))
 
 ;; use org-mac to get links from mac applications
 ; (require 'org-mac-link)
 
 ;; add files to org agenda
 (setq adh-non-cal-org-agenda-files
-      (list (concat adh-dropbox-location "Org_files/todo.org")
-            (concat adh-dropbox-location "Org_files/notes.org")
-            (concat adh-dropbox-location "Org_files/diary.org")
+      (list (expand-file-name "todo.org" org-directory)
+            (expand-file-name "notes.org" org-directory)
+            (expand-file-name "diary.org" org-directory)
             ))
 (setq adh-cal-agenda-files
-      (list (concat adh-dropbox-location "Org_files/cal.org")
-            (concat adh-dropbox-location "Org_files/fam-cal.org")
-            (concat adh-dropbox-location "Org_files/sbts-cal.org")
-            (concat adh-dropbox-location "Org_files/church-cal.org")
+      (list (expand-file-name "cal.org" org-directory)
+            (expand-file-name "fam-cal.org" org-directory)
+            (expand-file-name "sbts-cal.org" org-directory)
+            (expand-file-name "church-cal.org" org-directory)
             ))
 
 (setq org-agenda-files
@@ -52,7 +56,7 @@
 (setq org-agenda-include-diary t)
 
 ;; set up diary file
-(setq org-agenda-diary-file (concat adh-dropbox-location "Org_files/diary.org"))
+(setq org-agenda-diary-file (expand-file-name "diary.org" org-directory))
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
