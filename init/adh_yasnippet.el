@@ -62,5 +62,10 @@
 (defun yas-with-comment (str)
   (format "%s%s%s" comment-start str comment-end))
 
+;; don't warn about modifying buffers in a backquote expression in yasnippet --
+;; I usually *want* the backquote expression to be modifying the buffer!
+(add-to-list 'warning-suppress-types
+             '(yasnippet backquote-change))
+
 (provide 'adh_yasnippet)
 ;;; adh_yasnippet.el ends here
