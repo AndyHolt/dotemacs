@@ -35,7 +35,7 @@
 ;; getting mail
 (setq 
   mu4e-get-mail-command "/Users/adh/dotfiles/email-sync.sh"
-  mu4e-update-interval 300 ;; update every 5 minutes
+  mu4e-update-interval nil ;; don't update, this is handled by launchctl
 )
 
 ;; sending mail
@@ -59,9 +59,6 @@
 ;; signatures
 (setq mu4e-compose-signature-auto-include nil )
 (setq mu4e-compose-signature "Andy Holt" )
-
-;; use flowed format for line breaks when composing email
-(setq mu4e-compose-format-flowed nil)
 
 ;; setup contexts for different accounts
 (setq mu4e-contexts
@@ -184,10 +181,10 @@
 
 ;; add shortcuts to inboxes
 (setq mu4e-maildir-shortcuts
-      '( ("/hotmail/Inbox"         . ?h)
-         ("/ah635-gmail.com/INBOX" . ?g)
-         ("/cantab/INBOX" . ?c)
-         ("/sbts/inbox" . ?s)
+      '( (:maildir "/hotmail/Inbox" :key ?h)
+         (:maildir "/ah635-gmail.com/INBOX" :key ?g)
+         (:maildir "/cantab/INBOX" :key ?c)
+         (:maildir "/sbts/inbox" :key ?s)
          ))
 
 ;; set up actions
@@ -253,7 +250,26 @@
 ;; (add-hook 'mu4e-view-mode-hook 'whitespace-mode)
 ;; (add-hook 'mu4e-view-mode-hook 'visual-line-mode)
 
-(add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+; (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+
+;; use format-flowed and soft line breaks when composing emails
+(setq mu4e-compose-format-flowed t)
+
+(defun adh-mu4e-compose-line-breaking ()
+    "Set up preferred line breaking settings for composing emails
+in mu4e. Use soft line breaks and ensure format-flowed is used.
+This will make emails much nicer to read in external mail programmes."
+    (auto-fill-mode 0)
+    (visual-line-mode t)
+    (visual-fill-column-mode t)
+    (toggle-word-wrap t))
+
+(add-hook 'mu4e-compose-mode-hook #'adh-mu4e-compose-line-breaking)
+
+;; auto-fill-mode
+;; visual-line-mode
+;; visual-fill-column-mode
+;; toggle-word-wrap
 
 ;; global keybinding to enter email
 (global-set-key (kbd "C-c m m") 'mu4e)
@@ -276,25 +292,34 @@
 ;; Add bookmark for searching for a particular date, date selected using
 ;; org-read-date
 (add-to-list 'mu4e-bookmarks
-             (make-mu4e-bookmark
-              :name "Select date"
-              :query '(concat "date:"
-                              (format-time-string "%Y%m%d"
-                                                  (org-read-date nil t)))
+             '(:name "Select date"
+               :query (lambda ()
+                        (let* ((org-read-date-prefer-future nil)
+                               (date (format-time-string "%Y%m%d"
+                                                         (org-read-date nil
+                                                                        t))))
+                           (concat "date:" date)))
               :key ?d))
 
 ;; Add bookmark for today's emails in inboxes.
 ;; Want to see emails for today across all inboxes, like "Today's messages"
 ;; bookmark, but not ones which have been deleted or refiled already.
 (add-to-list 'mu4e-bookmarks
-             (make-mu4e-bookmark
-              :name "Today's inbox"
-              :query "(maildir:/hotmail/Inbox OR
-                       maildir:/cantab/INBOX OR
-                       maildir:/ah635-gmail.com/INBOX OR
-                       maildir:/sbts/inbox)
-                       AND date:today.."
-              :key ?i))
+             '(:name "Today's inbox"
+               :query (concat "(maildir:/hotmail/Inbox OR "
+                              "maildir:/cantab/INBOX OR "
+                              "maildir:/ah635-gmail.com/INBOX OR "
+                              "maildir:/sbts/inbox) "
+                              "AND date:today..")
+               :key ?i))
+
+(add-to-list 'mu4e-bookmarks
+             '(:name "Combined inbox"
+               :query (concat "maildir:/hotmail/Inbox OR "
+                              "maildir:/cantab/INBOX OR "
+                              "maildir:/ah635-gmail.com/INBOX OR "
+                              "maildir:/sbts/inbox")
+               :key ?c))
 
 (provide 'adh_email)
 ;;; adh_email.el ends here
