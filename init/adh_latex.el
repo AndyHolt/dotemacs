@@ -32,5 +32,16 @@
   '(progn
      (define-key LaTeX-mode-map (kbd "C-{") 'helm-bibtex)))
 
+;; add run-latex script to AUCTeX compile options
+(eval-after-load "tex"
+  '(add-to-list 'TeX-command-list
+                '("run-latex" "run-latex %t" TeX-run-command t t )))
+
+(defun adh-set-default-TeX-command ()
+  "Set default TeX command to run-latex. To be used in LaTeX mode
+hook."
+  (setq TeX-command-default "run-latex"))
+(add-hook 'LaTeX-mode-hook #'adh-set-default-TeX-command)
+
 (provide 'adh_latex)
 ;;; adh_latex.el ends here
