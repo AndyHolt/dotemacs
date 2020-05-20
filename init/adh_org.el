@@ -709,7 +709,8 @@ text."
 ;; Keep links in stored list after insterting (useful for putting links in more
 ;; than one place or using them multiple times). Search is good, so it's no
 ;; major disadvantage to pile up the links on the stack.
-(setq org-keep-stored-link-after-insertion t)
+(setq org-keep-stored-link-after-insertion t
+      org-link-keep-stored-after-insertion t)
 
 ;; don't allow editing of hidden areas in org files.
 ;; If edit is attempted, deal with it smartly
