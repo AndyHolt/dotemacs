@@ -235,5 +235,9 @@
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
+;; don't use pop up dialog box gui
+(setq use-file-dialog nil)
+(setq use-dialog-box nil)
+
 (provide 'adh_gui)
 ;;; adh_gui.el ends here
