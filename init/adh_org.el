@@ -478,7 +478,7 @@ Function to be called when beginning org-refile, so as to have link ready to be
 ;; highlight current line while in agenda view
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
 
-;; when archiving elements, preserve hierarchy structure in archieve
+;; when archiving elements, preserve hierarchy structure in archive
 ;; From https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
