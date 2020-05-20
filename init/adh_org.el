@@ -298,10 +298,8 @@ Function to be called when beginning org-refile, so as to have link ready to be
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
-;; set up mobile org
-(setq org-directory (concat adh-dropbox-location "Org_files"))
-(setq org-mobile-directory (concat adh-dropbox-location "Apps/MobileOrg"))
-(setq org-mobile-inbox-for-pull (concat adh-dropbox-location "Org_files/todo.org"))
+;; set correct commands for evaluation of org babel blocks
+(setq org-babel-python-command "python3")
 
 ;; Make RefTeX work with Org-Mode
 ;; use 'C-c (' instead of 'C-c [' because the latter is already
