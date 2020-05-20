@@ -51,5 +51,8 @@
 ;(require 'autopair)
 ;(autopair-global-mode)
 
+;; don't show an initial startup message
+(setq initial-scratch-message nil)
+
 (provide 'adh_startup)
 ;;; adh_startup.el ends here
