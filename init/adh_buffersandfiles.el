@@ -163,7 +163,7 @@
 (visiting/opening) the file, insert the path at point."
   (interactive)
   (counsel--find-file-1
-   "Copy path: " initial-input
+   "Insert path: " initial-input
    'insert
    'adh-find-file-copy-path))
 
