@@ -2,10 +2,16 @@
 # name: book citiation
 # key: book
 # --
-@Book\{${1:key},
-  author =       \{${2:author}\},
-  title =        \{${3:book title}\},
-  publisher =    \{${4:publisher}\},
-  year =         \{${5:year}\},
-  location =     \{${6:location}\}
+@Book\{${12:key},
+  author =       \{${1:author}\},
+  title =        \{${2:book title}\},
+  subtitle =     \{${3:subtitle}\},
+  editor =       \{${4:editor}\},
+  translator =   \{${5:translator}\},
+  series =       \{${6:series}\},
+  number =       \{${7:number}\},
+  edition =      \{${8:editor}\},
+  publisher =    \{${9:publisher}\},
+  year =         \{${10:year}\},
+  location =     \{${11:location}\}$0
 \}

@@ -2,14 +2,14 @@
 # name: article citation
 # key: article
 # --
-@article\{${1:key},
-  author =       \{${2:author}\},
-  title =        \{${3:title}\},
-  journaltitle = \{${4:journal}\},
-  shortjournal = \{${5:short version of journal name}\},
-  year =         \{${6:year of publication}\},
-  volume =       \{${5:journal volume}\},
-  number =       \{${5:journal number}\},
-  pages =        \{${5:pages of article in journal}\},
-  file =         \{${5:local file}\}
+@article\{${10:key},
+  author =       \{${1:author}\},
+  title =        \{${2:title}\},
+  journaltitle = \{${3:journal}\},
+  shortjournal = \{${4:short version of journal name}\},
+  year =         \{${5:year of publication}\},
+  volume =       \{${6:journal volume}\},
+  number =       \{${7:journal number}\},
+  pages =        \{${8:pages of article in journal}\},
+  file =         \{${9:local file}\}
 \}

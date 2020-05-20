@@ -14,7 +14,7 @@
 #+OPTIONS: toc:nil H:10 num:nil
 #+EXCLUDE_TAGS: noexport
 #+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
-#+LATEX_CLASS: adhsbtspaper
+#+LATEX_CLASS: sbtspaper
 #+LATEX_COMPILER: xelatex
 #+STARTUP: overview lognoterefile
 #+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
