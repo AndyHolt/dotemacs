@@ -521,7 +521,7 @@ Function to be called when beginning org-refile, so as to have link ready to be
 
 ;; by default, org-mode highlights bold or italic text over a single new
 ;; line. Change that to 20 lines
-(setcar (nthcdr 4 org-emphasis-regexp-components) 20)
+(setcar (nthcdr 4 org-emphasis-regexp-components) 40)
 
 ;; setup org-publish
 ;; 
