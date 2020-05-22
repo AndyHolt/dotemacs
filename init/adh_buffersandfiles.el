@@ -167,5 +167,9 @@
    'insert
    'adh-find-file-copy-path))
 
+;; dedicate-windows-manually
+;; taken from https://www.emacswiki.org/emacs/dedicate-windows-manually.el
+(require 'dedicate-windows-manually)
+
 (provide 'adh_buffersandfiles)
 ;;; adh_buffersandfiles.el ends here
