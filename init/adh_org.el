@@ -342,7 +342,10 @@ Function to be called when beginning org-refile, so as to have link ready to be
 (setq reftex-cite-prompt-optional-args nil)
 (setq reftex-cite-cleanup-optional-args t)
 
-;; add adharticle class to org's recognised classes
+;; Org to LaTeX export class setup
+(add-to-list 'org-latex-packages-alist
+             '("normalem" "ulem" nil))
+
 (require 'ox-latex)
 (add-to-list 'org-latex-classes
              '("adharticle"
