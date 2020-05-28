@@ -53,6 +53,7 @@
 (depends-on "ipython")
 (depends-on "jinja2-mode")
 (depends-on "keyfreq")
+(depends-on "literate-calc-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
