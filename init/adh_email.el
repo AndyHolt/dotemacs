@@ -321,5 +321,8 @@ This will make emails much nicer to read in external mail programmes."
                               "maildir:/sbts/inbox")
                :key ?c))
 
+;; Don't need to confirm quitting mu4e. Don't ask, just do it.
+(setq mu4e-confirm-quit nil)
+
 (provide 'adh_email)
 ;;; adh_email.el ends here
