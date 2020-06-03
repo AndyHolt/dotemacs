@@ -324,5 +324,8 @@ This will make emails much nicer to read in external mail programmes."
 ;; Don't need to confirm quitting mu4e. Don't ask, just do it.
 (setq mu4e-confirm-quit nil)
 
+;; load file with personal mail list addresses.
+(require 'adh_personal_email_lists)
+
 (provide 'adh_email)
 ;;; adh_email.el ends here
