@@ -565,35 +565,28 @@ to notes.app."
     (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
 
 (setq org-publish-project-alist
-      '(("all-notes"
+      '(
+        ("all-notes"
          :components ("book-notes" "notes" "bible-notes"))
         ("book-notes"
-         :base-directory "~/Documents/BookNotes/"
-         :publishing-directory "~/Downloads/zenodotus-notes/book-notes"
+         :base-directory "~/Documents/notes/book-notes/"
+         :publishing-directory "~/Documents/zenodotus-notes/book-notes"
          :recursive t
-         :publishing-function org-html-publish-to-html-for-apple-notes
-         :section-numbers nil
-         :with-toc nil
-         ;; :completion-function adh-publish-import-to-notes-app
+         :publishing-function org-html-publish-to-html
          )
         ("notes"
-         :base-directory "~/Dropbox/Notes/"
-         :publishing-directory "~/Downloads/zenodotus-notes/notes"
+         :base-directory "~/Documents/notes/notes/"
+         :publishing-directory "~/Documents/zenodotus-notes/notes"
          :recursive t
-         :publishing-function org-html-publish-to-html-for-apple-notes
-         :section-numbers nil
-         :with-toc nil
-         ;; :completion-function adh-publish-import-to-notes-app
+         :publishing-function org-html-publish-to-html
          )
         ("bible-notes"
-         :base-directory "~/Documents/BibleNotes/"
-         :publishing-directory "~/Downloads/zenodotus-notes/bible-notes"
+         :base-directory "~/Documents/notes/bible-notes/"
+         :publishing-directory "~/Documents/zenodotus-notes/bible-notes"
          :recursive t
-         :publishing-function org-html-publish-to-html-for-apple-notes
-         :section-numbers nil
-         :with-toc nil
-         ;; :completion-function adh-publish-import-to-notes-app
-         )))
+         :publishing-function org-html-publish-to-html
+         )
+        ))
 
 ;; Export org files to .docx files with nice formatting by selecting template
 (setq org-odt-preferred-output-format "docx")
