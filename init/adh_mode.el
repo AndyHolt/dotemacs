@@ -105,7 +105,7 @@
                                        "/Users/adh/Documents/Manuels"))
 
 ;; setup of helm-bibtex for notes (linked to bibkey and PDF file)
-(setq bibtex-completion-notes-path "/Users/adh/Documents/BookNotes")
+(setq bibtex-completion-notes-path "/Users/adh/Documents/notes/book-notes")
 
 ;; add additional fields to bibtex search in helm matching
 (setq bibtex-completion-additional-search-fields '(subtitle))

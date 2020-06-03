@@ -110,13 +110,13 @@
   "Open up notes of quiet times."
   (interactive)
   (delete-other-windows)
-  (find-file (concat adh-dropbox-location "Notes/Redemptive_historical_framework.org"))
+  (find-file "~/Documents/notes/notes/Redemptive_historical_framework.org")
   (set-fill-column 95)
-  (find-file (concat adh-dropbox-location "Notes/Judges.org"))
+  (find-file "~/Documents/notes/notes/Judges.org")
   (set-fill-column 95)
   (split-window-right)
   (other-window 1)
-  (find-file (concat adh-dropbox-location "Notes/Mark.org"))
+  (find-file "~/Documents/notes/notes/Mark.org")
   (set-fill-column 95)
   (other-window 1))
 

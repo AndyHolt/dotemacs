@@ -186,9 +186,9 @@ template to capture them."
 ;; - book notes files, up to 10 levels of headings (probably too much, but ah
 ;;   well!)
 ;; - notes files, up to 10 levels of headings
-(setq adh-booknotes-files (file-expand-wildcards "~/Documents/BookNotes/*.org"))
-(setq adh-notes-files (file-expand-wildcards "~/Dropbox/Notes/*.org"))
-(setq adh-biblenotes-files (file-expand-wildcards "~/Documents/BibleNotes/*.org"))
+(setq adh-booknotes-files (file-expand-wildcards "~/Documents/notes/book-notes/*.org"))
+(setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
+(setq adh-biblenotes-files (file-expand-wildcards "~/Documents/notes/bible-notes/*.org"))
 
 ;; Try changing refile targets from all agenda files to only agenda files which
 ;; aren't calendar files. I don't have to move things to calendar files often at
@@ -460,7 +460,7 @@ Function to be called when beginning org-refile, so as to have link ready to be
 
 (setq org-ref-default-bibliography "~/Projects/WritingTools/Theology.bib")
 (setq org-ref-notes-function 'org-ref-notes-function-many-files)
-(setq org-ref-notes-directory "~/Documents/BookNotes")
+(setq org-ref-notes-directory "~/Documents/notes/book-notes")
 
 (require 'org-ref)
 
