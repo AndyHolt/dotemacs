@@ -34,7 +34,7 @@
 
 ;; getting mail
 (setq 
-  mu4e-get-mail-command "/Users/adh/dotfiles/email-sync.sh"
+  mu4e-get-mail-command "/Users/adh/Projects/mailsync/mailsync"
   mu4e-update-interval nil ;; don't update, this is handled by launchctl
 )
 
