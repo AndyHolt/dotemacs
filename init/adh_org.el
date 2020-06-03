@@ -626,8 +626,20 @@ to notes.app."
  :export (lambda (path desc format)
            (cond
             ((eq format 'html)
-             (format "<blockquote cite=\"%s\">%s (p. %s)</blockquote>" path desc
-                     (cadr (s-split ":" path))))
+             ;; TODO: Update html formatting to include a nicely formatted
+             ;; reference to the source (will need a function to build this from
+             ;; the bibtex key). This should be handled differently if the file
+             ;; which contains the quote is the main note file for that source,
+             ;; or if it a reference to the source/quote from elsewhere.
+             (format "<blockquote cite=\"%s\">%s (p. %s)</blockquote>"
+                     ;; bibtex key
+                     (nth 2 (s-split ":" path))
+                     ;; quote text
+                     desc
+                     ;; page number
+                     (if (>= (length (s-split ":" path)) 3)
+                         (car (last (s-split ":" path)))
+                       (concat))))
             ((eq format 'latex)
              (format "\\blockcquote[%s][%s]{%s}{%s}"
                      ;; if 4 elements to link path, there is a pre-note, so use
