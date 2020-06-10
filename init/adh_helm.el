@@ -24,7 +24,7 @@
 ;; load helm-browser-tabs
 (add-to-list 'load-path "~/Projects/Zenodotus/")
 (require 'helm-browser-tabs)
-(global-set-key (kbd "C-c m t") (lambda () (interactive) (helm-browser-tabs t)))
+(global-set-key (kbd "C-c m t") 'helm-browser-tabs-with-presel)
 
 ;; Ensure that if lines are wrapped they wrap at spaces instead of in the middle
 ;; of words
