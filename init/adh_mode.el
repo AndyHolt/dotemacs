@@ -125,8 +125,8 @@
 (setq bibtex-completion-notes-template-multiple-files
       "#+TITLE: Notes on: ${author-or-editor} (${year}): ${title}
 #+AUTHOR: Andy Holt
+#+SETUPFILE: adh-org-notes-export-setup.org
 #+LANGUAGE: en
-#+OPTIONS: toc:nil
 #+STARTUP: overview lognoterefile
 #+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
 #+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
