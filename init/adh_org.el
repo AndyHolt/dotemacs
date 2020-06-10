@@ -573,18 +573,24 @@ to notes.app."
          :publishing-directory "~/Documents/zenodotus-notes/book-notes"
          :recursive t
          :publishing-function org-html-publish-to-html
+         :auto-sitemap t
+         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          )
         ("notes"
          :base-directory "~/Documents/notes/notes/"
          :publishing-directory "~/Documents/zenodotus-notes/notes"
          :recursive t
          :publishing-function org-html-publish-to-html
+         :auto-sitemap t
+         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          )
         ("bible-notes"
          :base-directory "~/Documents/notes/bible-notes/"
          :publishing-directory "~/Documents/zenodotus-notes/bible-notes"
          :recursive t
          :publishing-function org-html-publish-to-html
+         :auto-sitemap t
+         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          )
         ))
 
@@ -650,7 +656,7 @@ to notes.app."
                      ;; description, which in this case is the actual text of
                      ;; the quote
                      (adh-safe-brace-to-sqbr desc)))))
- :face '(:foreground "#8CD0D3" :weight semi-light :slant normal)
+ :face '(:foreground "#2980B9" :weight semi-light :slant normal)
  :display 'org-link)
 
 ;; Set up insertion of quotes along with citation for use in org-link format
