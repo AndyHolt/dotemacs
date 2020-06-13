@@ -878,5 +878,26 @@ exporting, replace them for normal usage."
 ;; do not kill hidden org headlines, at least not without asking nicely
 (setq org-ctrl-k-protect-subtree t)
 
+;; don't check spelling of certain parts of org files.
+;; Property settings, code blocks, etc should not be spell checked by
+;; ispell/aspell
+;; Adapted from https://endlessparentheses.com/ispell-and-org-mode.html
+(defun adh-org-ispell-setup ()
+  "Configure `ispell-skip-region-alist' for `org-mode'."
+  (make-local-variable 'ispell-skip-region-alist)
+  (add-to-list 'ispell-skip-region-alist '(org-property-drawer-re))
+  (add-to-list 'ispell-skip-region-alist '(org-property-re forward-line))
+  ; property lines
+  (add-to-list 'ispell-skip-region-alist '("^#\\+[A-Za-z_]*:" "$"))
+  ; note-link drawers
+  (add-to-list 'ispell-skip-region-alist '("^:NOTE-LINKS:$" "^:END:$"))
+  ; check link description, but link text
+  (add-to-list 'ispell-skip-region-alist '("\\[\\[" "\\]\\["))
+  ;; (add-to-list 'ispell-skip-region-alist '("~" "~"))
+  ;; (add-to-list 'ispell-skip-region-alist '("=" "="))
+  (add-to-list 'ispell-skip-region-alist '("^#\\+BEGIN_SRC" . "^#\\+END_SRC")))
+
+(add-hook 'org-mode-hook #'adh-org-ispell-setup)
+
 (provide 'adh_org)
 ;;; adh_org.el ends here
