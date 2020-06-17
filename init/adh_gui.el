@@ -45,15 +45,21 @@
 
 ;; Font selection - platform dependant
 ;;   Updated to work with server mode operation.
-(cond ((eq system-type 'gnu/linux)
-       (setq default-frame-alist '((font . "Inconsolata-12")
-                                   (background-mode . dark))))
-      ((eq system-type 'windows-nt)
-       (setq default-frame-alist '((font . "Inconsolata-12")
-                                   (background-mode . dark)))))
+;; (cond ((eq system-type 'gnu/linux)
+;;        (setq default-frame-alist '((font . "Inconsolata-12")
+;;                                    (background-mode . dark))))
+;;       ((eq system-type 'windows-nt)
+;;        (setq default-frame-alist '((font . "Inconsolata-12")
+;;                                    (background-mode . dark)))))
 
-(set-face-attribute 'default nil :font "Inconsolata"
-                    :height 120)
+;; (set-face-attribute 'default nil :font "Inconsolata"
+;;                     :height 120)
+
+;; (when (member "DejaVu Sans Mono" (font-family-list))
+;;   (set-frame-font "Inconsolata-14" t t))
+
+(when (member "Menlo" (font-family-list))
+  (set-frame-font "Menlo" t t))
 
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
