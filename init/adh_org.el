@@ -870,6 +870,7 @@ exporting, replace them for normal usage."
 ;; 2020-04-06: I think this is the behaviour I want, always use ID if possible,
 ;; but some org files or headings may be best without IDs, so don't force
 ;; creation of an ID if creating a link to them.
+(require 'org-id)
 (setq org-id-link-to-org-use-id t)
 
 (require 'org-zett)
