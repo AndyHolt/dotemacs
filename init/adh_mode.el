@@ -110,6 +110,9 @@
 ;; add additional fields to bibtex search in helm matching
 (setq bibtex-completion-additional-search-fields '(subtitle))
 
+;; open PDF files outside of emacs in standard programme
+(setq helm-bibtex-pdf-open-function 'helm-open-file-with-default-tool)
+
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
       '((t . "${author:15} ${title:*} ${subtitle:25} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
