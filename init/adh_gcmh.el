@@ -8,9 +8,9 @@
 ;; This setup employs the gcmh package.
 ;;
 ;; Save considerable time, and make emacs more responsive and snappier, by
-;;reducing how regularly garbage collection is performed while running code (by
-;;setting a very high threshold). Additionally, utilise 'dead time', while emacs
-;;isn't being used, to perform garbage collection.
+;; reducing how regularly garbage collection is performed while running code (by
+;; setting a very high threshold). Additionally, utilise 'dead time', while
+;; emacs isn't being used, to perform garbage collection.
 
 ;;; Code:
 
