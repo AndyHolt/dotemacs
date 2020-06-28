@@ -1,3 +1,6 @@
+# ignore byte compiled elisp files
+*.elc
+
 # ignore auto-save-list, backups and cache directorys
 auto-save-list/
 backups/
