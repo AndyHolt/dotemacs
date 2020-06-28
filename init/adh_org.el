@@ -808,6 +808,7 @@ exporting, replace them for normal usage."
 (setq org-special-ctrl-a/e t)
 
 ;; org-habit view in agenda
+(add-to-list 'org-modules 'habits)
 (setq org-habit-show-all-today t
       org-habit-show-done-always-green t)
 
