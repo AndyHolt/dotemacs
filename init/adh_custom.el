@@ -32,13 +32,14 @@
  '(smartrep-mode-line-active-bg (solarized-color-blend "#859900" "#eee8d5" 0.2))
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(default ((((class color) (min-colors 89)) (:foreground "#657b83" :background "#fdf6e3"))))
- '(markdown-comment-face ((t (:foreground "#93a1a1" :strike-through nil :underline t))))
- '(minimap-active-region-background ((t (:background "gray25"))))
- '(org-headline-done ((t (:foreground "dark gray"))))
- '(persp-selected-face ((t (:foreground "green1" :weight bold)))))
+)
+;; (custom-set-faces
+;;  ;; custom-set-faces was added by Custom.
+;;  ;; If you edit it by hand, you could mess it up, so be careful.
+;;  ;; Your init file should contain only one such instance.
+;;  ;; If there is more than one, they won't work right.
+;;  '(default ((((class color) (min-colors 89)) (:foreground "#657b83" :background "#fdf6e3"))))
+;;  '(markdown-comment-face ((t (:foreground "#93a1a1" :strike-through nil :underline t))))
+;;  '(minimap-active-region-background ((t (:background "gray25"))))
+;;  '(org-headline-done ((t (:foreground "dark gray"))))
+;;  '(persp-selected-face ((t (:foreground "green1" :weight bold)))))
