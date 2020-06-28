@@ -16,12 +16,12 @@
 (require 'mu4e)
 
 ;; set up my addresses
-(setq mu4e-user-mail-address-list
-      '("andrew.holt@hotmail.co.uk"
-        "andrew.holt635@gmail.com"
-        "andy.holt@cantab.net"
-        "aholt379@students.sbts.edu"
-        ))
+;; (setq mu4e-user-mail-address-list
+;;       '("andrew.holt@hotmail.co.uk"
+;;         "andrew.holt635@gmail.com"
+;;         "andy.holt@cantab.net"
+;;         "aholt379@students.sbts.edu"
+;;         ))
 
 ;; Set up folders
 (setq 
