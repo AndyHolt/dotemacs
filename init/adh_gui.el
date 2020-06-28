@@ -199,8 +199,8 @@
 (global-set-key [f11] 'toggle-fullscreen)
 
 ;; kill ring stuff. Placed here until it outgrows this file.
-(when (require 'browse-kill-ring nil 'noerror)
-  (browse-kill-ring-default-keybindings))
+;; (when (require 'browse-kill-ring nil 'noerror)
+;;   (browse-kill-ring-default-keybindings)
 
 (global-set-key "\C-cy" '(lambda ()
                            (interactive)
