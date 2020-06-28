@@ -79,7 +79,6 @@
 (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
-(require 'adh_diminish)
 
 ;; system specific configurations
 (cond ((eq system-type 'gnu/linux)
@@ -90,6 +89,9 @@
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
 (load custom-file 'noerror)
+
+;; load diminish near the end to ensure everything is properly diminished
+(require 'adh_diminish)
 
 (put 'narrow-to-region 'disabled nil)
 
