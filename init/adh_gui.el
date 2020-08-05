@@ -245,5 +245,9 @@
 (setq use-file-dialog nil)
 (setq use-dialog-box nil)
 
+;; allow resizing of emacs window by pixel, rather than character size. This
+;; allows it to be resized much more effectively by window managers.
+(setq frame-resize-pixelwise t)
+
 (provide 'adh_gui)
 ;;; adh_gui.el ends here
