@@ -619,26 +619,76 @@ to notes.app."
 ;; Need to find an equivalent system for html as csquotes provides for LaTeX, of
 ;; using inline format if quote is short and block quote style if quote is
 ;; longer.
+;; helper functions for org quote links
+(defun adh-oer-get-author (bib-key)
+  "Get the author or editors of the work referenced by `bib-key'
+in a useful format for exporting references in org documents"
+(let* ((author-string (bibtex-completion-get-value "author"
+                                                   (bibtex-completion-get-entry
+                                                    bib-key)))
+       (editor-flag (if author-string
+                         nil
+                         (setq author-string (bibtex-completion-get-value
+                                                     "editor"
+                                                     (bibtex-completion-get-entry
+                                                      bib-key)))
+                         t))
+       (author-list (mapcar (lambda (author-name)
+                              (if (s-match ", " author-name)
+                                  (nth 0 (s-split "," author-name))
+                                (car (last (s-split " " author-name)))))
+                            (s-split " and " author-string))))
+  (format "%s%s"
+          (cond
+           ((eq (length author-list) 1) (car author-list))
+           ((eq (length author-list) 2) (s-join " and " author-list))
+           ((eq (length author-list) 3) (format "%s, %s and %s" (nth 0 author-list)
+                                                (nth 1 author-list)
+                                                (nth 2 author-list)))
+           (t (format "%s et al." (car author-list))))
+          (if editor-flag
+              " (ed)"
+            ""))))
+
+(defun adh-oer-get-title (bib-key)
+  "Get the title of the work referenced by `bib-key'. If there's a short title,
+get that, otherwise the full title."
+  (let ((title (bibtex-completion-get-value "shorttitle"
+                                            (bibtex-completion-get-entry
+                                             bib-key))))
+    (if title
+        title
+      (bibtex-completion-get-value "title" (bibtex-completion-get-entry
+                                            bib-key)))))
+
+;; set up quote org link
 (org-link-set-parameters
  "quote"
  :follow nil
  :export (lambda (path desc format)
            (cond
             ((eq format 'html)
-             ;; TODO: Update html formatting to include a nicely formatted
-             ;; reference to the source (will need a function to build this from
-             ;; the bibtex key). This should be handled differently if the file
-             ;; which contains the quote is the main note file for that source,
-             ;; or if it a reference to the source/quote from elsewhere.
-             (format "<blockquote cite=\"%s\">%s (p. %s)</blockquote>"
+             ;; Should reference be handled differently if the file which
+             ;; contains the quote is the main note file for that source, or if
+             ;; it a reference to the source/quote from elsewhere? Currently
+             ;; isn't, will see if it gets annoying enough to be worth changing.
+             ;; May also be worth making the reference into a link? Or having a
+             ;; footnote that contains a fuller reference?
+             (format "<blockquote cite=\"%s\">%s (%s, <i>%s</i>%s)</blockquote>"
                      ;; bibtex key
-                     (nth 2 (s-split ":" path))
+                     (nth 1 (s-split ":" path))
                      ;; quote text
-                     desc
+                     (adh-safe-brace-to-sqbr-html desc)
+                     ;; author
+                     (org-html-convert-special-strings (adh-oer-get-author
+                                                        (nth 1 (s-split ":" path))))
+                     ;; title
+                     (org-html-convert-special-strings (adh-oer-get-title
+                                                        (nth 1 (s-split ":" path))))
                      ;; page number
                      (if (>= (length (s-split ":" path)) 3)
-                         (car (last (s-split ":" path)))
-                       (concat))))
+                         (concat ", p. " (car (last (s-split ":" path))))
+                       "")))
             ((eq format 'latex)
              (format "\\blockcquote[%s][%s]{%s}{%s}"
                      ;; if 4 elements to link path, there is a pre-note, so use
@@ -801,6 +851,17 @@ respectively, using `adh-sqbr-to-safe-brace'. Then, when
 exporting, replace them for normal usage."
   (replace-regexp-in-string (regexp-quote "@<") "["
                             (replace-regexp-in-string (regexp-quote "@>") "]" str)))
+
+(defun adh-safe-brace-to-sqbr-html (str)
+    "Format `str' from quote-link safe text (org mode link
+description) into normal formatting for exported file use.
+
+In quote-link data, can't use square brackets [ and ] in link
+description, so replace them with the safe strings, @< and @>
+respectively, using `adh-sqbr-to-safe-brace'. Then, when
+exporting, replace them for normal usage."
+  (replace-regexp-in-string (regexp-quote "@&lt;") "["
+                            (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
 
 ;; in org headlines, jump to start and end of headline text with a single C-a or
 ;; C-e. To get to the true start of line and end of line (before stars and todo
