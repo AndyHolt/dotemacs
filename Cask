@@ -64,6 +64,7 @@
 (depends-on "org-mac-link")
 (depends-on "org-mu4e")
 (depends-on "org-ref")
+(depends-on "osx-dictionary")
 (depends-on "pdf-tools")
 (depends-on "peep-dired")
 (depends-on "popwin")
