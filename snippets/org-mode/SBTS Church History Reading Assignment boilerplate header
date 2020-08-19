@@ -5,11 +5,14 @@
 #+TITLE: Lectures ${1:Lecture numbers}: ${2:Title}
 #+AUTHOR: Andrew Holt
 #+DATE: ${3:Due Date (Format: September 10, 2019)}
-#+LATEX_HEADER: \def\shortpapertitle{Church History I: Lectures $1}
+#+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
+#+LATEX_HEADER: \def\papertype{Reading Assignement}
+#+LATEX_HEADER: \def\prof{Prof Michael A. G. Haykin}
+#+LATEX_HEADER: \def\courseno{26100}
+#+LATEX_HEADER: \def\shortpapertitle{History of the Baptists: Lectures $1}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil H:10 num:t
 #+EXCLUDE_TAGS: noexport
-#+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
 #+LATEX_CLASS: sbtshistread
 #+LATEX_COMPILER: xelatex
 #+STARTUP: overview lognoterefile
