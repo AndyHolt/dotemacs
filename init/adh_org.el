@@ -136,6 +136,16 @@
         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
         ;; ("es" "Event in SBTS Calendar" entry (file "~/Dropbox/Org_files/sbts-cal.org" )
         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+        ("s" "SBTS")
+        ("sh" "Hebrew" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                            "20400 Elementary Hebrew")
+         "* TODO %?\nDEADLINE: %^T\n%U\n")
+        ("sg" "Greek" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                           "22430 Advanced Greek Grammar")
+         "* TODO %?\nDEADLINE: %^T\n%U\n")
+        ("sb" "Baptist History" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                           "26100 History of the Baptists")
+         "* TODO %?\nDEADLINE: %^T\n%U\n")
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
