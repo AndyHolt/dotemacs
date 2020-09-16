@@ -146,6 +146,9 @@
         ("sb" "Baptist History" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                            "26100 History of the Baptists")
          "* TODO %?\nDEADLINE: %^T\n%U\n")
+        ("sj" "Fuller Journal" entry (file+olp+datetree
+                                      "~/Documents/SBTS/F20_26100-HistoryOfTheBaptists/FullerPaper/HOTB-Fuller-Journal.org")
+         "* %?\n\n%T\n\n")
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
@@ -156,7 +159,11 @@
         ("n" "Note" entry (file+olp+datetree "~/Dropbox/Org_files/notes.org")
          "* %?\n\n%T\n\n")
         ("l" "Link from Browser" entry (file+headline "todo.org" "Inbox")
-         (function adh-org-capture-browser-tabs))))
+         (function adh-org-capture-browser-tabs))
+        ("b" "Bread journal" entry (file+olp+datetree
+                                    "/Users/adh/Documents/notes/notes/bread-notebook.org"
+                                    "Notebook")
+         "* %?\n\n%U\n")))
 
 ;; define function for use in capture to get tabs via helm-browser-tabs
 (defun adh-org-capture-browser-tabs ()
@@ -277,6 +284,25 @@ Function to be called when beginning org-refile, so as to have link ready to be
                                   (org-datetree-find-date-create datetree-date)
                                   (point)))))))
 (define-key org-mode-map (kbd "C-c m n") 'adh-org-refile-to-notes)
+
+;; Set up a datetree-refile for Fuller Journal (HOTB course)
+(defun adh-org-refile-to-fuller-journal ()
+  "Refile an entry to notes file and appropriate datetree location."
+  (interactive)
+  (require 'org-datetree)
+  (let* ((bfn (find-file-noselect (expand-file-name
+                                   (concat
+                                    "~/Documents/SBTS/F20_26100-HistoryOfTheBaptists/"
+                                    "FullerPaper/HOTB-Fuller-Journal.org"))))
+         (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
+                                (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
+                              nil)
+                            (adh-org-read-datetree-date (org-read-date t nil)))))
+    (org-refile nil nil (list nil (buffer-file-name bfn) nil
+                              (with-current-buffer bfn
+                                (save-excursion
+                                  (org-datetree-find-date-create datetree-date)
+                                  (point)))))))
 
 ;; set up helm-org-rifle
 (defun adh-search-notes ()
