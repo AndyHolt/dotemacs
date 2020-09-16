@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: hebrew-vocab
+# key: hv
+# --
+** Vocab word
+:PROPERTIES:
+  :ANKI_DECK: Hebrew Vocab
+  :ANKI_NOTE_TYPE: Basic (and reversed card)
+  :ANKI_TAGS: Ross14
+  :END:
+*** Front
+${1:vocab word$(progn (set-input-method "hebrew-biblical-sil")
+       (format "%s" yas-text))}
+*** Back
+${2:gloss$(progn (deactivate-input-method)
+            (format "%s" yas-text))}
+$0
