@@ -78,7 +78,9 @@
 
 
 ;; add cask directories to theme library
-(add-to-list 'custom-theme-load-path "~/.emacs.d/.cask/24.5.1/elpa/solarized-theme-20160515.442/")
+; (add-to-list 'custom-theme-load-path "~/.emacs.d/.cask/24.5.1/elpa/solarized-theme-20160515.442/")
+(require 'solarized-theme)
+(require 'zenburn-theme)
 
 (setq solarized-use-variable-pitch nil
       solarized-scale-org-headlines nil)
