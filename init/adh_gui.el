@@ -237,6 +237,7 @@
           (if this-win-2nd (other-window 1))))))
 
 ; [review] - farm out to own file if keeping
+(require 'which-key)
 (which-key-mode)
 
 ;; Remove 3D effect of modeline, keep it flat
