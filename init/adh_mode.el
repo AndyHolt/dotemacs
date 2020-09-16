@@ -239,7 +239,7 @@
     "%d"
     (if (memq n '(11 12 13)) "th"
       (let ((last-digit (% n 10)))
-        (case last-digit
+        (cl-case last-digit
           (1 "st")
           (2 "nd")
           (3 "rd")
