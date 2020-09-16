@@ -177,7 +177,7 @@ template to capture them."
           (setq capture-headline "Links relating to %?")
         (setq capture-headline (format "%s%%?"
                                        (progn
-                                         (string-match org-bracket-link-regexp
+                                         (string-match org-link-bracket-re
                                                        tabs-list)
                                          (or (match-string 3 tabs-list)
                                              (match-string 1 tabs-list))))))
@@ -305,6 +305,7 @@ Function to be called when beginning org-refile, so as to have link ready to be
                                   (point)))))))
 
 ;; set up helm-org-rifle
+(require 'helm-org-rifle)
 (defun adh-search-notes ()
     "Call 'helm-org-rifle' with note files from 'adh-booknotes-files and
 'adh-notes-files"
@@ -522,7 +523,8 @@ Function to be called when beginning org-refile, so as to have link ready to be
 (defadvice org-archive-subtree (around fix-hierarchy activate)
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
-         (afile (org-extract-archive-file (org-get-local-archive-location)))
+         (afile  (car (org-archive--compute-location
+		       (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
     ad-do-it
     (when fix-archive-p
@@ -775,7 +777,7 @@ do that."
            (helm-bibtex nil nil
                         (if (and orig-buffer-file
                                  (equal (file-name-directory orig-buffer-file)
-                                        (concat helm-bibtex-notes-path "/")))
+                                        (concat bibtex-completion-notes-path "/")))
                             (file-name-base orig-buffer-file)
                           ""))
            (setq ref-string (buffer-string))
@@ -793,7 +795,7 @@ text."
   (let ((reference-string (adh-get-bibtex-key-from-helm))
         (post-note-string (read-string "Page number: " nil nil nil nil))
         (description-string (adh-edit-quote "")))
-    (insert (org-make-link-string (concat "quote:" reference-string ":"
+    (insert (org-link-make-string (concat "quote:" reference-string ":"
                                           post-note-string)
                                   description-string))))
 
@@ -809,8 +811,7 @@ text."
 ;; Keep links in stored list after insterting (useful for putting links in more
 ;; than one place or using them multiple times). Search is good, so it's no
 ;; major disadvantage to pile up the links on the stack.
-(setq org-keep-stored-link-after-insertion t
-      org-link-keep-stored-after-insertion t)
+(setq org-link-keep-stored-after-insertion t)
 
 ;; don't allow editing of hidden areas in org files.
 ;; If edit is attempted, deal with it smartly
