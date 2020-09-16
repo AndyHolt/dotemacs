@@ -9,7 +9,7 @@
 
 ;;; Code:
 
-(add-to-list 'Info-directory-list "/Users/adh/Documents/Manuals/LaTeX/")
+; (add-to-list 'Info-directory-list "/Users/adh/Documents/Manuals/LaTeX/")
 
 (provide 'adh_info)
 ;;; adh_info.el ends here

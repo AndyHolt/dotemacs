@@ -80,7 +80,7 @@
 (require 'adh_deft)
 (require 'adh_hydra)
 (require 'adh_email)
-(require 'adh_info)
+; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
 
