@@ -111,7 +111,7 @@
 (setq bibtex-completion-additional-search-fields '(subtitle))
 
 ;; open PDF files outside of emacs in standard programme
-(setq helm-bibtex-pdf-open-function 'helm-open-file-with-default-tool)
+(setq bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool)
 
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
