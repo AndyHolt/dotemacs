@@ -29,6 +29,7 @@
 (diminish 'smartparens-mode)
 (diminish 'subword-mode)
 (diminish 'whole-line-or-region-local-mode)
+(diminish 'whole-line-or-region-global-mode)
 (diminish 'counsel-mode)
 (diminish 'ivy-mode)
 (diminish 'which-key-mode)

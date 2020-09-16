@@ -200,11 +200,12 @@
             (require 'smartparens-latex)))
 
 (require 'whole-line-or-region)
+(whole-line-or-region-global-mode t)
+
 (add-hook 'text-mode-hook
           (lambda ()
             (auto-fill-mode 1)
-            (flyspell-mode 1)
-            (whole-line-or-region-mode t)))
+            (flyspell-mode 1)))
 
 ;[todo] - consider visual-line-mode for some text modes (e.g. email)
 ;; (instead of auto-fill-mode)
