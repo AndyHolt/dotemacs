@@ -252,5 +252,19 @@
 ;; allows it to be resized much more effectively by window managers.
 (setq frame-resize-pixelwise t)
 
+;; disable some keybindings that I don't want to use and are annoying.
+(if (eq system-type 'darwin)
+    (progn
+      ; I have never once needed the system font panel in Emacs
+      (global-unset-key (kbd "s-t"))
+      ; I'll use the window manager to manage windows, and this keybinding is
+      ; far to easy to accidentally hit and have the frame disappear
+      (global-unset-key (kbd "C-z"))
+      (global-unset-key (kbd "C-x C-z"))
+      ; I'll use Emacs's own methods to quit, so don't enable macOS shortcuts
+      ; for that
+      (global-unset-key (kbd "s-w"))
+      (global-unset-key (kbd "s-q"))))
+
 (provide 'adh_gui)
 ;;; adh_gui.el ends here
