@@ -202,10 +202,15 @@
 (require 'whole-line-or-region)
 (whole-line-or-region-global-mode t)
 
-(add-hook 'text-mode-hook
-          (lambda ()
-            (auto-fill-mode 1)
-            (flyspell-mode 1)))
+(defun adh-text-mode-setup ()
+    "Set up text-mode buffers with general settings.
+
+Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
+    (auto-fill-mode 1)
+    (flyspell-mode 1)
+    (diminish 'flyspell-mode))
+
+(add-hook 'text-mode-hook #'adh-text-mode-setup)
 
 ;[todo] - consider visual-line-mode for some text modes (e.g. email)
 ;; (instead of auto-fill-mode)
