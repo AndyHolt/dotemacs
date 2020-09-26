@@ -341,12 +341,13 @@ Function to be called when beginning org-refile, so as to have link ready to be
 ;; Make RefTeX work with Org-Mode
 ;; use 'C-c (' instead of 'C-c [' because the latter is already
 ;; defined in orgmode to the add-to-agenda command.
+(require 'reftex)
+
 (defun org-mode-reftex-setup ()
-  (load-library "reftex") 
+  (setq TeX-master t)
   (and (buffer-file-name)
-  (file-exists-p (buffer-file-name))
-  (reftex-parse-all))
-  (define-key org-mode-map (kbd "C-c (") 'reftex-citation))
+       (file-exists-p (buffer-file-name))
+       (reftex-parse-all)))
 
 (add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
@@ -953,7 +954,9 @@ exporting, replace them for normal usage."
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
   "Enable org-indent-mode (function to be called by `org-mode-hook')"
-  (org-indent-mode 1))
+  (org-indent-mode 1)
+  (diminish 'org-indent-mode)
+  (diminish 'flyspell-mode))
 
 (add-hook 'org-mode-hook #'adh-org-indent-enable)
 
