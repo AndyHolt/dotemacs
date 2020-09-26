@@ -63,12 +63,7 @@
 
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
-;(load-theme 'wombat t)
-;(color-theme-solarized-dark)
 (require 'theme-changer)
-;; (setq calendar-location-name "Cambridge, England")
-;; (setq calendar-latitude 52.2)
-;; (setq calendar-longitude 0.1)
 (setq calendar-location-name "Aberdeen, Scotland")
 (setq calendar-latitude 57.2)
 (setq calendar-longitude -2.1)
@@ -76,46 +71,21 @@
 ;;       calendar-latitude 38.25
 ;;       calendar-longitude -85.68)
 
-
-;; add cask directories to theme library
-; (add-to-list 'custom-theme-load-path "~/.emacs.d/.cask/24.5.1/elpa/solarized-theme-20160515.442/")
 (require 'solarized-theme)
 (require 'zenburn-theme)
-
 (setq solarized-use-variable-pitch nil
       solarized-scale-org-headlines nil)
 
-; (change-theme 'solarized-light 'solarized-dark)
-(change-theme 'solarized-light 'zenburn)
+(change-theme 'solarized-light 'solarized-zenburn)
 
 ;; make sure cursor doesn't blink
 (blink-cursor-mode 0)
 
 ;; set variable-pitch-mode font
-; (set-face-font 'variable-pitch "Baskerville-14")
 (set-face-font 'variable-pitch "Iowan Old Style-14")
+; (set-face-font 'variable-pitch "Baskerville-14")
 ; (set-face-font 'variable-pitch "Garamond-14")
-;(set-face-font 'variable-pitch "Times New Roman-14")
-
-;; modeline coloring
-;;    better clarity of active and inactive window
-;;    highlight buffer name
-;; commented out while using solarized theme.
-;(set-face-background 'mode-line-inactive "grey20")
-;(set-face-foreground 'mode-line-inactive "grey75")
-;(set-face-background 'mode-line "grey10")
-;(set-face-foreground 'mode-line "grey75")
-;(set-face-foreground 'mode-line-buffer-id "orange")
-
-;; frame title to show file/buffer name
-;; don't quite like this - to be tweaked later
-;; (setq frame-title-format
-;;   '("" invocation-name ": "(:eval (if (buffer-file-name)
-;;                 (abbreviate-file-name (buffer-file-name))
-;;                  "%b"))))
-;;(setq frame-title-format
-;;  '("" invocation-name))
-
+; (set-face-font 'variable-pitch "Times New Roman-14")
 
 ;; show unfinished keystrokes quickly in minibuffer
 (setq echo-keystrokes 0.1)
@@ -148,15 +118,12 @@
 ;; set writeroom inter-line spacing
 (setq writeroom-extra-line-spacing 0)
 
-;[todo] - have focus-mode focus on paragraph instead of sentence?
-
 ;[todo] - make writeroom mode auto-load focus-mode properly...
 (add-hook 'writeroom-mode-hook
           (lambda ()
             (if focus-mode
                 (focus-mode 1)
                 (focus-mode 0))))
-
 
 ;; fullscreen stuff - taken from babcore emacs setup
 ; fullscreen, taken from http://www.emacswiki.org/emacs/FullScreen#toc26
@@ -203,10 +170,6 @@
 ;; kill ring stuff. Placed here until it outgrows this file.
 ;; (when (require 'browse-kill-ring nil 'noerror)
 ;;   (browse-kill-ring-default-keybindings)
-
-(global-set-key "\C-cy" '(lambda ()
-                           (interactive)
-                           (popup-menu 'yank-menu)))
 
 ;; toggle between horizontal and vertical window split.
 ;; from whattheemacsd.com
