@@ -25,7 +25,7 @@
 (depends-on "drag-stuff")
 (depends-on "ess")
 ;; (depends-on "esup")
-(depends-on "evernote-mode")
+;; (depends-on "evernote-mode")
 (depends-on "expand-region")
 (depends-on "f")
 (depends-on "flx")
