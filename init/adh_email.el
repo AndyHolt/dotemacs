@@ -25,7 +25,7 @@
 
 ;; Set up folders
 (setq 
-  mu4e-maildir       "~/.mail"                  ;; top level mail folder
+  mu4e-root-maildir  "~/.mail"                  ;; top level mail folder
   mu4e-sent-folder   "/ah635-gmail.com/sent"    ;; sent mail folder
   mu4e-drafts-folder "/ah635-gmail.com/drafts"  ;; drafts folder
   mu4e-trash-folder  "/ah635-gmail.com/Trash"   ;; trashed messages
