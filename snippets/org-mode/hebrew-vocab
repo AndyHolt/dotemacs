@@ -6,7 +6,7 @@
 :PROPERTIES:
   :ANKI_DECK: Hebrew Vocab
   :ANKI_NOTE_TYPE: Basic (and reversed card)
-  :ANKI_TAGS: Ross14
+  :ANKI_TAGS: Ross23
   :END:
 *** Front
 ${1:vocab word$(progn (set-input-method "hebrew-biblical-sil")
