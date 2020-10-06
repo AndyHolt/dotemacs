@@ -61,6 +61,10 @@
 (when (member "Menlo" (font-family-list))
   (set-frame-font "Menlo" t t))
 
+;; Hebrew font setup
+(set-fontset-font "fontset-default" '(#x0590 . #x05FF)
+                  (font-spec :name "Times New Roman"))
+
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
 (require 'theme-changer)
