@@ -24,7 +24,7 @@
 (depends-on "discover")
 (depends-on "drag-stuff")
 (depends-on "ess")
-;; (depends-on "esup")
+(depends-on "esup")
 ;; (depends-on "evernote-mode")
 (depends-on "expand-region")
 (depends-on "f")
