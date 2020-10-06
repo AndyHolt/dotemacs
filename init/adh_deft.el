@@ -9,9 +9,11 @@
 ;; Customisations for Deft (http://jblevins.org/projects/deft/)
 
 ;;; Code:
+(require 'deft)
 
 (setq deft-extensions '("org" "md"))
-(setq deft-directory "~/Dropbox/Notes")
+(setq deft-directory "/Users/adh/Documents/notes/")
+(setq deft-recursive t)
 ; (setq deft-text-mode 'markdown-mode)
 
 ;; use file name rather than first line as note title
