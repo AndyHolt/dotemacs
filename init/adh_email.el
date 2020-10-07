@@ -11,8 +11,7 @@
 
 ;; add mu4e to load-path, installed by homebrew on mac so not in usual location
 (add-to-list 'load-path
- (concat (replace-regexp-in-string "\n" "" (shell-command-to-string "echo $(brew --prefix mu)"))
-         "/share/emacs/site-lisp/mu/mu4e"))
+             "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
 (require 'mu4e)
 
 ;; set up my addresses
