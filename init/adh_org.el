@@ -507,7 +507,7 @@ Function to be called when beginning org-refile, so as to have link ready to be
                     :underline nil)
 
 ;; use interleave mode
-(require 'interleave)
+; (require 'interleave)
 
 ;; correct quote marks when exporting
 (setq org-export-with-smart-quotes t)
