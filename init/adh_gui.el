@@ -63,7 +63,11 @@
 
 ;; Hebrew font setup
 (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
-                  (font-spec :name "Times New Roman"))
+                  (font-spec :name "Times New Roman" :size 20))
+(set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
+                  (font-spec :name "Times New Roman" :size 20))
+
+
 
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
