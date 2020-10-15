@@ -75,8 +75,25 @@
 ;; abbreviations ruin this, set to true again.
 (setq sentence-end-double-space nil)
 
-;; set standard alternative input method to greek
+;; set standard alternative input method to Greek
 (setq default-input-method "greek-babel")
+
+;; Give easy access to both Greek and Hebrew typing
+(defun adh-set-other-input-method ()
+    "Set the input method to whichever of greek-babel and hebrew-biblical-sil is
+    not currently the default input method. This allows quick switching between two
+    regularly used input-methods.
+
+    When there is currently no input method set (standard input), calling this
+    function will set the input method to the other method than would be set by
+    `toggle-input-method'. If an input method is set, this will switch to the
+    other one."
+  (interactive)
+  (set-input-method (if (equal default-input-method "greek-babel")
+                      "hebrew-biblical-sil"
+                    "greek-babel")))
+
+(global-set-key (kbd "C-|") #'adh-set-other-input-method)
 
 (provide 'adh_language)
 ;;; adh_language.el ends here
