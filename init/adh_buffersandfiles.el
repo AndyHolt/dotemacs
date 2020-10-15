@@ -171,5 +171,9 @@
 ;; taken from https://www.emacswiki.org/emacs/dedicate-windows-manually.el
 (require 'dedicate-windows-manually)
 
+;; enable recursive minibuffer and indicate depth
+(setq enable-recursive-minibuffers t)
+(minibuffer-depth-indicate-mode)
+
 (provide 'adh_buffersandfiles)
 ;;; adh_buffersandfiles.el ends here
