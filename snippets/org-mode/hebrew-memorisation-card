@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: hebrew memorisation anki card
+# key: hmem
+# --
+** $1
+:PROPERTIES:
+:ANKI_DECK: Hebrew
+:ANKI_NOTE_TYPE: Basic
+:ANKI_TAGS: Hebrew
+:END:
+*** Front
+${1:Front of card}
+*** Back
+$0
