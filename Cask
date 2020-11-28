@@ -45,6 +45,7 @@
 (depends-on "helm-bibtex")
 (depends-on "helm-org-rifle")
 (depends-on "helm-projectile")
+(depends-on "highlight-indent-guides")
 (depends-on "htmlize")
 (depends-on "hydra")
 (depends-on "ibuffer-vc")

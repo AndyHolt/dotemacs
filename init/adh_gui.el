@@ -237,5 +237,11 @@
       (global-unset-key (kbd "s-w"))
       (global-unset-key (kbd "s-q"))))
 
+;; highlight indent guides mode
+(require 'highlight-indent-guides)
+(setq highlight-indent-guides-modthod 'bitmap)
+
+(add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+
 (provide 'adh_gui)
 ;;; adh_gui.el ends here
