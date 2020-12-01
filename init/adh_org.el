@@ -231,27 +231,38 @@ template to capture them."
 
 
 ;; When refiling, make a link to the original location in the annotation
-(defun adh-org-refile-get-orig-location ()
-    "Store org-link with the location of the original note, when refiling.
+;; (defun adh-org-refile-get-orig-location ()
+;;     "Store org-link with the location of the original note, when refiling.
 
-Function to be called when beginning org-refile, so as to have link ready to be
-  inserted when refiling link."
-  (interactive)
-  (call-interactively 'org-store-link))
+;; Function to be called when beginning org-refile, so as to have link ready to be
+;;   inserted when refiling link."
+;;   (interactive)
+;;   (call-interactively 'org-store-link))
+(defvar adh-org-refile-parent nil
+  "Parent of an org entity about to be refiled")
 
 (advice-add 'org-refile
             :before
             (lambda (&rest _)
-              (adh-org-refile-get-orig-location))
+              (setq adh-org-refile-parent (adh-get-org-headline-location)))
             '((name . adh-advice-org-refile-get-orig-location)))
+
+(defun adh-get-org-headline-location ()
+    "Get the location of the current headline, either the
+     headline a level above the current headline, or else the
+     file name"
+    (interactive)
+    (save-excursion
+      (if (org-up-heading-safe)
+          (org-link-make-string (concat "id:" (org-id-get-create)) (org-get-heading t t t t))
+        (file-name-nondirectory (buffer-file-name)))))
 
 (defun adh-org-refile-insert-orig-location ()
     "Insert a link to log note back to original location of refiled note."
   (interactive)
-  (insert (format "Refiled from [[%s][%s]]\n\n"
-                  (car (car org-stored-links))
-                  (nth 1 (s-match "/\\([A-Za-z0-9._-]+\\)::"
-                                  (car (car org-stored-links)))))))
+  (insert (format "Refiled from %s"
+                  adh-org-refile-parent)))
+
 
 (add-hook 'org-log-buffer-setup-hook 'adh-org-refile-insert-orig-location)
 
@@ -307,8 +318,8 @@ Function to be called when beginning org-refile, so as to have link ready to be
 ;; set up helm-org-rifle
 (require 'helm-org-rifle)
 (defun adh-search-notes ()
-    "Call 'helm-org-rifle' with note files from 'adh-booknotes-files and
-'adh-notes-files"
+    "Call `helm-org-rifle' with note files from `adh-booknotes-files' and
+`adh-notes-files'"
   (interactive)
   (helm-org-rifle-files (append adh-biblenotes-files
                                 adh-booknotes-files
