@@ -239,7 +239,7 @@
 
 ;; highlight indent guides mode
 (require 'highlight-indent-guides)
-(setq highlight-indent-guides-modthod 'bitmap)
+(setq highlight-indent-guides-method 'bitmap)
 
 (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
 
