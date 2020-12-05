@@ -172,15 +172,15 @@ template to capture them."
     (let* ((tabs-list (with-temp-buffer (org-mode)
                                         (helm-browser-tabs t)
                                         (buffer-substring-no-properties (point-min)
-                                                                        (point-max)))))
-      (if (string-match "\n" tabs-list)
-          (setq capture-headline "Links relating to %?")
-        (setq capture-headline (format "%s%%?"
+                                                                        (point-max))))
+           (capture-headline (if (string-match "\n" tabs-list)
+                                 "Links relating to %?"
+                               (format "%s%%?"
                                        (progn
                                          (string-match org-link-bracket-re
                                                        tabs-list)
                                          (or (match-string 3 tabs-list)
-                                             (match-string 1 tabs-list))))))
+                                             (match-string 1 tabs-list)))))))
       (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
 
 ;; start org protocol - for creating links etc to external
