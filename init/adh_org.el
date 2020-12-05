@@ -986,8 +986,19 @@ exporting, replace them for normal usage."
 (require 'org-id)
 (setq org-id-link-to-org-use-id t)
 
+(require 'hydra)
 (require 'org-zett)
-(define-key org-mode-map (kbd "C-c z") #'org-zett-add-note-link)
+(defhydra hydra-org-zett (:color red)
+  "
+^Org Zettlekasten^
+^^^^^^^^--------------------------------------
+_z_: Zett link
+_i_: Inline link
+"
+  ("z" org-zett-add-note-link)
+  ("i" org-zett-add-inline-link))
+
+(define-key org-mode-map (kbd "C-c z") 'hydra-org-zett/body)
 
 ;; do not kill hidden org headlines, at least not without asking nicely
 (setq org-ctrl-k-protect-subtree t)

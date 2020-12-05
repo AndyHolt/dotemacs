@@ -53,24 +53,5 @@
    ("m" headlong-bookmark-jump "bmk")
    ("q" nil "cancel")))
 
-;; org mode zettlekasten link generating hydra
-(defhydra hydra-org-zett (org-mode-map "C-c z")
-  "Org Zettlekasten"
-  ("z" org-zett-add-note-link "Zett link")
-  ("i" org-zett-add-inline-link "Inline link"))
-
-(defhydra hydra-org-zett (:color red)
-  "
-^Org Zettlekasten^
-^^^^^^^^--------------------------------------
-_z_: Zett link
-_i_: Inline link
-"
-  ("z" org-zett-add-note-link)
-  ("i" org-zett-add-inline-link))
-
-(define-key org-mode-map (kbd "C-c z") 'hydra-org-zett/body)
-        
-
 (provide 'adh_hydra)
 ;;; adh_hydra.el ends here
