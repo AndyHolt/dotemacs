@@ -712,6 +712,9 @@ get that, otherwise the full title."
                                             bib-key)))))
 
 ;; set up quote org link
+(defface org-quote-link '((t (:inherit org-date :underline nil)))
+  "Face for org-quote-links.")
+
 (org-link-set-parameters
  "quote"
  :follow nil
@@ -756,7 +759,7 @@ get that, otherwise the full title."
                      ;; description, which in this case is the actual text of
                      ;; the quote
                      (adh-safe-brace-to-sqbr desc)))))
- :face '(:foreground "#2980B9" :weight semi-light :slant normal)
+ :face 'org-quote-link
  :display 'org-link)
 
 ;; Set up insertion of quotes along with citation for use in org-link format
