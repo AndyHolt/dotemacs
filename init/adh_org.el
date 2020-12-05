@@ -609,10 +609,10 @@ template to capture them."
 ;; Uses a keyboard maestro macro to do the import. Less neat than using
 ;; applescript, but it's a quick and dirty solution that works well. Getting
 ;; applescript to work as well would be very tricky!
-(defun adh-publish-import-to-notes-app (plist)
-    "Run Keyboard Maestro macro to import html notes from publishing-directory
-to notes.app."
-    (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
+;; (defun adh-publish-import-to-notes-app (plist)
+;;     "Run Keyboard Maestro macro to import html notes from publishing-directory
+;; to notes.app."
+;;     (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
 
 (setq org-publish-project-alist
       '(
