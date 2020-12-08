@@ -59,7 +59,8 @@
 ;;   (set-frame-font "Inconsolata-14" t t))
 
 (when (member "Menlo" (font-family-list))
-  (set-frame-font "Menlo" t t))
+  (set-frame-font "Menlo" t t)
+  (set-face-font 'fixed-pitch "Menlo"))
 
 ;; Hebrew font setup
 (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
