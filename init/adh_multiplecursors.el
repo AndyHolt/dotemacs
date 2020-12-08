@@ -20,5 +20,8 @@
 ;; when inserting numbers, start count at 1, not 0 by default.
 (setq mc/insert-numbers-default 1)
 
+;; make pressing Enter while using multiple-cursors doesn't quit
+(define-key mc/keymap (kbd "<return>") nil)
+
 (provide 'adh_multiplecursors)
 ;;; adh_multiplecursors.el ends here
