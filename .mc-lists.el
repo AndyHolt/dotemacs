@@ -20,12 +20,14 @@
         c-electric-semi&comma
         comment-dwim
         dabbrev-expand
+        default-indent-new-line
         delete-indentation
         electric-newline-and-maybe-indent
         end-of-buffer
         end-of-visual-line
         ess-smart-S-assign
         ess-yank
+        eval-last-sexp
         fill-paragraph
         indent-new-comment-line
         keyboard-quit
@@ -77,6 +79,7 @@
         kmacro-end-macro
         occur-mode-goto-occurrence
         scroll-bar-toolkit-scroll
+        text-scale-adjust
         text-scale-decrease
         text-scale-increase
         ))
