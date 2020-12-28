@@ -2,7 +2,7 @@
 # name: book citiation
 # key: book
 # --
-@Book\{${13:key},
+@book\{${13:key},
   author =       \{${1:author}\},
   title =        \{${2:book title}\},
   subtitle =     \{${3:subtitle}\},
