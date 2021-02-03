@@ -18,5 +18,18 @@
 
 (global-set-key (kbd "M-3") '(lambda() (interactive) (insert-hash)))
 
+;; set keys for Apple keyboard, for emacs macOS
+(setq mac-command-modifier 'super) ; make cmd key do Super
+(setq mac-option-modifier 'meta) ; make opt key do Meta
+(setq mac-control-modifier 'control) ; make Control key do Control
+(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
+
+;; make fn key + 3 insert a gbp pound sign (£)
+(defun insert-gbp ()
+  "Insert a pound (sterling) sign (£) at cursor location."
+  (insert "£"))
+
+(global-set-key (kbd "H-3") #'(lambda() (interactive) (insert-gbp)))
+
 (provide 'adh_osx)
 ;;; osx.el ends here
