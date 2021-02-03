@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Summary tag
+# key: s
+# --
+[Summary, ${1:${2: Author}, }p. $3]$0
