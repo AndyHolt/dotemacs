@@ -44,6 +44,7 @@
         org-fill-paragraph
         org-force-self-insert
         org-kill-line
+        org-metaright
         org-next-visible-heading
         org-return-indent
         org-self-insert-command
@@ -78,6 +79,7 @@
         indent-for-tab-command
         kmacro-end-macro
         occur-mode-goto-occurrence
+        org-agenda
         scroll-bar-toolkit-scroll
         text-scale-adjust
         text-scale-decrease
