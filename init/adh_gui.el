@@ -73,9 +73,12 @@
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
 (require 'theme-changer)
-(setq calendar-location-name "Banchory, Scotland")
-(setq calendar-latitude 57.05)
-(setq calendar-longitude -2.49)
+(setq calendar-location-name "Dundee, Scotland")
+(setq calendar-latitude 56.5)
+(setq calendar-longitude -3.0)
+;; (setq calendar-location-name "Banchory, Scotland")
+;; (setq calendar-latitude 57.05)
+;; (setq calendar-longitude -2.49)
 ;; (setq calendar-location-name "Louisville, KY"
 ;;       calendar-latitude 38.25
 ;;       calendar-longitude -85.68)
