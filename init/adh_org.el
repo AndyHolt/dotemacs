@@ -139,17 +139,14 @@
         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
         ("s" "SBTS")
         ("sh" "Hebrew" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                            "20400 Elementary Hebrew")
+                                            "20440 Hebrew Syntax and Exegesis")
          "* TODO %?\nDEADLINE: %^T\n%U\n")
-        ("sg" "Greek" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                           "22430 Advanced Greek Grammar")
+        ("sp" "Preaching" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                           "30000 Christian Preaching")
+         "* TODO %?\nDEADLINE: %^t\n%U\n")
+        ("sc" "Biblical Counselling" entry (file+headline "~/Dropbox/Org_files/todo.org"
+                                           "34300WW Intro to Biblical Counselling")
          "* TODO %?\nDEADLINE: %^T\n%U\n")
-        ("sb" "Baptist History" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                           "26100 History of the Baptists")
-         "* TODO %?\nDEADLINE: %^T\n%U\n")
-        ("sj" "Fuller Journal" entry (file+olp+datetree
-                                      "~/Documents/SBTS/F20_26100-HistoryOfTheBaptists/FullerPaper/HOTB-Fuller-Journal.org")
-         "* %?\n\n%T\n\n")
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
