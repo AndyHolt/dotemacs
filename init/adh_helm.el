@@ -14,6 +14,21 @@
 (require 'helm)
 (require 'helm-config)
 
+;; add extra sources to helm-mini
+;; In addition to current buffers and recent files, other useful sources will
+;; be:
+;; - bookmarks
+;; - Project buffers
+;; - Projectile files
+;; - Projectile projects
+(setq helm-mini-default-sources '(helm-source-buffers-list
+                                  helm-source-recentf
+                                  helm-source-bookmarks
+                                  helm-source-projectile-buffers-list
+                                  helm-source-projectile-files-list
+                                  helm-source-projectile-projects
+                                  helm-source-buffer-not-found))
+
 (global-set-key (kbd "C-c h") 'helm-mini)
 
 ;; load helm-bible
