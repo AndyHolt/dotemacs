@@ -612,6 +612,24 @@ template to capture them."
 ;; to notes.app."
 ;;     (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
 
+;; function to help with cleaning up buffers before exporting project
+(defun adh-kill-if-visiting (files)
+    "Kill buffers visiting FILES.
+
+FILES may be a file path, or a list of file paths, each of which
+will be killed in turn.
+
+For FILE (if a file path) or each file in FILES (if a list of
+file paths), check if there is a buffer visiting the file and
+kill it if there is. Any files which do not have a buffer
+visiting them will not be visited"
+    (let ((kill-fun (lambda (file)
+                      (if-let ((buffer-name (find-buffer-visiting file)))
+                          (kill-buffer buffer-name)))))
+      (if (listp files)
+          (mapcar kill-fun files)
+        (funcall kill-fun files))))
+
 (setq org-publish-project-alist
       '(
         ("all-notes"
@@ -623,6 +641,9 @@ template to capture them."
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+         :preparation-function (lambda (&rest args)
+                                 (adh-kill-if-visiting
+                                  "~/Documents/notes/book-notes/sitemap.org"))
          )
         ("notes"
          :base-directory "~/Documents/notes/notes/"
@@ -631,6 +652,9 @@ template to capture them."
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+         :preparation-function (lambda (&rest args)
+                                 (adh-kill-if-visiting
+                                  "~/Documents/notes/notes/sitemap.org"))
          )
         ("bible-notes"
          :base-directory "~/Documents/notes/bible-notes/"
@@ -639,8 +663,10 @@ template to capture them."
          :publishing-function org-html-publish-to-html
          :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
-         )
-        ))
+         :preparation-function (lambda (&rest args)
+                                 (adh-kill-if-visiting
+                                  "~/Documents/notes/bible-notes/sitemap.org"))
+         )))
 
 ;; Export org files to .docx files with nice formatting by selecting template
 (setq org-odt-preferred-output-format "docx")
