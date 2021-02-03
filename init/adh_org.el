@@ -45,6 +45,7 @@
             (expand-file-name "fam-cal.org" org-directory)
             (expand-file-name "sbts-cal.org" org-directory)
             (expand-file-name "church-cal.org" org-directory)
+            (expand-file-name "cbc-cal.org" org-directory)
             ))
 
 (setq org-agenda-files
