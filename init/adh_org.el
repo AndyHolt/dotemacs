@@ -455,6 +455,18 @@ template to capture them."
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 (add-to-list 'org-latex-classes
+             '("sbtsreview"
+               "\\documentclass{sbtsreview}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
              '("adhdoc"
                "\\documentclass{adhdoc}
                 [NO-DEFAULT-PACKAGES]
@@ -469,6 +481,18 @@ template to capture them."
 (add-to-list 'org-latex-classes
              '("adhsernotes"
                "\\documentclass{adhsernotes}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+               ("\\paragraph{%s}" . "\\paragraph*{%s}")
+               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+(add-to-list 'org-latex-classes
+             '("adhseroutline"
+               "\\documentclass{adhseroutline}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
