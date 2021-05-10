@@ -969,9 +969,11 @@ exporting, replace them for normal usage."
 (setq org-special-ctrl-a/e t)
 
 ;; org-habit view in agenda
-(add-to-list 'org-modules 'habits)
+(add-to-list 'org-modules 'habit)
+(require 'org-habit)
 (setq org-habit-show-all-today t
-      org-habit-show-done-always-green t)
+      org-habit-show-done-always-green t
+      org-habit-graph-column 60)
 
 ;; Allow hiding of org headlines while including any content under them.
 ;; Particularly useful for including extra structure and TODOs in document.
