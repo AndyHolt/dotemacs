@@ -22,7 +22,9 @@
 (setq mac-command-modifier 'super) ; make cmd key do Super
 (setq mac-option-modifier 'meta) ; make opt key do Meta
 (setq mac-control-modifier 'control) ; make Control key do Control
-(setq ns-function-modifier 'hyper)  ; make Fn key do Hyper
+(setq mac-function-modifier 'hyper)  ; make Fn key do Hyper
+(setq mac-right-command-modifier 'control) ; make right cmd do Control
+(setq mac-right-option-modifier 'meta) ; make right opt do Meta
 
 ;; make fn key + 3 insert a gbp pound sign (£)
 (defun insert-gbp ()
