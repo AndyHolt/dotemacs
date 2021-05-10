@@ -17,6 +17,7 @@
 ;;; Code:
 
 ;; avy setup
+(require 'avy)
 (setq avy-style 'at-full)
 (setq avy-all-windows t)
 

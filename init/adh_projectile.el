@@ -15,6 +15,8 @@
 
 (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
+(require 'helm-projectile)
+
 (setq projectile-enable-caching t)
 
 (setq projectile-ignored-projects '("~/Dropbox/"))
