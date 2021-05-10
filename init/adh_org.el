@@ -1077,5 +1077,9 @@ _i_: Inline link
 
 (add-hook 'org-mode-hook #'adh-org-ispell-setup)
 
+; I never use C-' to cycle through agenda files, and I keep hitting it by
+; accident, especially when trying to change input ( C-\ ), so disable command
+(global-unset-key (kbd "C-'"))
+
 (provide 'adh_org)
 ;;; adh_org.el ends here
