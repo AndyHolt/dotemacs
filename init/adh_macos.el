@@ -1,4 +1,4 @@
-;;; adh_osx.el --- OSX specific config file -*- lexical-binding: t -*-
+;;; adh_macos.el --- MacOS specific config file -*- lexical-binding: t -*-
 
 ;; Author: Andy Holt (andrew.holt@hotmail.co.uk)
 ;; Date: Tue 11 Aug 2015 15:29
@@ -6,7 +6,7 @@
 
 ;;; Commentary:
 ;;
-;; Settings, functions and keybindings for use in emacs on OS X which aren't
+;; Settings, functions and keybindings for use in emacs on MacOS which aren't
 ;; needed or are different on other operating systems.
 
 ;;; Code:
@@ -18,7 +18,7 @@
 
 (global-set-key (kbd "M-3") '(lambda() (interactive) (insert-hash)))
 
-;; set keys for Apple keyboard, for emacs macOS
+;; set keys for Apple keyboard, for emacs on macOS
 (setq mac-command-modifier 'super) ; make cmd key do Super
 (setq mac-option-modifier 'meta) ; make opt key do Meta
 (setq mac-control-modifier 'control) ; make Control key do Control
@@ -33,5 +33,5 @@
 
 (global-set-key (kbd "H-3") #'(lambda() (interactive) (insert-gbp)))
 
-(provide 'adh_osx)
-;;; osx.el ends here
+(provide 'adh_macos)
+;;; macos.el ends here

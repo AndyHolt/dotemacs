@@ -64,7 +64,7 @@
 (cond ((eq system-type 'gnu/linux)
        (require 'adh_linux))
       ((eq system-type 'darwin)
-       (require 'adh_osx)))
+       (require 'adh_macos)))
 
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
