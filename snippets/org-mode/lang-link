@@ -2,4 +2,4 @@
 # name: foreign language excerpt in org lang link
 # key: lang
 # --
-[[${1:$(yas-choose-value '("greek" "hebrew"))}][$2]]$0
+[[lang:${1:language}][$2]]$0
