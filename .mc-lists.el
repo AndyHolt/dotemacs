@@ -32,6 +32,7 @@
         indent-new-comment-line
         keyboard-quit
         kill-region
+        kill-visual-line
         markdown-exdent-or-delete
         matlab-electric-comment
         matlab-justify-line
@@ -46,6 +47,7 @@
         org-kill-line
         org-metaright
         org-next-visible-heading
+        org-return
         org-return-indent
         org-self-insert-command
         org-set-tags-command
@@ -72,11 +74,14 @@
       '(
         c-electric-star
         counsel-M-x
+        counsel-find-file
         handle-switch-frame
+        helm-bibtex
         ido-find-file
         ido-switch-buffer
         ido-write-file
         indent-for-tab-command
+        ivy-switch-buffer
         kmacro-end-macro
         occur-mode-goto-occurrence
         org-agenda
