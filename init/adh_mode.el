@@ -332,5 +332,8 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
 ;; set up for sql-mode
 (setq sql-product 'mysql)
 
+;; set up for python interpreter
+(setq python-shell-interpreter "python3")
+
 (provide 'adh_mode)
 ;;; adh_mode.el ends here
