@@ -711,7 +711,7 @@ visiting them will not be visited"
              (format "<span class=\"%s\">%s</span>" path desc))
             ((eq format 'latex)
              (format "\\text%s{%s}" path desc))))
- :face '(:foreground "#AFD8AF" :weight "bold" :underline t))
+ :face '(:foreground "#AFD8AF" :weight "bold"))
 
 ;; quotation markup for export to LaTeX
 ;; Need to find an equivalent system for html as csquotes provides for LaTeX, of
