@@ -138,6 +138,21 @@
 ;; set helm-bibtex key binding
 (global-set-key (kbd "C-c m b") 'helm-bibtex)
 
+;; settings for bibtex-clean-entry
+(setq bibtex-entry-format '(opts-or-alts required-fields
+                                         numerical-fields
+                                         page-dashes whitespace
+                                         inhereit-booktitle
+                                         realign
+                                         last-comma
+                                         delimiters
+                                         sort-fields)
+      bibtex-align-at-equal-sign nil
+      bibtex-comma-after-last-field nil
+      bibtex-field-delimiters 'braces
+      bibtex-entry-delimiters 'braces)
+
+
 ;; function to clean up tables from org syntax to md
 (defun org2md-table ()
     "Change org-mode table sytnax into markdown format."
