@@ -1,6 +1,6 @@
 (source gnu)
 (source melpa)
-(source marmalade)
+; (source marmalade)
 
 (depends-on "ace-jump-buffer")
 (depends-on "ace-link")
@@ -59,7 +59,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
-(depends-on "org-plus-contrib")
+(depends-on "org")
 (depends-on "org-bullets")
 (depends-on "org-gcal")
 (depends-on "org-mac-link")
