@@ -17,6 +17,8 @@
 ;; (add-to-list 'load-path "~/.emacs.d/.cask/")
 (add-to-list 'load-path "~/Projects/Zenodotus/")
 (add-to-list 'load-path "~/.emacs.d/elisp/")
+(add-to-list 'load-path "~/.emacs.d/elpa/")
+(add-to-list 'load-path "~/.emacs.d/elpa/org-9.5/")
 (let ((default-directory  "~/.emacs.d/.cask/"))
   (normal-top-level-add-subdirs-to-load-path))
 )
@@ -86,6 +88,7 @@
 (require 'adh_diminish)
 )
 
+)
 
 (with-timer "allow narrow to region"
 (put 'narrow-to-region 'disabled nil)

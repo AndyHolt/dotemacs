@@ -48,7 +48,6 @@ If value of `use-startup-timer' is nil, just execute BODY without recording
 ;; (cask-initialize)
 ;; )
 
-;; add marmalade repo to package.el list
 (with-timer "Loading package package"
 (require 'package)
 )
@@ -56,8 +55,6 @@ If value of `use-startup-timer' is nil, just execute BODY without recording
 (with-timer "Setting up package archives"
 (add-to-list 'package-archives
              '("gnu" . "https://elpa.gnu.org/packages/") t)
-(add-to-list 'package-archives
-            '("marmalade" . "https://marmalade-repo.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 (add-to-list 'package-archives
