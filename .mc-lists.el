@@ -40,6 +40,7 @@
         message-beginning-of-line
         org-beginning-of-line
         org-cycle
+        org-deadline
         org-delete-char
         org-end-of-line
         org-fill-paragraph
@@ -48,9 +49,14 @@
         org-metaright
         org-next-visible-heading
         org-return
+        org-return-and-maybe-indent
         org-return-indent
         org-self-insert-command
         org-set-tags-command
+        org-shiftdown
+        org-shiftleft
+        org-shiftright
+        org-shiftup
         org-yank
         orgtbl-hijacker-command-102
         orgtbl-hijacker-command-109
@@ -72,6 +78,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        TeX-newline
         c-electric-star
         counsel-M-x
         counsel-find-file
