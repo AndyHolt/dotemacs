@@ -106,19 +106,19 @@
 (setq save-place-file (expand-file-name ".places"
                                         user-emacs-directory))
 
-(defun adh-qt-notes ()
-  "Open up notes of quiet times."
-  (interactive)
-  (delete-other-windows)
-  (find-file "~/Documents/notes/notes/Redemptive_historical_framework.org")
-  (set-fill-column 95)
-  (find-file "~/Documents/notes/notes/Judges.org")
-  (set-fill-column 95)
-  (split-window-right)
-  (other-window 1)
-  (find-file "~/Documents/notes/notes/Mark.org")
-  (set-fill-column 95)
-  (other-window 1))
+;; (defun adh-qt-notes ()
+;;   "Open up notes of quiet times."
+;;   (interactive)
+;;   (delete-other-windows)
+;;   (find-file "~/Documents/notes/notes/Redemptive_historical_framework.org")
+;;   (set-fill-column 95)
+;;   (find-file "~/Documents/notes/notes/Judges.org")
+;;   (set-fill-column 95)
+;;   (split-window-right)
+;;   (other-window 1)
+;;   (find-file "~/Documents/notes/notes/Mark.org")
+;;   (set-fill-column 95)
+;;   (other-window 1))
 
 ;; setup uniquify - if multiple buffers are visiting different files with same
 ;; name, rename the buffers with the distinctive parts of the directory tree.
