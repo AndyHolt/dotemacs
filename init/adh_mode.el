@@ -134,8 +134,9 @@
 #+SETUPFILE: adh-org-notes-export-setup.org
 #+LANGUAGE: en
 #+STARTUP: overview lognoterefile
-#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
-#+LATEX_HEADER: \\addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
 #+CREATED_DATE: ")
 
 ;; set helm-bibtex key binding

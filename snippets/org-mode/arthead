@@ -6,9 +6,9 @@
 #+AUTHOR: ${2:Andy Holt}
 #+DATE: ${3:\today}
 #+LaTeX_CLASS: adharticle
-#+LaTeX_CLASS_OPTIONS: [timesopt]
-#+LATEX_HEADER: \usepackage[style=verbose-ibid, natbib=true]{biblatex}
-#+LATEX_HEADER: \addbibresource{${4:Theology.bib}}
 #+OPTIONS: toc:nil
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
 
 $0
