@@ -158,6 +158,9 @@
         ("sc" "Biblical Counselling" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                            "34300WW Intro to Biblical Counselling")
          "* TODO %?\nDEADLINE: %^T\n%U\n")
+        ("sj" "Cromwell Journal" entry
+          (file+olp+datetree "/Users/adh/Documents/SBTS/SU21_25120-ChurchHistory2/SpiritualityPaper/CH2-Cromwell-Journal.org")
+         "* %?\n\n%T\n\n")
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
@@ -306,7 +309,7 @@ template to capture them."
                                 (save-excursion
                                   (org-datetree-find-date-create datetree-date)
                                   (point)))))))
-(define-key org-mode-map (kbd "C-c m n") 'adh-org-refile-to-notes)
+(define-key org-mode-map (kbd "C-c m n") #'adh-org-refile-to-notes)
 
 ;; Set up a datetree-refile for Fuller Journal (HOTB course)
 (defun adh-org-refile-to-fuller-journal ()
@@ -343,8 +346,7 @@ template to capture them."
                                 adh-notes-files
                                 org-agenda-files)))
 
-(global-set-key (kbd "C-c m f") 'adh-search-notes)
-
+(global-set-key (kbd "C-c m f") #'adh-search-notes)
 )
 
 (with-timer "org insert headings set up"
