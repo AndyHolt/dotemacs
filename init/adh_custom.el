@@ -15,8 +15,7 @@
  '(cua-read-only-cursor-color "#859900")
  '(custom-safe-themes
    '("c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "9ffe970317cdfd1a9038ee23f4f5fe0b28b99950281799e4397e1a1380123147" "816bacf37139d6204b761fea0d25f7f2f43b94affa14aa4598bce46157c160c2" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "3f44e2d33b9deb2da947523e2169031d3707eec0426e78c7b8a646ef773a2077" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "190a9882bef28d7e944aa610aa68fe1ee34ecea6127239178c7ac848754992df" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "599f1561d84229e02807c952919cd9b0fbaa97ace123851df84806b067666332" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "cdfc5c44f19211cfff5994221078d7d5549eeb9feda4f595a2fd8ca40467776c" "a3d519ee30c0aa4b45a277ae41c4fa1ae80e52f04098a2654979b1ab859ab0bf" "71b172ea4aad108801421cc5251edb6c792f3adbaecfa1c52e94e3d99634dee7" default))
- '(debug-on-error t)
- '(default-input-method "greek-babel")
+ '(default-input-method "latin-1-prefix")
  '(fci-rule-color "#eee8d5")
  '(highlight-changes-colors '("#d33682" "#6c71c4"))
  '(highlight-symbol-colors
@@ -41,7 +40,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(osx-dictionary package-build shut-up epl commander))
+   '(citeproc org edwina lua-mode highlight-indent-guides osx-dictionary package-build shut-up epl commander))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
@@ -70,4 +69,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(window-divider ((t (:foreground "LightGoldenrod1")))))
