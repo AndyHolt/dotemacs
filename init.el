@@ -91,7 +91,11 @@
 (put 'narrow-to-region 'disabled nil)
 )
 
-(server-start)
+;; Don't start server from init file, this is handled by command line options by
+;; my run-emacs script.
+;; (with-timer "start server"
+;; (server-start)
+;; )
 
 ;; after startup, decrease size of garbage collection threshold to make gc
 ;; pauses shorter. Add to emacs-startup-hook so that the threshold change comes
