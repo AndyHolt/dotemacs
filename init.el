@@ -11,6 +11,7 @@
 
 ;;; Code:
 
+(with-timer "load-path config"
 ;; (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/init/")
 ;; (add-to-list 'load-path "~/.emacs.d/.cask/")
@@ -18,62 +19,72 @@
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (let ((default-directory  "~/.emacs.d/.cask/"))
   (normal-top-level-add-subdirs-to-load-path))
+)
 
 ;; load gcmh first as it should speed up load time
-(require 'adh_gcmh)
-(require 'adh_gui)
-(require 'adh_org)
+(with-timer "loading adh_gcmh" (require 'adh_gcmh))
+(with-timer "loading adh_gui" (require 'adh_gui))
+(with-timer "loading adh_org" (require 'adh_org))
 ;(require 'adh_ido)
-(require 'adh_ivy)
-(require 'adh_yasnippet)
-(require 'adh_helm)
-(require 'adh_mode)
-(require 'adh_language)
-(require 'adh_buffersandfiles)
-(require 'adh_startup)
-(require 'adh_external)
-(require 'adh_maths)
+(with-timer "loading adh_ivy" (require 'adh_ivy))
+(with-timer "loading adh_yasnippet" (require 'adh_yasnippet))
+(with-timer "loading adh_helm" (require 'adh_helm))
+(with-timer "loading adh_mode" (require 'adh_mode))
+(with-timer "loading adh_language" (require 'adh_language))
+(with-timer "loading adh_buffersandfiles" (require 'adh_buffersandfiles))
+(with-timer "loading adh_startup" (require 'adh_startup))
+(with-timer "loading adh_external" (require 'adh_external))
+(with-timer "loading adh_maths" (require 'adh_maths))
 ;; (require 'adh_smartmx)
-(require 'adh_dired)
-(require 'adh_abbrev)
-(require 'adh_sessions)
-(require 'adh_navigation)
+(with-timer "loading adh_dired" (require 'adh_dired))
+(with-timer "loading adh_abbrev" (require 'adh_abbrev))
+(with-timer "loading adh_sessions" (require 'adh_sessions))
+(with-timer "loading adh_navigation" (require 'adh_navigation))
 ;; (require 'adh_thunderlink)
-(require 'adh_keyfreq)
-(require 'adh_hippie)
+(with-timer "loading adh_keyfreq" (require 'adh_keyfreq))
+(with-timer "loading adh_hippie" (require 'adh_hippie))
 ;; (require 'adh_alias)
-(require 'adh_flycheck)
+(with-timer "loading adh_flycheck" (require 'adh_flycheck))
 ;(require 'adh_sentence-highlight)
-(require 'adh_projectile)
+(with-timer "loading adh_projectile" (require 'adh_projectile))
 ;(require 'adh_ess)
-(require 'adh_multiplecursors)
+(with-timer "loading adh_multiplecursors" (require 'adh_multiplecursors))
 ;(require 'adh_discover)
-(require 'adh_smartparens)
-(require 'adh_visualregexp)
-(require 'adh_latex)
-(require 'adh_magit)
-(require 'adh_fullframe)
-(require 'adh_deft)
-(require 'adh_hydra)
-(require 'adh_email)
+(with-timer "loading adh_smartparens" (require 'adh_smartparens))
+(with-timer "loading adh_visualregexp" (require 'adh_visualregexp))
+(with-timer "loading adh_latex" (require 'adh_latex))
+(with-timer "loading adh_magit" (require 'adh_magit))
+(with-timer "loading adh_fullframe" (require 'adh_fullframe))
+(with-timer "loading adh_deft" (require 'adh_deft))
+(with-timer "loading adh_hydra" (require 'adh_hydra))
+(with-timer "loading adh_email" (require 'adh_email))
 ; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
 
+(with-timer "system specific config"
 ;; system specific configurations
 (cond ((eq system-type 'gnu/linux)
        (require 'adh_linux))
       ((eq system-type 'darwin)
        (require 'adh_macos)))
+)
 
+(with-timer "load custom file"
 ;; don't let customize mess up my config files
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
 (load custom-file 'noerror)
+)
 
 ;; load diminish near the end to ensure everything is properly diminished
+(with-timer "setting up diminish"
 (require 'adh_diminish)
+)
 
+
+(with-timer "allow narrow to region"
 (put 'narrow-to-region 'disabled nil)
+)
 
 (server-start)
 

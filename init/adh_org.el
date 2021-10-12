@@ -10,17 +10,24 @@
 
 ;;; Code:
 
+(with-timer "loading org itself"
 (require 'org)
+)
 
+(with-timer "auto-mode setup for org"
 ;; ensure files with .org extension use org mode
 (add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+)
 
 ;; have *todo* buffer use org mode
 ;(add-to-list 'auto-mode-alist '("*todo*" . org-mode))
 
+(with-timer "load ox-md"
 ;; add Markdown exporting for org files
-(require 'ox-md)
+; (require 'ox-md)
+)
 
+(with-timer "set org files and directories"
 (defvar adh-dropbox-location
   (cond ((eq system-type 'darwin) (expand-file-name "~/Dropbox/"))
         ((eq system-type 'gnu/linux) (expand-file-name "~/Dropbox/"))
@@ -66,7 +73,9 @@
 
 ;; Save log change notes into drawer (keep out the way most of the time)
 (setq org-log-into-drawer "LOGBOOK")
+)
 
+(with-timer "org keybindings and other functions"
 ;; global keybindings for org mode
 (eval-after-load "org"
   '(progn
@@ -93,7 +102,9 @@
 (defadvice kill-whole-line (after fix-cookies activate)
   "Update checkboxes after killing a line."
   (adh-org-update-parent-cookie))
+)
 
+(with-timer "org capture setup"
 ;; setup capture target file
 (setq org-default-notes-file "~/Dropbox/Org_files/todo.org")
 
@@ -180,20 +191,23 @@ template to capture them."
                                          (or (match-string 3 tabs-list)
                                              (match-string 1 tabs-list)))))))
       (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
-
+)
 ;; start org protocol - for creating links etc to external
 ;; applications
 ;(require 'org-protocol)
 
 ;(setq org-protocol-default-template-key "l")
 
+(with-timer "org pdf set up"
 ;; set pdf application for opening links
 ;; from stack overflow
 (cond ((eq system-type 'gnu/linux)
        (setcdr (assoc "\\.pdf\\'" org-file-apps) "evince %s"))
       ((eq system-type 'darwin)
        (setcdr (assoc "\\.pdf\\'" org-file-apps) "open %s")))
+)
 
+(with-timer "org refile"
 ;; setup refiling
 ;; refiling possible to:
 ;; - current buffer, up to 10 levels of headings
@@ -312,7 +326,9 @@ template to capture them."
                                 (save-excursion
                                   (org-datetree-find-date-create datetree-date)
                                   (point)))))))
+)
 
+(with-timer "org-rifle and search"
 ;; set up helm-org-rifle
 (require 'helm-org-rifle)
 (defun adh-search-notes ()
@@ -326,11 +342,16 @@ template to capture them."
 
 (global-set-key (kbd "C-c m f") 'adh-search-notes)
 
+)
 
+(with-timer "org insert headings set up"
+;; todo: move this to a general settings section!
 ;; when inserting new headline, insert below content of current
 ;; headline
 (setq org-insert-heading-respect-content t)
+)
 
+(with-timer "babel"
 ;; setup languages for Org babel
 (org-babel-do-load-languages
  'org-babel-load-languages
@@ -346,7 +367,9 @@ template to capture them."
 
 ;; set correct commands for evaluation of org babel blocks
 (setq org-babel-python-command "python3")
+)
 
+(with-timer "org tex-y stuff"
 ;; Make RefTeX work with Org-Mode
 ;; use 'C-c (' instead of 'C-c [' because the latter is already
 ;; defined in orgmode to the add-to-agenda command.
@@ -388,7 +411,10 @@ template to capture them."
 
 (setq reftex-cite-prompt-optional-args nil)
 (setq reftex-cite-cleanup-optional-args t)
+(with-timer "reftex set up"
+)
 
+(with-timer "org latex classes and export"
 ;; Org to LaTeX export class setup
 (add-to-list 'org-latex-packages-alist
              '("normalem" "ulem" nil))
@@ -521,6 +547,7 @@ template to capture them."
 ;; set the command used for compiling latex files
 (setq org-latex-pdf-process '("run-latex -p %latex -o %o %f"))
 
+(with-timer "org-ref set up"
 ;; set up org-ref
 (setq org-ref-default-citation-link "autocite")
 (setq reftex-default-bibliography '("~/Projects/WritingTools/Theology.bib"))
@@ -534,10 +561,13 @@ template to capture them."
 (setq org-ref-notes-directory "~/Documents/notes/book-notes")
 
 (require 'org-ref)
+(with-timer "requiring org-ref"
+)
 
 ;; change font used for org-ref links
 (set-face-attribute 'org-ref-cite-face nil :weight 'light :foreground "#f1d49b"
                     :underline nil)
+)
 
 ;; use interleave mode
 ; (require 'interleave)
@@ -551,6 +581,7 @@ template to capture them."
 
 ;; highlight current line while in agenda view
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
+)
 
 ;; when archiving elements, preserve hierarchy structure in archive
 ;; From https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
@@ -597,34 +628,36 @@ template to capture them."
 ;; by default, org-mode highlights bold or italic text over a single new
 ;; line. Change that to 20 lines
 (setcar (nthcdr 4 org-emphasis-regexp-components) 40)
+)
 
+(with-timer "org-publish"
 ;; setup org-publish
 ;; 
 ;; org-publish setup for notes to apple notes.app, for reading on phone
 ;; 
 ;; config is a modifed version of export for unites here:
 ;; https://vxlabs.com/2018/10/29/importing-orgmode-notes-into-apple-notes
-(defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
-  "Convert blank lines to <br /> and remove <h1> titles."
-  ;; temporarily configure export to convert math to images because
-  ;; apple notes obviously can't use mathjax (the default)
-  (let* ((org-html-with-latex 'imagemagick)
-         (outfile
-          (org-publish-org-to 'html filename
-                              (concat "." (or (plist-get plist :html-extension)
-                                              org-html-extension
-                                              "html"))
-                              plist pub-dir)))
-    ;; 1. apple notes handles <p> paras badly, so we have to replace all blank
-    ;;    lines (which the orgmode export accurately leaves for us) with
-    ;;    <br /> tags to get apple notes to actually render blank lines between
-    ;;    paragraphs
-    ;; 2. remove large h1 with title, as apple notes already adds <title> as
-    ;; the note title
-    (shell-command
-     (format "sed -i \"\" -e 's/^$/<br \\/>/' -e 's/<h1 class=\"title\">.*<\\/h1>$//' %s"
-             outfile))
-    outfile))
+;; (defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
+;;   "Convert blank lines to <br /> and remove <h1> titles."
+;;   ;; temporarily configure export to convert math to images because
+;;   ;; apple notes obviously can't use mathjax (the default)
+;;   (let* ((org-html-with-latex 'imagemagick)
+;;          (outfile
+;;           (org-publish-org-to 'html filename
+;;                               (concat "." (or (plist-get plist :html-extension)
+;;                                               org-html-extension
+;;                                               "html"))
+;;                               plist pub-dir)))
+;;     ;; 1. apple notes handles <p> paras badly, so we have to replace all blank
+;;     ;;    lines (which the orgmode export accurately leaves for us) with
+;;     ;;    <br /> tags to get apple notes to actually render blank lines between
+;;     ;;    paragraphs
+;;     ;; 2. remove large h1 with title, as apple notes already adds <title> as
+;;     ;; the note title
+;;     (shell-command
+;;      (format "sed -i \"\" -e 's/^$/<br \\/>/' -e 's/<h1 class=\"title\">.*<\\/h1>$//' %s"
+;;              outfile))
+;;     outfile))
 
 ;; function to import published html for apple notes into notes app.
 ;; This will automatically sync with phone and any other devices.
@@ -699,7 +732,9 @@ visiting them will not be visited"
                                   "/Applications/LibreOffice.app/Contents/MacOS/soffice \
 --headless --convert-to %f%x --outdir %d %i") 
                                   ("unoconv -f %f -o %d %i")))
+)
 
+(with-timer "custom org links"
 ;; languages markup for export to LaTeX
 ;; can add some more parameters for link, including styling the face.
 (org-link-set-parameters
@@ -962,12 +997,16 @@ respectively, using `adh-sqbr-to-safe-brace'. Then, when
 exporting, replace them for normal usage."
   (replace-regexp-in-string (regexp-quote "@&lt;") "["
                             (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
+)
 
+(with-timer "org special keys"
 ;; in org headlines, jump to start and end of headline text with a single C-a or
 ;; C-e. To get to the true start of line and end of line (before stars and todo
 ;; status, or after tags), simply press again.
 (setq org-special-ctrl-a/e t)
+)
 
+(with-timer "habits"
 ;; org-habit view in agenda
 (add-to-list 'org-modules 'habit)
 (require 'org-habit)
@@ -975,6 +1014,8 @@ exporting, replace them for normal usage."
       org-habit-show-done-always-green t
       org-habit-graph-column 60)
 
+)
+(with-timer "gui, extra, lists, and bullets"
 ;; Allow hiding of org headlines while including any content under them.
 ;; Particularly useful for including extra structure and TODOs in document.
 (require 'ox-extra)
@@ -1030,7 +1071,9 @@ exporting, replace them for normal usage."
 
 ;; hide emphasis markers (/ and * etc) when viewing org files
 (setq org-hide-emphasis-markers t)
+)
 
+(with-timer "org-id"
 ;; Use ID property for org links if it exists. But don't create if it doesn't
 ;; exist.
 ;; 2020-04-06: I think this is the behaviour I want, always use ID if possible,
@@ -1038,7 +1081,9 @@ exporting, replace them for normal usage."
 ;; creation of an ID if creating a link to them.
 (require 'org-id)
 (setq org-id-link-to-org-use-id t)
+)
 
+(with-timer "org-zett"
 (require 'hydra)
 (require 'org-zett)
 (defhydra hydra-org-zett (:color red)
@@ -1052,7 +1097,9 @@ _i_: Inline link
   ("i" org-zett-add-inline-link))
 
 (define-key org-mode-map (kbd "C-c z") 'hydra-org-zett/body)
+)
 
+(with-timer "protect and ispell"
 ;; do not kill hidden org headlines, at least not without asking nicely
 (setq org-ctrl-k-protect-subtree t)
 
@@ -1080,6 +1127,7 @@ _i_: Inline link
 ; I never use C-' to cycle through agenda files, and I keep hitting it by
 ; accident, especially when trying to change input ( C-\ ), so disable command
 (global-unset-key (kbd "C-'"))
+)
 
 (provide 'adh_org)
 ;;; adh_org.el ends here
