@@ -15,7 +15,8 @@
 
 ;; increase garbage collection threshold during startup.
 ;; This speeds up startup by reducing the frequency of garbage collection.
-(setq gc-cons-threshold (* 100 1000 1000))
+(setq gc-cons-threshold (* 4000 1000 1000))
+
 (defvar use-startup-timer nil "Non-nil displays init file load times.
 
 If nil, load Emacs init file normally. If non-nil, display timing of loading

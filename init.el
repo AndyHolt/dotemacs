@@ -89,8 +89,17 @@
 (server-start)
 
 ;; after startup, decrease size of garbage collection threshold to make gc
-;; pauses shorter.
-(setq gc-cons-threshold (* 2 1000 1000))
+;; pauses shorter. Add to emacs-startup-hook so that the threshold change comes
+;; after handling commmand line options, notably --daemon
+(defun adh-set-gc-threshold-for-normal-running ()
+  "Set `gc-cons-threshold' for normal Emacs operation after startup.
+A higher value is used during start up to speed up the startup. But use a lower
+value when running Emacs to reduce the time taken to do a garbage collection.
+This value likely will need to be tuned to reach the optimal value to balance
+frequency of garbage collections and the time taken to do them."
+  (with-timer "final thing: define gc-cons-threshold"
+              (setq gc-cons-threshold (* 2000000))))
+(add-hook 'emacs-startup-hook #'adh-set-gc-threshold-for-normal-running 80)
 
 (message "End of init.el")
 (provide 'init)
