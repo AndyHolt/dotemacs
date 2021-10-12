@@ -21,25 +21,44 @@
 ;  (eval-after-load "flyspell"
 ;    (diminish 'flyspell-mode "Fl")))
 
-(diminish 'abbrev-mode)
-(diminish 'yas-minor-mode)
-(diminish 'flyspell-mode)
-(diminish 'projectile-mode)
-(diminish 'git-gutter+-mode)
-(diminish 'smartparens-mode)
-(diminish 'subword-mode)
-(diminish 'whole-line-or-region-local-mode)
-(diminish 'whole-line-or-region-global-mode)
-(diminish 'counsel-mode)
-(diminish 'ivy-mode)
-(diminish 'which-key-mode)
-(diminish 'eldoc-mode)
-(diminish 'auto-fill-function)
-(diminish 'org-indent-mode)
-(diminish 'orgtbl-mode)
-(diminish 'typo-mode)
-(diminish 'gcmh-mode)
-(diminish 'visual-line-mode)
+(eval-after-load "abbrev-mode"
+  '(diminish 'abbrev-mode))
+(eval-after-load "yas-minor-mode"
+  '(diminish 'yas-minor-mode))
+(eval-after-load "flyspell-mode"
+  '(diminish 'flyspell-mode))
+(eval-after-load "projectile-mode"
+  '(diminish 'projectile-mode))
+(eval-after-load "git-gutter+-mode"
+  '(diminish 'git-gutter+-mode))
+(eval-after-load "smartparens-mode"
+  '(diminish 'smartparens-mode))
+(eval-after-load "subword-mode"
+  '(diminish 'subword-mode))
+(eval-after-load "whole-line-or-region-local-mode"
+  '(diminish 'whole-line-or-region-local-mode))
+(eval-after-load "whole-line-or-region-global-mode"
+  '(diminish 'whole-line-or-region-global-mode))
+(eval-after-load "counsel-mode"
+  '(diminish 'counsel-mode))
+(eval-after-load "ivy-mode"
+  '(diminish 'ivy-mode))
+(eval-after-load "which-key-mode"
+  '(diminish 'which-key-mode))
+(eval-after-load "eldoc-mode"
+  '(diminish 'eldoc-mode))
+(eval-after-load "auto-fill-function"
+  '(diminish 'auto-fill-function))
+(eval-after-load "org-indent-mode"
+  '(diminish 'org-indent-mode))
+(eval-after-load "orgtbl-mode"
+  '(diminish 'orgtbl-mode))
+(eval-after-load "typo-mode"
+  '(diminish 'typo-mode))
+(eval-after-load "gcmh-mode"
+  '(diminish 'gcmh-mode))
+(eval-after-load "visual-line-mode"
+  '(diminish 'visual-line-mode))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()

@@ -11,8 +11,8 @@
 
 ;;; Code:
 
-(require 'helm)
-(require 'helm-config)
+(autoload 'helm "helm")
+(eval-after-load "helm" '(require 'helm-config))
 
 ;; add extra sources to helm-mini
 ;; In addition to current buffers and recent files, other useful sources will
@@ -33,12 +33,12 @@
 
 ;; load helm-bible
 (add-to-list 'load-path "~/Projects/helm-bible/")
-(require 'helm-bible)
+(autoload 'helm-bible "helm-bible" "" t)
 (global-set-key (kbd "C-c m g") 'helm-bible)
 
 ;; load helm-browser-tabs
 (add-to-list 'load-path "~/Projects/Zenodotus/")
-(require 'helm-browser-tabs)
+(autoload 'helm-browser-tabs-with-presel "helm-browser-tabs" "" t)
 (global-set-key (kbd "C-c m t") 'helm-browser-tabs-with-presel)
 
 ;; Ensure that if lines are wrapped they wrap at spaces instead of in the middle

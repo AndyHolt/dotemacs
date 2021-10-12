@@ -10,9 +10,6 @@
 
 ;;; Code:
 
-(add-to-list 'load-path
-             "~/.emacs.d/plugins/yasnippet")
-
 (require 'yasnippet)
 
 ;; set directories for snippets to be found
@@ -64,8 +61,8 @@
 
 ;; don't warn about modifying buffers in a backquote expression in yasnippet --
 ;; I usually *want* the backquote expression to be modifying the buffer!
-(add-to-list 'warning-suppress-types
-             '(yasnippet backquote-change))
+;; (add-to-list 'warning-suppress-types
+;;              '(yasnippet backquote-change))
 
 (provide 'adh_yasnippet)
 ;;; adh_yasnippet.el ends here

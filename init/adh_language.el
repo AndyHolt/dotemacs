@@ -59,12 +59,14 @@
 ;;     (ispell-kill-ispell t)
 ;;     ))
 
+(autoload 'define-word "define-word" "" t)
+(autoload 'define-word-at-point "define-word" "" t)
 (global-set-key (kbd "C-c d") 'define-word)
 (global-set-key (kbd "C-c D") 'define-word-at-point)
 
 ;; setup typo minor mode
 ;; Use typographical unicode more easily, e.g. en-rules
-(require 'typo)
+(autoload 'typo-mode "typo" "" t)
 
 (add-hook 'mu4e-compose-mode-hook 'typo-mode)
 

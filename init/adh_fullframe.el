@@ -13,10 +13,11 @@
 
 ;;; Code:
 
-(require 'fullframe)
+(autoload 'fullframe "fullframe")
 
 ;; set magit to use fullframe
-(fullframe magit-status magit-mode-quit-window)
+(eval-after-load "magit"
+  '(fullframe magit-status magit-mode-quit-window))
 
 (provide 'adh_fullframe)
 ;;; adh_fullframe.el ends here

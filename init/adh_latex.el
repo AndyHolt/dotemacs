@@ -10,10 +10,15 @@
 
 ;;; Code:
 
+;; Load AUCTeX when tex is loaded
+(eval-after-load "tex-mode"
+  '(require 'latex))
+
 ;; make AUCTeX aware of style files and multi-file documents
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
-(setq-default TeX-master nil)
+; by default, assume current file is master, don't prompt for master
+(setq-default TeX-master t)
 
 ;; enable PDFLaTeX for all documents
 (setq TeX-PDF-mode t)

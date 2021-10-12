@@ -9,7 +9,7 @@
 ;; Customisations for Deft (http://jblevins.org/projects/deft/)
 
 ;;; Code:
-(require 'deft)
+(autoload 'deft "deft")
 
 (setq deft-extensions '("org" "md"))
 (setq deft-directory "/Users/adh/Documents/notes/")

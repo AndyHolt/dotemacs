@@ -10,13 +10,15 @@
 
 ;;; Code:
 
-(require 'visual-regexp)
+(autoload 'vr/replace "visual-regexp" "" t)
+(autoload 'vr/query-replace "visual-regexp" "" t)
 
 ;; define keys for replace and query replace regexp
 (define-key global-map (kbd "C-c r") 'vr/replace)
 (define-key global-map (kbd "C-c q") 'vr/query-replace)
 
 ;; for multiple cursors
+(autoload 'vr/mc-mark "visual-regexp" "" t)
 (define-key global-map (kbd "C-c m r") 'vr/mc-mark)
 
 (provide 'adh_visualregexp)

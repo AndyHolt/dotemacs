@@ -10,9 +10,9 @@
 
 ;;; Code:
 
-(require 'multiple-cursors)
+(autoload 'mc/edit-lines "multiple-cursors" "" t)
 
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+;; (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
 ;; some keybindings
 (define-key global-map (kbd "C-c m l") 'mc/edit-lines)
@@ -21,7 +21,8 @@
 (setq mc/insert-numbers-default 1)
 
 ;; make pressing Enter while using multiple-cursors doesn't quit
-(define-key mc/keymap (kbd "<return>") nil)
+(eval-after-load 'multiple-cursors
+  '(define-key mc/keymap (kbd "<return>") nil))
 
 (provide 'adh_multiplecursors)
 ;;; adh_multiplecursors.el ends here

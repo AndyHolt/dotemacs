@@ -17,7 +17,10 @@
 ;;; Code:
 
 ;; avy setup
-(require 'avy)
+(autoload 'avy-goto-word-1 "avy" "" t)
+(autoload 'avy-goto-char-timer "avy" "" t)
+(autoload 'avy-goto-line "avy" "" t)
+
 (setq avy-style 'at-full)
 (setq avy-all-windows t)
 
@@ -26,34 +29,38 @@
 (global-set-key "\C-ck" 'avy-goto-char-timer)
 (global-set-key "\C-cg" 'avy-goto-line)
 ; [todo] - consider changing to avy-goto-subword-1 or avy-goto-word-or-subword-1
-(global-set-key "\C-cw" 'avy-goto-word-1)
+; (global-set-key "\C-cw" 'avy-goto-word-1)
 
 ;; setup ace-link mode, for jumping to links in help/info windows
 ; [todo] - why is ace-link-setup not working? Do I need it?
 ;;(ace-link-setup-default)
 
 ;; setup ace-window mode for fast selection of windows
+(autoload 'ace-window "ace-window" "" t)
 (global-set-key (kbd "C-x p") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
 
 ;; show line numbers only when using 'goto-line'
+(autoload 'display-line-numbers-mode "display-line-numbers" "" t)
 ;;   from whattheemacsd - thanks Magnars!
 (defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
   (unwind-protect
       (progn
-        (linum-mode 1)
+        (display-line-numbers-mode 1)
         (goto-line (read-number "Goto line: ")))
-    (linum-mode -1)))
+    (display-line-numbers-mode -1)))
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; expand region by semantic units
-(require 'expand-region)
+(autoload 'er/expand-region "expand-region")
 (global-set-key "\C-@" 'er/expand-region)
 
 ;; delete within semantic units (akin to expand-region)
+(autoload 'change-inner "change-inner" "" t)
+(autoload 'change-outer "change-inner" "" t)
 (global-set-key (kbd "M-i") 'change-inner)
 (global-set-key (kbd "M-o") 'change-outer)
 
@@ -68,7 +75,7 @@
 ; (global-anzu-mode t)
 
 ;; set up swiper, a more powerful search
-(require 'swiper)
+(autoload 'swiper "swiper" "" t)
 (global-set-key (kbd "C-s") 'swiper)
 (setq ivy-display-style 'fancy)
 ;; use character folding in searches by default

@@ -51,21 +51,24 @@
 ;(require 'autopair)
 ;(autopair-global-mode)
 
-;; don't show an initial startup message
-(setq initial-scratch-message nil)
+;; moving to early-init
+;; ;; don't show an initial startup message
+;; (setq initial-scratch-message nil)
 
 ;; display startup time information
 ;; mainly for comparison of startup time with my config files compared with a
 ;; clean emacs instance.
 ;; See https://blog.d46.us/advanced-emacs-startup/
 ;; use a hook so that the message doesn't get clobbered by other messages
-(add-hook 'emacs-startup-hook
-          (lambda ()
-            (message "Emacs ready in %s with %d garbage collections."
-                     (format "%.2f seconds"
-                             (float-time
-                              (time-subtract after-init-time before-init-time)))
-                     gcs-done)))
+(defun adh-emacs-startup-message ()
+  "Print a message about startup time and gc during Emacs startup."
+  (message "Emacs ready in %s with %d garbage collections."
+           (format "%.2f seconds"
+                   (float-time (time-subtract after-init-time
+                                              before-init-time)))
+           gcs-done))
+
+(add-hook 'emacs-startup-hook #'adh-emacs-startup-message 90)
 
 (provide 'adh_startup)
 ;;; adh_startup.el ends here

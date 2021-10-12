@@ -10,7 +10,7 @@
 
 ;;; Code:
 
-(require 'dired)
+(autoload 'dired "dired")
 
 ;; change C-< and C-> to jump to more logical places
 (defun dired-back-to-top ()
@@ -32,7 +32,7 @@
   (vector 'remap 'end-of-buffer) 'dired-jump-to-bottom)
 
 ;; set up peep-dired, for displaying images etc while browsing in dired
-(require 'peep-dired)
+(autoload 'peep-dired "peep-dired")
 (eval-after-load 'dired
   '(define-key dired-mode-map (kbd "P") 'peep-dired))
 

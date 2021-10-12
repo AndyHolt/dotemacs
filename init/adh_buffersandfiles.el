@@ -169,7 +169,7 @@
 
 ;; dedicate-windows-manually
 ;; taken from https://www.emacswiki.org/emacs/dedicate-windows-manually.el
-(require 'dedicate-windows-manually)
+(autoload 'dedicate-window "dedicate-windows-manually")
 
 ;; enable recursive minibuffer and indicate depth
 (setq enable-recursive-minibuffers t)

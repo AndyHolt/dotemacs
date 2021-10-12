@@ -78,10 +78,13 @@
                                        "~/Projects/WritingTools/Theology.bib"))
 
 ;; change default action of helm-bibtex to insert citation
-(require 'helm-bibtex)
-(helm-delete-action-from-source "Insert citation" helm-source-bibtex)
-(helm-add-action-to-source "Insert citation"
-                           'helm-bibtex-insert-citation helm-source-bibtex 0)
+(autoload 'helm-bibtex "helm-bibtex" "" t)
+
+(eval-after-load "helm-bibtex"
+  '(progn
+     (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
+     (helm-add-action-to-source "Insert citation"
+                                'helm-bibtex-insert-citation helm-source-bibtex 0)))
 
 ;; reverse order of helm candidates
 ;; By default, orders candidates from bottom of bib file to top, giving "most

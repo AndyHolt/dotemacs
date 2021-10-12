@@ -330,7 +330,10 @@ template to capture them."
 
 (with-timer "org-rifle and search"
 ;; set up helm-org-rifle
-(require 'helm-org-rifle)
+;; (require 'helm-org-rifle)
+(autoload 'helm-org-rifle "helm-org-rifle" "" t)
+(autoload 'helm-org-rifle-files "helm-org-rifle" "" t)
+
 (defun adh-search-notes ()
     "Call `helm-org-rifle' with note files from `adh-booknotes-files' and
 `adh-notes-files'"
@@ -353,14 +356,34 @@ template to capture them."
 
 (with-timer "babel"
 ;; setup languages for Org babel
-(org-babel-do-load-languages
- 'org-babel-load-languages
- '((emacs-lisp . t)
-   (latex . t)
-   (python . t)
-   (shell . t)
-   (sql . t)
-   ))
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '((emacs-lisp . t)
+;;    (latex . t)
+;;    (python . t)
+;;    (shell . t)
+;;    (sql . t)
+;;   ))
+
+(autoload 'org-babel-execute:emacs-lisp "ob-emacs-lisp")
+(autoload 'org-babel-expand-body:emacs-lisp "ob-emacs-lisp")
+
+(autoload 'org-babel-execute:latex "ob-latex")
+(autoload 'org-babel-expand-body:latex "ob-latex")
+
+(autoload 'org-babel-execute:python "ob-python")
+
+(autoload 'org-babel-execute:sh "ob-shell")
+(autoload 'org-babel-expand-body:sh "ob-shell")
+(autoload 'org-babel-execute:shell "ob-shell")
+(autoload 'org-babel-expand-body:shell "ob-shell")
+(autoload 'org-babel-execute:bash "ob-shell")
+(autoload 'org-babel-expand-body:bash "ob-shell")
+(autoload 'org-babel-execute:zsh "ob-shell")
+(autoload 'org-babel-expand-body:zsh "ob-shell")
+
+(autoload 'org-babel-execute:sql "ob-sql")
+(autoload 'org-babel-expand-body:sql "ob-sql")
 
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
@@ -373,45 +396,46 @@ template to capture them."
 ;; Make RefTeX work with Org-Mode
 ;; use 'C-c (' instead of 'C-c [' because the latter is already
 ;; defined in orgmode to the add-to-agenda command.
-(require 'reftex)
-
-(defun org-mode-reftex-setup ()
-  (setq TeX-master t)
-  (and (buffer-file-name)
-       (file-exists-p (buffer-file-name))
-       (reftex-parse-all)))
-
-(add-hook 'org-mode-hook 'org-mode-reftex-setup)
-
-;; RefTeX formats for biblatex (not natbib)
-(setq reftex-cite-format
-      '(
-        (?\C-m . "\\cite[]{%l}")
-        (?t . "\\textcite{%l}")
-        (?a . "\\autocite[]{%l}")
-        (?p . "\\parencite{%l}")
-        (?f . "\\footcite[][]{%l}")
-        (?F . "\\fullcite[]{%l}")
-        (?x . "[]{%l}")
-        (?X . "{%l}")
-        ))
-
-(setq font-latex-match-reference-keywords
-      '(("cite" "[{")
-        ("cites" "[{}]")
-        ("autocite" "[{")
-        ("footcite" "[{")
-        ("footcites" "[{")
-        ("parencite" "[{")
-        ("textcite" "[{")
-        ("fullcite" "[{") 
-        ("citetitle" "[{") 
-        ("citetitles" "[{") 
-        ("headlessfullcite" "[{")))
-
-(setq reftex-cite-prompt-optional-args nil)
-(setq reftex-cite-cleanup-optional-args t)
 (with-timer "reftex set up"
+; (require 'reftex)
+; (autoload 'helm-bibtex "reftex")
+
+;; (defun org-mode-reftex-setup ()
+;;   (setq TeX-master t)
+;;   (and (buffer-file-name)
+;;        (file-exists-p (buffer-file-name))
+;;        (reftex-parse-all)))
+
+;; (add-hook 'org-mode-hook 'org-mode-reftex-setup)
+
+;; ;; RefTeX formats for biblatex (not natbib)
+;; (setq reftex-cite-format
+;;       '(
+;;         (?\C-m . "\\cite[]{%l}")
+;;         (?t . "\\textcite{%l}")
+;;         (?a . "\\autocite[]{%l}")
+;;         (?p . "\\parencite{%l}")
+;;         (?f . "\\footcite[][]{%l}")
+;;         (?F . "\\fullcite[]{%l}")
+;;         (?x . "[]{%l}")
+;;         (?X . "{%l}")
+;;         ))
+
+;; (setq font-latex-match-reference-keywords
+;;       '(("cite" "[{")
+;;         ("cites" "[{}]")
+;;         ("autocite" "[{")
+;;         ("footcite" "[{")
+;;         ("footcites" "[{")
+;;         ("parencite" "[{")
+;;         ("textcite" "[{")
+;;         ("fullcite" "[{") 
+;;         ("citetitle" "[{") 
+;;         ("citetitles" "[{") 
+;;         ("headlessfullcite" "[{")))
+
+;; (setq reftex-cite-prompt-optional-args nil)
+;; (setq reftex-cite-cleanup-optional-args t)
 )
 
 (with-timer "org latex classes and export"
@@ -419,133 +443,138 @@ template to capture them."
 (add-to-list 'org-latex-packages-alist
              '("normalem" "ulem" nil))
 
-(require 'ox-latex)
-(add-to-list 'org-latex-classes
-             '("adharticle"
-               "\\documentclass{adharticle}
+; (require 'ox-latex)
+(autoload 'org-export-dispatch "ox-latex" "" t)
+
+(eval-after-load "ox-latex"
+  '(progn
+    (add-to-list 'org-latex-classes
+		 '("adharticle"
+		   "\\documentclass{adharticle}
                [NO-DEFAULT-PACKAGES]
                [PACKAGES]
                [EXTRA]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("adhhandout"
-               "\\documentclass{adhhandout}
+    (add-to-list 'org-latex-classes
+		 '("adhhandout"
+		   "\\documentclass{adhhandout}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("sbtspaper"
-               "\\documentclass{sbtspaper}
+    (add-to-list 'org-latex-classes
+		 '("sbtspaper"
+		   "\\documentclass{sbtspaper}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("sbtsprecis"
-               "\\documentclass{sbtsprecis}
+    (add-to-list 'org-latex-classes
+		 '("sbtsprecis"
+		   "\\documentclass{sbtsprecis}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("sbtshistread"
-               "\\documentclass{sbtshistread}
+    (add-to-list 'org-latex-classes
+		 '("sbtshistread"
+		   "\\documentclass{sbtshistread}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\lecture{%s}" . "\\lecture*{%s}")
-               ("\\question{%s}" . "\\question*{%s}")
-               ("\\subquestion{%s}" . "\\subquestion*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\lecture{%s}" . "\\lecture*{%s}")
+		   ("\\question{%s}" . "\\question*{%s}")
+		   ("\\subquestion{%s}" . "\\subquestion*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("sbtsreview"
-               "\\documentclass{sbtsreview}
+    (add-to-list 'org-latex-classes
+		 '("sbtsreview"
+		   "\\documentclass{sbtsreview}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("adhdoc"
-               "\\documentclass{adhdoc}
+    (add-to-list 'org-latex-classes
+		 '("adhdoc"
+		   "\\documentclass{adhdoc}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("adhsernotes"
-               "\\documentclass{adhsernotes}
+    (add-to-list 'org-latex-classes
+		 '("adhsernotes"
+		   "\\documentclass{adhsernotes}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("adhseroutline"
-               "\\documentclass{adhseroutline}
+    (add-to-list 'org-latex-classes
+		 '("adhseroutline"
+		   "\\documentclass{adhseroutline}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
-(add-to-list 'org-latex-classes
-             '("sbtsaec"
-               "\\documentclass{sbtsaec}
+    (add-to-list 'org-latex-classes
+		 '("sbtsaec"
+		   "\\documentclass{sbtsaec}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-               ("\\section{%s}" . "\\section*{%s}")
-               ("\\subsection{%s}" . "\\subsection*{%s}")
-               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-               ("\\paragraph{%s}" . "\\paragraph*{%s}")
-               ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; (setq org-latex-pdf-process
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
 
-;; set the command used for compiling latex files
-(setq org-latex-pdf-process '("run-latex -p %latex -o %o %f"))
+    ;; set the command used for compiling latex files
+    (setq org-latex-pdf-process '("run-latex -p %latex -o %o %f"))
+    ))
+)
 
 (with-timer "org-ref set up"
 ;; set up org-ref
@@ -560,13 +589,24 @@ template to capture them."
 (setq org-ref-notes-function 'org-ref-notes-function-many-files)
 (setq org-ref-notes-directory "~/Documents/notes/book-notes")
 
-(require 'org-ref)
 (with-timer "requiring org-ref"
+;;(require 'org-ref)
+(autoload 'org-ref-show-link-messages "org-ref")
+
+(defun adh-require-org-ref-in-helm-bibtex (&rest args)
+    "Ensure org-ref is loaded before calling helm-bibtex.
+args are ignored."
+    (require 'org-ref))
+
+(advice-add 'helm-bibtex :before #'adh-require-org-ref-in-helm-bibtex)
+
 )
 
 ;; change font used for org-ref links
-(set-face-attribute 'org-ref-cite-face nil :weight 'light :foreground "#f1d49b"
-                    :underline nil)
+;; (eval-after-load "org-ref"
+;;   (set-face-attribute 'org-ref-cite-face nil :weight 'light :foreground "#f1d49b"
+;;                       :underline nil)
+;;   )
 )
 
 ;; use interleave mode
@@ -583,6 +623,7 @@ template to capture them."
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
 )
 
+(with-timer "archiving"
 ;; when archiving elements, preserve hierarchy structure in archive
 ;; From https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
 (defadvice org-archive-subtree (around fix-hierarchy activate)
@@ -854,7 +895,7 @@ get that, otherwise the full title."
 ;; instead of inserting it, but that would change the default behaviour of
 ;; helm-bibtex. It will be worth doing if I only insert references through other
 ;; interfaces, but not if I use these. Perhaps a better idea is to add a
-;; helm-bibtex action for inserting a quote.
+
 (defun adh-get-bibtex-key-from-helm ()
   "Use helm-bibtex to select a source and return the source
 citation as a string.
@@ -1004,29 +1045,35 @@ exporting, replace them for normal usage."
 ;; C-e. To get to the true start of line and end of line (before stars and todo
 ;; status, or after tags), simply press again.
 (setq org-special-ctrl-a/e t)
+;; todo: set other org-special values, and fix this to work with visual fill (https://www.reddit.com/r/emacs/comments/fjku3d/visual_line_mode_conflicts_with_orgspecialctrlae/)
 )
 
 (with-timer "habits"
 ;; org-habit view in agenda
 (add-to-list 'org-modules 'habit)
-(require 'org-habit)
-(setq org-habit-show-all-today t
-      org-habit-show-done-always-green t
-      org-habit-graph-column 60)
+; (require 'org-habit)
+(autoload 'org-agenda "org-habit" "" t)
 
+(eval-after-load "org-habit"
+  '(setq org-habit-show-all-today t
+         org-habit-show-done-always-green t
+         org-habit-graph-column 60))
 )
+
 (with-timer "gui, extra, lists, and bullets"
 ;; Allow hiding of org headlines while including any content under them.
 ;; Particularly useful for including extra structure and TODOs in document.
-(require 'ox-extra)
-(ox-extras-activate '(ignore-headlines))
+;; (require 'ox-extra)
+;; (ox-extras-activate '(ignore-headlines))
+(autoload 'org-mode "ox-extra" "" t)
+(eval-after-load "ox-extra" '(ox-extras-activate '(ignore-headlines)))
 
 ;; org bullets set up
-(require 'org-bullets)
-
+; (require 'org-bullets)
 (defun adh-org-bullet-enable ()
   "Enable org bullets (function to be called by `org-mode-hook')"
-    (org-bullets-mode 1))
+  (require 'org-bullets)
+  (org-bullets-mode 1))
 
 (add-hook 'org-mode-hook #'adh-org-bullet-enable)
 
@@ -1085,16 +1132,23 @@ exporting, replace them for normal usage."
 
 (with-timer "org-zett"
 (require 'hydra)
-(require 'org-zett)
-(defhydra hydra-org-zett (:color red)
+; (require 'org-zett)
+(autoload 'org-zett-add-note-link "org-zett")
+(autoload 'org-zett-add-inline-link "org-zett")
+
+(defhydra hydra-org-zett (:color red
+                          :hint nil)
   "
-^Org Zettlekasten^
+^Link notes^           ^Util^
 ^^^^^^^^--------------------------------------
-_z_: Zett link
+_z_: Zett link         _r_: Refresh cache
 _i_: Inline link
 "
   ("z" org-zett-add-note-link)
-  ("i" org-zett-add-inline-link))
+  ("i" org-zett-add-inline-link)
+  ("r" (lambda ()
+         (interactive)
+         (org-refile-cache-clear))))
 
 (define-key org-mode-map (kbd "C-c z") 'hydra-org-zett/body)
 )
@@ -1126,7 +1180,12 @@ _i_: Inline link
 
 ; I never use C-' to cycle through agenda files, and I keep hitting it by
 ; accident, especially when trying to change input ( C-\ ), so disable command
-(global-unset-key (kbd "C-'"))
+; (global-unset-key (kbd "C-'"))
+(defun adh-org-unbind-cycle-agenda-files ()
+  "Function to be called in org-mode-hook to unbind C-' from `org-cycle-agenda-files'."
+  (define-key org-mode-map (kbd "C-'") nil))
+(add-hook 'org-mode-hook #'adh-org-unbind-cycle-agenda-files)
+
 )
 
 (provide 'adh_org)

@@ -12,7 +12,7 @@
 ;; add mu4e to load-path, installed by homebrew on mac so not in usual location
 (add-to-list 'load-path
              "/usr/local/opt/mu/share/emacs/site-lisp/mu/mu4e")
-(require 'mu4e)
+(autoload 'mu4e "mu4e")
 
 ;; set up my addresses
 ;; (setq mu4e-user-mail-address-list
@@ -60,7 +60,8 @@
 (setq mu4e-compose-signature "Andy Holt" )
 
 ;; setup contexts for different accounts
-(setq mu4e-contexts
+(eval-after-load "mu4e"
+'(setq mu4e-contexts
       `( ,(make-mu4e-context
            :name "hotmail"
            :enter-func (lambda () (mu4e-message "Switch to hotmail context"))
@@ -154,7 +155,7 @@
                      ( mu4e-trash-folder  . "/sbts/trash"   )
                      ( mu4e-refile-folder . "/sbts/archive" )
                      ( mu4e-sent-messages-behavior . delete)))
-         ))
+         )))
 
 ;; if not otherwise specified, use hotmail context as default
 (setq mu4e-context-policy 'pick-first)
@@ -188,8 +189,9 @@
 
 ;; set up actions
 ;; view html mail in web browser
- (add-to-list 'mu4e-view-actions
-              '("bview in browser" . mu4e-action-view-in-browser) t)
+(eval-after-load "mu4e"
+  '(add-to-list 'mu4e-view-actions
+                '("bview in browser" . mu4e-action-view-in-browser) t))
 
 ;; after sending, kill buffer
 ;; (avoid getting a whole load of open buffers which I don't want/need)
@@ -280,7 +282,8 @@ This will make emails much nicer to read in external mail programmes."
 (turn-on-gnus-dired-mode)
 
 ;; use org-mu4e for email links from org files
-(require 'org-mu4e)
+(eval-after-load "mu4e"
+  '(require 'org-mu4e))
 
 ;; Don't include related emails in headers view
 ;; if non-nil (as set to default in mu 1.0), replies show in headers view of
@@ -288,43 +291,46 @@ This will make emails much nicer to read in external mail programmes."
 ;; Can change value by pressing W in headers view
 (setq mu4e-headers-include-related nil)
 
-;; Add bookmark for searching for a particular date, date selected using
-;; org-read-date
-(add-to-list 'mu4e-bookmarks
-             '(:name "Select date"
-               :query (lambda ()
-                        (let* ((org-read-date-prefer-future nil)
-                               (date (format-time-string "%Y%m%d"
-                                                         (org-read-date nil
-                                                                        t))))
-                           (concat "date:" date)))
-              :key ?d))
+(eval-after-load "mu4e"
+  '(progn
+     ;; Add bookmark for searching for a particular date, date selected using
+     ;; org-read-date
+     (add-to-list 'mu4e-bookmarks
+                  '(:name "Select date"
+                          :query (lambda ()
+                                   (let* ((org-read-date-prefer-future nil)
+                                          (date (format-time-string "%Y%m%d"
+                                                                    (org-read-date nil
+                                                                                   t))))
+                                     (concat "date:" date)))
+                          :key ?d))
 
-;; Add bookmark for today's emails in inboxes.
-;; Want to see emails for today across all inboxes, like "Today's messages"
-;; bookmark, but not ones which have been deleted or refiled already.
-(add-to-list 'mu4e-bookmarks
-             '(:name "Today's inbox"
-               :query (concat "(maildir:/hotmail/Inbox OR "
-                              "maildir:/cantab/INBOX OR "
-                              "maildir:/ah635-gmail.com/INBOX OR "
-                              "maildir:/sbts/inbox) "
-                              "AND date:today..")
-               :key ?i))
+     ;; Add bookmark for today's emails in inboxes.
+     ;; Want to see emails for today across all inboxes, like "Today's messages"
+     ;; bookmark, but not ones which have been deleted or refiled already.
+     (add-to-list 'mu4e-bookmarks
+                  '(:name "Today's inbox"
+                          :query (concat "(maildir:/hotmail/Inbox OR "
+                                         "maildir:/cantab/INBOX OR "
+                                         "maildir:/ah635-gmail.com/INBOX OR "
+                                         "maildir:/sbts/inbox) "
+                                         "AND date:today..")
+                          :key ?i))
 
-(add-to-list 'mu4e-bookmarks
-             '(:name "Combined inbox"
-               :query (concat "maildir:/hotmail/Inbox OR "
-                              "maildir:/cantab/INBOX OR "
-                              "maildir:/ah635-gmail.com/INBOX OR "
-                              "maildir:/sbts/inbox")
-               :key ?c))
+     (add-to-list 'mu4e-bookmarks
+                  '(:name "Combined inbox"
+                          :query (concat "maildir:/hotmail/Inbox OR "
+                                         "maildir:/cantab/INBOX OR "
+                                         "maildir:/ah635-gmail.com/INBOX OR "
+                                         "maildir:/sbts/inbox")
+                          :key ?c))))
 
 ;; Don't need to confirm quitting mu4e. Don't ask, just do it.
 (setq mu4e-confirm-quit nil)
 
 ;; load file with personal mail list addresses.
-(require 'adh_personal_email_lists)
+(eval-after-load "mu4e"
+  '(require 'adh_personal_email_lists))
 
 (provide 'adh_email)
 ;;; adh_email.el ends here

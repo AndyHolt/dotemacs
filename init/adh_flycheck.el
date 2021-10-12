@@ -10,7 +10,7 @@
 
 ;;; Code:
 
-(require 'flycheck)
+(autoload 'flycheck-mode "flycheck")
 
 ;; (defun adh/adjust-flycheck-automatic-syntax-eagerness ()
 ;;   "Adjust how often we check for errors based on if there are any.
@@ -46,12 +46,22 @@
 
 ; (global-flycheck-mode)
 
-(eval-after-load 'python-mode
-  '(flycheck-mode))
-(eval-after-load 'tex-mode
-  '(flycheck-mode))
-(eval-after-load 'elisp-mode
-  '(flycheck-mode))
+;; (eval-after-load 'python-mode
+;;   '(flycheck-mode))
+;; (eval-after-load 'tex-mode
+;;   '(flycheck-mode))
+;; (eval-after-load 'elisp-mode
+;;   '(flycheck-mode))
+
+(defun adh-enable-flycheck-mode (&rest args)
+    "Enable flycheck mode.
+Function intended for use in major mode hooks. Ignores args."
+    (flycheck-mode t))
+
+; (add-hook 'mode-hook #'my-function)
+(add-hook 'python-mode-hook #'adh-enable-flycheck-mode)
+(add-hook 'TeX-mode-hook #'adh-enable-flycheck-mode)
+(add-hook 'emacs-lisp-mode-hook #'adh-enable-flycheck-mode)
 
 (provide 'adh_flycheck)
 ;;; adh_flycheck.el ends here
