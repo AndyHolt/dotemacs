@@ -118,7 +118,7 @@
 
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
-      '((t . "${author:15} ${title:*} ${subtitle:25} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
+      '((t . "${author:15} ${title:*} ${subtitle:15} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
 
 ;; [todo] - find a way to add current date to note header
 ;; add date to notes header when creating a new note file
