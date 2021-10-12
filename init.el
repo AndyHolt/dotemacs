@@ -21,6 +21,11 @@
   (normal-top-level-add-subdirs-to-load-path))
 )
 
+;; disable handling file name of my start up files
+;; This saves running a series of regexps against the file names to determine if
+;; some kind of file handling is required. Takes a few miliseconds off init load
+;; time, for no cost.
+(let ((file-name-handler-alist nil))
 ;; load gcmh first as it should speed up load time
 (with-timer "loading adh_gcmh" (require 'adh_gcmh))
 (with-timer "loading adh_gui" (require 'adh_gui))
