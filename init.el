@@ -32,6 +32,7 @@
 (with-timer "loading adh_gcmh" (require 'adh_gcmh))
 (with-timer "loading adh_gui" (require 'adh_gui))
 (with-timer "loading adh_org" (require 'adh_org))
+(with-timer "loading adh_org-cite" (require 'adh_org-cite))
 ;(require 'adh_ido)
 (with-timer "loading adh_ivy" (require 'adh_ivy))
 (with-timer "loading adh_yasnippet" (require 'adh_yasnippet))
