@@ -1,11 +1,13 @@
 # -*- mode: snippet -*-
+# contributer: Andy Holt
 # name: Org mode sermon transcript header
 # key: serhead
+# key: sermonheader
 # --
 #+TITLE: ${1:Sermon Title}
 #+LATEX_HEADER: \def\passage{${2:Sermon passage}}
 #+AUTHOR: Andy Holt
-#+DATE: `(call-interactively 'org-time-stamp)`
+#+DATE: `(format-time-string "<%Y-%m-%d %a>"(org-read-date nil t nil "Sermon date"))`
 #+LANGUAGE: en
 #+OPTIONS: toc:nil ':t *:t -:t <:nil f:t H:5 num:nil p:nil
 #+OPTIONS: timestamp:t tasks:t todo:nil |:t

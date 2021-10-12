@@ -1,6 +1,6 @@
-# contributor: Xah Lee (XahLee.org)
+# contributor: Andy Holt
 # name: add-hook
 # key: add-hook
 # key: ah
 # --
-(add-hook HOOK$0 FUNCTION)
+(add-hook '${1:hook name} #'${2:function to run}${3: ${4: Depth (-100 is first in hook list, +100 is last)}})

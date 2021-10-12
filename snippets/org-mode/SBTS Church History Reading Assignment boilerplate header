@@ -4,12 +4,12 @@
 # --
 #+TITLE: Lecture ${1:Lecture number}: ${2:Title}
 #+AUTHOR: Andrew Holt
-#+DATE: ${3:Due Date (Format: September 10, 2019)}
+#+DATE: ${3:Submission Date (Format: September 10, 2019)}
 #+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
 #+LATEX_HEADER: \def\papertype{Reading Assignement}
 #+LATEX_HEADER: \def\prof{Prof Michael A. G. Haykin}
-#+LATEX_HEADER: \def\courseno{26100}
-#+LATEX_HEADER: \def\shortpapertitle{History of the Baptists: Lectures $1}
+#+LATEX_HEADER: \def\courseno{25120}
+#+LATEX_HEADER: \def\shortpapertitle{Church History II: Lectures $1}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil H:10 num:t
 #+EXCLUDE_TAGS: noexport
@@ -20,8 +20,14 @@
 #+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
 #+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
 
+# FOR ASSIGNMENTS WITH A SINGLE LECTURE NUMBER
 # Note: Set this to one less than the first lecture number
 #+LATEX: \setcounter{lecture}{${1:$(number-to-string (- (string-to-number yas-text) 1))}}
+
+# FOR ASSIGNMENTS COVERING MULTIPLE LECTURES
+# redefine heading definition to typeset double lecture number
+#+LATEX: \titleformat{\lecture}[block]{\normalfont\bfseries}{Lectures 9--10:}{1ex}{}
+
 
 * $2
 $0
