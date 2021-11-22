@@ -64,6 +64,13 @@
 (global-set-key (kbd "C-c d") 'define-word)
 (global-set-key (kbd "C-c D") 'define-word-at-point)
 
+;; Bugfix for define-word
+;; See Helinwang's suggested bugfix at:
+;; https://github.com/abo-abo/define-word/issues/31
+(defun url-http-user-agent-string ()
+  "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.80 Safari/537.36
+")
+
 ;; setup typo minor mode
 ;; Use typographical unicode more easily, e.g. en-rules
 (autoload 'typo-mode "typo" "" t)
