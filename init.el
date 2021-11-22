@@ -18,9 +18,23 @@
 (add-to-list 'load-path "~/Projects/Zenodotus/")
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (add-to-list 'load-path "~/.emacs.d/elpa/")
-(add-to-list 'load-path "~/.emacs.d/elpa/org-9.5/")
+;; add all directories in ~/.emacs.d/elpa/ to load-path
+;; must be added to beginning of load path to ensure that installed packages
+;; take precedence over older bundled versions
+(let ((default-directory "~/.emacs.d/elpa/"))
+  (setq load-path
+        (append
+         (let ((load-path (copy-sequence load-path)))
+           (normal-top-level-add-subdirs-to-load-path))
+         load-path)))
+; (add-to-list 'load-path "~/.emacs.d/elpa/org-9.5/")
+; add all directories in ~/.emacs.d/.cask/ to load path
 (let ((default-directory  "~/.emacs.d/.cask/"))
-  (normal-top-level-add-subdirs-to-load-path))
+  (setq load-path
+        (append
+         (let ((load-path (copy-sequence load-path)))
+           (normal-top-level-add-subdirs-to-load-path))
+         load-path)))
 )
 
 ;; disable handling file name of my start up files
