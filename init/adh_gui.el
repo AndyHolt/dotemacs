@@ -133,6 +133,9 @@ Ignores OPT."
 
 (require 'solarized-theme)
 (require 'solarized-zenburn-theme)
+;; Add theme directories to theme path for loading when required
+(mapc (lambda (tpath) (add-to-list 'custom-theme-load-path tpath))
+      (file-expand-wildcards "~/.emacs.d/.cask/*/elpa/*-theme-*"))
 
 (change-theme 'solarized-light 'solarized-zenburn)
 )
