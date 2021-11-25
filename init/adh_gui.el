@@ -131,11 +131,13 @@ Ignores OPT."
       solarized-scale-org-headlines nil
       solarized-scale-outline-headlines nil)
 
-(require 'solarized-theme)
-(require 'solarized-zenburn-theme)
 ;; Add theme directories to theme path for loading when required
 (mapc (lambda (tpath) (add-to-list 'custom-theme-load-path tpath))
       (file-expand-wildcards "~/.emacs.d/.cask/*/elpa/*-theme-*"))
+
+(autoload 'solarized-light "solarized-theme" "" t)
+(autoload 'solarized-light "solarized-light-theme" "" t)
+(autoload 'solarized-zenburn "solarized-zenburn-theme" "" t)
 
 (change-theme 'solarized-light 'solarized-zenburn)
 )
