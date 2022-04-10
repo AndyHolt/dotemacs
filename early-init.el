@@ -22,7 +22,7 @@
 If nil, load Emacs init file normally. If non-nil, display timing of loading
 each part of the init file using the `with-timer' macro.")
 
-(setq use-startup-timer nil)
+(setq use-startup-timer t)
 
 (defmacro with-timer (name &rest body)
   "Evaluate BODY and display the time taken for evaluation.
@@ -57,8 +57,8 @@ If value of `use-startup-timer' is nil, just execute BODY without recording
              '("gnu" . "https://elpa.gnu.org/packages/") t)
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
-(add-to-list 'package-archives
-	     '("org" . "https://orgmode.org/elpa/") t)
+;; (add-to-list 'package-archives
+;; 	     '("org" . "https://orgmode.org/elpa/") t)
 (setq package-enable-at-startup nil)
 )
 
