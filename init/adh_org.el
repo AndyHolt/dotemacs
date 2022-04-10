@@ -573,6 +573,19 @@ that new file is included in notes targets."
 		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
+		 '("adhsertrans"
+		   "\\documentclass{adhsertrans}
+                [NO-DEFAULT-PACKAGES]
+                [PACKAGES]
+                [EXTRAS]"
+		   ("\\section{%s}" . "\\section*{%s}")
+		   ("\\subsection{%s}" . "\\subsection*{%s}")
+		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+
+    (add-to-list 'org-latex-classes
 		 '("sbtsaec"
 		   "\\documentclass{sbtsaec}
                 [NO-DEFAULT-PACKAGES]
