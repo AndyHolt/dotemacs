@@ -601,7 +601,8 @@ that new file is included in notes targets."
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
 
     ;; set the command used for compiling latex files
-    (setq org-latex-pdf-process '("run-latex -p %latex -o %o %f"))
+    (setq org-latex-pdf-process '("run-latex -p %latex -o %o %f")
+          org-latex-compiler "xelatex")
     ))
 )
 
