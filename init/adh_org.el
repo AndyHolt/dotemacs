@@ -803,6 +803,9 @@ visiting them will not be visited"
                                   "/Applications/LibreOffice.app/Contents/MacOS/soffice \
 --headless --convert-to %f%x --outdir %d %i") 
                                   ("unoconv -f %f -o %d %i")))
+
+;; use html checkboxes when exporting [ ] or [X] to html
+(setq org-html-checkbox-type 'html)
 )
 
 (with-timer "custom org links"
