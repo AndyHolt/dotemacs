@@ -69,6 +69,7 @@
         sp-remove-active-pair-overlay
         swiper
         tex-handle-newline
+        typo-cycle-ellipsis
         undefined
         whole-line-or-region-kill-region
         whole-line-or-region-kill-ring-save
