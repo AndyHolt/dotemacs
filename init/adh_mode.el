@@ -140,7 +140,19 @@
 #+CREATED_DATE: ")
 
 ;; set helm-bibtex key binding
-(global-set-key (kbd "C-c m b") 'helm-bibtex)
+(defun adh-helm-bibtex ()
+  "Use `helm-bibtex' to select a source. If currently visiting a file in
+`bibtex-completion-notes-path' then use that note file's base name as the
+default input for `helm-bibtex'. Else just use helm-bibtex as normal."
+  (interactive)
+  (helm-bibtex nil nil
+               (if (and buffer-file-name
+                        (equal (file-name-directory buffer-file-name)
+                               (concat bibtex-completion-notes-path "/")))
+                   (file-name-base buffer-file-name)
+                 nil)))
+
+(global-set-key (kbd "C-c m b") 'adh-helm-bibtex)
 
 ;; settings for bibtex-clean-entry
 (setq bibtex-entry-format '(opts-or-alts required-fields
