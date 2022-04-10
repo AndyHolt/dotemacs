@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Org bibliography files in header
+# key: bibhead
+# --
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib

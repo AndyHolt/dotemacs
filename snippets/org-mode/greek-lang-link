@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: greek language link
+# key: gl
+# --
+[[lang:greek][${1:ῥῆμα$(progn (set-input-method "greek-babel") (format "%s" yas-text))}]] $0 
