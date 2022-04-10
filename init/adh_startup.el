@@ -36,7 +36,8 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; easily navigate camelCase etc words
-(global-subword-mode 1)
+; (global-subword-mode 1)
+(add-hook 'prog-mode-hook #'subword-mode)
 
 ;; (find-file (concat adh-dropbox-location "Org_files/todo.org"))
 
