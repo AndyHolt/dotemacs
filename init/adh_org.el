@@ -811,6 +811,9 @@ visiting them will not be visited"
 (with-timer "custom org links"
 ;; languages markup for export to LaTeX
 ;; can add some more parameters for link, including styling the face.
+(defface org-lang-link '((t (:inherit org-drawer :unerline nil)))
+  "Face for org-lang-links")
+
 (org-link-set-parameters
  "lang"
  :follow nil
@@ -820,7 +823,7 @@ visiting them will not be visited"
              (format "<span class=\"%s\">%s</span>" path desc))
             ((eq format 'latex)
              (format "\\text%s{%s}" path desc))))
- :face '(:foreground "#AFD8AF" :weight "bold"))
+ :face 'org-lang-link)
 
 ;; quotation markup for export to LaTeX
 ;; Need to find an equivalent system for html as csquotes provides for LaTeX, of
