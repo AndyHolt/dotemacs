@@ -218,9 +218,6 @@ template to capture them."
 ;; - book notes files, up to 10 levels of headings (probably too much, but ah
 ;;   well!)
 ;; - notes files, up to 10 levels of headings
-(setq adh-booknotes-files (file-expand-wildcards "~/Documents/notes/book-notes/*.org"))
-(setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
-(setq adh-biblenotes-files (file-expand-wildcards "~/Documents/notes/bible-notes/*.org"))
 
 ;; Try changing refile targets from all agenda files to only agenda files which
 ;; aren't calendar files. I don't have to move things to calendar files often at
@@ -231,19 +228,36 @@ template to capture them."
 ;; different groups, made up of non-calendar agenda files and calendar agenda
 ;; files. That will save from having redudency between variables that need to be
 ;; modifed in different places. THIS IS CURRENTLY A BOTCH!
-
-(setq org-refile-targets '((nil :maxlevel . 10)
-                           (adh-non-cal-org-agenda-files :maxlevel . 5)
-                           (adh-booknotes-files :maxlevel . 10)
-                           (adh-notes-files :maxlevel . 10)
-                           (adh-biblenotes-files :maxlevel . 10)))
-
 (setq org-refile-use-outline-path 'file)
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-allow-creating-parent-nodes t)
 (setq org-refile-allow-creating-parent-nodes 'confirm)
 (setq org-refile-use-cache t)
 
+(defun adh-init-notes-files-and-refile-targets ()
+  "Set org files for notes and set up refile targets.
+
+This function can be used both to initialise the notes files and targets an
+initialisation, but also for adding new files. Calling this function after
+creating a new file in one of the standard notes directories will ensure that
+that new file is included in notes targets."
+  (interactive)
+  (setq adh-booknotes-files (file-expand-wildcards
+                             "~/Documents/notes/book-notes/*.org"))
+  (setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
+  (setq adh-biblenotes-files (file-expand-wildcards
+                              "~/Documents/notes/bible-notes/*.org"))
+  (setq org-refile-targets '((nil :maxlevel . 10)
+                             (adh-non-cal-org-agenda-files :maxlevel . 5)
+                             (adh-booknotes-files :maxlevel . 10)
+                             (adh-notes-files :maxlevel . 10)
+                             (adh-biblenotes-files :maxlevel . 10)))
+  (org-refile-cache-clear))
+
+(eval-after-load 'org
+  '(progn
+     (require 'org-refile)
+     (adh-init-notes-files-and-refile-targets)))
 
 ;; When refiling, make a link to the original location in the annotation
 ;; (defun adh-org-refile-get-orig-location ()
