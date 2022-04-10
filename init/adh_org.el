@@ -247,11 +247,14 @@ that new file is included in notes targets."
   (setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
   (setq adh-biblenotes-files (file-expand-wildcards
                               "~/Documents/notes/bible-notes/*.org"))
+  (setq adh-sbtsnotes-files (file-expand-wildcards
+                             "~/Documents/notes/sbts-notes/*.org"))
   (setq org-refile-targets '((nil :maxlevel . 10)
                              (adh-non-cal-org-agenda-files :maxlevel . 5)
                              (adh-booknotes-files :maxlevel . 10)
                              (adh-notes-files :maxlevel . 10)
-                             (adh-biblenotes-files :maxlevel . 10)))
+                             (adh-biblenotes-files :maxlevel . 10)
+                             (adh-sbtsnotes-files :maxlevel . 10)))
   (org-refile-cache-clear))
 
 (eval-after-load 'org
@@ -358,7 +361,8 @@ that new file is included in notes targets."
   (helm-org-rifle-files (append adh-biblenotes-files
                                 adh-booknotes-files
                                 adh-notes-files
-                                org-agenda-files)))
+                                org-agenda-files
+                                adh-sbtsnotes-files)))
 
 (global-set-key (kbd "C-c m f") #'adh-search-notes)
 )
@@ -794,7 +798,17 @@ visiting them will not be visited"
          :preparation-function (lambda (&rest args)
                                  (adh-kill-if-visiting
                                   "~/Documents/notes/bible-notes/sitemap.org"))
-         )))
+         )
+        ("sbts-notes"
+         :base-directory "~/Documents/notes/sbts-notes/"
+         :publishing-directory "~/Documents/zenodotus-notes/sbts-notes"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :auto-sitemap t
+         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+         :preparation-function (lambda (&rest args)
+                                 (adh-kill-if-visiting
+                                  "~/Documents/notes/sbts-notes/sitemap.org")))))
 
 ;; Export org files to .docx files with nice formatting by selecting template
 (setq org-odt-preferred-output-format "docx")
