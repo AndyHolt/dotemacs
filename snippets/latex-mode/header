@@ -1,17 +1,17 @@
 # name: Header for LaTeX files
 # key: header
 # --
-% File name: ${1:`(insert (buffer-file-name))`}
+% File name: ${1:`(buffer-file-name)`}
 % ${2:Description of file contents.}
 % Author: ${3:adh}
-% Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
+% Date: `(format-time-string "%a %d %b %Y %H:%M")`
 
 \documentclass[electronic,timesopt]{adharticle}
 
 % Define title here:
 \title{$4}
 \author{${5:Andy Holt}}
-\date{${6:`(insert (format-time-string "%d %B %Y"))`}}
+\date{${6:`(format-time-string "%d %B %Y")`}}
 
 \begin{document}
 
