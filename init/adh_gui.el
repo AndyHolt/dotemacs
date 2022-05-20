@@ -91,13 +91,41 @@
   (set-face-font 'fixed-pitch "Menlo"))
 
 ;; Hebrew font setup
+;;
+;; N.B. use Times New Roman for Hebrew font because SBL BibLit and Ezra SIL do
+;; not properly align pointing with consonants in display in Emacs (not sure
+;; why, but no matter since Times New Roman works fine and is a decent Hebrew
+;; font).
 (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
-                  (font-spec :name "Times New Roman" :size 20))
+                  (font-spec :name "Times New Roman" :size 18))
 (set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
-                  (font-spec :name "Times New Roman" :size 20))
+                  (font-spec :name "Times New Roman" :size 18))
+ ;; (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
+ ;;                   (font-spec :name "SBL BibLit" :size 20))
+ ;; (set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
+ ;;                   (font-spec :name "SBL BibLit" :size 20))
+
+;; set fonts for apparatus symbols
+(set-fontset-font "fontset-default" '(#x1D504 . #x1D59F)
+                  (font-spec :name "Apparatus SIL"))
+(set-fontset-font "fontset-default" '#x214F
+                  (font-spec :name "Apparatus SIL"))
+(set-fontset-font "fontset-default" '#x2135
+                  (font-spec :name "Apparatus SIL"))
+(set-fontset-font "fontset-default" '(#x212D . )
+                  (font-spec :name "Apparatus SIL"))
+
 
 ;; set variable-pitch-mode font
 (set-face-font 'variable-pitch "Iowan Old Style-13")
+; (set-face-font 'variable-pitch "Gentium Plus-14")
+
+; N.B. Setting variable pitch font to Iowan Old Style is very nice for
+; readability, but does not display italic fonts properly. This can be remedied
+; by setting the italic font to another, similar-ish font that *does* display
+; italics, such as Gentium Plus. But need to work out a way of doing this only
+; when variable-pitch-mode is active.
+; (set-face-font 'italic "Gentium Plus-14")
 
 (defun adh-set-font-for-eww (&rest opt)
     "Set variable pitch font for use in eww mode.
