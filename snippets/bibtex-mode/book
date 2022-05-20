@@ -2,7 +2,7 @@
 # name: book citiation
 # key: book
 # --
-@book\{${13:key},
+@book\{${15:key},
   author =       \{${1:author}\},
   title =        \{${2:book title}\},
   subtitle =     \{${3:subtitle}\},
@@ -10,9 +10,11 @@
   editor =       \{${5:editor}\},
   translator =   \{${6:translator}\},
   series =       \{${7:series}\},
-  number =       \{${8:number}\},
-  edition =      \{${9:edition}\},
-  publisher =    \{${10:publisher}\},
-  year =         \{${11:year}\},
-  location =     \{${12:location}\}$0
+  shortseries =  \{${8:shortseries}\}
+  number =       \{${9:number}\},
+  edition =      \{${10:edition}\},
+  publisher =    \{${11:publisher}\},
+  year =         \{${12:year}\},
+  location =     \{${13:location}\},
+  file =         \{${14:filepath}\}$0
 \}

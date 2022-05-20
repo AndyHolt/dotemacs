@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: bible verse
+# key: bv
+# --
+\bibleverse{${1:book}}(${2:reference})$0

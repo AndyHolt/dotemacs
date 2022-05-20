@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: hebrew language link
+# key: hl
+# --
+[[lang:hebrew][${1:דָּבָר$(progn (set-input-method "hebrew-biblical-sil") (format "%s" yas-text))}]] $0

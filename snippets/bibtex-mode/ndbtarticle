@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: ndbt entry
+# key: ndbtart
+# --
+@incollection\{${5:key-author}2000ndbt${6:key-title},
+  author       = \{${1:author}\},
+  title        = \{${2:title}\},
+  subtitle     = \{${3:subtitle}\},
+  booktitle    = \{New Dictionary of Biblical Theology\},
+  editor       = \{Alexander, T. Desmond and Rosner, Brian S.\},
+  year         = 2000,
+  publisher    = \{Inter-Varsity Press\},
+  location     = \{Nottingham, England\},
+  pages= \{${4:pages}\}$0
+\}

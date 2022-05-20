@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: org-table
+# key: table
+# --
+#+NAME: ${1:internal-table-reference}
+#+CAPTION: ${2:Table caption}
+#+ATTR_LATEX: ${3::align |l|l|l}
+| $0 |    |    |
+|----+----+----|
+|    |    |    |
