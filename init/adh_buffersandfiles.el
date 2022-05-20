@@ -175,5 +175,33 @@
 (setq enable-recursive-minibuffers t)
 (minibuffer-depth-indicate-mode)
 
+;; unfill paragraph setup
+(defun unfill-paragraph (&optional region)
+  "Unfill paragraph at or after point.
+
+Remove hard newlines, and make paragraph a single line.
+Particularly useful if using `visual-line-mode'"
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (let ((fill-column (point-max))
+        (emacs-lisp-docstring-fill-column t))
+    (fill-paragraph nil region)))
+
+(defun adh-text-mode-fill-command (&optional region)
+  "Custom fill command based on buffer settings.
+
+If currently using hard line breaks, i.e. if `auto-fill-mode' is
+enabled, then this command should fill the current paragraph. If
+not enabled (soft line breaks in use), this command should unfill
+the current paragraph.
+
+To determine if `auto-fill-mode' is enabled, one may check if the variable
+  `auto-fill-function' is non-nil."
+  (interactive (progn (barf-if-buffer-read-only) '(t)))
+  (if (and (boundp 'auto-fill-function) auto-fill-function)
+      (fill-paragraph nil region)
+    (unfill-paragraph region)))
+
+(define-key text-mode-map (kbd "M-q") 'adh-text-mode-fill-command)
+
 (provide 'adh_buffersandfiles)
 ;;; adh_buffersandfiles.el ends here
