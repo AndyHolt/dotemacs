@@ -765,7 +765,7 @@ visiting them will not be visited"
 (setq org-publish-project-alist
       '(
         ("all-notes"
-         :components ("book-notes" "notes" "bible-notes"))
+         :components ("book-notes" "notes" "bible-notes" "sbts-notes"))
         ("book-notes"
          :base-directory "~/Documents/notes/book-notes/"
          :publishing-directory "~/Documents/zenodotus-notes/book-notes"
