@@ -1140,18 +1140,35 @@ exporting, replace them for normal usage."
 ;; should instead soft wrap. This should be done at the window edge, not
 ;; fill-column (this stops a fight between auto-fill and visual-fill), but
 ;; should break lines between words, not in the middle of a word.
-(defun adh-org-linebreak-setup ()
+(defun adh-org-hard-linebreak-setup ()
     "Set up line breaking as I like it in Org mode.
 
 - Normal text should be hard wrapped at fill-column (usually 80 characters)
 - Headlines should wrap at window edge
 - Headlines should wrap between words, not in the middle of a word"
   (interactive)
+  (set-fill-column 80)
+  (auto-fill-mode t)
   (visual-line-mode t)
   (toggle-word-wrap t)
   (visual-fill-column-mode 0))
 
-(add-hook 'org-mode-hook #'adh-org-linebreak-setup)
+(add-hook 'org-mode-hook #'adh-org-hard-linebreak-setup)
+
+(defun adh-soft-linebreak-setup ()
+  "Set up line breaking for soft linebreaks.
+
+Normal text should *not* be hard wrapped, as in `adh-org-linebreak-setup'.
+Though I usually prefer hard-breaks, when copying text to another application,
+often one-line-per-paragraph works better for copy and pasting, so this set up
+gives that option. Instead, `visual-line-mode' is used to provide soft
+line-breaks."
+  (interactive)
+  (set-fill-column 80)
+  (auto-fill-mode 0)
+  (visual-line-mode t)
+  (toggle-word-wrap t)
+  (visual-fill-column-mode t))
 
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
