@@ -1259,5 +1259,10 @@ _i_: Inline link
 
 )
 
+;; (add-hook 'org-mode-hook #'typo-mode)
+
+;; (eval-after-load "org"
+;;   (sp-local-pair 'org-mode "“" "”"))
+
 (provide 'adh_org)
 ;;; adh_org.el ends here
