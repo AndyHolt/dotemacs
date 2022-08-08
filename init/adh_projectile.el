@@ -28,5 +28,7 @@
 
 (setq projectile-ignored-projects '("~/Dropbox/"))
 
+(setq projectile-mode-line-prefix " Proj")
+
 (provide 'adh_projectile)
 ;;; adh_projectile.el ends here
