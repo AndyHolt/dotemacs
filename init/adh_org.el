@@ -947,47 +947,50 @@ get that, otherwise the full title."
 ;; helm-bibtex. It will be worth doing if I only insert references through other
 ;; interfaces, but not if I use these. Perhaps a better idea is to add a
 
-(defun adh-get-bibtex-key-from-helm ()
-  "Use helm-bibtex to select a source and return the source
-citation as a string.
+;; N.B. This code is now obsolete, but the better way to do this would be simply
+;; to call helm-bibtex within a `let' statement which sets the first action to
+;; return, without printing, the bibtex key!
+;; (defun adh-get-bibtex-key-from-helm ()
+;;   "Use helm-bibtex to select a source and return the source
+;; citation as a string.
 
-A normal call to helm-bibtex will insert the citation to the
-buffer, and because the insertion code is hijacked by org-ref,
-this work around is necessary. It isn't very neat, but it makes
-use of helm-bibtex, and is better than starting from scratch to
-do that."
-  (interactive)
-  (progn (let ((org-ref-prefer-bracket-links nil)
-               (ref-string "")
-               (bibtex-ref-buffer "temp-bibtex")
-               (orig-buffer (current-buffer))
-               (orig-buffer-file (buffer-file-name)))
-           (switch-to-buffer (generate-new-buffer bibtex-ref-buffer))
-           (org-mode)
-           (helm-bibtex nil nil
-                        (if (and orig-buffer-file
-                                 (equal (file-name-directory orig-buffer-file)
-                                        (concat bibtex-completion-notes-path "/")))
-                            (file-name-base orig-buffer-file)
-                          ""))
-           (setq ref-string (buffer-string))
-           (switch-to-buffer orig-buffer)
-           (kill-buffer bibtex-ref-buffer)
-           ref-string)))
+;; A normal call to helm-bibtex will insert the citation to the
+;; buffer, and because the insertion code is hijacked by org-ref,
+;; this work around is necessary. It isn't very neat, but it makes
+;; use of helm-bibtex, and is better than starting from scratch to
+;; do that."
+;;   (interactive)
+;;   (progn (let ((org-ref-prefer-bracket-links nil)
+;;                (ref-string "")
+;;                (bibtex-ref-buffer "temp-bibtex")
+;;                (orig-buffer (current-buffer))
+;;                (orig-buffer-file (buffer-file-name)))
+;;            (switch-to-buffer (generate-new-buffer bibtex-ref-buffer))
+;;            (org-mode)
+;;            (helm-bibtex nil nil
+;;                         (if (and orig-buffer-file
+;;                                  (equal (file-name-directory orig-buffer-file)
+;;                                         (concat bibtex-completion-notes-path "/")))
+;;                             (file-name-base orig-buffer-file)
+;;                           ""))
+;;            (setq ref-string (buffer-string))
+;;            (switch-to-buffer orig-buffer)
+;;            (kill-buffer bibtex-ref-buffer)
+;;            ref-string)))
 
-(defun adh-insert-org-quote-link ()
-  "Create an org quote link by prompting for components, then
-insert the formatted quote link into buffer.
+;; (defun adh-insert-org-quote-link ()
+;;   "Create an org quote link by prompting for components, then
+;; insert the formatted quote link into buffer.
 
-Makes use of helm-bibtex to get citation, and adh-edit-quote to get the quote
-text."
-  (interactive)
-  (let ((reference-string (adh-get-bibtex-key-from-helm))
-        (post-note-string (read-string "Page number: " nil nil nil nil))
-        (description-string (adh-edit-quote "")))
-    (insert (org-link-make-string (concat "quote:" reference-string ":"
-                                          post-note-string)
-                                  description-string))))
+;; Makes use of helm-bibtex to get citation, and adh-edit-quote to get the quote
+;; text."
+;;   (interactive)
+;;   (let ((reference-string (adh-get-bibtex-key-from-helm))
+;;         (post-note-string (read-string "Page number: " nil nil nil nil))
+;;         (description-string (adh-edit-quote "")))
+;;     (insert (org-link-make-string (concat "quote:" reference-string ":"
+;;                                           post-note-string)
+;;                                   description-string))))
 
 ;; autosave org buffers after common edits that don't autosave
 (add-hook 'org-capture-after-finalize-hook 'org-save-all-org-buffers)
@@ -1014,81 +1017,81 @@ text."
 ;; editing features of a normal org mode section, e.g. spell check. It is also
 ;; difficult to edit because the full line isn't visible, jumping around text
 ;; may result in leaving the link description, etc.
-(defun adh-edit-quote (the-quote)
-  "Edit a quote in a buffer, which can then be put in an org quote link."
-  (interactive)
-  (let ((this-buffer (buffer-name))
-        (new-quote the-quote)
-        (quote-buffer "*quote-text*"))
-    (save-excursion
-      (save-window-excursion
-        (switch-to-buffer-other-window quote-buffer)
-        (set-buffer quote-buffer)
-        (org-mode)
-        (adh-edit-quote-mode)
-        (if (stringp the-quote) (insert the-quote))
-        (unwind-protect
-            (recursive-edit)
-          (if (get-buffer-window quote-buffer)
-              (progn
-                (setq new-quote (buffer-substring (point-min) (point-max)))
-                (kill-buffer quote-buffer))))
-        (switch-to-buffer this-buffer)
-        (adh-sqbr-to-safe-brace new-quote)))))
+;; (defun adh-edit-quote (the-quote)
+;;   "Edit a quote in a buffer, which can then be put in an org quote link."
+;;   (interactive)
+;;   (let ((this-buffer (buffer-name))
+;;         (new-quote the-quote)
+;;         (quote-buffer "*quote-text*"))
+;;     (save-excursion
+;;       (save-window-excursion
+;;         (switch-to-buffer-other-window quote-buffer)
+;;         (set-buffer quote-buffer)
+;;         (org-mode)
+;;         (adh-edit-quote-mode)
+;;         (if (stringp the-quote) (insert the-quote))
+;;         (unwind-protect
+;;             (recursive-edit)
+;;           (if (get-buffer-window quote-buffer)
+;;               (progn
+;;                 (setq new-quote (buffer-substring (point-min) (point-max)))
+;;                 (kill-buffer quote-buffer))))
+;;         (switch-to-buffer this-buffer)
+;;         (adh-sqbr-to-safe-brace new-quote)))))
 
-(defvar adh-edit-quote-mode-map (make-sparse-keymap)
-  "Keymap used for `adh-edit-quote-mode', a minor mode.
-Use this map to set additional keybindings for when using a quote buffer.")
+;; (defvar adh-edit-quote-mode-map (make-sparse-keymap)
+;;   "Keymap used for `adh-edit-quote-mode', a minor mode.
+;; Use this map to set additional keybindings for when using a quote buffer.")
 
-(define-minor-mode adh-edit-quote-mode
-  "Minor mode for special key bindings in a quote editing buffer."
-  nil "quote" adh-edit-quote-mode-map
-  (setq-local header-line-format (substitute-command-keys
-                                  "\\<adh-edit-quote-mode-map>Quote buffer. \
-Finish `\\[adh-edit-quote-finalize]'."))
-  (message (substitute-command-keys "\\<adh-edit-quote-mode-map>\
-When you're done editing press `\\[adh-edit-quote-finalize]' to continue.")))
+;; (define-minor-mode adh-edit-quote-mode
+;;   "Minor mode for special key bindings in a quote editing buffer."
+;;   nil "quote" adh-edit-quote-mode-map
+;;   (setq-local header-line-format (substitute-command-keys
+;;                                   "\\<adh-edit-quote-mode-map>Quote buffer. \
+;; Finish `\\[adh-edit-quote-finalize]'."))
+;;   (message (substitute-command-keys "\\<adh-edit-quote-mode-map>\
+;; When you're done editing press `\\[adh-edit-quote-finalize]' to continue.")))
 
-(defun adh-edit-quote-finalize ()
-    "Complete the quote edit."
-  (interactive)
-  (exit-recursive-edit))
+;; (defun adh-edit-quote-finalize ()
+;;     "Complete the quote edit."
+;;   (interactive)
+;;   (exit-recursive-edit))
 
-(define-key adh-edit-quote-mode-map "\C-c\C-c" 'adh-edit-quote-finalize)
+;; (define-key adh-edit-quote-mode-map "\C-c\C-c" 'adh-edit-quote-finalize)
 
-;; some functions for handling conversion from the actual quote text to
-;; org-link-description safe text
-(defun adh-sqbr-to-safe-brace (str)
-    "Format string str into quote-link safe text (org mode link description).
+;; ;; some functions for handling conversion from the actual quote text to
+;; ;; org-link-description safe text
+;; (defun adh-sqbr-to-safe-brace (str)
+;;     "Format string str into quote-link safe text (org mode link description).
 
-In quote-link data, can't use square brackets [ and ] in link
-description, so replace them with the safe strings, @< and @>
-respectively. Then, when exporting, replace them for normal usage
-using `adh-safe-brace-to-sqbr'."
-  (replace-regexp-in-string "\\[" "@<"
-                            (replace-regexp-in-string "\\]" "@>" str)))
+;; In quote-link data, can't use square brackets [ and ] in link
+;; description, so replace them with the safe strings, @< and @>
+;; respectively. Then, when exporting, replace them for normal usage
+;; using `adh-safe-brace-to-sqbr'."
+;;   (replace-regexp-in-string "\\[" "@<"
+;;                             (replace-regexp-in-string "\\]" "@>" str)))
 
-(defun adh-safe-brace-to-sqbr (str)
-    "Format `str' from quote-link safe text (org mode link
-description) into normal formatting for exported file use.
+;; (defun adh-safe-brace-to-sqbr (str)
+;;     "Format `str' from quote-link safe text (org mode link
+;; description) into normal formatting for exported file use.
 
-In quote-link data, can't use square brackets [ and ] in link
-description, so replace them with the safe strings, @< and @>
-respectively, using `adh-sqbr-to-safe-brace'. Then, when
-exporting, replace them for normal usage."
-  (replace-regexp-in-string (regexp-quote "@<") "["
-                            (replace-regexp-in-string (regexp-quote "@>") "]" str)))
+;; In quote-link data, can't use square brackets [ and ] in link
+;; description, so replace them with the safe strings, @< and @>
+;; respectively, using `adh-sqbr-to-safe-brace'. Then, when
+;; exporting, replace them for normal usage."
+;;   (replace-regexp-in-string (regexp-quote "@<") "["
+;;                             (replace-regexp-in-string (regexp-quote "@>") "]" str)))
 
-(defun adh-safe-brace-to-sqbr-html (str)
-    "Format `str' from quote-link safe text (org mode link
-description) into normal formatting for exported file use.
+;; (defun adh-safe-brace-to-sqbr-html (str)
+;;     "Format `str' from quote-link safe text (org mode link
+;; description) into normal formatting for exported file use.
 
-In quote-link data, can't use square brackets [ and ] in link
-description, so replace them with the safe strings, @< and @>
-respectively, using `adh-sqbr-to-safe-brace'. Then, when
-exporting, replace them for normal usage."
-  (replace-regexp-in-string (regexp-quote "@&lt;") "["
-                            (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
+;; In quote-link data, can't use square brackets [ and ] in link
+;; description, so replace them with the safe strings, @< and @>
+;; respectively, using `adh-sqbr-to-safe-brace'. Then, when
+;; exporting, replace them for normal usage."
+;;   (replace-regexp-in-string (regexp-quote "@&lt;") "["
+;;                             (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
 )
 
 (with-timer "org special keys"
