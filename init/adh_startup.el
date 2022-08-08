@@ -15,19 +15,18 @@
   fill-column        80
   indent-tabs-mode   nil)
 
-(global-font-lock-mode   t)
+(global-font-lock-mode t)
 
 (global-auto-revert-mode t)
 (setq global-auto-revert-non-file-buffers t)
 (setq auto-revert-verbose nil)
 
-(auto-compression-mode   t)
-(auto-image-file-mode    t)
+(auto-compression-mode t)
+(auto-image-file-mode t)
 
-(setq
- size-indication-mode  t
- require-final-newline t
- visible-cursor        nil)
+(setq size-indication-mode  t
+      require-final-newline t
+      visible-cursor        nil)
 
 (setq-default indicate-empty-lines t)
 
