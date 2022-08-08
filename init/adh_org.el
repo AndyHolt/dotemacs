@@ -1071,27 +1071,27 @@ get that, otherwise the full title."
 ;;   (replace-regexp-in-string "\\[" "@<"
 ;;                             (replace-regexp-in-string "\\]" "@>" str)))
 
-;; (defun adh-safe-brace-to-sqbr (str)
-;;     "Format `str' from quote-link safe text (org mode link
-;; description) into normal formatting for exported file use.
+(defun adh-safe-brace-to-sqbr (str)
+    "Format `str' from quote-link safe text (org mode link
+description) into normal formatting for exported file use.
 
-;; In quote-link data, can't use square brackets [ and ] in link
-;; description, so replace them with the safe strings, @< and @>
-;; respectively, using `adh-sqbr-to-safe-brace'. Then, when
-;; exporting, replace them for normal usage."
-;;   (replace-regexp-in-string (regexp-quote "@<") "["
-;;                             (replace-regexp-in-string (regexp-quote "@>") "]" str)))
+In quote-link data, can't use square brackets [ and ] in link
+description, so replace them with the safe strings, @< and @>
+respectively, using `adh-sqbr-to-safe-brace'. Then, when
+exporting, replace them for normal usage."
+  (replace-regexp-in-string (regexp-quote "@<") "["
+                            (replace-regexp-in-string (regexp-quote "@>") "]" str)))
 
-;; (defun adh-safe-brace-to-sqbr-html (str)
-;;     "Format `str' from quote-link safe text (org mode link
-;; description) into normal formatting for exported file use.
+(defun adh-safe-brace-to-sqbr-html (str)
+    "Format `str' from quote-link safe text (org mode link
+description) into normal formatting for exported file use.
 
-;; In quote-link data, can't use square brackets [ and ] in link
-;; description, so replace them with the safe strings, @< and @>
-;; respectively, using `adh-sqbr-to-safe-brace'. Then, when
-;; exporting, replace them for normal usage."
-;;   (replace-regexp-in-string (regexp-quote "@&lt;") "["
-;;                             (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
+In quote-link data, can't use square brackets [ and ] in link
+description, so replace them with the safe strings, @< and @>
+respectively, using `adh-sqbr-to-safe-brace'. Then, when
+exporting, replace them for normal usage."
+  (replace-regexp-in-string (regexp-quote "@&lt;") "["
+                            (replace-regexp-in-string (regexp-quote "@&gt;") "]" str)))
 )
 
 (with-timer "org special keys"
