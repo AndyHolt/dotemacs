@@ -203,5 +203,12 @@ To determine if `auto-fill-mode' is enabled, one may check if the variable
 
 (define-key text-mode-map (kbd "M-q") 'adh-text-mode-fill-command)
 
+;; when searching with ripgrep, display stats about number of results etc at end
+;; of list. Since the buffer which contains search results from the ripgrep
+;; package contains additional lines anyway, this shouldn't affect use of the
+;; results in any way (e.g. setting up a macro to deal with the results already
+;; requires a handling of the non-results lines)
+(setq ripgrep-arguments '("--stats"))
+
 (provide 'adh_buffersandfiles)
 ;;; adh_buffersandfiles.el ends here
