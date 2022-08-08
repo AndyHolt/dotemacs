@@ -66,8 +66,19 @@
 
 (with-timer "git-gutter-fringe"
 ;; setup git-gutter mode
-(require 'git-gutter-fringe+)
-(global-git-gutter+-mode t)
+; (require 'git-gutter-fringe+)
+(autoload 'git-gutter+-mode "git-gutter-fringe+" "" t)
+; (global-git-gutter+-mode t)
+(defun enable-ggm-if-vc ()
+  "Enable git-gutter+-mode if current buffer is in version control directory.
+
+For use in mode hooks."
+  (if (vc-root-dir)
+      (git-gutter+-mode)
+    nil))
+
+(add-hook 'prog-mode-hook 'enable-ggm-if-vc)
+(add-hook 'org-mode-hook 'enable-ggm-if-vc)
 )
 
 (with-timer "fonts setup"
