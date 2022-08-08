@@ -123,8 +123,9 @@ For use in mode hooks."
                   (font-spec :name "Apparatus SIL"))
 (set-fontset-font "fontset-default" '#x2135
                   (font-spec :name "Apparatus SIL"))
-(set-fontset-font "fontset-default" '(#x212D . )
-                  (font-spec :name "Apparatus SIL"))
+; TODO: work out what this character range should be!
+;; (set-fontset-font "fontset-default" '(#x212D . )
+;;                   (font-spec :name "Apparatus SIL"))
 
 
 ;; set variable-pitch-mode font
