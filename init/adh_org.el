@@ -55,6 +55,7 @@
             (expand-file-name "cbc-cal.org" org-directory)
             ))
 
+(require 'dash)
 (setq org-agenda-files
       (-concat adh-non-cal-org-agenda-files
                adh-cal-agenda-files
