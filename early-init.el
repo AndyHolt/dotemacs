@@ -22,7 +22,7 @@
 If nil, load Emacs init file normally. If non-nil, display timing of loading
 each part of the init file using the `with-timer' macro.")
 
-(setq use-startup-timer t)
+(setq use-startup-timer nil)
 
 (defmacro with-timer (name &rest body)
   "Evaluate BODY and display the time taken for evaluation.
