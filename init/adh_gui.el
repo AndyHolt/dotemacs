@@ -129,8 +129,10 @@ For use in mode hooks."
 
 
 ;; set variable-pitch-mode font
-(set-face-font 'variable-pitch "Iowan Old Style-13")
+; (set-face-font 'variable-pitch "Iowan Old Style-13")
 ; (set-face-font 'variable-pitch "Gentium Plus-14")
+(set-face-font 'variable-pitch (font-spec :name "Iowan Old Style" :size 13))
+
 
 ; N.B. Setting variable pitch font to Iowan Old Style is very nice for
 ; readability, but does not display italic fonts properly. This can be remedied
@@ -142,7 +144,8 @@ For use in mode hooks."
 (defun adh-set-font-for-eww (&rest opt)
     "Set variable pitch font for use in eww mode.
 Ignores OPT."
-    (set-face-font 'variable-pitch "Iowan Old Style-14"))
+    (set-face-font 'variable-pitch (font-spec :name "Iowan Old Style"
+                                              :size 13)))
 
 (add-hook 'eww-mode-hook #'adh-set-font-for-eww)
 
