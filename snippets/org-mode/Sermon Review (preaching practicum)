@@ -1,0 +1,33 @@
+# -*- mode: snippet -*-
+# name: Sermon Review (preaching practicum)
+# key: sermonreview
+# --
+#+TITLE: ${1:Preacher (e.g. Dr Schreiner)}, ${2:Passage} ${3:\"${4:Sermon Title}\"}
+#+AUTHOR: Andrew Holt
+#+DATE: \today
+#+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
+#+LATEX_HEADER: \def\wordcount{}
+#+LATEX_HEADER: \def\papertype{Sermon Review}
+#+LATEX_HEADER: \def\prof{Dr Hershael W. York}
+#+LATEX_HEADER: \def\courseno{30020WW}
+#+LANGUAGE: en
+#+OPTIONS: toc:nil H:10 num:nil
+#+EXCLUDE_TAGS: noexport
+#+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
+#+LATEX_CLASS: sbtspaper
+#+LATEX_COMPILER: xelatex
+#+STARTUP: overview lognoterefile
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
+#+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
+
+$0
+
+* Exegetical Accuracy
+* Doctrinal Substance
+* Clear Structure
+* Vivid Illustration
+* Pointed Application
+* Helpful Delivery
+* Supernatural Authority

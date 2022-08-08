@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: Missiology LiveSync Summary
+# key: missiologylivesync
+# --
+#+TITLE: Summary of LiveSync #$1
+#+AUTHOR: Andrew Holt
+#+DATE: \today
+#+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
+#+LATEX_HEADER: \def\wordcount{}
+#+LATEX_HEADER: \def\papertype{LiveSync Summary}
+#+LATEX_HEADER: \def\prof{Dr Paul M. Akin}
+#+LATEX_HEADER: \def\courseno{32960 WW}
+#+LANGUAGE: en
+#+OPTIONS: toc:nil H:10 num:nil
+#+EXCLUDE_TAGS: noexport
+#+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
+#+LATEX_CLASS: sbtspaper
+#+LATEX_COMPILER: xelatex
+#+STARTUP: overview lognoterefile
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
+#+CREATED_DATE: <2022-08-05 Fri 22:21>
+
+$0
