@@ -10,12 +10,19 @@
 
 ;;; Code:
 
-(require 'projectile)
-(projectile-mode)
+;(require 'projectile)
+;(projectile-mode)
+(autoload 'projectile-command-map "projectile")
 
-(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+; (require 'helm-projectile)
+(autoload 'projectile-command-map "helm-projectile")
 
-(require 'helm-projectile)
+; once projectile is called for loading, enable projectile-mode as this
+; initialises some important variables required for use of projectile itself.
+(eval-after-load 'projectile
+  '(projectile-mode t))
+
+(define-key global-map (kbd "C-c p") #'projectile-command-map)
 
 (setq projectile-enable-caching t)
 
