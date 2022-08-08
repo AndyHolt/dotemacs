@@ -21,44 +21,46 @@
 ;  (eval-after-load "flyspell"
 ;    (diminish 'flyspell-mode "Fl")))
 
-(eval-after-load "abbrev-mode"
+(eval-after-load 'abbrev
   '(diminish 'abbrev-mode))
-(eval-after-load "yas-minor-mode"
+(eval-after-load 'yasnippet
   '(diminish 'yas-minor-mode))
-(eval-after-load "flyspell-mode"
+(eval-after-load 'flyspell
   '(diminish 'flyspell-mode))
-(eval-after-load "projectile-mode"
-  '(diminish 'projectile-mode))
-(eval-after-load "git-gutter+-mode"
+;; (eval-after-load 'projectile
+;;   '(diminish 'projectile-mode))
+(eval-after-load 'git-gutter-fringe+
   '(diminish 'git-gutter+-mode))
-(eval-after-load "smartparens-mode"
+(eval-after-load 'smartparens
   '(diminish 'smartparens-mode))
-(eval-after-load "subword-mode"
+(eval-after-load 'subword
   '(diminish 'subword-mode))
-(eval-after-load "whole-line-or-region-local-mode"
-  '(diminish 'whole-line-or-region-local-mode))
-(eval-after-load "whole-line-or-region-global-mode"
-  '(diminish 'whole-line-or-region-global-mode))
-(eval-after-load "counsel-mode"
+(eval-after-load 'whole-line-or-region
+  '(progn
+     (diminish 'whole-line-or-region-local-mode)
+     (diminish 'whole-line-or-region-global-mode)))
+(eval-after-load 'counsel
   '(diminish 'counsel-mode))
-(eval-after-load "ivy-mode"
+(eval-after-load 'ivy
   '(diminish 'ivy-mode))
-(eval-after-load "which-key-mode"
+(eval-after-load 'which-key
   '(diminish 'which-key-mode))
-(eval-after-load "eldoc-mode"
+(eval-after-load 'eldoc
   '(diminish 'eldoc-mode))
-(eval-after-load "auto-fill-function"
+(eval-after-load 'simple
   '(diminish 'auto-fill-function))
-(eval-after-load "org-indent-mode"
+(eval-after-load 'org-indent
   '(diminish 'org-indent-mode))
-(eval-after-load "orgtbl-mode"
+(eval-after-load 'org-table
   '(diminish 'orgtbl-mode))
-(eval-after-load "typo-mode"
-  '(diminish 'typo-mode))
-(eval-after-load "gcmh-mode"
+;; (eval-after-load 'typo
+;;   '(diminish 'typo-mode))
+(eval-after-load 'gcmh
   '(diminish 'gcmh-mode))
-(eval-after-load "visual-line-mode"
+(eval-after-load 'simple
   '(diminish 'visual-line-mode))
+(eval-after-load 'highlight-indent-guides
+  '(diminish 'highlight-indent-guides-mode))
 
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
