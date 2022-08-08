@@ -200,6 +200,24 @@ Ignores OPT."
 ;; font size changing keybindings
 (global-set-key (kbd "C-+") #'text-scale-increase)
 (global-set-key (kbd "C--") #'text-scale-decrease)
+
+;; handle font-scaling for italic text. By default, the text-scale commands do
+;; not affect italic text. This is a fix from
+;; https://emacs.stackexchange.com/questions/29511/text-scale-for-all-faces-in-buffer
+;; which solves that.
+(defun adh-face-remap-add-relative-advice (face &rest specs)
+  "Advice to add text scale remap for italic font"
+  (if (eq face 'default)
+      (setq my/italic-cookie (apply #'face-remap-add-relative 'italic specs))))
+
+(defun adh-face-remap-remove-relative-advice (cookie)
+  "Advice to remove text scale remap for italic font"
+  (if (eq (car cookie) 'default)
+      (face-remap-remove-relative my/italic-cookie)))
+
+(advice-add #'face-remap-add-relative :after #'adh-face-remap-add-relative-advice)
+(advice-add #'face-remap-remove-relative :after #'adh-face-remap-remove-relative-advice)
+
 )
 
 (with-timer "writeroom and full screen"
