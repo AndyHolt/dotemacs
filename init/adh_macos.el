@@ -16,7 +16,7 @@
   "Insert a hash sign (#) at cursor location."
   (insert "#"))
 
-(global-set-key (kbd "M-3") '(lambda() (interactive) (insert-hash)))
+(global-set-key (kbd "M-3") #'(lambda() (interactive) (insert-hash)))
 
 ;; set keys for Apple keyboard, for emacs on macOS
 (setq mac-command-modifier 'super) ; make cmd key do Super
