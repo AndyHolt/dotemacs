@@ -111,14 +111,19 @@
 (setq bibtex-completion-notes-path "/Users/adh/Documents/notes/book-notes")
 
 ;; add additional fields to bibtex search in helm matching
-(setq bibtex-completion-additional-search-fields '(subtitle))
+(setq bibtex-completion-additional-search-fields
+      '(subtitle shortseries series booktitle shortbooktitle shortjournal))
 
 ;; open PDF files outside of emacs in standard programme
 (setq bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool)
 
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
-      '((t . "${author:15} ${title:*} ${subtitle:15} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
+      '((book . "${author:15} ${title:*} ${subtitle:15} ${shortseries:5} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
+        (incollection . "${author:15} ${title:*} ${subtitle:10} in ${shortbooktitle:6} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
+        (inbook . "${author:15} ${title:*} ${subtitle:10} in ${booktitle:15} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
+        (article . "${author:15} ${title:*} ${subtitle:10} ${shortjournal:6} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
+        (t . "${author:15} ${title:*} ${subtitle:15} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")))
 
 ;; [todo] - find a way to add current date to note header
 ;; add date to notes header when creating a new note file
