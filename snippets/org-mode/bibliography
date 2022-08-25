@@ -2,6 +2,7 @@
 # name: bibliography
 # key: bib
 # --
+* Bibliography                                                       :ignore:
 #+html: <div class="bibliography" id="bibliography-container">
 #+html: <h2 id="bibliography-title">Bibliography</h2>
 #+print_bibliography:
