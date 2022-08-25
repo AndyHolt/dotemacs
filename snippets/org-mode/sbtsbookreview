@@ -1,0 +1,28 @@
+# -*- mode: snippet -*-
+# name: sbtsbookreview
+# key: sbtsbookreview
+# --
+#+TITLE: ${1:Title for Org document (not used in LaTeX export)}
+#+AUTHOR: Andrew Holt
+#+DATE: \today
+#+LATEX_HEADER: \def\bookref{${2:biblatex key for book}}
+#+LATEX_HEADER: \def\mybooktitle{${3:Book title, used on cover page}}
+#+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
+#+LATEX_HEADER: \def\wordcount{}
+#+LATEX_HEADER: \def\papertype{Book Review}
+#+LATEX_HEADER: \def\prof{${4:Professor's full name}}
+#+LATEX_HEADER: \def\courseno{${5:Course number}}
+#+LANGUAGE: en
+#+OPTIONS: toc:nil H:10 num:nil
+#+EXCLUDE_TAGS: noexport
+#+ODT_STYLES_FILE: "/Users/adh/Projects/WritingTools/EssayPaper.ott"
+#+LATEX_CLASS: sbtsreview
+#+LATEX_CLASS_OPTIONS: [nohyphen]
+#+LATEX_COMPILER: xelatex
+#+STARTUP: overview lognoterefile
+#+LATEX_HEADER: \usepackage[overload]{textcase}
+#+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/Theology.bib}
+#+LATEX_HEADER: \addbibresource{/Users/adh/Projects/WritingTools/PopSciHist.bib}
+#+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
+
+$0
