@@ -2,16 +2,17 @@
 # name: incollection citation
 # key: incollection
 # --
-@incollection\{${12:key},
+@incollection\{${13:key},
   author       = \{${1:author}\},
   title        = \{${2:title}\},
   subtitle     = \{${3:subtitle}\},
   booktitle    = \{${4:booktitle}\},
   booksubtitle = \{${5:booksubtitle}\},
-  editor       = \{${6:editor}\},
-  edition      = \{${7:edition}\},
-  date         = \{${8:year}\},
-  publisher    = \{${9:publisher}\},
-  location     = \{${10:location}\},
-  chapter/pages= \{${11:chapter/pages}\}$0
+  shortbooktitle ={${6:abbreviated book title (for search interface)}}
+  editor       = \{${7:editor}\},
+  edition      = \{${8:edition}\},
+  date         = \{${9:year}\},
+  publisher    = \{${10:publisher}\},
+  location     = \{${11:location}\},
+  chapter/pages= \{${12:chapter/pages}\}$0
 \}
