@@ -10,7 +10,7 @@
   booksubtitle = \{${5:booksubtitle}\},
   editor       = \{${6:editor}\},
   edition      = \{${7:edition}\},
-  year         = \{${8:year}\},
+  date         = \{${8:year}\},
   publisher    = \{${9:publisher}\},
   location     = \{${10:location}\},
   chapter/pages= \{${11:chapter/pages}\}$0

@@ -8,7 +8,7 @@
   subtitle     = \{${3:subtitle}\},
   booktitle    = \{New Dictionary of Biblical Theology\},
   editor       = \{Alexander, T. Desmond and Rosner, Brian S.\},
-  year         = 2000,
+  date         = 2000,
   publisher    = \{Inter-Varsity Press\},
   location     = \{Nottingham, England\},
   pages= \{${4:pages}\}$0

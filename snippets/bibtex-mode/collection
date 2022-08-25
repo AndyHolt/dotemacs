@@ -8,6 +8,6 @@
   subtitle =     \{${3:subtitle}\},
   series =       \{${4:series}\},
   publisher =    \{${5:publisher}\},
-  year =         \{${6:year}\},
+  date =         \{${6:year}\},
   location =     \{${7:location}\}$0
 \}

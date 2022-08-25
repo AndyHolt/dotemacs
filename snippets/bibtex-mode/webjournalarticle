@@ -8,7 +8,7 @@
   subtitle =     \{${3:subtitle}\}
   journaltitle = \{${4:journal}\},
   shortjournal = \{${5:short version of journal name}\},
-  year =         \{${6:year of publication}\},
+  date =         \{${6:date of publication}\},
   volume =       \{${7:journal volume}\},
   number =       \{${8:journal number}\},
   organisation = \{${9:Organisation/website/source}\},

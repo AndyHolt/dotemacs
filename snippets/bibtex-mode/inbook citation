@@ -11,7 +11,7 @@
   bookauthor   = \{${6:bookauthor}\},
   editor       = \{${7:editor}\},
   edition      = \{${8:edition}\},
-  year         = \{${9:year}\},
+  date         = \{${9:year}\},
   publisher    = \{${10:publisher}\},
   location     = \{${11:location}\},
   chapter/pages= \{${12:chapter/pages}\}$0

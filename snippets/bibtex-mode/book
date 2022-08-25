@@ -14,7 +14,7 @@
   number =       \{${9:number}\},
   edition =      \{${10:edition}\},
   publisher =    \{${11:publisher}\},
-  year =         \{${12:year}\},
+  date =         \{${12:year/date}\},
   location =     \{${13:location}\},
   file =         \{${14:filepath}\}$0
 \}
