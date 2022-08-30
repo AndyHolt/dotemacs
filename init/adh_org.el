@@ -195,6 +195,8 @@ template to capture them."
                                          (or (match-string 3 tabs-list)
                                              (match-string 1 tabs-list)))))))
       (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
+;; ensure helm-browser-tabs is loaded if using org capture with browser tabs
+(autoload 'adh-org-capture-browser-tabs "helm-browser-tabs")
 )
 ;; start org protocol - for creating links etc to external
 ;; applications
