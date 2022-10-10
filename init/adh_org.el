@@ -169,7 +169,7 @@
         ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                              "Reading and study")
          "* TODO article: %?\n%T\n\n")
-        ("n" "Note" entry (file+olp+datetree "~/Dropbox/Org_files/notes.org")
+        ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
          "* %?\n\n%T\n\n")
         ("l" "Link from Browser" entry (file+headline "todo.org" "Inbox")
          (function adh-org-capture-browser-tabs))
