@@ -71,6 +71,7 @@
         tex-handle-newline
         typo-cycle-ellipsis
         undefined
+        wdired--self-insert
         whole-line-or-region-kill-region
         whole-line-or-region-kill-ring-save
         whole-line-or-region-yank
