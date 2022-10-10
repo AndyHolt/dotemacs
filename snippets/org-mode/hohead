@@ -6,8 +6,10 @@
 #+AUTHOR: ${2:Andy Holt}
 #+DATE: ${3:\today}
 #+LaTeX_CLASS: adhhandout
-#+LATEX_HEADER: \usepackage[style=verbose-ibid, natbib=true]{biblatex}
-#+LATEX_HEADER: \addbibresource{${4:Theology.bib}}
-#+OPTIONS: toc:nil
+#+LATEX_CLASS_OPTIONS: [a5size, leadersnotes, printed, linestyle]
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
+#+OPTIONS: toc:nil num:nil
 
 $0

@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: Dowley History of Christianity part
+# key: indowley
+# --
+@incollection\{${5:key},
+  author       = \{${1:author}\},
+  title        = \{${2:title}\},
+  subtitle     = \{${3:subtitle}\},
+  booktitle    = \{Introduction to the History of Christianity\},
+  editor       = \{Dowley, Tim\},
+  edition      = \{3\},
+  date         = \{2018\},
+  publisher    = \{Fortress Press\},
+  location     = \{Minneapolis\},
+  pages= \{${4:chapter/pages}\}$0
+\}

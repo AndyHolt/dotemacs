@@ -1,0 +1,17 @@
+# -*- mode: snippet -*-
+# name: thesis citiation
+# key: thesis
+# --
+@thesis\{${12:key},
+  author =       \{${1:author}\},
+  title =        \{${2:thesis title}\},
+  subtitle =     \{${3:subtitle}\},
+  shorttitle =   \{${4:short title}\},
+  type =         \{${5:thesis type, e.g. "PhD Thesis"}\},
+  institution =  \{${6:institution}\},
+  date =         \{${7:year/date}\},
+  location =     \{${8:location}\},
+  url =          \{${9:url}\},
+  urldate =      \{${10:urldate}\},
+  file =         \{${11:filepath}\}$0
+\}

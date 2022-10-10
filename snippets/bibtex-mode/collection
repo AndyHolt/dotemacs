@@ -2,12 +2,17 @@
 # name: collection citiation
 # key: collection
 # --
-@collection\{${8:key},
+@collection\{${13:key},
   editor =       \{${1:editor(s)}\},
   title =        \{${2:book title}\},
   subtitle =     \{${3:subtitle}\},
-  series =       \{${4:series}\},
-  publisher =    \{${5:publisher}\},
-  date =         \{${6:year}\},
-  location =     \{${7:location}\}$0
+  shorttitle =   \{${4:short title}\},
+  series =       \{${5:series}\},
+  shortseries =  \{${6:short series}\},
+  number =       \{${7:number}\},
+  edition =      \{${8:edition}\},
+  publisher =    \{${9:publisher}\},
+  date =         \{${10:year}\},
+  location =     \{${11:location}\},
+  file =         \{${12:file path}\}$0
 \}

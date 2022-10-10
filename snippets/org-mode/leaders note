@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: leaders note
+# key: lead
+# --
+#+BEGIN_leadersnote
+$0
+#+END_leadersnote

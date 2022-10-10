@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: honorcode
+# key: honorcode
+# --
+* Honor code                                                         :ignore:
+#+LATEX: \vspace{24pt}
+#+LATEX: \noindent
+*Honor code: I have written this paper exclusively for ${1:Course number}. If I received any editing and proofreading advice, I have made all such corrections myself. I have also documented each paraphrase, direct quotation, and borrowed idea in compliance with the Turabian and SBTS style manuals.
+$0
