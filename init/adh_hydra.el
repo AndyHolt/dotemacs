@@ -21,37 +21,49 @@
                          (list -4)
                        '(4)))))
 
-(global-set-key
- (kbd "C-M-o")
- (defhydra hydra-window (:color amaranth)
-   "window"
-   ("h" windmove-left "left")
-   ("j" windmove-down "down")
-   ("k" windmove-up "up")
-   ("l" windmove-right "right")
-   ("v" (lambda ()
-          (interactive)
-          (split-window-right)
-          (windmove-right))
-        "vert")
-   ("x" (lambda ()
-          (interactive)
-          (split-window-below)
-          (windmove-down))
-        "horiz")
-   ("^" enlarge-window "taller")
-   ("%" shrink-window "shorter")
-   ("}" enlarge-window-horizontally "wider")
-   ("{" shrink-window-horizontally "narrow")
-   ("t" transpose-frame "transpose")
-   ("o" delete-other-windows "one" :color blue)
-   ("a" ace-window "ace")
-   ("s" ace-swap-window "swap")
-   ("d" ace-delete-window "del")
-   ("i" ace-maximise-window "ace-one" :color blue)
-   ("b" ido-switch-buffer "buf")
-   ("m" headlong-bookmark-jump "bmk")
-   ("q" nil "cancel")))
+(defhydra hydra-window (:color amaranth
+                        :hint nil)
+  "
+^Select^    ^Split^          ^Resize^        ^Other^             ^Quit^
+^^^^^^^^^^------------------------------------------------------------------------
+_h_: left   _v_: vertical    _H_: narrower   _t_: transpose      _q_: quit
+_j_: down   _x_: horizontal  _J_: taller     _o_: one
+_k_: up     ^ ^              _K_: shorter    _a_: ace select
+_l_: right  ^ ^              _L_: wider      _s_: ace swap
+^ ^         ^ ^              ^ ^             _d_: ace delete
+^ ^         ^ ^              ^ ^             _i_: ace one
+^ ^         ^ ^              ^ ^             _b_: switch buffer
+^ ^         ^ ^              ^ ^             _m_: bookmarks
+"
+  ("h" windmove-left)
+  ("j" windmove-down)
+  ("k" windmove-up)
+  ("l" windmove-right)
+  ("v" (lambda ()
+         (interactive)
+         (split-window-right)
+         (windmove-right)))
+  ("x" (lambda ()
+         (interactive)
+         (split-window-below)
+         (windmove-down)))
+  ("J" enlarge-window)
+  ("K" shrink-window)
+  ("L" enlarge-window-horizontally)
+  ("H" shrink-window-horizontally)
+  ("t" transpose-frame)
+  ("o" delete-other-windows :color blue)
+  ("a" ace-window)
+  ("s" ace-swap-window)
+  ("d" ace-delete-window)
+  ("i" ace-maximise-window :color blue)
+  ("b" ido-switch-buffer)
+  ("m" headlong-bookmark-jump)
+  ("q" nil :color blue)
+  )
+
+(global-set-key (kbd "C-M-o") 'hydra-window/body)
+
 
 (provide 'adh_hydra)
 ;;; adh_hydra.el ends here
