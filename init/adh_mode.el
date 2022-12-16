@@ -69,6 +69,28 @@
 ;; Set to use biblatex by default
 (setq bibtex-dialect "biblatex")
 
+;; add review entry type for bibtex mode
+(setq adh-bibtex-review-entry
+  '("Review" "Book Review in Journal"
+    (("author")
+     ("title" "Title of review article"))
+    (("journaltitle")
+     ("date"))
+    (("shortjournal" "Short version or acronym of journal title")
+     ("volume" "Volume of the journal")
+     ("number" "Number of the journal (only allowed if entry contains volume)")
+     ("pages" "Pages in the journal")
+     ("url")
+     ("urldate" "Date accessed")
+     ("doi")
+     ("eprinttype" "Eprint resource type, e.g. jstor or googlebooks")
+     ("eprint" "Eprint identifier (must also use eprinttype)")
+     ("note")
+     ("file"))))
+
+(add-to-list 'bibtex-biblatex-entry-alist 'adh-bibtex-review-entry t)
+(add-to-list 'bibtex-BibTeX-entry-alist 'adh-bibtex-review-entry t)
+
 ;; try not using full-frame for helm-bibtex
 (setq helm-bibtex-full-frame nil)
 
