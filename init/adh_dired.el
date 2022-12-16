@@ -39,5 +39,7 @@
 (setq peep-dired-cleanup-on-disable t)
 (setq peep-dired-ignored-extensions '("mkv" "iso" "mp4"))
 
+(setq dired-listing-switches "-alh")
+
 (provide 'adh_dired)
 ;;; adh_dired.el ends here
