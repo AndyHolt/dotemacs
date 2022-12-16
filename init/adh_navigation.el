@@ -96,5 +96,8 @@
 (global-set-key (kbd "C-c ;") 'comment-region)
 (global-set-key (kbd "C-c :") 'uncomment-region)
 
+;; Don't show bookmark icon in fringe
+(setq bookmark-set-fringe-mark 'nil)
+
 (provide 'adh_navigation)
 ;;; adh_navigation.el ends here
