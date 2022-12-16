@@ -2,14 +2,14 @@
 # name: SBTS Church History Reading Assignment boilerplate header
 # key: churchhist
 # --
-#+TITLE: Lecture ${1:Lecture number}: ${2:Title}
+#+TITLE: Lectures ${1:Lecture numbers}: ${2:Title}
 #+AUTHOR: Andrew Holt
-#+DATE: ${3:Submission Date (Format: September 10, 2019)}
+#+DATE: ${3:\today}
 #+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
 #+LATEX_HEADER: \def\papertype{Reading Assignement}
 #+LATEX_HEADER: \def\prof{Prof Michael A. G. Haykin}
-#+LATEX_HEADER: \def\courseno{25120}
-#+LATEX_HEADER: \def\shortpapertitle{Church History II: Lectures $1}
+#+LATEX_HEADER: \def\courseno{25235}
+#+LATEX_HEADER: \def\shortpapertitle{Theology of Augustine: Lectures $1}
 #+LANGUAGE: en
 #+OPTIONS: toc:nil H:10 num:t
 #+EXCLUDE_TAGS: noexport

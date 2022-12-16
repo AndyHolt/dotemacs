@@ -1,11 +1,10 @@
 # -*- mode: snippet -*-
-# name: web journal article
-# key: webjart
+# name: review in journal
+# key: review
 # --
-@article\{${17:key},$0
+@review\{${17:key},$0
   author =       \{${1:author}\},
-  title =        \{${2:title}\},
-  subtitle =     \{${3:subtitle}\}
+  title =        \{review of ${2:book author}, \mkbibemph{${3:book title}}\},
   journaltitle = \{${4:journal}\},
   shortjournal = \{${5:short version of journal name}\},
   date =         \{${6:date of publication}\},
