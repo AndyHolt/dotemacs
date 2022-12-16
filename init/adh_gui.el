@@ -107,14 +107,44 @@ For use in mode hooks."
 ;; not properly align pointing with consonants in display in Emacs (not sure
 ;; why, but no matter since Times New Roman works fine and is a decent Hebrew
 ;; font).
-(set-fontset-font "fontset-default" '(#x0590 . #x05FF)
-                  (font-spec :name "Times New Roman" :size 18))
-(set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
-                  (font-spec :name "Times New Roman" :size 18))
+;; (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
+;;                   (font-spec :name "Times New Roman" :size 18 :inherit t))
+;; (set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
+;;                   (font-spec :name "Times New Roman" :size 18 :inherit t))
+(set-fontset-font "fontset-default" 'hebrew (font-spec :family "Times New Roman"
+                                                       :size 18))
  ;; (set-fontset-font "fontset-default" '(#x0590 . #x05FF)
  ;;                   (font-spec :name "SBL BibLit" :size 20))
  ;; (set-fontset-font "fontset-default" '(#xFB1D . #xFB4F)
  ;;                   (font-spec :name "SBL BibLit" :size 20))
+
+(setq adh-hebrew-font-default-size 18)
+(setq adh-hebrew-font-default-family "Times New Roman")
+
+(defun adh-set-hebrew-font-size (size)
+  "Set hebrew font to given size."
+  (set-fontset-font "fontset-default" 'hebrew (font-spec
+                                               :family adh-hebrew-font-default-family
+                                               :size  size)))
+
+
+(defun adh-set-hebrew-font-size-relative (&rest args)
+  "Set hebrew font size relative to main text.
+
+Utilising text-scale-mode settings, update Hebrew text size,
+relative to main text."
+  (interactive)
+  (adh-set-hebrew-font-size
+   (if (zerop text-scale-mode-amount)
+       adh-hebrew-font-default-size
+     (if (>= text-scale-mode-amount 0)
+         (ceiling (* text-scale-mode-step
+                     text-scale-mode-amount
+                     adh-hebrew-font-default-size))
+       (ceiling (/ adh-hebrew-font-default-size
+                   (* -1 text-scale-mode-step text-scale-mode-amount)))))))
+
+(advice-add 'text-scale-increase :after #'adh-set-hebrew-font-size-relative)
 
 ;; set fonts for apparatus symbols
 (set-fontset-font "fontset-default" '(#x1D504 . #x1D59F)
