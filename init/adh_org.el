@@ -165,7 +165,7 @@
         ("r" "Reading")
         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                           "Reading and study" )
-         "* TODO book: %^{author}, %^{title}\n%?\n%T\n\n")
+         "* TODO book: %^{author}, /%^{title}/\n%?\n%T\n\n")
         ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
                                              "Reading and study")
          "* TODO article: %?\n%T\n\n")
