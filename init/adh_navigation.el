@@ -55,7 +55,7 @@
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
 ;; expand region by semantic units
-(autoload 'er/expand-region "expand-region")
+(autoload 'er/expand-region "expand-region" "" t)
 (global-set-key "\C-@" 'er/expand-region)
 
 ;; delete within semantic units (akin to expand-region)
