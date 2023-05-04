@@ -188,7 +188,7 @@ Ignores OPT."
 (with-timer "theme setup"
 ;; Color Theme Setup
 ;; Use theme changer to select theme based on time of day
-(require 'theme-changer)
+;; (require 'theme-changer)
 (setq calendar-location-name "Dundee, Scotland")
 (setq calendar-latitude 56.5)
 (setq calendar-longitude -3.0)
@@ -212,7 +212,22 @@ Ignores OPT."
 (autoload 'solarized-light "solarized-light-theme" "" t)
 (autoload 'solarized-zenburn "solarized-zenburn-theme" "" t)
 
-(change-theme 'solarized-light 'solarized-zenburn)
+;; (change-theme 'solarized-light 'solarized-zenburn)
+
+; Use macOS dark and light mode to set colour theme of emacs. This keeps it in
+; sync with the rest of the system.
+(defun adh/apply-appropriate-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration.
+
+If current system appearance is light mode, set an appropriate
+  theme for daytime. If current system appearance is dark mode,
+  use a suitable dark theme."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (load-theme 'solarized-light t))
+    ('dark (load-theme 'solarized-zenburn t))))
+
+(add-hook 'ns-system-appearance-change-functions #'adh/apply-appropriate-theme)
 )
 
 (with-timer "windmove and text-scale"
