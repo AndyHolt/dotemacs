@@ -1279,6 +1279,13 @@ _i_: Inline link
 ;; (eval-after-load "org"
 ;;   (sp-local-pair 'org-mode "“" "”"))
 
+(with-timer "org-reveal settings"
+(require 'ox-reveal)
+(setq org-reveal-root "file:///Users/adh/Projects/reveal-js/reveal.js")
+
+)
+
+
 (with-timer "Org export settings"
 ;; ignore headings with :ignore: tag. I.e. export the content of the heading,
 ;; but not the heading itself.
