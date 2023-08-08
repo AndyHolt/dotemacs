@@ -1199,7 +1199,8 @@ line-breaks."
 
 ;; set up non-breaking spaces for org export
 (setq org-entities-user
-      '(("nbsp" "~" nil "&nbsp;" " " " " " ")))
+      '(("nbsp" "~" nil "&nbsp;" " " " " " ")
+        ("LORD" "\\textsc{Lord}" nil "Lᴏʀᴅ" "Lord" "Lord" "Lᴏʀᴅ")))
 
 ;; hide emphasis markers (/ and * etc) when viewing org files
 (setq org-hide-emphasis-markers t)
