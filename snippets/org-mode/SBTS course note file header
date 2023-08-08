@@ -1,16 +1,21 @@
 # -*- mode: snippet -*-
-# name: Org mode notes file header
-# key: notehead
+# name: SBTS course note file header
+# key: sbtscourse
 # --
-#+TITLE: Notes on: ${1:Topic}
+#+TITLE: ${1:Course Title} Class (${2:Professor})
 #+AUTHOR: Andy Holt
 #+SETUPFILE: adh-org-notes-export-setup.org
 #+LANGUAGE: en
-#+OPTIONS: num:${2:$$(yas-choose-value '("t" "nil"))} toc:t
 #+STARTUP: overview lognoterefile
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
 #+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
-
 $0
+* General Information
+* Lecture Notes
+* Readings
+* Assignments
+* Forums
+* Live Syncs
+* Course Feedback

@@ -2,7 +2,7 @@
 # name: inbook citation
 # key: inbook
 # --
-@inbook\{${13:key},
+@inbook\{${15:key},
   author       = \{${1:author}\},
   title        = \{${2:title}\},
   subtitle     = \{${3:subtitle}\},
@@ -14,5 +14,7 @@
   date         = \{${9:year}\},
   publisher    = \{${10:publisher}\},
   location     = \{${11:location}\},
-  chapter/pages= \{${12:chapter/pages}\}$0
+  chapter      = \{${12:chapter}\},
+  pages        = \{${13:pages}\},
+  crossref     = \{${14:crossref (bibtex key)}\}$0
 \}

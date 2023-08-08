@@ -2,19 +2,21 @@
 # name: book citiation
 # key: book
 # --
-@book\{${15:key},
+@book\{${17:key},
   author =       \{${1:author}\},
   title =        \{${2:book title}\},
   subtitle =     \{${3:subtitle}\},
   shorttitle =   \{${4:short title}\},
   editor =       \{${5:editor}\},
   translator =   \{${6:translator}\},
-  series =       \{${7:series}\},
-  shortseries =  \{${8:shortseries}\}
-  number =       \{${9:number}\},
-  edition =      \{${10:edition}\},
-  publisher =    \{${11:publisher}\},
-  date =         \{${12:year/date}\},
-  location =     \{${13:location}\},
-  file =         \{${14:filepath}\}$0
+  maintitle =    \{${7:main title of multivolume work}\},
+  mainsubtitle = \{${8:main subtitle of multivolume work}\},
+  series =       \{${9:series}\},
+  shortseries =  \{${10:shortseries}\}
+  number =       \{${11:number}\},
+  edition =      \{${12:edition}\},
+  publisher =    \{${13:publisher}\},
+  date =         \{${14:year/date}\},
+  location =     \{${15:location}\},
+  file =         \{${16:filepath}\}$0
 \}

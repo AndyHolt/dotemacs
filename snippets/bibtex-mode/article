@@ -2,15 +2,17 @@
 # name: article citation
 # key: article
 # --
-@article\{${11:key},
+@article\{${13:key},
   author =       \{${1:author}\},
   title =        \{${2:title}\},
-  journaltitle = \{${3:journal}\},
-  shortjournal = \{${4:short version of journal name}\},
-  date =         \{${5:year/date of publication}\},
-  volume =       \{${6:journal volume}\},
-  number =       \{${7:journal number}\},
-  issue =        \{${8:issue of journal (e.g. "Spring")}\},
-  pages =        \{${9:pages of article in journal}\},
-  file =         \{${10:local file}\}
+  subtitle =     \{${3:subtitle}\},
+  shorttitle =   \{${4:short title}\}
+  journaltitle = \{${5:journal}\},
+  shortjournal = \{${6:short version of journal name}\},
+  date =         \{${7:year/date of publication}\},
+  volume =       \{${8:journal volume}\},
+  number =       \{${9:journal number}\},
+  issue =        \{${10:issue of journal (e.g. "Spring")}\},
+  pages =        \{${11:pages of article in journal}\},
+  file =         \{${12:local file}\}
 \}

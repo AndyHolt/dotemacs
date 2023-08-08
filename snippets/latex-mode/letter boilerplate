@@ -3,27 +3,15 @@
 # key: letter
 # --
 % File name: `(buffer-file-name)`
-% Desciption: ${2:Description of file contents}
+% Description: ${2:Description of file contents}
 % Author: ${3:adh}
 % Date: `(format-time-string "%a %d %b %Y %H:%M")`
 
-\documentclass[foldmarks=false, fromalign=right, fromrule=aftername, fromphone,
-fromemail, subject=titled, subject=beforeopening, subject=left, version=last]{scrlttr2}
-
-\usepackage[british]{babel}
-
-\usepackage{fontspec}
-\setmainfont{Baskerville}
+\documentclass{adhletter}
 
 \begin{document}
 
-\KOMAoptions{fromemail=true}
-\setkomavar{backaddress}{}
-\setkomavar{fromname}{Andy Holt}
-\setkomavar{fromaddress}{63 Wingate Road\\\\Aberdeen\\\\AB24 2SZ}
-\setkomavar{fromphone}{+44\,(0)\,7932\,336\,416}
-\setkomavar{fromemail}{${10:$$(yas-choose-value '("andy.holt@cantab.net" "andrew.holt@hotmail.co.uk" "aholt@uccf.org.uk" "aholt379@students.sbts.edu"))}}
-\setkomavar{subject}{${4:Letter subject}}
+\setkomavar{subject}[Re]{${4:Letter subject}}
 
 \begin{letter}{%
 ${5:Recipient name and address, lines separated with \\}

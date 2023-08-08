@@ -1,0 +1,13 @@
+# name: memory verse for evangelism course
+# key: mv
+# --
+** $1
+:PROPERTIES:
+  :ANKI_DECK: Evangelism verses
+  :ANKI_NOTE_TYPE: Basic
+  :ANKI_TAGS: evang
+:END:
+*** Front
+${1:Verse reference}
+*** Back
+$0

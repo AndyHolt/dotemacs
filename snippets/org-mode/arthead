@@ -5,10 +5,13 @@
 #+TITLE: ${1:Title}
 #+AUTHOR: ${2:Andy Holt}
 #+DATE: ${3:\today}
-#+LaTeX_CLASS: adharticle
-#+OPTIONS: toc:nil
+#+LATEX_CLASS: adharticle
+#+OPTIONS: toc:nil num:t H:4
+#+LANGUAGE: en
+#+EXCLUDE_TAGS: noexport
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
+#+CREATED_DATE: `(format-time-string "<%Y-%m-%d %a %H:%M>")`
 
 $0

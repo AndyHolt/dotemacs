@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: latex files for gitignore
+# key: latex
+# --
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.run.xml
+*.xdv

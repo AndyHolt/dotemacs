@@ -7,7 +7,7 @@
 #+DATE: ${3:\today}
 #+LATEX_HEADER: \def\email{aholt379@students.sbts.edu}
 #+LATEX_HEADER: \def\papertype{Reading Assignement}
-#+LATEX_HEADER: \def\prof{Prof Michael A. G. Haykin}
+#+LATEX_HEADER: \def\prof{Dr. Michael A. G. Haykin}
 #+LATEX_HEADER: \def\courseno{25235}
 #+LATEX_HEADER: \def\shortpapertitle{Theology of Augustine: Lectures $1}
 #+LANGUAGE: en

@@ -2,17 +2,19 @@
 # name: collection citiation
 # key: collection
 # --
-@collection\{${13:key},
+@collection\{${15:key},
   editor =       \{${1:editor(s)}\},
   title =        \{${2:book title}\},
   subtitle =     \{${3:subtitle}\},
   shorttitle =   \{${4:short title}\},
-  series =       \{${5:series}\},
-  shortseries =  \{${6:short series}\},
-  number =       \{${7:number}\},
-  edition =      \{${8:edition}\},
-  publisher =    \{${9:publisher}\},
-  date =         \{${10:year}\},
-  location =     \{${11:location}\},
-  file =         \{${12:file path}\}$0
+  maintitle =    \{${5:main title of multivolume work}\},
+  mainsubtitle = \{${6:main subtitle of multivolume work}\},
+  series =       \{${7:series}\},
+  shortseries =  \{${8:short series}\},
+  number =       \{${9:number}\},
+  edition =      \{${10:edition}\},
+  publisher =    \{${11:publisher}\},
+  date =         \{${12:year}\},
+  location =     \{${13:location}\},
+  file =         \{${14:file path}\}$0
 \}
