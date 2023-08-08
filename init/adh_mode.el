@@ -88,8 +88,8 @@
      ("note")
      ("file"))))
 
-(add-to-list 'bibtex-biblatex-entry-alist 'adh-bibtex-review-entry t)
-(add-to-list 'bibtex-BibTeX-entry-alist 'adh-bibtex-review-entry t)
+(add-to-list 'bibtex-biblatex-entry-alist adh-bibtex-review-entry t)
+(add-to-list 'bibtex-BibTeX-entry-alist adh-bibtex-review-entry t)
 
 ;; try not using full-frame for helm-bibtex
 (setq helm-bibtex-full-frame nil)
