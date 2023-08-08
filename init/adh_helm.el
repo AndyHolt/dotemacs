@@ -12,7 +12,8 @@
 ;;; Code:
 
 (autoload 'helm "helm")
-(eval-after-load "helm" '(require 'helm-config))
+;; helm-config.el has been removed from helm package, with code moved into other files
+;(eval-after-load "helm" '(require 'helm-config))
 
 ;; add extra sources to helm-mini
 ;; In addition to current buffers and recent files, other useful sources will
