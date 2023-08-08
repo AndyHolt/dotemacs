@@ -143,6 +143,7 @@
 ;; add subtitle field to helm-bibtex display
 (setq bibtex-completion-display-formats
       '((book . "${author:15} ${title:*} ${subtitle:15} ${shortseries:5} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
+        (collection . "${author:15} ${title:*} ${subtitle:15} ${shortseries:5} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
         (incollection . "${author:15} ${title:*} ${subtitle:10} in ${shortbooktitle:6} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
         (inbook . "${author:15} ${title:*} ${subtitle:10} in ${booktitle:15} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
         (article . "${author:15} ${title:*} ${subtitle:10} ${shortjournal:6} ${year:4} ${=has-pdf=:1}${=has-note=:1} ${=type=:7}")
