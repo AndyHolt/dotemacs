@@ -423,5 +423,14 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
 ;; set up for python interpreter
 (setq python-shell-interpreter "python3")
 
+;; modes for git configuration files
+(autoload 'gitignore-mode "gitignore-mode" "" t)
+(add-to-list 'auto-mode-alist '("/.gitignore\\'" . gitignore-mode))
+
+;; use yaml-mode for yaml files. Mainly using yaml files for config files (e.g.
+;; tmuxinator)
+(autoload 'yaml-mode "yaml-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
+
 (provide 'adh_mode)
 ;;; adh_mode.el ends here
