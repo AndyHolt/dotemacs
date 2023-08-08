@@ -162,11 +162,39 @@
 #+AUTHOR: Andy Holt
 #+SETUPFILE: adh-org-notes-export-setup.org
 #+LANGUAGE: en
+#+OPTIONS: num:t toc:t
 #+STARTUP: overview lognoterefile
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
-#+CREATED_DATE: ")
+#+CREATED_DATE: %T
+
+* Summary
+* Structure
+* Key Arguments
+* Quotes
+* Critical engagement (evaluation, concerns, limits, push back, reflections)
+* Citations/references for further research
+")
+
+;; Allow setting a current "default" helm-bibtex entry for pre-selection.
+;; e.g. when taking notes from a particular book, but not in that book's main
+;; note file, have the entry pre-selected by default
+(defvar adh-helm-bibtex-default-selection 'nil)
+
+(defun adh-helm-bibtex-set-default-selection ()
+  "Select an entry to use as `adh-helm-bibtex-default-selection'."
+  (interactive)
+  ;; Need to let helm-action be a single action which returns (*not* inserts)
+  ;; the bibtex key of a selected entry. Then set
+  ;; adh-helm-bibtex-default-selection to that returned key as a string.
+  
+)
+
+(defun adh-helm-bibtex-clear-default-selection ()
+  "Unset `adh-helm-bibtex-default-selection'."
+  (interactive)
+  (setq adh-helm-bibtex-default-selection 'nil))
 
 ;; set helm-bibtex key binding
 (defun adh-helm-bibtex ()
