@@ -134,7 +134,8 @@
 
 ;; add additional fields to bibtex search in helm matching
 (setq bibtex-completion-additional-search-fields
-      '(subtitle shortseries series booktitle shortbooktitle shortjournal))
+      '(subtitle shortseries series booktitle shortbooktitle shortjournal
+                 maintitle mainsubtitle))
 
 ;; open PDF files outside of emacs in standard programme
 (setq bibtex-completion-pdf-open-function 'helm-open-file-with-default-tool)
