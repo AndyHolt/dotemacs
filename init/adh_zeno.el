@@ -63,6 +63,13 @@
    (format "https://www.stepbible.org/?q=reference=%s%%7Cversion=LXX&options=VGNUP&skipwelcome"
            (url-hexify-string chapter))))
 
+(defun browser-open-step-ot-interleaved (chapter)
+  "Open specified CHAPTER at stepbible.org in Hebrew Bible and LXX interleaved."
+  (interactive "sChapter: ")
+  (browse-url-generic
+   (format "https://www.stepbible.org/?q=reference=%s%%7Cversion=THOT%%7Cversion=LXX&options=VGNUP&display=INTERLEAVED&skipwelcome"
+           (url-hexify-string chapter))))
+
 ; todo - make interactive getting of word automatically set input method in
 ; minibuffer prompt. To do this, likely need to use a function for the
 ; interactive form, rather than simply a string input. There is also the "M"
@@ -78,6 +85,12 @@
    (format "https://logeion.uchicago.edu/%s"
            word)))
 
+(defun browser-open-biblehub-verse (book chapter verse)
+  "Open specified reference, BOOK and VERSE in biblehub."
+  (interactive "sBook: \nnChapter: \nnVerse: ")
+  (browse-url-generic
+   (format "https://www.biblehub.com/%s/%d-%d.htm" book chapter verse)))
+
 ;; define hydra for quick access to lookup functions
 (require 'hydra)
 (defhydra hydra-zeno-open (:color teal
@@ -88,6 +101,7 @@
 _n_: NA28              _g_: GNT     _w_: Logeion
 _b_: BHS               _h_: HB
 _l_: LXX               _o_: LXX
+^ ^                    _i_: HB+LXX
 "
   ("n" browser-open-bible-text-na28)
   ("b" browser-open-bible-text-bhs)
@@ -95,6 +109,7 @@ _l_: LXX               _o_: LXX
   ("g" browser-open-step-gnt)
   ("h" browser-open-step-hb)
   ("o" browser-open-step-lxx)
+  ("i" browser-open-step-ot-interleaved)
   ("w" browser-open-logeion-search))
 
 (define-key global-map (kbd "C-x /") 'hydra-zeno-open/body)
