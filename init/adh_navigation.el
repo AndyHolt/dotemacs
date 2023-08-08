@@ -99,5 +99,10 @@
 ;; Don't show bookmark icon in fringe
 (setq bookmark-set-fringe-mark 'nil)
 
+;; automatically save bookmarks upon editing. Do not wait until Emacs is killed
+;; (because if it closes unexpectedly or abnormally, bookmark changes will be
+;; lost)
+(setq bookmark-save-flag 1)
+
 (provide 'adh_navigation)
 ;;; adh_navigation.el ends here
