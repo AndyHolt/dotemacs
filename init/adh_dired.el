@@ -41,5 +41,7 @@
 
 (setq dired-listing-switches "-alh")
 
+(setq dired-auto-revert-buffer t)
+
 (provide 'adh_dired)
 ;;; adh_dired.el ends here
