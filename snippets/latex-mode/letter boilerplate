@@ -11,10 +11,10 @@
 
 \begin{document}
 
-\setkomavar{subject}[Re]{${4:Letter subject}}
+\setkomavar{subject}[Re:~]{${4:Letter subject}}
 
 \begin{letter}{%
-${5:Recipient name and address, lines separated with \\}
+${5:Recipient name and address, lines separated with \\\\ }
 }
 \opening{Dear ${6:Recipient name},}
 
@@ -22,6 +22,6 @@ $0
 
 \closing{${7:Closing (e.g. "In Christ", "Yours faithfully" (unknown) or "Yours sincerely" (known))},}
 
-${8:\encl{${9:Enclosed documents, separated with \\}}}
+${8:\encl\{${9:Enclosed documents, separated with \\\\ }\}}
 \end{letter}
 \end{document}
