@@ -81,6 +81,7 @@
 (with-timer "loading adh_hydra" (require 'adh_hydra))
 (with-timer "loading adh_email" (require 'adh_email))
 (with-timer "loading adh_zeno" (require 'adh_zeno))
+(with-timer "loading adh_webdev" (require 'adh_webdev))
 ; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
