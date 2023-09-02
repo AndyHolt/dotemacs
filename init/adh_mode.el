@@ -97,6 +97,7 @@
 ;; add bib files to helm-bibtex search path
 (setq bibtex-completion-bibliography '("~/Projects/WritingTools/Lit.bib"
                                        "~/Projects/WritingTools/PopSciHist.bib"
+                                       "~/Projects/WritingTools/Engineering.bib"
                                        "~/Projects/WritingTools/Theology.bib"))
 
 ;; change default action of helm-bibtex to insert citation
@@ -106,7 +107,41 @@
   '(progn
      (helm-delete-action-from-source "Insert citation" helm-source-bibtex)
      (helm-add-action-to-source "Insert citation"
-                                'helm-bibtex-insert-citation helm-source-bibtex 0)))
+                                'helm-bibtex-insert-citation helm-source-bibtex
+                                0)))
+
+;; TODO: get this working! Currently not being added as source, as function does
+;; not work when added as source!
+;; TODO: Then, after getting the basic version running, add a fallback function
+;; version which will open a url or doi if ;; there is no pdf file (see
+;; `bibtex-completion-open-any')
+;;
+;; helm-bibtex action for visiting directory in dired if PDF not available to
+;; open (i.e. when icloud has removed file from computer)
+(defun adh-bibtex-completion-open-pdf-icloud (keys)
+  "Open the PDFs associated with the marked entries using the function specified
+in `bibtex-completion-pdf-open-function'.
+If the designated file cannot be found (not currently downloaded, but stored on
+  icloud), go the directory, where it can be downloaded and then opened manually."
+  (dolist (key keys)
+    (let* ((pdf (bibtex-completion-get-value bibtex-completion-pdf-field
+                                            (bibtex-completion-get-entry-1
+                                             key)))
+           (pdfd (file-name-directory pdf)))
+      (cond
+       ((file-exists-p pdf)
+        (funcall bibtex-completion-pdf-open-function pdf))
+       ((file-exists-p pdfd)
+        (dired pdfd))
+       (t
+        (message "No PDF or directory found for entry %s" key))))))
+
+;; (helm-add-action-to-source "Open PDF or directory"
+;;                            'adh-bibtex-completion-open-pdf-icloud
+;;                            helm-source-bibtex
+;;                            1)
+; (helm-delete-action-from-source "Open PDF or directory" helm-source-bibtex)
+
 
 ;; reverse order of helm candidates
 ;; By default, orders candidates from bottom of bib file to top, giving "most
@@ -165,6 +200,7 @@
 #+OPTIONS: num:t toc:t
 #+STARTUP: overview lognoterefile
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Theology.bib
+#+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Engineering.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/PopSciHist.bib
 #+BIBLIOGRAPHY: /Users/adh/Projects/WritingTools/Lit.bib
 #+CREATED_DATE: %T
@@ -203,11 +239,13 @@
 default input for `helm-bibtex'. Else just use helm-bibtex as normal."
   (interactive)
   (helm-bibtex nil nil
-               (if (and buffer-file-name
-                        (equal (file-name-directory buffer-file-name)
-                               (concat bibtex-completion-notes-path "/")))
-                   (file-name-base buffer-file-name)
-                 nil)))
+               (or adh-helm-bibtex-default-selection
+                   (if (and buffer-file-name
+                            (equal (file-name-directory buffer-file-name)
+                                   (concat bibtex-completion-notes-path "/")))
+                       (file-name-base buffer-file-name)
+                     nil))))
+
 
 (global-set-key (kbd "C-c m b") 'adh-helm-bibtex)
 
