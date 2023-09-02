@@ -12,7 +12,8 @@
 ;;; Code:
 
 ;; be reasonable
-(setq js-indent-level 2)
+(setq js-indent-level 2
+      css-indent-offset 2)
 
 
 (provide 'adh_webdev)
