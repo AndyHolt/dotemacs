@@ -30,6 +30,7 @@
         eval-last-sexp
         fill-paragraph
         indent-new-comment-line
+        insert-char
         keyboard-quit
         kill-region
         kill-visual-line
