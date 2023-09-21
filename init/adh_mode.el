@@ -461,6 +461,9 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
 ;; set up for python interpreter
 (setq python-shell-interpreter "python3")
 
+;; set python indent level
+(setq python-indent-offset 4)
+
 ;; modes for git configuration files
 (autoload 'gitignore-mode "gitignore-mode" "" t)
 (add-to-list 'auto-mode-alist '("/.gitignore\\'" . gitignore-mode))
