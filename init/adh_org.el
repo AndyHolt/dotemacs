@@ -1024,7 +1024,7 @@ get that, otherwise the full title."
 ;; If edit is attempted, deal with it smartly
 ;; NOTE: this may be better set to show-and-error (shows the region and throws
 ;; an error to abort the edit), but see how it does for now
-(setq org-catch-invisible-edits 'show-and-error)
+(setq org-fold-catch-invisible-edits 'show-and-error)
 
 ;; Edit text of quotation links in a separate buffer.
 ;; Ordinarily editing text in a link description doesn't use most of the text
