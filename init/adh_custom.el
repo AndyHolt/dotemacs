@@ -40,7 +40,7 @@
  '(nrepl-message-colors
    '("#dc322f" "#cb4b16" "#b58900" "#546E00" "#B4C342" "#00629D" "#2aa198" "#d33682" "#6c71c4"))
  '(package-selected-packages
-   '(citeproc org edwina lua-mode highlight-indent-guides osx-dictionary package-build shut-up epl commander))
+   '(go-mode magit engine-mode citeproc edwina lua-mode highlight-indent-guides osx-dictionary package-build shut-up epl commander))
  '(pdf-view-midnight-colors '("#DCDCCC" . "#383838"))
  '(pos-tip-background-color "#eee8d5")
  '(pos-tip-foreground-color "#586e75")
@@ -48,6 +48,7 @@
  '(term-default-bg-color "#fdf6e3")
  '(term-default-fg-color "#657b83")
  '(vc-annotate-background-mode nil)
+ '(warning-suppress-types '((comp)))
  '(weechat-color-list
    '(unspecified "#fdf6e3" "#eee8d5" "#a7020a" "#dc322f" "#5b7300" "#859900" "#866300" "#b58900" "#0061a8" "#268bd2" "#a00559" "#d33682" "#007d76" "#2aa198" "#657b83" "#839496"))
  '(xterm-color-names
@@ -69,4 +70,5 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(italic ((t (:slant italic :weight normal :height 120 :width normal :foundry "nil" :family "Menlo"))))
  '(window-divider ((t (:foreground "LightGoldenrod1")))))
