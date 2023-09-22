@@ -42,3 +42,8 @@ network-security.data
 .dir-locals.el
 request/
 transient/
+
+async-bytecomp.log
+
+# native compiled files
+eln-cache/
