@@ -473,5 +473,9 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
 (autoload 'yaml-mode "yaml-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.ya?ml\\'" . yaml-mode))
 
+;; use go-ts-mode for Go files
+(autoload 'go-ts-mode "go-ts-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.go\\'" . go-ts-mode))
+
 (provide 'adh_mode)
 ;;; adh_mode.el ends here
