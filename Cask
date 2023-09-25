@@ -60,6 +60,7 @@
 (depends-on "magit")
 (depends-on "markdown-mode")
 (depends-on "multiple-cursors")
+(depends-on "ns-auto-titlebar")
 (depends-on "org")
 (depends-on "org-bullets")
 (depends-on "org-gcal")

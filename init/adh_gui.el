@@ -228,6 +228,11 @@ If current system appearance is light mode, set an appropriate
     ('dark (load-theme 'solarized-zenburn t))))
 
 (add-hook 'ns-system-appearance-change-functions #'adh/apply-appropriate-theme)
+
+;; minor mode for handling MacOS frame titlebar colour
+(autoload 'ns-auto-titlebar-mode "ns-auto-titlebar" "" t)
+(when (eq system-type 'darwin) (ns-auto-titlebar-mode))
+
 )
 
 (with-timer "windmove and text-scale"
