@@ -82,6 +82,7 @@
 (with-timer "loading adh_email" (require 'adh_email))
 (with-timer "loading adh_zeno" (require 'adh_zeno))
 (with-timer "loading adh_webdev" (require 'adh_webdev))
+(with-timer "loading adh_tree-sitter" (require 'adh_tree-sitter))
 ; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
