@@ -1,0 +1,7 @@
+# name: Go function
+# key: func
+# contributor: adh
+# --
+func ${1:(${2:method type, e.g. v Vertex}) }${3:funcName}(${4:arguments, name type}) ${5:return (name and) type (in brackets if multiple)} {
+    $0
+}

@@ -1,0 +1,8 @@
+# name: Go error handler
+# key: err
+# contributor: Andy Holt
+# --
+if err != nil {
+   return ${1:pre-error return values (comma separated)}, fmt.Errorf("${2:function name}${3:, extra info}: %v", err)
+}
+$0
