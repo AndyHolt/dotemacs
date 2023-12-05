@@ -25,7 +25,7 @@
 (setq org-cite-biblatex-options "style=verbose-ibid")
 
 (setq org-cite-csl-styles-dir "~/csl")
-(setq org-cite-csl--fallback-style-file "~/csl/chicago-note-bibliography.csl")
+(setq org-cite-csl--fallback-style-file "~/csl/chicago-fullnote-bibliography-short-title-subsequent.csl")
 
 (setq bibtex-completion-format-citation-functions
       '((org-mode . bibtex-completion-format-citation-org-cite)
