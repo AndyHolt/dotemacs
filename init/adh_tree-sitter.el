@@ -43,5 +43,24 @@
 
 (customize-set-variable 'treesit-font-lock-level 3)
 
+;; config for go-ts-mode
+(defun adh/go-ts-activate-extra-yas-modes ()
+  "Helper function for hook to enable go-mode snippets in `go-ts-mode'."
+  (yas-activate-extra-mode 'go-mode))
+(add-hook 'go-ts-mode-hook #'adh/go-ts-activate-extra-yas-modes)
+
+(defun adh/go-ts-set-tab-width ()
+  "Helper function for hook to set tab size to 4 in `go-ts-mode'."
+  (setq tab-width 4))
+(add-hook 'go-ts-mode-hook #'adh/go-ts-set-tab-width)
+
+(setq go-ts-mode-indent-offset 4)
+
+;; config for python-ts-mode
+(defun adh/python-ts-activate-extra-yas-modes ()
+  "Helper function for hook to enable `python-mode' snippets in `go-ts-mode'."
+  (yas-activate-extra-mode 'python-mode))
+(add-hook 'python-ts-mode-hook #'adh/python-ts-activate-extra-yas-modes)
+
 (provide 'adh_tree-sitter)
 ;;; adh_tree-sitter.el ends here
