@@ -408,6 +408,9 @@ that new file is included in notes targets."
 (autoload 'org-babel-execute:sql "ob-sql")
 (autoload 'org-babel-expand-body:sql "ob-sql")
 
+(autoload 'org-babel-execute:go "ob-go")
+(autoload 'org-babel-expand-body:go "ob-go")
+
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
@@ -465,6 +468,8 @@ that new file is included in notes targets."
 ;; Org to LaTeX export class setup
 (add-to-list 'org-latex-packages-alist
              '("normalem" "ulem" nil))
+(add-to-list 'org-latex-packages-alist
+             '("" "booktabs" nil))
 
 ; (require 'ox-latex)
 (autoload 'org-export-dispatch "ox-latex" "" t)
