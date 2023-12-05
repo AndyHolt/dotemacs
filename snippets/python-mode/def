@@ -2,11 +2,12 @@
 # name: def
 # contributor: Orestis Markou
 # contributor: Yasser González Fernández <yglez@uh.cu>
+# edited: Andy Holt
 # key: def
 # --
-def ${1:name}($2):
+def ${1:name}($2)${3: -> $4}:
     """
-    $3
+    $5
     ${2:$
       (let*
         ((indent

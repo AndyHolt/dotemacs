@@ -9,7 +9,7 @@
 
 \documentclass{adhletter}
 
-% Useful lengths to modify for reducing space, espeically to get a letter onto
+% Useful lengths to modify for reducing space, especially to get a letter onto
 % one page
 % \setplength{toaddrvpos}{2.5cm}
 % \setplength{refvpos}{6cm}
