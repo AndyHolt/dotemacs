@@ -628,6 +628,11 @@ that new file is included in notes targets."
     (setq org-latex-pdf-process '("run-latex -p %latex -o %o %f")
           org-latex-compiler "xelatex")
     ))
+
+;; use minted for org src export to LaTeX.
+;; N.B. the old variable `org-latex-listings' is now obsolete, since Org 9.6
+(setq org-latex-src-block-backend 'minted)
+
 )
 
 (with-timer "org-ref set up"
