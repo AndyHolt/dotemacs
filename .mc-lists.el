@@ -68,6 +68,7 @@
         smex
         sp--self-insert-command
         sp-remove-active-pair-overlay
+        sp-wrap-cancel
         swiper
         tex-handle-newline
         typo-cycle-ellipsis
@@ -85,6 +86,7 @@
         c-electric-star
         counsel-M-x
         counsel-find-file
+        counsel-yank-pop
         handle-switch-frame
         helm-bibtex
         ido-find-file
