@@ -62,5 +62,8 @@
   (yas-activate-extra-mode 'python-mode))
 (add-hook 'python-ts-mode-hook #'adh/python-ts-activate-extra-yas-modes)
 
+;; config for js-ts-mode (Javascript)
+(autoload 'js-ts-mode "js" "" t)
+
 (provide 'adh_tree-sitter)
 ;;; adh_tree-sitter.el ends here

@@ -11,9 +11,19 @@
 
 ;;; Code:
 
+;; use treesitter mode for js files
+(autoload 'js-ts-mode "js" "" t)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
+
+;; set up web mode for .vue files
+(autoload 'web-mode "web-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
+
+
 ;; be reasonable
 (setq js-indent-level 2
       css-indent-offset 2)
+
 
 
 (provide 'adh_webdev)
