@@ -14,7 +14,7 @@
 ;;; Code:
 
 ;; [fix] - don't run whitespace-cleanup on auto-save, only manual save
-;; (add-hook 'before-save-hook 'whitespace-cleanup)
+(add-hook 'before-save-hook 'whitespace-cleanup)
 
 ;; matlab major mode when loading file with .m extension
 (setq auto-mode-alist
