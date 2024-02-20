@@ -88,6 +88,7 @@
 (depends-on "typo")
 (depends-on "visual-regexp")
 (depends-on "wc-mode")
+(depends-on "web-mode")
 (depends-on "which-key")
 (depends-on "whole-line-or-region")
 (depends-on "wrap-region")
