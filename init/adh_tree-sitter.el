@@ -7,6 +7,9 @@
 ;;; Commentary:
 ;;
 ;; Configure tree-sitter for various languages.
+;;
+;; Install configured language grammars with `M-x
+;; treesit-install-langauge-grammar'
 
 ;;; Code:
 
@@ -26,6 +29,8 @@
                   "split_parser" "tree-sitter-markdown/src")
         (python "https://github.com/tree-sitter/tree-sitter-python")
         (toml "https://github.com/ikatyang/tree-sitter-toml")
+        (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
+        (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
         (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
 (setq major-mode-remap-alist
@@ -64,6 +69,8 @@
 
 ;; config for js-ts-mode (Javascript)
 (autoload 'js-ts-mode "js" "" t)
+
+
 
 (provide 'adh_tree-sitter)
 ;;; adh_tree-sitter.el ends here
