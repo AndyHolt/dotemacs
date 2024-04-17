@@ -8,6 +8,7 @@
         TeX-insert-backslash
         ace-jump-mode
         ace-jump-move
+        adh-text-mode-fill-command
         autopair-insert-opening
         autopair-insert-or-skip-quote
         autopair-skip-close-maybe
@@ -65,6 +66,7 @@
         python-backspace
         python-electric-colon
         reindent-then-newline-and-indent
+        sgml-slash
         smex
         sp--self-insert-command
         sp-remove-active-pair-overlay
@@ -87,6 +89,7 @@
         counsel-M-x
         counsel-find-file
         counsel-yank-pop
+        dired-toggle-read-only
         handle-switch-frame
         helm-bibtex
         ido-find-file
