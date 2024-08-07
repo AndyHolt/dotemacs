@@ -25,9 +25,10 @@
   (add-to-list 'eglot-server-programs
                `(vue-mode . ("vls" "--stdio"))))
 
-;; be reasonable
-(setq js-indent-level 2
-      css-indent-offset 2)
+(setq js-indent-level 4
+      css-indent-offset 2
+      web-mode-script-padding 0
+      web-mode-style-padding 0)
 
 
 ;; treesitter mode for typescript and tsx files
