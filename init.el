@@ -37,6 +37,19 @@
          load-path)))
 )
 
+;; Set exec path based on shell's path
+(defun set-exec-path-from-shell ()
+  "Set up Emacs's `exec-path' and PATH environment variable to match user's shell"
+  (interactive)
+  (let ((path-from-shell (replace-regexp-in-string
+                          "[ \t\n]*$" ""
+                          (shell-command-to-string "$SHELL --login -c 'echo $PATH'"))))
+    (setenv "PATH" path-from-shell)
+    (mapc
+     (lambda (item) (add-to-list 'exec-path item t))
+     (split-string path-from-shell path-separator))))
+(set-exec-path-from-shell)
+
 ;; disable handling file name of my start up files
 ;; This saves running a series of regexps against the file names to determine if
 ;; some kind of file handling is required. Takes a few miliseconds off init load

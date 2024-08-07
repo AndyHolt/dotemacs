@@ -6,6 +6,7 @@
     ("beacuse" "because" nil :count 6)
     ("corithians" "Corinthians" nil :count 8)
     ("hte" "the" nil :count 15)
+    ("ioschrone" "isochrone" nil :count 2)
     ("perseuctions" "persecutions" nil :count 2)
     ("teh" "the" nil :count 300)
     ("wiht" "with" nil :count 14)

@@ -2,13 +2,13 @@
 # name: Header for Python Files
 # key: header
 # --
-#!/usr/local/bin/python3
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 """
 ${1:One line summary docstring}${2:
 More detailed description.}
 """
-# Author: ${3:Andy Holt}
-# Date: `(insert (format-time-string "%a %d %b %Y %H:%M"))`
-${4:# Usage: ${5:Usage details}}
+# Author: ${3:Andy Holt} ${4:(${5:andrew.holt@hotmail.co.uk})}
+# Date: `(format-time-string "%a %d %b %Y %H:%M")`
+${6:# Usage: ${7:Usage details}}
 $0

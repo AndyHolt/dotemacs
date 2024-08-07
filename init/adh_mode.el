@@ -224,7 +224,7 @@ If the designated file cannot be found (not currently downloaded, but stored on
   ;; Need to let helm-action be a single action which returns (*not* inserts)
   ;; the bibtex key of a selected entry. Then set
   ;; adh-helm-bibtex-default-selection to that returned key as a string.
-  
+
 )
 
 (defun adh-helm-bibtex-clear-default-selection ()
@@ -301,7 +301,8 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
           (lambda ()
             (auto-fill-mode 1)
             (show-paren-mode 1)
-            (flyspell-prog-mode)))
+            (flyspell-prog-mode)
+            (display-line-numbers-mode t)))
 
 (add-hook 'matlab-mode-hook
           (lambda ()
@@ -390,7 +391,7 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
   (interactive)
   (let ((selected-date (org-read-date nil t)))
     (insert (completing-read "Date format:"
-              (list 
+              (list
                ;; 18/12/18
                (format-time-string "%d/%m/%y" selected-date)
                ;; 18/12/2018

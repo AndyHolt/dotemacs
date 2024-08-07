@@ -33,6 +33,7 @@
         indent-new-comment-line
         insert-char
         keyboard-quit
+        kill-buffer
         kill-region
         kill-visual-line
         markdown-exdent-or-delete
