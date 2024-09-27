@@ -299,7 +299,6 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
 
 (add-hook 'prog-mode-hook
           (lambda ()
-            (auto-fill-mode 1)
             (show-paren-mode 1)
             (flyspell-prog-mode)
             (display-line-numbers-mode t)))
