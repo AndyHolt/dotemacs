@@ -455,9 +455,9 @@ that new file is included in notes targets."
 ;;         ("footcites" "[{")
 ;;         ("parencite" "[{")
 ;;         ("textcite" "[{")
-;;         ("fullcite" "[{") 
-;;         ("citetitle" "[{") 
-;;         ("citetitles" "[{") 
+;;         ("fullcite" "[{")
+;;         ("citetitle" "[{")
+;;         ("citetitles" "[{")
 ;;         ("headlessfullcite" "[{")))
 
 ;; (setq reftex-cite-prompt-optional-args nil)
@@ -477,149 +477,149 @@ that new file is included in notes targets."
 (eval-after-load "ox-latex"
   '(progn
     (add-to-list 'org-latex-classes
-		 '("adharticle"
-		   "\\documentclass{adharticle}
+                 '("adharticle"
+                   "\\documentclass{adharticle}
                [NO-DEFAULT-PACKAGES]
                [PACKAGES]
                [EXTRA]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhhandout"
-		   "\\documentclass{adhhandout}
+                 '("adhhandout"
+                   "\\documentclass{adhhandout}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("sbtspaper"
-		   "\\documentclass{sbtspaper}
+                 '("sbtspaper"
+                   "\\documentclass{sbtspaper}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("sbtsprecis"
-		   "\\documentclass{sbtsprecis}
+                 '("sbtsprecis"
+                   "\\documentclass{sbtsprecis}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("sbtshistread"
-		   "\\documentclass{sbtshistread}
+                 '("sbtshistread"
+                   "\\documentclass{sbtshistread}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\lecture{%s}" . "\\lecture*{%s}")
-		   ("\\question{%s}" . "\\question*{%s}")
-		   ("\\subquestion{%s}" . "\\subquestion*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\lecture{%s}" . "\\lecture*{%s}")
+                   ("\\question{%s}" . "\\question*{%s}")
+                   ("\\subquestion{%s}" . "\\subquestion*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("sbtsreview"
-		   "\\documentclass{sbtsreview}
+                 '("sbtsreview"
+                   "\\documentclass{sbtsreview}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhdoc"
-		   "\\documentclass{adhdoc}
+                 '("adhdoc"
+                   "\\documentclass{adhdoc}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhsernotes"
-		   "\\documentclass{adhsernotes}
+                 '("adhsernotes"
+                   "\\documentclass{adhsernotes}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhseroutline"
-		   "\\documentclass{adhseroutline}
+                 '("adhseroutline"
+                   "\\documentclass{adhseroutline}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhsertrans"
-		   "\\documentclass{adhsertrans}
+                 '("adhsertrans"
+                   "\\documentclass{adhsertrans}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
     (add-to-list 'org-latex-classes
-		 '("adhcompnotes"
-		   "\\documentclass{adhcompnotes}
+                 '("adhcompnotes"
+                   "\\documentclass{adhcompnotes}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 
     (add-to-list 'org-latex-classes
-		 '("sbtsaec"
-		   "\\documentclass{sbtsaec}
+                 '("sbtsaec"
+                   "\\documentclass{sbtsaec}
                 [NO-DEFAULT-PACKAGES]
                 [PACKAGES]
                 [EXTRAS]"
-		   ("\\section{%s}" . "\\section*{%s}")
-		   ("\\subsection{%s}" . "\\subsection*{%s}")
-		   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
-		   ("\\paragraph{%s}" . "\\paragraph*{%s}")
-		   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+                   ("\\section{%s}" . "\\section*{%s}")
+                   ("\\subsection{%s}" . "\\subsection*{%s}")
+                   ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                   ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                   ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
 
 ;; (setq org-latex-pdf-process
 ;;       "latexmk -pdflatex='-shell-escape' -pdf -f %f")
@@ -689,7 +689,7 @@ args are ignored."
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
          (afile  (car (org-archive--compute-location
-		       (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
+                       (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
     ad-do-it
     (when fix-archive-p
@@ -732,9 +732,9 @@ args are ignored."
 
 (with-timer "org-publish"
 ;; setup org-publish
-;; 
+;;
 ;; org-publish setup for notes to apple notes.app, for reading on phone
-;; 
+;;
 ;; config is a modifed version of export for unites here:
 ;; https://vxlabs.com/2018/10/29/importing-orgmode-notes-into-apple-notes
 ;; (defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
@@ -796,7 +796,7 @@ visiting them will not be visited"
          :publishing-directory "~/Documents/zenodotus-notes/book-notes"
          :recursive t
          :publishing-function org-html-publish-to-html
-         :auto-sitemap t
+         ;; :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          :preparation-function (lambda (&rest args)
                                  (adh-kill-if-visiting
@@ -807,7 +807,7 @@ visiting them will not be visited"
          :publishing-directory "~/Documents/zenodotus-notes/notes"
          :recursive t
          :publishing-function org-html-publish-to-html
-         :auto-sitemap t
+         ;; :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          :preparation-function (lambda (&rest args)
                                  (adh-kill-if-visiting
@@ -818,7 +818,7 @@ visiting them will not be visited"
          :publishing-directory "~/Documents/zenodotus-notes/bible-notes"
          :recursive t
          :publishing-function org-html-publish-to-html
-         :auto-sitemap t
+         ;; :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          :preparation-function (lambda (&rest args)
                                  (adh-kill-if-visiting
@@ -829,7 +829,7 @@ visiting them will not be visited"
          :publishing-directory "~/Documents/zenodotus-notes/sbts-notes"
          :recursive t
          :publishing-function org-html-publish-to-html
-         :auto-sitemap t
+         ;; :auto-sitemap t
          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
          :preparation-function (lambda (&rest args)
                                  (adh-kill-if-visiting
@@ -840,7 +840,7 @@ visiting them will not be visited"
 
 (setq org-odt-convert-processes '(("LibreOffice"
                                   "/Applications/LibreOffice.app/Contents/MacOS/soffice \
---headless --convert-to %f%x --outdir %d %i") 
+--headless --convert-to %f%x --outdir %d %i")
                                   ("unoconv -f %f -o %d %i")))
 
 ;; use html checkboxes when exporting [ ] or [X] to html

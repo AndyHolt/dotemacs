@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Espanso plain match
+# key: epm
+# --
+  - trigger: "${1:trigger string (e.g. ;date)}"
+      replace: "${2:result text}"
+$0

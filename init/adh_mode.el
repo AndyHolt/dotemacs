@@ -48,6 +48,8 @@
 (setq auto-mode-alist
       (cons'("Guardfile" . ruby-mode) auto-mode-alist))
 
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-ts-mode))
+
 ;; PDFs shouldn't be opened in Emacs. Load in hex mode as it's much faster.
 ;; [todo] - change to auto-open PDFs in standard program instead?
 ; (add-to-list 'auto-mode-alist '("\\.pdf\\'" . hexl-mode))
@@ -456,7 +458,7 @@ Enable auto-fill-mode for line wrapping and flyspell mode for error correction"
      'adh-insert-date))
 
 ;; set up for sql-mode
-(setq sql-product 'mysql)
+(setq sql-product 'postgres)
 
 ;; set up for python interpreter
 (setq python-shell-interpreter "python3")

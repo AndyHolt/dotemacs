@@ -14,6 +14,7 @@
 ;; use treesitter mode for js files
 (autoload 'js-ts-mode "js" "" t)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
+(add-to-list 'auto-mode-alist '("\\.mjs\\'" . js-ts-mode))
 
 ;; set up web mode for .vue files
 (autoload 'web-mode "web-mode" "" t)

@@ -36,6 +36,8 @@
         kill-buffer
         kill-region
         kill-visual-line
+        markdown-beginning-of-line
+        markdown-end-of-line
         markdown-exdent-or-delete
         matlab-electric-comment
         matlab-justify-line

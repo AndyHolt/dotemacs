@@ -191,7 +191,7 @@ Ignores OPT."
 ;; (require 'theme-changer)
 (setq calendar-location-name "Dundee, Scotland")
 (setq calendar-latitude 56.5)
-(setq calendar-longitude -3.0)
+(setq calendar-longitude -3.1)
 ;; (setq calendar-location-name "Banchory, Scotland")
 ;; (setq calendar-latitude 57.05)
 ;; (setq calendar-longitude -2.49)
