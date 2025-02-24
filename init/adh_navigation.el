@@ -46,11 +46,13 @@
 (defun goto-line-with-feedback ()
   "Show line numbers temporarily, while prompting for the line number input."
   (interactive)
-  (unwind-protect
-      (progn
-        (display-line-numbers-mode 1)
-        (goto-line (read-number "Goto line: ")))
-    (display-line-numbers-mode -1)))
+  (let
+      ((displaying-line-numbers display-line-numbers-mode))
+      (unwind-protect
+          (progn
+            (display-line-numbers-mode 1)
+            (goto-line (read-number "Goto line: ")))
+        (display-line-numbers-mode (if displaying-line-numbers 1 -1)))))
 
 (global-set-key [remap goto-line] 'goto-line-with-feedback)
 
