@@ -40,6 +40,7 @@
 ; (depends-on "gitignore-mode")
 ; (depends-on "gitattributes-mode")
 (depends-on "git-modes")
+(depends-on "gptel")
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-ag")
