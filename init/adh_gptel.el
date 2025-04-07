@@ -13,8 +13,12 @@
 (require 'gptel)
 (require 'gptel-curl)
 (require 'gptel-anthropic)
+(require 'transient)
 
-(setq gptel-default-mode 'org-mode)
+(setopt gptel-default-mode 'org-mode
+        gptel-org-branching-context t)
+
+
 
 (let ((api-key (plist-get
                 (car (auth-source-search :host "api.anthropic.com"

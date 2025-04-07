@@ -11,6 +11,7 @@
 ;;; Code:
 
 (autoload 'dired "dired")
+(require 'dired)
 
 ;; change C-< and C-> to jump to more logical places
 (defun dired-back-to-top ()
