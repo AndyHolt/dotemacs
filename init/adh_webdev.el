@@ -16,15 +16,11 @@
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js-ts-mode))
 (add-to-list 'auto-mode-alist '("\\.mjs\\'" . js-ts-mode))
 
-;; set up web mode for .vue files
-(autoload 'web-mode "web-mode" "" t)
-;; (add-to-list 'auto-mode-alist '("\\.vue\\'" . web-mode))
-(define-derived-mode vue-mode web-mode "Vue")
-(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-mode))
-
-(with-eval-after-load 'eglot
-  (add-to-list 'eglot-server-programs
-               `(vue-mode . ("vls" "--stdio"))))
+;; Set up vue-ts-mode for Vue files
+(autoload 'vue-ts-mode "vue-ts-mode" "" t)
+(add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-ts-mode))
+(with-eval-after-load 'vue-ts-mode
+  (setq vue-ts-mode-indent-offset 4))
 
 (setq js-indent-level 4
       css-indent-offset 2
@@ -33,11 +29,15 @@
 
 
 ;; treesitter mode for typescript and tsx files
+(require 'typescript-mode-autoloads)
 (autoload 'typescript-ts-mode "typescript-ts-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.ts\\'" . typescript-ts-mode))
 
 (autoload 'tsx-ts-mode "typescript-ts-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
+
+(with-eval-after-load 'typescript-ts-mode
+  (setq typescript-ts-mode-indent-offset 4))
 
 (provide 'adh_webdev)
 ;;; adh_webdev.el ends here

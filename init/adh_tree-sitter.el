@@ -32,6 +32,7 @@
         (toml "https://github.com/ikatyang/tree-sitter-toml")
         (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
         (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
+        (vue "https://github.com/tree-sitter-grammars/tree-sitter-vue")
         (yaml "https://github.com/ikatyang/tree-sitter-yaml")))
 
 (setq major-mode-remap-alist
