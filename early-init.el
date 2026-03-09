@@ -17,6 +17,13 @@
 ;; This speeds up startup by reducing the frequency of garbage collection.
 (setq gc-cons-threshold (* 4000 1000 1000))
 
+;; Increase how much data emacs can read from another process (e.g. LSP)
+;; Increasing to 1mb
+(setq read-process-output-max (* 1024 1024))
+
+;; Make LSP use plists for better performance of JSON deserialisation
+(setenv "LSP_USE_PLISTS" "true")
+
 (defvar use-startup-timer nil "Non-nil displays init file load times.
 
 If nil, load Emacs init file normally. If non-nil, display timing of loading
@@ -58,7 +65,7 @@ If value of `use-startup-timer' is nil, just execute BODY without recording
 (add-to-list 'package-archives
              '("melpa" . "https://melpa.org/packages/") t)
 ;; (add-to-list 'package-archives
-;; 	     '("org" . "https://orgmode.org/elpa/") t)
+;;          '("org" . "https://orgmode.org/elpa/") t)
 (setq package-enable-at-startup nil)
 )
 
