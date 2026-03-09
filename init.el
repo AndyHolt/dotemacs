@@ -108,6 +108,7 @@
 (with-timer "loading adh_gptel" (require 'adh_gptel))
 (with-timer "loading adh_lua" (require 'adh_lua))
 (with-timer "loading adh_rust" (require 'adh_rust))
+(with-timer "loading adh_claude-code" (require 'adh_claude-code))
 ; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
