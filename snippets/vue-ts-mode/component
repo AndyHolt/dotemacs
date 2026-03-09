@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: SFC structure
+# key: component
+# --
+<template>
+  $0
+</template>
+
+<script setup lang="ts">
+
+</script>

@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: props
+# key: props
+# --
+interface Props {
+    ${1:propName}: ${2:type};
+    $0
+}
+
+const props = defineProps<Props>();

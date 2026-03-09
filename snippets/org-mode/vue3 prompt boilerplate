@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: vue3 prompt boilerplate
+# key: vue3
+# --
+I am developing a a Vue3 app, using TypeScript, the Composition API, and ~<script setup>~. Please ensure all suggestions conform to modern best practices with Vue 3.4+. Include links to documentation or other reliable sources to demonstrate established patterns.

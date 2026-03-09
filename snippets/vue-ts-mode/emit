@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: emit
+# key: emit
+# --
+const emit = defineEmits<{
+    ${1:name}: [${2:arg: type}];
+}>();
+$0
