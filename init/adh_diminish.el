@@ -29,8 +29,8 @@
   '(diminish 'flyspell-mode))
 ;; (eval-after-load 'projectile
 ;;   '(diminish 'projectile-mode))
-(eval-after-load 'git-gutter-fringe+
-  '(diminish 'git-gutter+-mode))
+;; (eval-after-load 'git-gutter-fringe+
+;;   '(diminish 'git-gutter+-mode))
 (eval-after-load 'smartparens
   '(diminish 'smartparens-mode))
 (eval-after-load 'subword
