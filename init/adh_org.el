@@ -94,15 +94,17 @@
     (save-excursion
       (ignore-errors
         (org-back-to-heading)
-        (org-update-parent-todo-statistics)))))
+        (org-update-statistics-cookies nil)))))
 
-(defadvice org-kill-line (after fix-cookies activate)
-  "Update checkboxes after killing a line."
-  (adh-org-update-parent-cookie))
+(advice-add 'org-kill-line :after #'adh-org-update-parent-cookie)
+;; (defadvice org-kill-line (after fix-cookies activate)
+;;   "Update checkboxes after killing a line."
+;;   (adh-org-update-parent-cookie))
 
-(defadvice kill-whole-line (after fix-cookies activate)
-  "Update checkboxes after killing a line."
-  (adh-org-update-parent-cookie))
+(advice-add 'kill-whole-line :after #'adh-org-update-parent-cookie)
+;; (defadvice kill-whole-line (after fix-cookies activate)
+;;   "Update checkboxes after killing a line."
+;;   (adh-org-update-parent-cookie))
 )
 
 (with-timer "org capture setup"
@@ -411,6 +413,9 @@ that new file is included in notes targets."
 (autoload 'org-babel-execute:go "ob-go")
 (autoload 'org-babel-expand-body:go "ob-go")
 
+(autoload 'org-babel-execute:typescript "ob-typescript")
+(autoload 'org-babel-expand-body:typescript "ob-typescript")
+
 ;; Fontify org-mode code blocks
 (setq org-src-fontify-natively t)
 
@@ -685,13 +690,54 @@ args are ignored."
 (with-timer "archiving"
 ;; when archiving elements, preserve hierarchy structure in archive
 ;; From https://fuco1.github.io/2017-04-20-Archive-subtrees-under-the-same-hierarchy-as-original-in-the-archive-files.html
-(defadvice org-archive-subtree (around fix-hierarchy activate)
+;; (defadvice org-archive-subtree (around fix-hierarchy activate)
+;;   (let* ((fix-archive-p (and (not current-prefix-arg)
+;;                              (not (use-region-p))))
+;;          (afile  (car (org-archive--compute-location
+;;                        (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
+;;          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
+;;     ad-do-it
+;;     (when fix-archive-p
+;;       (with-current-buffer buffer
+;;         (goto-char (point-max))
+;;         (while (org-up-heading-safe))
+;;         (let* ((olpath (org-entry-get (point) "ARCHIVE_OLPATH"))
+;;                (path (and olpath (split-string olpath "/")))
+;;                (level 1)
+;;                tree-text)
+;;           (when olpath
+;;             (org-mark-subtree)
+;;             (setq tree-text (buffer-substring (region-beginning) (region-end)))
+;;             (let (this-command) (org-cut-subtree))
+;;             (goto-char (point-min))
+;;             (save-restriction
+;;               (widen)
+;;               (-each path
+;;                 (lambda (heading)
+;;                   (if (re-search-forward
+;;                        (rx-to-string
+;;                         `(: bol (repeat ,level "*") (1+ " ") ,heading)) nil t)
+;;                       (org-narrow-to-subtree)
+;;                     (goto-char (point-max))
+;;                     (unless (looking-at "^")
+;;                       (insert "\n"))
+;;                     (insert (make-string level ?*)
+;;                             " "
+;;                             heading
+;;                             "\n"))
+;;                   (cl-incf level)))
+;;               (widen)
+;;               (org-end-of-subtree t t)
+;;               (org-paste-subtree level tree-text))))))))
+
+(defun adh-org-archive-fix-subtree-hierarchy (orig-fun &rest args)
+  "When archiving org element, preserve the hierarchy structure in archive"
   (let* ((fix-archive-p (and (not current-prefix-arg)
                              (not (use-region-p))))
          (afile  (car (org-archive--compute-location
                        (or (org-entry-get nil "ARCHIVE" 'inherit) org-archive-location))))
          (buffer (or (find-buffer-visiting afile) (find-file-noselect afile))))
-    ad-do-it
+    (apply orig-fun args)
     (when fix-archive-p
       (with-current-buffer buffer
         (goto-char (point-max))
@@ -724,6 +770,8 @@ args are ignored."
               (widen)
               (org-end-of-subtree t t)
               (org-paste-subtree level tree-text))))))))
+(advice-add 'org-archive-subtree :around #'adh-org-archive-fix-subtree-hierarchy)
+
 
 ;; by default, org-mode highlights bold or italic text over a single new
 ;; line. Change that to 20 lines
@@ -1340,6 +1388,9 @@ This function used as a filter-return advice for org-html-toc."
 
 ;; end of "Org export settings" timer block
 )
+
+(custom-set-faces
+ '(org-code ((t (:foreground "#DC582A")))))
 
 (provide 'adh_org)
 ;;; adh_org.el ends here
