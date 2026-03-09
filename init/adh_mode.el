@@ -305,6 +305,20 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
             (flyspell-prog-mode)
             (display-line-numbers-mode t)))
 
+;; tempfix
+;;(require 'lsp-mode-autoloads)
+(require 'lsp-mode-autoloads)
+(require 'lsp-mode)
+
+(add-hook 'prog-mode-hook #'lsp)
+
+(with-eval-after-load 'lsp-mode
+  (add-to-list 'lsp-file-watch-ignored-directories
+               (regexp-quote (expand-file-name "~/.emacs.d/backups"))))
+
+(with-eval-after-load 'lsp-mode
+  (setq lsp-apply-edits-after-file-operations nil))
+
 (add-hook 'matlab-mode-hook
           (lambda ()
             ;(abbrev-mode 1)
