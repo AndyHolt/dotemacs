@@ -13,6 +13,9 @@
 (autoload 'magit-status "magit" "" t)
 (global-set-key (kbd "C-c m s") 'magit-status)
 
+(with-eval-after-load "magit"
+  (setq magit-git-executable "/opt/homebrew/bin/git"))
+
 ;; Hydra for Smerge commands
 
 (defhydra hydra-smerge (:color amaranth
