@@ -17,6 +17,13 @@
 ;; (add-to-list 'load-path "~/.emacs.d/.cask/")
 (add-to-list 'load-path "~/Projects/Zenodotus/")
 (add-to-list 'load-path "~/.emacs.d/elisp/")
+;; Add all directories in elisp dir to load path
+(let ((default-directory "~/.emacs.d/elisp/"))
+  (setq load-path
+        (append
+         (let ((load-path (copy-sequence load-path)))
+           (normal-top-level-add-subdirs-to-load-path))
+         load-path)))
 (add-to-list 'load-path "~/.emacs.d/elpa/")
 ;; add all directories in ~/.emacs.d/elpa/ to load-path
 ;; must be added to beginning of load path to ensure that installed packages
@@ -52,6 +59,7 @@
 
 ;; disable handling file name of my start up files
 ;; This saves running a series of regexps against the file names to determine if
+
 ;; some kind of file handling is required. Takes a few miliseconds off init load
 ;; time, for no cost.
 (let ((file-name-handler-alist nil))
@@ -78,6 +86,7 @@
 ;; (require 'adh_thunderlink)
 (with-timer "loading adh_keyfreq" (require 'adh_keyfreq))
 (with-timer "loading adh_hippie" (require 'adh_hippie))
+(with-timer "loading adh_company" (require 'adh_company))
 ;; (require 'adh_alias)
 (with-timer "loading adh_flycheck" (require 'adh_flycheck))
 ;(require 'adh_sentence-highlight)
@@ -97,6 +106,8 @@
 (with-timer "loading adh_webdev" (require 'adh_webdev))
 (with-timer "loading adh_tree-sitter" (require 'adh_tree-sitter))
 (with-timer "loading adh_gptel" (require 'adh_gptel))
+(with-timer "loading adh_lua" (require 'adh_lua))
+(with-timer "loading adh_rust" (require 'adh_rust))
 ; (require 'adh_info)
 ; (require 'adh_orgcal)
 ; (require 'adh_pdf)
@@ -142,7 +153,7 @@ value when running Emacs to reduce the time taken to do a garbage collection.
 This value likely will need to be tuned to reach the optimal value to balance
 frequency of garbage collections and the time taken to do them."
   (with-timer "final thing: define gc-cons-threshold"
-              (setq gc-cons-threshold (* 2000000))))
+              (setq gc-cons-threshold 100000000)))
 (add-hook 'emacs-startup-hook #'adh-set-gc-threshold-for-normal-running 80)
 
 (message "End of init.el")
