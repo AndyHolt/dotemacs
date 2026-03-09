@@ -11,23 +11,27 @@
 ;;; Code:
 
 (require 'gptel)
-(require 'gptel-curl)
+;; (require 'gptel-curl)
 (require 'gptel-anthropic)
 (require 'transient)
 
 (setopt gptel-default-mode 'org-mode
         gptel-org-branching-context t)
 
+;; (setq gptel-model 'claude-sonnet-4-20250514)
 
+(setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
+(setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
 
 (let ((api-key (plist-get
                 (car (auth-source-search :host "api.anthropic.com"
                                          :user "apikey"
                                          :require '(:user :secret)))
                 :secret)))
-  (gptel-make-anthropic "Claude"
+  (setq gptel-model 'claude-sonnet-4-5-20250929
+        gptel-backend (gptel-make-anthropic "Claude"
                         :stream t
-                        :key (funcall api-key)))
+                        :key (funcall api-key))))
 
 (provide 'adh_gptel)
 ;;; adh_gptel.el ends here
