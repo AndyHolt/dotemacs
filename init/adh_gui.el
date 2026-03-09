@@ -62,24 +62,35 @@
 ;; allows it to be resized much more effectively by window managers.
 (setq frame-resize-pixelwise t)
 
+;; ensure eldoc displays multiple lines, truncating to first line is never what
+;; I want from eglot information
+(setq eldoc-echo-area-use-multiline-p t)
 )
 
-(with-timer "git-gutter-fringe"
+(with-timer "git-gutter"
 ;; setup git-gutter mode
-; (require 'git-gutter-fringe+)
-(autoload 'git-gutter+-mode "git-gutter-fringe+" "" t)
-; (global-git-gutter+-mode t)
-(defun enable-ggm-if-vc ()
-  "Enable git-gutter+-mode if current buffer is in version control directory.
+(require 'git-gutter-autoloads)
+(require 'git-gutter-fringe-autoloads)
+(defun enable-git-gutter-if-vc ()
+  "Enable git-gutter-mode if current buffer is in version control directory.
 
 For use in mode hooks."
   (if (vc-root-dir)
-      (git-gutter+-mode)
+      (git-gutter-mode)
     nil))
 
-(add-hook 'prog-mode-hook 'enable-ggm-if-vc)
-(add-hook 'org-mode-hook 'enable-ggm-if-vc)
-)
+(add-hook 'prog-mode-hook 'enable-git-gutter-if-vc)
+(add-hook 'org-mode-hook 'enable-git-gutter-if-vc)
+
+(eval-after-load 'git-gutter
+    (setq git-gutter:update-interval 0.2))
+
+;; (eval-after-load 'git-gutter-fringe
+;;   (progn
+;;     (define-fringe-bitmap 'git-gutter-fr:added [224] nil nil '(center repeated))
+;;     (define-fringe-bitmap 'git-gutter-fr:modified [224] nil nil '(center repeated))
+;;     (define-fringe-bitmap 'git-gutter-fr:deleted [128 192 224 240] nil nil 'bottom)))
+) ;; end of with-timer "git-gutter"
 
 (with-timer "fonts setup"
 ;; Font selection - platform dependant
@@ -100,6 +111,20 @@ For use in mode hooks."
 (when (member "Menlo" (font-family-list))
   (set-frame-font "Menlo" t t)
   (set-face-font 'fixed-pitch "Menlo"))
+
+(defun adh-use-smaller-font ()
+  "Set frame font to a smaller front (for use on laptop screen)"
+  (interactive)
+  (when (member "Menlo" (font-family-list))
+    (set-frame-font "Menlo-10" t t)
+    (set-face-font 'fixed-pitch "Menlo-10")))
+
+(defun adh-use-regular-size-font ()
+  "Use normal font again, resetting `adh-use-smaller-font'"
+  (interactive)
+  (when (member "Menlo" (font-family-list))
+    (set-frame-font "Menlo-12" t t)
+    (set-face-font 'fixed-pitch "Menlo-12")))
 
 ;; Hebrew font setup
 ;;
