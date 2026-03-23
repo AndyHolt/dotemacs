@@ -61,6 +61,8 @@ Run from the mode hook so it overrides parent mode hooks."
 
 ;;;###autoload
 (add-to-list 'auto-mode-alist '("claude-prompt-.*\\.md\\'" . claude-code-prompt-mode))
+(add-to-list 'auto-mode-alist
+             '("/Users/adh/.claude/plans/.*\\md\\'" . claude-code-prompt-mode))
 
 (provide 'adh_claude-code)
 ;;; adh_claude-code.el ends here
