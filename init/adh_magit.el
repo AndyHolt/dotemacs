@@ -53,5 +53,11 @@ _p_: prev       _l_: keep lower       _E_: smerge Ediff         _C-l_: recenter
 (with-eval-after-load "smerge-mode"
   (keymap-set smerge-mode-map "C-c ^" 'hydra-smerge/body))
 
+;; Add keybinding for quickly switching git worktrees
+;; Available while viewing/editing files in a worktree, not just from the magit
+;; status buffer
+(with-eval-after-load "magit"
+  (keymap-set prog-mode-map "C-c m w" 'magit-worktree-status))
+
 (provide 'adh_magit)
 ;;; adh_magit.el ends here
