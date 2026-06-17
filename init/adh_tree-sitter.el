@@ -26,9 +26,11 @@
         (javascript "https://github.com/tree-sitter/tree-sitter-javascript")
         (json "https://github.com/tree-sitter/tree-sitter-json")
         (latex "https://github.com/latex-lsp/tree-sitter-latex")
+        (make "https://github.com/alemuller/tree-sitter-make")
         (markdown "https://github.com/MDeiml/tree-sitter-markdown"
                   "split_parser" "tree-sitter-markdown/src")
         (python "https://github.com/tree-sitter/tree-sitter-python")
+        (rust "https://github.com/tree-sitter/tree-sitter-rust")
         (toml "https://github.com/ikatyang/tree-sitter-toml")
         (tsx "https://github.com/tree-sitter/tree-sitter-typescript" "master" "tsx/src")
         (typescript "https://github.com/tree-sitter/tree-sitter-typescript" "master" "typescript/src")
@@ -44,7 +46,9 @@
         (go-mod-mode . go-mod-ts-mode)
         (js-mode . js-ts-mode)
         (json-mode . json-ts-mode)
+        (make-mode . make-ts-mode)
         (python-mode . python-ts-mode)
+        (rust-mode . rust-ts-mode)
         (conf-toml-mode . toml-ts-mode)
         (yaml-mode . yaml-ts-mode)))
 
