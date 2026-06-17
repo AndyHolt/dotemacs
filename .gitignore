@@ -5,6 +5,7 @@
 auto-save-list/
 backups/
 cache/
+.cache/
 newsticker/
 session*
 tramp
@@ -42,6 +43,7 @@ network-security.data
 .dir-locals.el
 request/
 transient/
+.lsp-session*
 
 async-bytecomp.log
 
