@@ -319,6 +319,13 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
 (with-eval-after-load 'lsp-mode
   (setq lsp-apply-edits-after-file-operations nil))
 
+(with-eval-after-load 'lsp-mode
+  (dolist (entry '((makefile-mode . "makefile")
+                   (makefile-gmake-mode . "makefile")
+                   (makefile-bsdmake-mode . "makefile")
+                   (makefile-automake-mode . "makefile")))
+    (add-to-list 'lsp-language-id-configuration entry)))
+
 (add-hook 'matlab-mode-hook
           (lambda ()
             ;(abbrev-mode 1)
