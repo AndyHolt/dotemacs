@@ -105,7 +105,6 @@
 (with-timer "loading adh_zeno" (require 'adh_zeno))
 (with-timer "loading adh_webdev" (require 'adh_webdev))
 (with-timer "loading adh_tree-sitter" (require 'adh_tree-sitter))
-(with-timer "loading adh_gptel" (require 'adh_gptel))
 (with-timer "loading adh_lua" (require 'adh_lua))
 (with-timer "loading adh_rust" (require 'adh_rust))
 (with-timer "loading adh_claude-code" (require 'adh_claude-code))
@@ -126,6 +125,15 @@
 (setq custom-file "~/.emacs.d/init/adh_custom.el")
 (load custom-file 'noerror)
 )
+
+(with-timer "machine specific config"
+;; machine specific configurations, e.g. personal vs work config
+(cond
+ ((string= (system-name) "papias")
+  (with-timer "loading personal machine config" (require 'adh_personal)))
+ ((string= (system-name) "DT-E0000471")
+  (with-timer "loading work machine config" (require 'adh_work)))
+))
 
 ;; load diminish near the end to ensure everything is properly diminished
 (with-timer "setting up diminish"
