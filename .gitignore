@@ -47,3 +47,6 @@ async-bytecomp.log
 
 # native compiled files
 eln-cache/
+
+# treesitter grammars (platform-specific, not portable across machines)
+tree-sitter/*.dylib
