@@ -20,9 +20,9 @@
 (autoload 'vue-ts-mode "vue-ts-mode" "" t)
 (add-to-list 'auto-mode-alist '("\\.vue\\'" . vue-ts-mode))
 (with-eval-after-load 'vue-ts-mode
-  (setq vue-ts-mode-indent-offset 4))
+  (setq vue-ts-mode-indent-offset 2))
 
-(setq js-indent-level 4
+(setq js-indent-level 2
       css-indent-offset 2
       web-mode-script-padding 0
       web-mode-style-padding 0)
@@ -37,7 +37,7 @@
 (add-to-list 'auto-mode-alist '("\\.tsx\\'" . tsx-ts-mode))
 
 (with-eval-after-load 'typescript-ts-mode
-  (setq typescript-ts-mode-indent-offset 4))
+  (setq typescript-ts-mode-indent-offset 2))
 
 (provide 'adh_webdev)
 ;;; adh_webdev.el ends here
