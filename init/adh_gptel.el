@@ -23,15 +23,18 @@
 (setf (alist-get 'org-mode gptel-prompt-prefix-alist) "@user\n")
 (setf (alist-get 'org-mode gptel-response-prefix-alist) "@assistant\n")
 
-(let ((api-key (plist-get
-                (car (auth-source-search :host "api.anthropic.com"
-                                         :user "apikey"
-                                         :require '(:user :secret)))
-                :secret)))
-  (setq gptel-model 'claude-sonnet-4-5-20250929
+(setq auth-sources '("~/.authinfo.gpg"))
+
+(let ((api-key (auth-info-password
+                (car (let ((auth-source-do-cache nil))
+                       (auth-source-search
+                        :max 1
+                        :host "api.anthropic.com"
+                        :user "apikey"))))))
+  (setq gptel-model 'claude-sonnet-4-6
         gptel-backend (gptel-make-anthropic "Claude"
                         :stream t
-                        :key (funcall api-key))))
+                        :key api-key)))
 
 (provide 'adh_gptel)
 ;;; adh_gptel.el ends here
