@@ -1246,6 +1246,7 @@ line-breaks."
   (toggle-word-wrap t)
   (visual-fill-column-mode t))
 
+(require 'diminish-autoloads)
 ;; enable org-indent-mode
 (defun adh-org-indent-enable ()
   "Enable org-indent-mode (function to be called by `org-mode-hook')"

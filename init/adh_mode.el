@@ -344,6 +344,7 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
 (require 'whole-line-or-region)
 (whole-line-or-region-global-mode t)
 
+(require 'diminish-autoloads)
 (defun adh-text-mode-setup ()
     "Set up text-mode buffers with general settings.
 
