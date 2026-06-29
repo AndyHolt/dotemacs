@@ -12,6 +12,9 @@
 ;;; Code:
 
 (autoload 'helm "helm")
+(require 'helm-autoloads)
+(require 'helm-projectile-autoloads)
+
 ;; helm-config.el has been removed from helm package, with code moved into other files
 ;(eval-after-load "helm" '(require 'helm-config))
 
@@ -22,13 +25,15 @@
 ;; - Project buffers
 ;; - Projectile files
 ;; - Projectile projects
-(setq helm-mini-default-sources '(helm-source-buffers-list
-                                  helm-source-recentf
-                                  helm-source-bookmarks
-                                  helm-source-projectile-buffers-list
-                                  helm-source-projectile-files-list
-                                  helm-source-projectile-projects
-                                  helm-source-buffer-not-found))
+(with-eval-after-load 'helm
+  (require 'helm-projectile)
+  (setq helm-mini-default-sources '(helm-source-buffers-list
+                                    helm-source-recentf
+                                    helm-source-bookmarks
+                                    helm-source-projectile-buffers-list
+                                    helm-source-projectile-files-list
+                                    helm-source-projectile-projects
+                                    helm-source-buffer-not-found)))
 
 (global-set-key (kbd "C-c h") 'helm-mini)
 
