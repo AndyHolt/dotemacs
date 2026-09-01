@@ -105,7 +105,6 @@
 (with-timer "loading adh_zeno" (require 'adh_zeno))
 (with-timer "loading adh_webdev" (require 'adh_webdev))
 (with-timer "loading adh_tree-sitter" (require 'adh_tree-sitter))
-(with-timer "loading adh_lua" (require 'adh_lua))
 (with-timer "loading adh_rust" (require 'adh_rust))
 (with-timer "loading adh_claude-code" (require 'adh_claude-code))
 (with-timer "loading adh_terraform" (require 'adh_terraform))

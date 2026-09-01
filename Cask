@@ -47,7 +47,6 @@
 (depends-on "jinja2-mode")
 (depends-on "keyfreq")
 (depends-on "literate-calc-mode")
-(depends-on "lua-mode")
 (depends-on "lsp-mode")
 (depends-on "magit")
 (depends-on "markdown-mode")
