@@ -38,6 +38,7 @@
 (depends-on "haskell-mode")
 (depends-on "helm")
 (depends-on "helm-bibtex")
+(depends-on "helm-lsp")
 (depends-on "helm-org-rifle")
 (depends-on "helm-projectile")
 (depends-on "highlight-indent-guides")

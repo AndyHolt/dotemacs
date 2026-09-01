@@ -309,6 +309,7 @@ default input for `helm-bibtex'. Else just use helm-bibtex as normal."
 ;;(require 'lsp-mode-autoloads)
 (require 'lsp-mode-autoloads)
 (require 'lsp-mode)
+(require 'helm-lsp-autoloads)
 
 (add-hook 'prog-mode-hook #'lsp)
 
