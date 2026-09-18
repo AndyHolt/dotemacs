@@ -59,5 +59,13 @@ _p_: prev       _l_: keep lower       _E_: smerge Ediff         _C-l_: recenter
 (with-eval-after-load "magit"
   (keymap-set prog-mode-map "C-c m w" 'magit-worktree-status))
 
+;; Add worktrees to magit status view
+(with-eval-after-load "magit"
+  (magit-add-section-hook 'magit-status-sections-hook
+                          #'magit-insert-worktrees
+                          nil t))
+
+
+
 (provide 'adh_magit)
 ;;; adh_magit.el ends here
