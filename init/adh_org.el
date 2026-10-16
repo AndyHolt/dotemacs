@@ -28,44 +28,44 @@
 )
 
 (with-timer "set org files and directories"
-(defvar adh-dropbox-location
-  (cond ((eq system-type 'darwin) (expand-file-name "~/Dropbox/"))
-        ((eq system-type 'gnu/linux) (expand-file-name "~/Dropbox/"))
-        ((eq system-type 'windows-nt) "d:/Dropbox/")
-        (t "~/Dropbox/"))
-  "Holds the location of the Dropbox root directory for the current system.")
+;; (defvar adh-dropbox-location
+;;   (cond ((eq system-type 'darwin) (expand-file-name "~/Dropbox/"))
+;;         ((eq system-type 'gnu/linux) (expand-file-name "~/Dropbox/"))
+;;         ((eq system-type 'windows-nt) "d:/Dropbox/")
+;;         (t "~/Dropbox/"))
+;;   "Holds the location of the Dropbox root directory for the current system.")
 
-;; set org files directory
-(setq org-directory (expand-file-name "Org_files/" adh-dropbox-location))
+;; ;; set org files directory
+;; (setq org-directory (expand-file-name "Org_files/" adh-dropbox-location))
 
-;; use org-mac to get links from mac applications
-; (require 'org-mac-link)
+;; ;; use org-mac to get links from mac applications
+;; ; (require 'org-mac-link)
 
-;; add files to org agenda
-(setq adh-non-cal-org-agenda-files
-      (list (expand-file-name "todo.org" org-directory)
-            (expand-file-name "notes.org" org-directory)
-            (expand-file-name "diary.org" org-directory)
-            ))
-(setq adh-cal-agenda-files
-      (list (expand-file-name "cal.org" org-directory)
-            (expand-file-name "fam-cal.org" org-directory)
-            (expand-file-name "sbts-cal.org" org-directory)
-            (expand-file-name "church-cal.org" org-directory)
-            (expand-file-name "cbc-cal.org" org-directory)
-            ))
+;; ;; add files to org agenda
+;; (setq adh-non-cal-org-agenda-files
+;;       (list (expand-file-name "todo.org" org-directory)
+;;             (expand-file-name "notes.org" org-directory)
+;;             (expand-file-name "diary.org" org-directory)
+;;             ))
+;; (setq adh-cal-agenda-files
+;;       (list (expand-file-name "cal.org" org-directory)
+;;             (expand-file-name "fam-cal.org" org-directory)
+;;             (expand-file-name "sbts-cal.org" org-directory)
+;;             (expand-file-name "church-cal.org" org-directory)
+;;             (expand-file-name "cbc-cal.org" org-directory)
+;;             ))
 
-(require 'dash)
-(setq org-agenda-files
-      (-concat adh-non-cal-org-agenda-files
-               adh-cal-agenda-files
-               ))
+;; (require 'dash)
+;; (setq org-agenda-files
+;;       (-concat adh-non-cal-org-agenda-files
+;;                adh-cal-agenda-files
+;;                ))
 
-;; set diary for inclusion in agenda
-(setq org-agenda-include-diary t)
+;; ;; set diary for inclusion in agenda
+;; (setq org-agenda-include-diary t)
 
-;; set up diary file
-(setq org-agenda-diary-file (expand-file-name "diary.org" org-directory))
+;; ;; set up diary file
+;; (setq org-agenda-diary-file (expand-file-name "diary.org" org-directory))
 
 ;; TODO keyword states for org files
 (setq org-todo-keywords
@@ -107,9 +107,9 @@
 ;;   (adh-org-update-parent-cookie))
 )
 
-(with-timer "org capture setup"
+;; (with-timer "org capture setup"
 ;; setup capture target file
-(setq org-default-notes-file "~/Dropbox/Org_files/todo.org")
+;; (setq org-default-notes-file "~/Dropbox/Org_files/todo.org")
 
 ;; setup capture templates
 ;; OLD VERSION!
@@ -134,72 +134,73 @@
 ;;                                "Web Links")
 ;;     "* %a\n %?\n %i")))
 
-;; capture templates, experimental new one
-(setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
-         "* TODO %?\n%i\n%U\n")
-        ("c" "Todo with Context" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
-         "* TODO %?\n%i\n%a\n%U\n")
-        ;; ("e" "Event")
-        ;; ("ep" "Event in Personal Calendar" entry (file "~/Dropbox/Org_files/gcal.org" )
-        ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ;; ("eu" "Event in UCCF Calendar" entry (file "~/Dropbox/Org_files/uccf-cal.org" )
-        ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ;; ("ec" "Event in Church Calendar" entry (file "~/Dropbox/Org_files/church-cal.org" )
-        ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ;; ("ef" "Event in Family Calendar" entry (file "~/Dropbox/Org_files/family-cal.org" )
-        ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ;; ("es" "Event in SBTS Calendar" entry (file "~/Dropbox/Org_files/sbts-cal.org" )
-        ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
-        ("s" "SBTS")
-        ("sh" "Hebrew" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                            "20440 Hebrew Syntax and Exegesis")
-         "* TODO %?\nDEADLINE: %^T\n%U\n")
-        ("sp" "Preaching" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                           "30000 Christian Preaching")
-         "* TODO %?\nDEADLINE: %^t\n%U\n")
-        ("sc" "Biblical Counselling" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                           "34300WW Intro to Biblical Counselling")
-         "* TODO %?\nDEADLINE: %^T\n%U\n")
-        ("sj" "Cromwell Journal" entry
-          (file+olp+datetree "/Users/adh/Documents/SBTS/SU21_25120-ChurchHistory2/SpiritualityPaper/CH2-Cromwell-Journal.org")
-         "* %?\n\n%T\n\n")
-        ("r" "Reading")
-        ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                          "Reading and study" )
-         "* TODO book: %^{author}, /%^{title}/\n%?\n%T\n\n")
-        ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
-                                             "Reading and study")
-         "* TODO article: %?\n%T\n\n")
-        ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
-         "* %?\n\n%T\n\n")
-        ("l" "Link from Browser" entry (file+headline "todo.org" "Inbox")
-         (function adh-org-capture-browser-tabs))
-        ("b" "Bread journal" entry (file+olp+datetree
-                                    "/Users/adh/Documents/notes/notes/bread-notebook.org"
-                                    "Notebook")
-         "* %?\n\n%U\n")))
+;; ;; capture templates, experimental new one
+;; (setq org-capture-templates
+;;       '(("t" "Todo" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
+;;          "* TODO %?\n%i\n%U\n")
+;;         ("c" "Todo with Context" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
+;;          "* TODO %?\n%i\n%a\n%U\n")
+;;         ;; ("e" "Event")
+;;         ;; ("ep" "Event in Personal Calendar" entry (file "~/Dropbox/Org_files/gcal.org" )
+;;         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+;;         ;; ("eu" "Event in UCCF Calendar" entry (file "~/Dropbox/Org_files/uccf-cal.org" )
+;;         ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+;;         ;; ("ec" "Event in Church Calendar" entry (file "~/Dropbox/Org_files/church-cal.org" )
+;;         ;;  "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+;;         ;; ("ef" "Event in Family Calendar" entry (file "~/Dropbox/Org_files/family-cal.org" )
+;;         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+;;         ;; ("es" "Event in SBTS Calendar" entry (file "~/Dropbox/Org_files/sbts-cal.org" )
+;;         ;; "* %?\n\n%^T\n\n:PROPERTIES:\n\n:END:\n\n")
+;;         ("s" "SBTS")
+;;         ("sh" "Hebrew" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                             "20440 Hebrew Syntax and Exegesis")
+;;          "* TODO %?\nDEADLINE: %^T\n%U\n")
+;;         ("sp" "Preaching" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                            "30000 Christian Preaching")
+;;          "* TODO %?\nDEADLINE: %^t\n%U\n")
+;;         ("sc" "Biblical Counselling" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                            "34300WW Intro to Biblical Counselling")
+;;          "* TODO %?\nDEADLINE: %^T\n%U\n")
+;;         ("sj" "Cromwell Journal" entry
+;;           (file+olp+datetree "/Users/adh/Documents/SBTS/SU21_25120-ChurchHistory2/SpiritualityPaper/CH2-Cromwell-Journal.org")
+;;          "* %?\n\n%T\n\n")
+;;         ("r" "Reading")
+;;         ("rb" "Book" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                           "Reading and study" )
+;;          "* TODO book: %^{author}, /%^{title}/\n%?\n%T\n\n")
+;;         ("ra" "Article" entry (file+headline "~/Dropbox/Org_files/todo.org"
+;;                                              "Reading and study")
+;;          "* TODO article: %?\n%T\n\n")
+;;         ("n" "Note" entry (file+headline "~/Dropbox/Org_files/todo.org" "Inbox")
+;;          "* %?\n\n%T\n\n")
+;;         ("l" "Link from Browser" entry (file+headline "todo.org" "Inbox")
+;;          (function adh-org-capture-browser-tabs))
+;;         ("b" "Bread journal" entry (file+olp+datetree
+;;                                     "/Users/adh/Documents/notes/notes/bread-notebook.org"
+;;                                     "Notebook")
+;;          "* %?\n\n%U\n")))
 
-;; define function for use in capture to get tabs via helm-browser-tabs
-(defun adh-org-capture-browser-tabs ()
-    "Get browser tabs from helm (one or multiple) and generate a org capture
-template to capture them."
-    (let* ((tabs-list (with-temp-buffer (org-mode)
-                                        (helm-browser-tabs t)
-                                        (buffer-substring-no-properties (point-min)
-                                                                        (point-max))))
-           (capture-headline (if (string-match "\n" tabs-list)
-                                 "Links relating to %?"
-                               (format "%s%%?"
-                                       (progn
-                                         (string-match org-link-bracket-re
-                                                       tabs-list)
-                                         (or (match-string 3 tabs-list)
-                                             (match-string 1 tabs-list)))))))
-      (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
-;; ensure helm-browser-tabs is loaded if using org capture with browser tabs
-(autoload 'adh-org-capture-browser-tabs "helm-browser-tabs")
-)
+;; ;; define function for use in capture to get tabs via helm-browser-tabs
+;; (defun adh-org-capture-browser-tabs ()
+;;     "Get browser tabs from helm (one or multiple) and generate a org capture
+;; template to capture them."
+;;     (let* ((tabs-list (with-temp-buffer (org-mode)
+;;                                         (helm-browser-tabs t)
+;;                                         (buffer-substring-no-properties (point-min)
+;;                                                                         (point-max))))
+;;            (capture-headline (if (string-match "\n" tabs-list)
+;;                                  "Links relating to %?"
+;;                                (format "%s%%?"
+;;                                        (progn
+;;                                          (string-match org-link-bracket-re
+;;                                                        tabs-list)
+;;                                          (or (match-string 3 tabs-list)
+;;                                              (match-string 1 tabs-list)))))))
+;;       (format "* TODO %s\n%s\n%%T\n" capture-headline tabs-list)))
+;; ;; ensure helm-browser-tabs is loaded if using org capture with browser tabs
+;; (autoload 'adh-org-capture-browser-tabs "helm-browser-tabs")
+;; )
+
 ;; start org protocol - for creating links etc to external
 ;; applications
 ;(require 'org-protocol)
@@ -215,169 +216,169 @@ template to capture them."
        (setcdr (assoc "\\.pdf\\'" org-file-apps) "open %s")))
 )
 
-(with-timer "org refile"
-;; setup refiling
-;; refiling possible to:
-;; - current buffer, up to 10 levels of headings
-;; - agenda files, up to 3 levels of headings
-;; - book notes files, up to 10 levels of headings (probably too much, but ah
-;;   well!)
-;; - notes files, up to 10 levels of headings
+;; (with-timer "org refile"
+;; ;; setup refiling
+;; ;; refiling possible to:
+;; ;; - current buffer, up to 10 levels of headings
+;; ;; - agenda files, up to 3 levels of headings
+;; ;; - book notes files, up to 10 levels of headings (probably too much, but ah
+;; ;;   well!)
+;; ;; - notes files, up to 10 levels of headings
 
-;; Try changing refile targets from all agenda files to only agenda files which
-;; aren't calendar files. I don't have to move things to calendar files often at
-;; all (I only really do capturing to files) so it's annoying when trying to
-;; refile to a heading in todo.org and suggestions from the associated calendar
-;; file are suggested instead.
-;; [todo] - if this works well, streamline setting of org-agenda-files from
-;; different groups, made up of non-calendar agenda files and calendar agenda
-;; files. That will save from having redudency between variables that need to be
-;; modifed in different places. THIS IS CURRENTLY A BOTCH!
-(setq org-refile-use-outline-path 'file)
-(setq org-outline-path-complete-in-steps nil)
-(setq org-refile-allow-creating-parent-nodes t)
-(setq org-refile-allow-creating-parent-nodes 'confirm)
-(setq org-refile-use-cache t)
+;; ;; Try changing refile targets from all agenda files to only agenda files which
+;; ;; aren't calendar files. I don't have to move things to calendar files often at
+;; ;; all (I only really do capturing to files) so it's annoying when trying to
+;; ;; refile to a heading in todo.org and suggestions from the associated calendar
+;; ;; file are suggested instead.
+;; ;; [todo] - if this works well, streamline setting of org-agenda-files from
+;; ;; different groups, made up of non-calendar agenda files and calendar agenda
+;; ;; files. That will save from having redudency between variables that need to be
+;; ;; modifed in different places. THIS IS CURRENTLY A BOTCH!
+;; (setq org-refile-use-outline-path 'file)
+;; (setq org-outline-path-complete-in-steps nil)
+;; (setq org-refile-allow-creating-parent-nodes t)
+;; (setq org-refile-allow-creating-parent-nodes 'confirm)
+;; (setq org-refile-use-cache t)
 
-(defun adh-init-notes-files-and-refile-targets ()
-  "Set org files for notes and set up refile targets.
+;; (defun adh-init-notes-files-and-refile-targets ()
+;;   "Set org files for notes and set up refile targets.
 
-This function can be used both to initialise the notes files and targets an
-initialisation, but also for adding new files. Calling this function after
-creating a new file in one of the standard notes directories will ensure that
-that new file is included in notes targets."
-  (interactive)
-  (setq adh-booknotes-files (file-expand-wildcards
-                             "~/Documents/notes/book-notes/*.org"))
-  (setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
-  (setq adh-biblenotes-files (file-expand-wildcards
-                              "~/Documents/notes/bible-notes/*.org"))
-  (setq adh-sbtsnotes-files (file-expand-wildcards
-                             "~/Documents/notes/sbts-notes/*.org"))
-  (setq org-refile-targets '((nil :maxlevel . 10)
-                             (adh-non-cal-org-agenda-files :maxlevel . 5)
-                             (adh-booknotes-files :maxlevel . 10)
-                             (adh-notes-files :maxlevel . 10)
-                             (adh-biblenotes-files :maxlevel . 10)
-                             (adh-sbtsnotes-files :maxlevel . 10)))
-  (org-refile-cache-clear))
-
-(eval-after-load 'org
-  '(progn
-     (require 'org-refile)
-     (adh-init-notes-files-and-refile-targets)))
-
-;; When refiling, make a link to the original location in the annotation
-;; (defun adh-org-refile-get-orig-location ()
-;;     "Store org-link with the location of the original note, when refiling.
-
-;; Function to be called when beginning org-refile, so as to have link ready to be
-;;   inserted when refiling link."
+;; This function can be used both to initialise the notes files and targets an
+;; initialisation, but also for adding new files. Calling this function after
+;; creating a new file in one of the standard notes directories will ensure that
+;; that new file is included in notes targets."
 ;;   (interactive)
-;;   (call-interactively 'org-store-link))
-(defvar adh-org-refile-parent nil
-  "Parent of an org entity about to be refiled")
+;;   (setq adh-booknotes-files (file-expand-wildcards
+;;                              "~/Documents/notes/book-notes/*.org"))
+;;   (setq adh-notes-files (file-expand-wildcards "~/Documents/notes/notes/*.org"))
+;;   (setq adh-biblenotes-files (file-expand-wildcards
+;;                               "~/Documents/notes/bible-notes/*.org"))
+;;   (setq adh-sbtsnotes-files (file-expand-wildcards
+;;                              "~/Documents/notes/sbts-notes/*.org"))
+;;   (setq org-refile-targets '((nil :maxlevel . 10)
+;;                              (adh-non-cal-org-agenda-files :maxlevel . 5)
+;;                              (adh-booknotes-files :maxlevel . 10)
+;;                              (adh-notes-files :maxlevel . 10)
+;;                              (adh-biblenotes-files :maxlevel . 10)
+;;                              (adh-sbtsnotes-files :maxlevel . 10)))
+;;   (org-refile-cache-clear))
 
-(advice-add 'org-refile
-            :before
-            (lambda (&rest _)
-              (setq adh-org-refile-parent (adh-get-org-headline-location)))
-            '((name . adh-advice-org-refile-get-orig-location)))
+;; (eval-after-load 'org
+;;   '(progn
+;;      (require 'org-refile)
+;;      (adh-init-notes-files-and-refile-targets)))
 
-(defun adh-get-org-headline-location ()
-    "Get the location of the current headline, either the
-     headline a level above the current headline, or else the
-     file name"
-    (interactive)
-    (save-excursion
-      (if (org-up-heading-safe)
-          (org-link-make-string (concat "id:" (org-id-get-create)) (org-get-heading t t t t))
-        (file-name-nondirectory (buffer-file-name)))))
+;; ;; When refiling, make a link to the original location in the annotation
+;; ;; (defun adh-org-refile-get-orig-location ()
+;; ;;     "Store org-link with the location of the original note, when refiling.
 
-(defun adh-org-refile-insert-orig-location ()
-    "Insert a link to log note back to original location of refiled note."
-  (interactive)
-  (insert (format "Refiled from %s"
-                  adh-org-refile-parent)))
+;; ;; Function to be called when beginning org-refile, so as to have link ready to be
+;; ;;   inserted when refiling link."
+;; ;;   (interactive)
+;; ;;   (call-interactively 'org-store-link))
+;; (defvar adh-org-refile-parent nil
+;;   "Parent of an org entity about to be refiled")
+
+;; (advice-add 'org-refile
+;;             :before
+;;             (lambda (&rest _)
+;;               (setq adh-org-refile-parent (adh-get-org-headline-location)))
+;;             '((name . adh-advice-org-refile-get-orig-location)))
+
+;; (defun adh-get-org-headline-location ()
+;;     "Get the location of the current headline, either the
+;;      headline a level above the current headline, or else the
+;;      file name"
+;;     (interactive)
+;;     (save-excursion
+;;       (if (org-up-heading-safe)
+;;           (org-link-make-string (concat "id:" (org-id-get-create)) (org-get-heading t t t t))
+;;         (file-name-nondirectory (buffer-file-name)))))
+
+;; (defun adh-org-refile-insert-orig-location ()
+;;     "Insert a link to log note back to original location of refiled note."
+;;   (interactive)
+;;   (insert (format "Refiled from %s"
+;;                   adh-org-refile-parent)))
 
 
-(add-hook 'org-log-buffer-setup-hook 'adh-org-refile-insert-orig-location)
+;; (add-hook 'org-log-buffer-setup-hook 'adh-org-refile-insert-orig-location)
 
-;; refiling into date-tree
-;; - Primary use case is when note has been captured from mobile phone, and
-;;   appended to inbox of org-files through dropbox. This note can later, within
-;;   Emacs, be refiled to the appropriate place in date-tree of notes.org
-;; - The motivation for refiling into date-tree, not just into a topical note
-;;   system is for ease of finding when I can vaguely remember when something
-;;   was noted, but not any details for searching
-;; - Code borrowed from
-;;   https://emacs.stackexchange.com/questions/10597/how-to-refile-into-a-datetree
-(defun adh-org-read-datetree-date (d)
-  "Parse a time string D and return a date to pass to the datetree functions."
-  (let ((dtmp (nthcdr 3 (parse-time-string d))))
-    (list (cadr dtmp) (car dtmp) (caddr dtmp))))
+;; ;; refiling into date-tree
+;; ;; - Primary use case is when note has been captured from mobile phone, and
+;; ;;   appended to inbox of org-files through dropbox. This note can later, within
+;; ;;   Emacs, be refiled to the appropriate place in date-tree of notes.org
+;; ;; - The motivation for refiling into date-tree, not just into a topical note
+;; ;;   system is for ease of finding when I can vaguely remember when something
+;; ;;   was noted, but not any details for searching
+;; ;; - Code borrowed from
+;; ;;   https://emacs.stackexchange.com/questions/10597/how-to-refile-into-a-datetree
+;; (defun adh-org-read-datetree-date (d)
+;;   "Parse a time string D and return a date to pass to the datetree functions."
+;;   (let ((dtmp (nthcdr 3 (parse-time-string d))))
+;;     (list (cadr dtmp) (car dtmp) (caddr dtmp))))
 
-(defun adh-org-refile-to-notes (&optional bfn)
-  "Refile an entry to notes file and appropriate datetree location."
-  (interactive)
-  (require 'org-datetree)
-  (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/Dropbox/Org_files/notes.org"))))
-         (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
-                                (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
-                              nil)
-                            (adh-org-read-datetree-date (org-read-date t nil)))))
-    (org-refile nil nil (list nil (buffer-file-name bfn) nil
-                              (with-current-buffer bfn
-                                (save-excursion
-                                  (org-datetree-find-date-create datetree-date)
-                                  (point)))))))
-(define-key org-mode-map (kbd "C-c m n") #'adh-org-refile-to-notes)
+;; (defun adh-org-refile-to-notes (&optional bfn)
+;;   "Refile an entry to notes file and appropriate datetree location."
+;;   (interactive)
+;;   (require 'org-datetree)
+;;   (let* ((bfn (or bfn (find-file-noselect (expand-file-name "~/Dropbox/Org_files/notes.org"))))
+;;          (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
+;;                                 (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
+;;                               nil)
+;;                             (adh-org-read-datetree-date (org-read-date t nil)))))
+;;     (org-refile nil nil (list nil (buffer-file-name bfn) nil
+;;                               (with-current-buffer bfn
+;;                                 (save-excursion
+;;                                   (org-datetree-find-date-create datetree-date)
+;;                                   (point)))))))
+;; (define-key org-mode-map (kbd "C-c m n") #'adh-org-refile-to-notes)
 
-;; Set up a datetree-refile for Fuller Journal (HOTB course)
-(defun adh-org-refile-to-fuller-journal ()
-  "Refile an entry to notes file and appropriate datetree location."
-  (interactive)
-  (require 'org-datetree)
-  (let* ((bfn (find-file-noselect (expand-file-name
-                                   (concat
-                                    "~/Documents/SBTS/F20_26100-HistoryOfTheBaptists/"
-                                    "FullerPaper/HOTB-Fuller-Journal.org"))))
-         (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
-                                (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
-                              nil)
-                            (adh-org-read-datetree-date (org-read-date t nil)))))
-    (org-refile nil nil (list nil (buffer-file-name bfn) nil
-                              (with-current-buffer bfn
-                                (save-excursion
-                                  (org-datetree-find-date-create datetree-date)
-                                  (point)))))))
-)
+;; ;; Set up a datetree-refile for Fuller Journal (HOTB course)
+;; (defun adh-org-refile-to-fuller-journal ()
+;;   "Refile an entry to notes file and appropriate datetree location."
+;;   (interactive)
+;;   (require 'org-datetree)
+;;   (let* ((bfn (find-file-noselect (expand-file-name
+;;                                    (concat
+;;                                     "~/Documents/SBTS/F20_26100-HistoryOfTheBaptists/"
+;;                                     "FullerPaper/HOTB-Fuller-Journal.org"))))
+;;          (datetree-date (or (if (org-entry-get nil "TIMESTAMP" t)
+;;                                 (adh-org-read-datetree-date (org-entry-get nil "TIMESTAMP" t))
+;;                               nil)
+;;                             (adh-org-read-datetree-date (org-read-date t nil)))))
+;;     (org-refile nil nil (list nil (buffer-file-name bfn) nil
+;;                               (with-current-buffer bfn
+;;                                 (save-excursion
+;;                                   (org-datetree-find-date-create datetree-date)
+;;                                   (point)))))))
+;; )
 
-(with-timer "org-rifle and search"
-;; set up helm-org-rifle
-;; (require 'helm-org-rifle)
-(autoload 'helm-org-rifle "helm-org-rifle" "" t)
-(autoload 'helm-org-rifle-files "helm-org-rifle" "" t)
+;; (with-timer "org-rifle and search"
+;; ;; set up helm-org-rifle
+;; ;; (require 'helm-org-rifle)
+;; (autoload 'helm-org-rifle "helm-org-rifle" "" t)
+;; (autoload 'helm-org-rifle-files "helm-org-rifle" "" t)
 
-(defun adh-search-notes ()
-    "Call `helm-org-rifle' with note files from `adh-booknotes-files' and
-`adh-notes-files'"
-  (interactive)
-  (helm-org-rifle-files (append adh-biblenotes-files
-                                adh-booknotes-files
-                                adh-notes-files
-                                org-agenda-files
-                                adh-sbtsnotes-files)))
+;; (defun adh-search-notes ()
+;;     "Call `helm-org-rifle' with note files from `adh-booknotes-files' and
+;; `adh-notes-files'"
+;;   (interactive)
+;;   (helm-org-rifle-files (append adh-biblenotes-files
+;;                                 adh-booknotes-files
+;;                                 adh-notes-files
+;;                                 org-agenda-files
+;;                                 adh-sbtsnotes-files)))
 
-(global-set-key (kbd "C-c m f") #'adh-search-notes)
-)
+;; (global-set-key (kbd "C-c m f") #'adh-search-notes)
+;; )
 
-(with-timer "org insert headings set up"
-;; todo: move this to a general settings section!
-;; when inserting new headline, insert below content of current
-;; headline
-(setq org-insert-heading-respect-content t)
-)
+;; (with-timer "org insert headings set up"
+;; ;; todo: move this to a general settings section!
+;; ;; when inserting new headline, insert below content of current
+;; ;; headline
+;; (setq org-insert-heading-respect-content t)
+;; )
 
 (with-timer "babel"
 ;; setup languages for Org babel
@@ -778,122 +779,122 @@ args are ignored."
 (setcar (nthcdr 4 org-emphasis-regexp-components) 40)
 )
 
-(with-timer "org-publish"
-;; setup org-publish
-;;
-;; org-publish setup for notes to apple notes.app, for reading on phone
-;;
-;; config is a modifed version of export for unites here:
-;; https://vxlabs.com/2018/10/29/importing-orgmode-notes-into-apple-notes
-;; (defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
-;;   "Convert blank lines to <br /> and remove <h1> titles."
-;;   ;; temporarily configure export to convert math to images because
-;;   ;; apple notes obviously can't use mathjax (the default)
-;;   (let* ((org-html-with-latex 'imagemagick)
-;;          (outfile
-;;           (org-publish-org-to 'html filename
-;;                               (concat "." (or (plist-get plist :html-extension)
-;;                                               org-html-extension
-;;                                               "html"))
-;;                               plist pub-dir)))
-;;     ;; 1. apple notes handles <p> paras badly, so we have to replace all blank
-;;     ;;    lines (which the orgmode export accurately leaves for us) with
-;;     ;;    <br /> tags to get apple notes to actually render blank lines between
-;;     ;;    paragraphs
-;;     ;; 2. remove large h1 with title, as apple notes already adds <title> as
-;;     ;; the note title
-;;     (shell-command
-;;      (format "sed -i \"\" -e 's/^$/<br \\/>/' -e 's/<h1 class=\"title\">.*<\\/h1>$//' %s"
-;;              outfile))
-;;     outfile))
+;; (with-timer "org-publish"
+;; ;; setup org-publish
+;; ;;
+;; ;; org-publish setup for notes to apple notes.app, for reading on phone
+;; ;;
+;; ;; config is a modifed version of export for unites here:
+;; ;; https://vxlabs.com/2018/10/29/importing-orgmode-notes-into-apple-notes
+;; ;; (defun org-html-publish-to-html-for-apple-notes (plist filename pub-dir)
+;; ;;   "Convert blank lines to <br /> and remove <h1> titles."
+;; ;;   ;; temporarily configure export to convert math to images because
+;; ;;   ;; apple notes obviously can't use mathjax (the default)
+;; ;;   (let* ((org-html-with-latex 'imagemagick)
+;; ;;          (outfile
+;; ;;           (org-publish-org-to 'html filename
+;; ;;                               (concat "." (or (plist-get plist :html-extension)
+;; ;;                                               org-html-extension
+;; ;;                                               "html"))
+;; ;;                               plist pub-dir)))
+;; ;;     ;; 1. apple notes handles <p> paras badly, so we have to replace all blank
+;; ;;     ;;    lines (which the orgmode export accurately leaves for us) with
+;; ;;     ;;    <br /> tags to get apple notes to actually render blank lines between
+;; ;;     ;;    paragraphs
+;; ;;     ;; 2. remove large h1 with title, as apple notes already adds <title> as
+;; ;;     ;; the note title
+;; ;;     (shell-command
+;; ;;      (format "sed -i \"\" -e 's/^$/<br \\/>/' -e 's/<h1 class=\"title\">.*<\\/h1>$//' %s"
+;; ;;              outfile))
+;; ;;     outfile))
 
-;; function to import published html for apple notes into notes app.
-;; This will automatically sync with phone and any other devices.
-;; Uses a keyboard maestro macro to do the import. Less neat than using
-;; applescript, but it's a quick and dirty solution that works well. Getting
-;; applescript to work as well would be very tricky!
-;; (defun adh-publish-import-to-notes-app (plist)
-;;     "Run Keyboard Maestro macro to import html notes from publishing-directory
-;; to notes.app."
-;;     (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
+;; ;; function to import published html for apple notes into notes app.
+;; ;; This will automatically sync with phone and any other devices.
+;; ;; Uses a keyboard maestro macro to do the import. Less neat than using
+;; ;; applescript, but it's a quick and dirty solution that works well. Getting
+;; ;; applescript to work as well would be very tricky!
+;; ;; (defun adh-publish-import-to-notes-app (plist)
+;; ;;     "Run Keyboard Maestro macro to import html notes from publishing-directory
+;; ;; to notes.app."
+;; ;;     (shell-command "osascript ~/Projects/Zenodotus/import-to-notes-app.scpt"))
 
-;; function to help with cleaning up buffers before exporting project
-(defun adh-kill-if-visiting (files)
-    "Kill buffers visiting FILES.
+;; ;; function to help with cleaning up buffers before exporting project
+;; (defun adh-kill-if-visiting (files)
+;;     "Kill buffers visiting FILES.
 
-FILES may be a file path, or a list of file paths, each of which
-will be killed in turn.
+;; FILES may be a file path, or a list of file paths, each of which
+;; will be killed in turn.
 
-For FILE (if a file path) or each file in FILES (if a list of
-file paths), check if there is a buffer visiting the file and
-kill it if there is. Any files which do not have a buffer
-visiting them will not be visited"
-    (let ((kill-fun (lambda (file)
-                      (if-let ((buffer-name (find-buffer-visiting file)))
-                          (kill-buffer buffer-name)))))
-      (if (listp files)
-          (mapcar kill-fun files)
-        (funcall kill-fun files))))
+;; For FILE (if a file path) or each file in FILES (if a list of
+;; file paths), check if there is a buffer visiting the file and
+;; kill it if there is. Any files which do not have a buffer
+;; visiting them will not be visited"
+;;     (let ((kill-fun (lambda (file)
+;;                       (if-let ((buffer-name (find-buffer-visiting file)))
+;;                           (kill-buffer buffer-name)))))
+;;       (if (listp files)
+;;           (mapcar kill-fun files)
+;;         (funcall kill-fun files))))
 
-(setq org-publish-project-alist
-      '(
-        ("all-notes"
-         :components ("book-notes" "notes" "bible-notes" "sbts-notes"))
-        ("book-notes"
-         :base-directory "~/Documents/notes/book-notes/"
-         :publishing-directory "~/Documents/zenodotus-notes/book-notes"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         ;; :auto-sitemap t
-         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
-         :preparation-function (lambda (&rest args)
-                                 (adh-kill-if-visiting
-                                  "~/Documents/notes/book-notes/sitemap.org"))
-         )
-        ("notes"
-         :base-directory "~/Documents/notes/notes/"
-         :publishing-directory "~/Documents/zenodotus-notes/notes"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         ;; :auto-sitemap t
-         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
-         :preparation-function (lambda (&rest args)
-                                 (adh-kill-if-visiting
-                                  "~/Documents/notes/notes/sitemap.org"))
-         )
-        ("bible-notes"
-         :base-directory "~/Documents/notes/bible-notes/"
-         :publishing-directory "~/Documents/zenodotus-notes/bible-notes"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         ;; :auto-sitemap t
-         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
-         :preparation-function (lambda (&rest args)
-                                 (adh-kill-if-visiting
-                                  "~/Documents/notes/bible-notes/sitemap.org"))
-         )
-        ("sbts-notes"
-         :base-directory "~/Documents/notes/sbts-notes/"
-         :publishing-directory "~/Documents/zenodotus-notes/sbts-notes"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         ;; :auto-sitemap t
-         :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
-         :preparation-function (lambda (&rest args)
-                                 (adh-kill-if-visiting
-                                  "~/Documents/notes/sbts-notes/sitemap.org")))))
+;; (setq org-publish-project-alist
+;;       '(
+;;         ("all-notes"
+;;          :components ("book-notes" "notes" "bible-notes" "sbts-notes"))
+;;         ("book-notes"
+;;          :base-directory "~/Documents/notes/book-notes/"
+;;          :publishing-directory "~/Documents/zenodotus-notes/book-notes"
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;          ;; :auto-sitemap t
+;;          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+;;          :preparation-function (lambda (&rest args)
+;;                                  (adh-kill-if-visiting
+;;                                   "~/Documents/notes/book-notes/sitemap.org"))
+;;          )
+;;         ("notes"
+;;          :base-directory "~/Documents/notes/notes/"
+;;          :publishing-directory "~/Documents/zenodotus-notes/notes"
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;          ;; :auto-sitemap t
+;;          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+;;          :preparation-function (lambda (&rest args)
+;;                                  (adh-kill-if-visiting
+;;                                   "~/Documents/notes/notes/sitemap.org"))
+;;          )
+;;         ("bible-notes"
+;;          :base-directory "~/Documents/notes/bible-notes/"
+;;          :publishing-directory "~/Documents/zenodotus-notes/bible-notes"
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;          ;; :auto-sitemap t
+;;          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+;;          :preparation-function (lambda (&rest args)
+;;                                  (adh-kill-if-visiting
+;;                                   "~/Documents/notes/bible-notes/sitemap.org"))
+;;          )
+;;         ("sbts-notes"
+;;          :base-directory "~/Documents/notes/sbts-notes/"
+;;          :publishing-directory "~/Documents/zenodotus-notes/sbts-notes"
+;;          :recursive t
+;;          :publishing-function org-html-publish-to-html
+;;          ;; :auto-sitemap t
+;;          :html-head "<link rel=\"stylesheet\" href=\"../adh-notes.css\" type=\"text/css\"/>"
+;;          :preparation-function (lambda (&rest args)
+;;                                  (adh-kill-if-visiting
+;;                                   "~/Documents/notes/sbts-notes/sitemap.org")))))
 
-;; Export org files to .docx files with nice formatting by selecting template
-(setq org-odt-preferred-output-format "docx")
+;; ;; Export org files to .docx files with nice formatting by selecting template
+;; (setq org-odt-preferred-output-format "docx")
 
-(setq org-odt-convert-processes '(("LibreOffice"
-                                  "/Applications/LibreOffice.app/Contents/MacOS/soffice \
---headless --convert-to %f%x --outdir %d %i")
-                                  ("unoconv -f %f -o %d %i")))
+;; (setq org-odt-convert-processes '(("LibreOffice"
+;;                                   "/Applications/LibreOffice.app/Contents/MacOS/soffice \
+;; --headless --convert-to %f%x --outdir %d %i")
+;;                                   ("unoconv -f %f -o %d %i")))
 
-;; use html checkboxes when exporting [ ] or [X] to html
-(setq org-html-checkbox-type 'html)
-)
+;; ;; use html checkboxes when exporting [ ] or [X] to html
+;; (setq org-html-checkbox-type 'html)
+;; )
 
 (with-timer "custom org links"
 ;; languages markup for export to LaTeX
@@ -1174,17 +1175,17 @@ exporting, replace them for normal usage."
 ;; todo: set other org-special values, and fix this to work with visual fill (https://www.reddit.com/r/emacs/comments/fjku3d/visual_line_mode_conflicts_with_orgspecialctrlae/)
 )
 
-(with-timer "habits"
-;; org-habit view in agenda
-(add-to-list 'org-modules 'habit)
-; (require 'org-habit)
-(autoload 'org-agenda "org-habit" "" t)
+;; (with-timer "habits"
+;; ;; org-habit view in agenda
+;; (add-to-list 'org-modules 'habit)
+;; ; (require 'org-habit)
+;; (autoload 'org-agenda "org-habit" "" t)
 
-(eval-after-load "org-habit"
-  '(setq org-habit-show-all-today t
-         org-habit-show-done-always-green t
-         org-habit-graph-column 60))
-)
+;; (eval-after-load "org-habit"
+;;   '(setq org-habit-show-all-today t
+;;          org-habit-show-done-always-green t
+;;          org-habit-graph-column 60))
+;; )
 
 (with-timer "gui, extra, lists, and bullets"
 ;; Allow hiding of org headlines while including any content under them.
